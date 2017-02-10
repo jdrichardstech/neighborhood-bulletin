@@ -70,7 +70,4 @@ var ProfileDetails = function (props) {
   );
 };
 
-
-
-
 module.exports = ProfileDetails;

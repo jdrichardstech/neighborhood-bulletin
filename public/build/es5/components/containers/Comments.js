@@ -54,9 +54,7 @@ var Comments = (function (Component) {
 					return;
 				}
 
-
 				var updatedComment = Object.assign({}, comment);
-
 				var zone = this.props.zones[this.props.index];
 				updatedComment.commentImage = this.state.updated.commentImage;
 				updatedComment.zone = zone._id;
@@ -66,18 +64,7 @@ var Comments = (function (Component) {
 					username: this.props.user.username,
 					image: this.props.user.image
 				};
-				// 	APIManager.post('/api/comment', updatedComment, (err, response) => {
-				// 		if (err){
-				// 			alert(err)
-				// 			return
-				// 		}
-				//
-				// 		// console.log(JSON.stringify(response))
-				// 		const comment = response.result
-				//
-				// //			this.props.commentsReceived([comment], zone)
-				// 		this.props.commentCreated(comment)
-				// 	})
+
 				this.props.createComment(updatedComment);
 			},
 			writable: true,
@@ -172,7 +159,6 @@ var Comments = (function (Component) {
 				if (this.props.user != null) {
 					if (selectedZone != null) {
 						zoneName = selectedZone.name;
-
 						var zoneComments = this.props.commentsMap[selectedZone._id];
 						// console.log('ZoneComment: ' + JSON.stringify(this.props.commentsMap))
 						// console.log('SELECTED ZONE ID = '+selectedZone._id)
@@ -181,15 +167,11 @@ var Comments = (function (Component) {
 							commentList = zoneComments.map(function (comment, i) {
 								return React.createElement(
 									"div",
-									null,
+									{ className: "col-md-12", style: { border: "2px solid #ddd", paddingBottom: 10, marginBottom: 10 } },
 									React.createElement(
-										"div",
-										{ className: "col-md-12", style: { border: "2px solid #ddd", paddingBottom: 10, marginBottom: 10 } },
-										React.createElement(
-											"li",
-											{ key: i },
-											React.createElement(Comment, { commentImage: _this.state.updated.commentImage, handleImage: _this.uploadImage.bind(_this), handleSubmitEdit: _this.submitEdit.bind(_this), user: _this.props.user, currentComment: comment })
-										)
+										"li",
+										{ key: i },
+										React.createElement(Comment, { commentImage: _this.state.updated.commentImage, handleImage: _this.uploadImage.bind(_this), handleSubmitEdit: _this.submitEdit.bind(_this), user: _this.props.user, currentComment: comment })
 									)
 								);
 							});
@@ -282,8 +264,6 @@ var stateToProps = function (state) {
 		index: state.zone.selectedZone,
 		zones: state.zone.list,
 		user: state.account.user
-
-
 	};
 };
 
@@ -304,7 +284,6 @@ var dispatchToProps = function (dispatch) {
 		createComment: function (comment) {
 			return dispatch(actions.createComment(comment));
 		}
-
 	};
 };
 

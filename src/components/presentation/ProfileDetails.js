@@ -16,7 +16,4 @@ const ProfileDetails = (props) => {
   )
 }
 
-
-
-
 export default ProfileDetails

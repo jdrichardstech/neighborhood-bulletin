@@ -33,7 +33,7 @@ class Profile extends Component{
         var header = null
         if (profile != null){
           header = (
-            <div>
+            <div style={{background:'#fff', padding:15}}>
               <h1>Profile Details:</h1>
               <h3>User: <span style={styles.profile.entry}> {profile.username}</span></h3>
               <img src={profile.image} /><br />

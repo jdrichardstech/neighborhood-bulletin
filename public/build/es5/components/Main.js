@@ -13,27 +13,24 @@ var _react = require("react");
 var React = _interopRequire(_react);
 
 var Component = _react.Component;
-var Main = _interopRequire(require("./components/Main"));
-
-var Provider = require("react-redux").Provider;
-var App = (function (Component) {
-	function App() {
-		_classCallCheck(this, App);
+var Main = (function (Component) {
+	function Main() {
+		_classCallCheck(this, Main);
 
 		if (Component != null) {
 			Component.apply(this, arguments);
 		}
 	}
 
-	_inherits(App, Component);
+	_inherits(Main, Component);
 
-	_prototypeProperties(App, null, {
+	_prototypeProperties(Main, null, {
 		render: {
 			value: function render() {
 				return React.createElement(
-					Provider,
-					{ store: this.props.route.initial },
-					React.createElement(Main, this.props)
+					"div",
+					null,
+					this.props.children
 				);
 			},
 			writable: true,
@@ -41,7 +38,7 @@ var App = (function (Component) {
 		}
 	});
 
-	return App;
+	return Main;
 })(Component);
 
-module.exports = App;
+module.exports = Main;

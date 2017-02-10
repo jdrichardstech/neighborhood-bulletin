@@ -52,7 +52,7 @@ var Profile = (function (Component) {
         if (profile != null) {
           header = React.createElement(
             "div",
-            null,
+            { style: { background: "#fff", padding: 15 } },
             React.createElement(
               "h1",
               null,
