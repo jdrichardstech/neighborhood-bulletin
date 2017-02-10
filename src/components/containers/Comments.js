@@ -125,36 +125,36 @@ class Comments extends Component {
 				if (zoneComments != null){
 					commentList = zoneComments.map((comment, i) => {
 						return (
-								<div className="col-md-12" style={{border:'2px solid #ddd',paddingBottom:10, marginBottom:10}}>
-									<li key={i}><Comment commentImage={this.state.updated.commentImage} handleImage={this.uploadImage.bind(this)} handleSubmitEdit={this.submitEdit.bind(this)}  user={this.props.user} currentComment={comment} /></li>
-								</div>
+							<div className="col-md-12" style={{border:'2px solid #ddd',paddingBottom:10, marginBottom:10}}>
+								<li key={i}><Comment commentImage={this.state.updated.commentImage} handleImage={this.uploadImage.bind(this)} handleSubmitEdit={this.submitEdit.bind(this)}  user={this.props.user} currentComment={comment} /></li>
+							</div>
 						)
 					})
 				}
 			}
 
-		 header =
-			<div>
-					<div style={styles.comment.commentsBox} className="col-md-12">
-						<h2>Neighborhood Bulletin Board</h2>
-						<center><img style={{width:690, height:300}} src="/images/neighborhood.jpg" /></center>
-							<h3>Comments for <span style={styles.comment.title}>{zoneName}</span>: </h3>
-							<ul style={styles.comment.commentsList}>
+			 header =
+				<div>
+						<div style={styles.comment.commentsBox} className="col-md-12">
+							<h2>Neighborhood Bulletin Board</h2>
+							<center><img style={{width:690, height:300}} src="/images/neighborhood.jpg" /></center>
+								<h3>Comments for <span style={styles.comment.title}>{zoneName}</span>: </h3>
+								<ul style={styles.comment.commentsList}>
 									{ commentList }
-							</ul>
-					</div>
-					<div style={styles.comment.commentsBox} className="col-md-12">
+								</ul>
+						</div>
+						<div style={styles.comment.commentsBox} className="col-md-12">
 							<CreateComment commentImage={this.state.updated.commentImage}  handleImage={this.uploadImage.bind(this)}  onCreate={this.submitComment.bind(this)} />
-					</div>
-			</div>
-			}else{
-				header =
-					<div style={styles.zone.container}>
-						<h2>Welcome to Neighborhood Bulletin Board</h2>
-						<h3>Please Log In Or Register</h3>
-						<center><img style={{width:570, height:300}} src="/images/neighborhood.jpg" /></center>
-					</div>
-				}
+						</div>
+				</div>
+				}else{
+					header =
+						<div style={styles.zone.container}>
+							<h2>Welcome to Neighborhood Bulletin Board</h2>
+							<h3>Please Log In Or Register</h3>
+							<center><img style={{width:570, height:300}} src="/images/neighborhood.jpg" /></center>
+						</div>
+					}
 
 		let content = (this.props.appStatus=='loading') ? 'Loading...' : header
 

@@ -8,9 +8,6 @@ import { Link } from 'react-router'
 import DropZone from 'react-dropzone'
 import sha1 from 'sha1'
 
-
-
-
 class Account extends Component{
   constructor(props){
     super(props)
@@ -31,7 +28,7 @@ class Account extends Component{
     //   // console.log('hi currentuser: ' +JSON.stringify(response))
     //   this.props.currentUserReceived(response.result)
     // })
-  this.props.fetchCurrentUser(null)
+  	this.props.fetchCurrentUser(null)
   }
 
   updateProfile(event){

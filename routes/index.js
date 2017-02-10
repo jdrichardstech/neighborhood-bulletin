@@ -26,6 +26,8 @@ router.get('/', function(req, res, next) {
 	var initialStore = null
 	var reducers = {}
 
+	
+
 	initialStore = store.configureStore(reducers)
   var routes = {
 		path: '/',
@@ -44,8 +46,7 @@ router.get('/', function(req, res, next) {
 	.catch(function(err){
 		console.log('Test 2 Error')
 	})
-
-});
+})
 
 router.get('/createzone', function(req, res, next) {
   res.render('createzone', null);
