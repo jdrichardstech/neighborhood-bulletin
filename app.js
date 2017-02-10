@@ -6,15 +6,16 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose')
 var sessions = require('client-sessions')
+require('dotenv').config()
 
 
-var dbUrl = 'mongodb://localhost/yak-yik'
-mongoose.connect(dbUrl, function(err, res){
+
+mongoose.connect(process.env.DB_URL, function(err, res){
   if (err){
     console.log('DB CONNECTION FAILED: '+err)
   }
   else {
-    console.log('DB CONNECTION SUCCESS: '+dbUrl)
+    console.log('DB CONNECTION SUCCEEDED')
   }
 })
 
@@ -38,7 +39,7 @@ app.use(cookieParser());
 
 app.use(sessions({
   cookieName: 'session',
-  secret: 'awfjiowejfae',
+  secret: process.env.SESSION_SECRET,
   duration: 24*60*60*1000, // 24 hours
   activeDuration:30*60*1000
 }));
