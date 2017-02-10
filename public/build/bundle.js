@@ -25820,7 +25820,7 @@
 		comment: {
 			commentsBox: {
 				marginTop: 12,
-				padding: 12,
+				paddingLeft: 15,
 				background: '#f9f9f9',
 				border: '1px solid #ddd'
 			},
@@ -34620,9 +34620,14 @@
 							'div',
 							{ style: _styles2.default.comment.commentsBox, className: 'col-md-12' },
 							_react2.default.createElement(
+								'h2',
+								null,
+								'Neighborhood Bulletin Board'
+							),
+							_react2.default.createElement(
 								'center',
 								null,
-								_react2.default.createElement('img', { style: { width: 590, height: 300 }, src: '/images/neighborhood.jpg' })
+								_react2.default.createElement('img', { style: { width: 690, height: 300 }, src: '/images/neighborhood.jpg' })
 							),
 							_react2.default.createElement(
 								'h3',
@@ -34654,7 +34659,7 @@
 						_react2.default.createElement(
 							'h2',
 							null,
-							'Welcome to Neighborhoods Gossip Board'
+							'Welcome to Neighborhood Bulletin Board'
 						),
 						_react2.default.createElement(
 							'h3',

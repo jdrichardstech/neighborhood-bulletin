@@ -155,8 +155,10 @@ uploadImage(files){
 
 			 header =
 				<div>
+
 						<div style={styles.comment.commentsBox} className="col-md-12">
-							<center><img style={{width:590, height:300}} src="/images/neighborhood.jpg" /></center>
+							<h2>Neighborhood Bulletin Board</h2>
+							<center><img style={{width:690, height:300}} src="/images/neighborhood.jpg" /></center>
 								<h3>Comments for <span style={styles.comment.title}>{zoneName}</span>: </h3>
 								<ul style={styles.comment.commentsList}>
 										{ commentList }
@@ -168,7 +170,7 @@ uploadImage(files){
 				</div>
 		}else{
 			header = <div style={styles.zone.container}>
-				<h2>Welcome to Neighborhoods Gossip Board</h2>
+				<h2>Welcome to Neighborhood Bulletin Board</h2>
 				<h3>Please Log In Or Register</h3>
 			<center><img style={{width:570, height:300}} src="/images/neighborhood.jpg" /></center>
 			</div>

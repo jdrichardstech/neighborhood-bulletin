@@ -5,7 +5,7 @@ export default {
 	comment: {
 		commentsBox: {
 			marginTop:12,
-			padding:12,
+			paddingLeft:15,
 			background:'#f9f9f9',
 			border:'1px solid #ddd'
 		},
