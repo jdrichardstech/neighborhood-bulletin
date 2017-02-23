@@ -134,7 +134,7 @@ grabImage(files){
 						{commentInfo}
 					</div>
 					<div className="pull-right">
-						<span>Created By: <span style={{color:'blue'}}>{currentComment.username}</span> at </span>
+						<span>Created By: <Link  to = {'/profile/'+ currentComment.username}><span style={{color:'blue'}}>{currentComment.username}</span></Link> at </span>
 						<span style={{fontWeight:200}}> {newTime} | {newDate}</span>
 						<span style={{fontWeight:200}}>
 							<Link  to = {'/profile/'+ currentComment.username}>	<img style={{borderRadius:radius, marginRight:6}} src={ImageHelper.thumbnail(author.image, 2*radius)} /></Link>

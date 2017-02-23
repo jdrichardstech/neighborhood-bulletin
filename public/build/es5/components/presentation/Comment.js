@@ -242,9 +242,13 @@ var Comment = (function (Component) {
 							null,
 							"Created By: ",
 							React.createElement(
-								"span",
-								{ style: { color: "blue" } },
-								currentComment.username
+								Link,
+								{ to: "/profile/" + currentComment.username },
+								React.createElement(
+									"span",
+									{ style: { color: "blue" } },
+									currentComment.username
+								)
 							),
 							" at "
 						),
