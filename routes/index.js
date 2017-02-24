@@ -26,7 +26,7 @@ router.get('/', function(req, res, next) {
 	var initialStore = null
 	var reducers = {}
 
-	
+
 
 	initialStore = store.configureStore(reducers)
   var routes = {
@@ -44,7 +44,7 @@ router.get('/', function(req, res, next) {
 		res.render('index', {react:html, preloadedState: JSON.stringify(initialStore.getState()) })
 	})
 	.catch(function(err){
-		console.log('Test 2 Error')
+		console.log('Server Side Rendering Error: ' + err.message)
 	})
 })
 

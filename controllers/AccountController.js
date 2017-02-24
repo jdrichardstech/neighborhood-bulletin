@@ -5,12 +5,12 @@ module.exports = {
 	currentUser: function(req){
 		return new Promise(function(resolve, reject){
 			if(req.session==null){
-				reject({message:'USER NOT LOGGED IN'})
+				resolve(null)
 				return
 			}
 
 			if(req.session.user==null){
-				reject({message:'USER NOT LOGGED IN'})
+				resolve(null)
 				return
 			}
 		})
