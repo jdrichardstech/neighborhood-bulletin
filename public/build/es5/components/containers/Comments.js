@@ -167,7 +167,7 @@ var Comments = (function (Component) {
 							commentList = zoneComments.map(function (comment, i) {
 								return React.createElement(
 									"div",
-									{ className: "col-md-12", style: { border: "2px solid #ddd", paddingBottom: 10, marginBottom: 10 } },
+									{ key: i, className: "col-md-12", style: { border: "2px solid #ddd", paddingBottom: 10, marginBottom: 10 } },
 									React.createElement(
 										"li",
 										{ key: i },

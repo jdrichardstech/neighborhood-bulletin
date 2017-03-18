@@ -27,7 +27,7 @@ module.exports = function (_x, action) {
 
       var updatedMap = Object.assign({}, state.map);
       updatedMap[action.profile.username] = action.profile;
-      console.log("username: " + JSON.stringify(action.profile.username));
+      // console.log('username: ' + JSON.stringify(action.profile.username))
       updated.map = updatedMap;
 
       updated.appStatus = "ready";
@@ -35,7 +35,7 @@ module.exports = function (_x, action) {
       return updated;
 
     case constants.APPLICATION_STATE:
-      console.log("APPLICATION_STATE: " + JSON.stringify(action.status));
+      // console.log('APPLICATION_STATE: ' + JSON.stringify(action.status))
       if (action.reducer != "profile") {
         return updated;
       }

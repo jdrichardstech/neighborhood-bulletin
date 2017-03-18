@@ -24,7 +24,7 @@ export default (state = initialState, action) => {
 			let updatedList = Object.assign([], updated.list)
 			updatedList.push(action.zone)
 			updated['list'] = updatedList
-			console.log("updated zone list: " + JSON.stringify(updated))
+			// console.log("updated zone list: " + JSON.stringify(updated))
 			// updated['appStatus'] = 'ready'
 			return updated
 
@@ -34,7 +34,7 @@ export default (state = initialState, action) => {
 			return updated
 
 		case constants.APPLICATION_STATE:
-		console.log('APPLICATION_STATE: ' + JSON.stringify(action.status))
+		// console.log('APPLICATION_STATE: ' + JSON.stringify(action.status))
 		if(action.reducer != 'zone'){
 			return updated
 		}

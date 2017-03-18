@@ -29,7 +29,7 @@ export default (state=initialState, action) =>{
 			return updated
 
     case constants.APPLICATION_STATE:
-		console.log('APPLICATION_STATE: ' + JSON.stringify(action.status))
+		// console.log('APPLICATION_STATE: ' + JSON.stringify(action.status))
 		if(action.reducer != 'account'){
 			return updated
 		}

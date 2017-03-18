@@ -21,7 +21,7 @@ export default (state=initialState, action) => {
 
     let updatedMap = Object.assign({}, state.map)
     updatedMap[action.profile.username] = action.profile
-    console.log('username: ' + JSON.stringify(action.profile.username))
+    // console.log('username: ' + JSON.stringify(action.profile.username))
     updated['map'] = updatedMap
 
     updated['appStatus'] = 'ready'
@@ -29,7 +29,7 @@ export default (state=initialState, action) => {
     return updated
 
     case constants.APPLICATION_STATE:
-		console.log('APPLICATION_STATE: ' + JSON.stringify(action.status))
+		// console.log('APPLICATION_STATE: ' + JSON.stringify(action.status))
     if(action.reducer != 'profile'){
       return updated
     }

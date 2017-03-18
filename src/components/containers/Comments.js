@@ -125,7 +125,7 @@ class Comments extends Component {
 				if (zoneComments != null){
 					commentList = zoneComments.map((comment, i) => {
 						return (
-							<div className="col-md-12" style={{border:'2px solid #ddd',paddingBottom:10, marginBottom:10}}>
+							<div key={i} className="col-md-12" style={{border:'2px solid #ddd',paddingBottom:10, marginBottom:10}}>
 								<li key={i}><Comment commentImage={this.state.updated.commentImage} handleImage={this.uploadImage.bind(this)} handleSubmitEdit={this.submitEdit.bind(this)}  user={this.props.user} currentComment={comment} /></li>
 							</div>
 						)

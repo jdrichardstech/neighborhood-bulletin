@@ -26096,7 +26096,7 @@
 				var updatedList = Object.assign([], updated.list);
 				updatedList.push(action.zone);
 				updated['list'] = updatedList;
-				console.log("updated zone list: " + JSON.stringify(updated));
+				// console.log("updated zone list: " + JSON.stringify(updated))
 				// updated['appStatus'] = 'ready'
 				return updated;
 	
@@ -26106,7 +26106,7 @@
 				return updated;
 	
 			case _constants2.default.APPLICATION_STATE:
-				console.log('APPLICATION_STATE: ' + JSON.stringify(action.status));
+				// console.log('APPLICATION_STATE: ' + JSON.stringify(action.status))
 				if (action.reducer != 'zone') {
 					return updated;
 				}
@@ -26163,7 +26163,7 @@
 				return updated;
 	
 			case _constants2.default.COMMENTS_RECEIVED:
-				console.log('COMMENTS_RECEIVED: ' + JSON.stringify(action.comments));
+				//  console.log('COMMENTS_RECEIVED: '+JSON.stringify(action.comments))
 				//  console.log('zone: ' + JSON.stringify(action.comments[0].zone))
 				// let updatedMap = Object.assign({}, updated.map)
 				var zoneComments = updatedMap[action.zone._id];
@@ -26174,7 +26174,7 @@
 				action.comments.forEach(function (comment, i) {
 					zoneComments.push(comment);
 				});
-				console.log('zonecomments: ' + JSON.stringify(zoneComments));
+				// console.log('zonecomments: ' +JSON.stringify(zoneComments))
 	
 				updatedMap[action.zone._id] = zoneComments;
 				updated['map'] = updatedMap;
@@ -26183,7 +26183,7 @@
 				return updated;
 	
 			case _constants2.default.COMMENT_CREATED:
-				console.log('COMMENT_CREATED: ' + JSON.stringify(action.comment));
+				// console.log('COMMENT_CREATED: '+JSON.stringify(action.comment))
 	
 				var commentList = updatedMap[action.comment.zone];
 				if (commentList == null) commentList = [];else commentList = Object.assign([], commentList);
@@ -26200,7 +26200,7 @@
 				return updated;
 	
 			case _constants2.default.APPLICATION_STATE:
-				console.log('APPLICATION_STATE: ' + JSON.stringify(action.status));
+				// console.log('APPLICATION_STATE: ' + JSON.stringify(action.status))
 				if (action.reducer != 'comment') {
 					return updated;
 				}
@@ -26259,7 +26259,7 @@
 	      return updated;
 	
 	    case _constants2.default.APPLICATION_STATE:
-	      console.log('APPLICATION_STATE: ' + JSON.stringify(action.status));
+	      // console.log('APPLICATION_STATE: ' + JSON.stringify(action.status))
 	      if (action.reducer != 'account') {
 	        return updated;
 	      }
@@ -26310,7 +26310,7 @@
 	
 	      var updatedMap = Object.assign({}, state.map);
 	      updatedMap[action.profile.username] = action.profile;
-	      console.log('username: ' + JSON.stringify(action.profile.username));
+	      // console.log('username: ' + JSON.stringify(action.profile.username))
 	      updated['map'] = updatedMap;
 	
 	      updated['appStatus'] = 'ready';
@@ -26318,7 +26318,7 @@
 	      return updated;
 	
 	    case _constants2.default.APPLICATION_STATE:
-	      console.log('APPLICATION_STATE: ' + JSON.stringify(action.status));
+	      // console.log('APPLICATION_STATE: ' + JSON.stringify(action.status))
 	      if (action.reducer != 'profile') {
 	        return updated;
 	      }
@@ -34364,7 +34364,7 @@
 							commentList = zoneComments.map(function (comment, i) {
 								return _react2.default.createElement(
 									'div',
-									{ className: 'col-md-12', style: { border: '2px solid #ddd', paddingBottom: 10, marginBottom: 10 } },
+									{ key: i, className: 'col-md-12', style: { border: '2px solid #ddd', paddingBottom: 10, marginBottom: 10 } },
 									_react2.default.createElement(
 										'li',
 										{ key: i },
