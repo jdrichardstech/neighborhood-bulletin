@@ -57,7 +57,6 @@ router.get('/', function(req, res, next) {
 	AccountController.currentUser(req)
 
 	.then(function(result){
-		console.log("hello i am stuck index.js")
 //		console.log('CURRENT USER: '+JSON.stringify(result))
 		reducers['account'] = { // Populate store/reducer with current user:
 			user: result,
@@ -68,7 +67,6 @@ router.get('/', function(req, res, next) {
 		return controllers.zone.get(null)
 	})
 	.then(function(zones){
-		console.log('ZONES: '+JSON.stringify(zones))
 		reducers['zone'] = {
 			selectedZone: 0,
 			list: zones,
@@ -76,7 +74,7 @@ router.get('/', function(req, res, next) {
 		}
 	})
 	.then(function(){
-		console.log('REDUCERS: '+JSON.stringify(reducers))
+		// console.log('REDUCERS: '+JSON.stringify(reducers))
 		initialStore = store.configureStore(reducers)
 		var routes = {
 			path: '/',
