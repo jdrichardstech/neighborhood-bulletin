@@ -8,7 +8,7 @@
   "dependencies": {
     "bcrypt": "^0.8.7",
     "bcryptjs": "^2.4.3",
-    "bluebird": "^3.4.7",
+    "bluebird": "^3.5.0",
     "body-parser": "~1.15.1",
     "client-sessions": "^0.7.0",
     "cookie-parser": "~1.4.3",

@@ -6,7 +6,7 @@ class Zone extends Component {
 
 	onSelectTitle(event){
 		event.preventDefault()
-		console.log('onSelectTitle: '+this.props.index)
+		// console.log('onSelectTitle: '+this.props.index)
 		this.props.select(this.props.index)
 	}
 

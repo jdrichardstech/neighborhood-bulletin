@@ -35118,7 +35118,7 @@
 			key: 'onSelectTitle',
 			value: function onSelectTitle(event) {
 				event.preventDefault();
-				console.log('onSelectTitle: ' + this.props.index);
+				// console.log('onSelectTitle: '+this.props.index)
 				this.props.select(this.props.index);
 			}
 		}, {
@@ -35342,9 +35342,9 @@
 		}, {
 			key: 'selectZone',
 			value: function selectZone(index) {
-				console.log('selectZone: ' + index);
-				console.log('Hi current user: ' + this.props.user.username);
-				console.log('Hi zone user: ' + this.props.list[this.props.selected].username);
+				// console.log('selectZone: '+index)
+				// console.log('Hi current user: '+ this.props.user.username)
+				// console.log('Hi zone user: '+ this.props.list[this.props.selected].username)
 				this.props.selectZone(index);
 			}
 		}, {
@@ -35422,7 +35422,6 @@
 			selectZone: function selectZone(index) {
 				return dispatch(_actions2.default.selectZone(index));
 			}
-	
 		};
 	};
 	

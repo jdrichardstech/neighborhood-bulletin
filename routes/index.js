@@ -1,6 +1,8 @@
 var express = require('express')
 var router = express.Router()
 var Promise = require('bluebird')
+var AccountController = require('../controllers/AccountController')
+var controllers = require('../controllers')
 
 var serverapp = require('../public/build/es5/serverapp')
 var React = require('react')
@@ -22,23 +24,71 @@ matchRoutes = function(req, routes, initialStore){
 	})
 }
 
+// router.get('/', function(req, res, next) {
+// 	var initialStore = null
+// 	var reducers = {}
+//
+//
+//
+// 	initialStore = store.configureStore(reducers)
+//   var routes = {
+// 		path: '/',
+// 		component: serverapp,
+// 		initial: initialStore,
+// 		indexRoute: {
+// 			component: Home
+// 		}
+// 	}
+//
+// 	matchRoutes(req, routes)
+// 	.then(function(renderProps){
+// 		var html = ReactDOMServer.renderToString(React.createElement(ReactRouter.RouterContext, renderProps))
+// 		res.render('index', {react:html, preloadedState: JSON.stringify(initialStore.getState()) })
+// 	})
+// 	.catch(function(err){
+// 		console.log('Server Side Rendering Error: ' + err.message)
+// 	})
+// })
+
 router.get('/', function(req, res, next) {
 	var initialStore = null
 	var reducers = {}
 
+	AccountController.currentUser(req)
 
-
-	initialStore = store.configureStore(reducers)
-  var routes = {
-		path: '/',
-		component: serverapp,
-		initial: initialStore,
-		indexRoute: {
-			component: Home
+	.then(function(result){
+		console.log("hello i am stuck index.js")
+//		console.log('CURRENT USER: '+JSON.stringify(result))
+		reducers['account'] = { // Populate store/reducer with current user:
+			user: result,
+			appStatus: 'ready'
 		}
-	}
 
-	matchRoutes(req, routes)
+		// fetch zones
+		return controllers.zone.get(null)
+	})
+	.then(function(zones){
+		console.log('ZONES: '+JSON.stringify(zones))
+		reducers['zone'] = {
+			selectedZone: 0,
+			list: zones,
+			appStatus: 'ready'
+		}
+	})
+	.then(function(){
+		console.log('REDUCERS: '+JSON.stringify(reducers))
+		initialStore = store.configureStore(reducers)
+		var routes = {
+			path: '/',
+			component: serverapp,
+			initial: initialStore,
+			indexRoute: {
+				component: Home
+			}
+		}
+
+		return matchRoutes(req, routes)
+	})
 	.then(function(renderProps){
 		var html = ReactDOMServer.renderToString(React.createElement(ReactRouter.RouterContext, renderProps))
 		res.render('index', {react:html, preloadedState: JSON.stringify(initialStore.getState()) })

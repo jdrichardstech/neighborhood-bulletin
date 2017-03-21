@@ -54,9 +54,9 @@ class Zones extends Component {
 	}
 
 	selectZone(index){
-		console.log('selectZone: '+index)
-		console.log('Hi current user: '+ this.props.user.username)
-		console.log('Hi zone user: '+ this.props.list[this.props.selected].username)
+		// console.log('selectZone: '+index)
+		// console.log('Hi current user: '+ this.props.user.username)
+		// console.log('Hi zone user: '+ this.props.list[this.props.selected].username)
 		this.props.selectZone(index)
 	}
 
@@ -97,7 +97,6 @@ class Zones extends Component {
 			<div>
 				{content}
 			</div>
-
 		)
 	}
 }
@@ -118,8 +117,6 @@ const dispatchToProps = (dispatch) => {
 		zoneCreated: (zone) => dispatch(actions.zoneCreated(zone)),
 		createZone: (params) => dispatch(actions.createZone(params)),
 		selectZone: (index) => dispatch(actions.selectZone(index)),
-
-
 	}
 }
 

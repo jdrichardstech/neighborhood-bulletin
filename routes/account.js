@@ -1,6 +1,7 @@
 var express = require('express')
 var router = express.Router()
 var ProfileController = require('../controllers/ProfileController')
+var AccountController = require('../controllers/AccountController')
 var bcrypt = require('bcryptjs')
 
 
@@ -16,36 +17,61 @@ router.get('/:action', function(req, res, next){
       })
     }
     if(action == 'currentuser'){
+			AccountController.currentUser(req)
+			.then(function(result){
+				res.json({
+					confirmation:'success',
+					result: result
+				})
+			})
+			.catch(function(err){
+				res.json({
+					confirmation:'fail',
+					message: err.message
+				})
+			})
+			// AccountController.currentUser(req, function(err, result){
+			// 	if(err){
+			// 		res.json({
+			// 			confirmation:'fail',
+			// 			message: err.message
+			// 		})
+			// 		return
+			// 	}
+			// 	res.json({
+			// 		confirmation:'success',
+			// 		result:result
+			// 	})
+			// })
 
-      if(req.session==null){
-        res.json({
-          confirmation: 'fail',
-          message: 'User not logged in: no req.session'
-        })
-        return
-      }
+		// 	ProfileController.findById(req.session.user, function(err, result){
+		// 	if(err){
+		// 		res.json({
+		// 			confirmation:'fail',
+		// 			message: err
+		// 		})
+		// 		return
+		// 	}
+		// 	res.json({
+		// 		confirmation: 'success',
+		// 		result: result
+		// 	})
+		// })
 
-      if(req.session.user==null){
-        res.json({
-          confirmation: 'fail',
-          message: 'User not logged in: no req.session.user'
-        })
-        return
-      }
-
-      ProfileController.findById(req.session.user, function(err, result){
-        if(err){
-          res.json({
-            confirmation:'fail',
-            message: err
-          })
-          return
-        }
-        res.json({
-          confirmation: 'success',
-          result: result
-        })
-      })
+			// AccountController.currentUser(req)
+			// .then(function(result){
+			// 	console.log('I am stuck account')
+			// 	res.json({
+			// 		confirmation: 'success',
+			// 		result: result
+			// 	})
+			// })
+			// .catch(function(err){
+			// 	res.json({
+			// 		confirmation: 'fail',
+			// 		message: err.message
+			// 	})
+			// })
     }
 })
 

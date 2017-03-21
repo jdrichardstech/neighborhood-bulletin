@@ -193,13 +193,12 @@ clearValues(){
 
       content = (
         <div>
-
-        <div>
-          <img style={{borderRadius:36, float:'left', marginRight:12}} src={ImageHelper.thumbnail(this.props.user.image, 72)} />
-          <h3>Hi <span style={{color:'blue'}}>{this.props.user.username}</span></h3><br /><br />
-          <button style={styles.account.button} className="btn btn-danger" onClick={this.logout.bind(this)}>Log Out</button>
-          &nbsp;<Link to="/updateprofile/"><button style={styles.account.button} className="btn btn-warning" type="">Update Profile</button></Link>
-        </div>
+	        <div>
+	          <img style={{borderRadius:36, float:'left', marginRight:12}} src={ImageHelper.thumbnail(this.props.user.image, 72)} />
+	          <h3>Hi <span style={{color:'blue'}}>{this.props.user.username}</span></h3><br /><br />
+	          <button style={styles.account.button} className="btn btn-danger" onClick={this.logout.bind(this)}>Log Out</button>
+	          &nbsp;<Link to="/updateprofile/"><button style={styles.account.button} className="btn btn-warning" type="">Update Profile</button></Link>
+	        </div>
         </div>
       )
     }
@@ -207,16 +206,10 @@ clearValues(){
   {/*  let content = (this.props.appStatus=='loading') ? 'Loading...' : contentFiller*/}
     return(
       <div>
-
-
-              <div className="col-md-12" style={styles.account.accountBox}>
-                {content}
-              </div>
-          </div>
-
-
-
-
+        <div className="col-md-12" style={styles.account.accountBox}>
+          {content}
+        </div>
+      </div>
     )
   }
 }
