@@ -96,6 +96,10 @@ router.get('/', function(req, res, next) {
 	})
 })
 
+router.get('/login',function(req, res, next){
+	res.render('login', null)
+})
+
 router.get('/createzone', function(req, res, next) {
   res.render('createzone', null);
 });
