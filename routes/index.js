@@ -91,7 +91,19 @@ router.get('/', function(req, res, next) {
 		var html = ReactDOMServer.renderToString(React.createElement(ReactRouter.RouterContext, renderProps))
 		res.render('index', {react:html, preloadedState: JSON.stringify(initialStore.getState()) })
 	})
-	.catch(function(err){
+	.catch(function(err, renderProps){
+		initialStore = store.configureStore(reducers)
+		var routes = {
+			path: '/',
+			component: serverapp,
+			initial: initialStore,
+			indexRoute: {
+				component: Home
+			}
+		}
+		var html = ReactDOMServer.renderToString(React.createElement(ReactRouter.RouterContext, renderProps))
+		res.render('index', {react:html, preloadedState: JSON.stringify(initialStore.getState()) })
+
 		console.log('Server Side Rendering Error: ' + err.message)
 	})
 })
