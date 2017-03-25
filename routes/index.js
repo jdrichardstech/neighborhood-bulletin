@@ -9,6 +9,7 @@ var React = require('react')
 var ReactRouter = require('react-router')
 var ReactDOMServer = require('react-dom/server')
 var Home = require('../public/build/es5/components/layout/Home')
+var ProfileInfo = require('../public/build/es5/components/layout/ProfileInfo')
 var store = require('../public/build/es5/stores/store')
 
 
@@ -92,19 +93,59 @@ router.get('/', function(req, res, next) {
 		res.render('index', {react:html, preloadedState: JSON.stringify(initialStore.getState()) })
 	})
 	.catch(function(err, renderProps){
+
+		console.log('Server Side Rendering Error: ' + err.message)
+	})
+})
+
+
+router.get('/:page/:slug', function(req, res, next){
+	var page = req.params.page
+	var slug = req.params.slug
+
+	var initialStore = null
+	var reducers = {}
+
+	if(page == 'api'){
+		next()
+		return
+	}
+	if(page=='account'){
+		next()
+		return
+	}
+
+	controllers.profile.get({username: slug})
+	.then(function(profiles){
+		var profile = profiles[0]
+		var profileMap = {}
+		profileMap[slug] = profile
+
+		reducers['profile'] = {
+			list: [profile],
+			map: profileMap,
+			appStatus: 'ready'
+		}
+
 		initialStore = store.configureStore(reducers)
+
 		var routes = {
-			path: '/',
+			path: '/profile/:username',
 			component: serverapp,
 			initial: initialStore,
 			indexRoute: {
-				component: Home
+				component: ProfileInfo
 			}
 		}
-		var html = ReactDOMServer.renderToString(React.createElement(ReactRouter.RouterContext, renderProps))
-		res.render('index', {react:html, preloadedState: JSON.stringify(initialStore.getState()) })
 
-		console.log('Server Side Rendering Error: ' + err.message)
+		return matchRoutes(req, routes)
+	})
+	.then(function(renderProps){
+		var html = ReactDOMServer.renderToString(React.createElement(ReactRouter.RouterContext, renderProps))
+	    res.render('index', { react: html, preloadedState: JSON.stringify(initialStore.getState()) })
+	})
+	.catch(function(err){
+
 	})
 })
 

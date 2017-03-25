@@ -7,12 +7,12 @@ module.exports = {
 currentUser: function(req){
 	return new Promise(function(resolve, reject){
 		if(req.session==null){
-			reject({message:"User not logged in"})
+			resolve(null)
 			return
 		}
 
 		if(req.session.user==null){
-			reject({message:"User not logged in"})
+			resolve(null)
 			return
 		}
 		ProfileController.findById(req.session.user,function(err, result){

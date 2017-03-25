@@ -141,7 +141,6 @@ var Comments = (function (Component) {
 					_this.setState({
 						updated: updatedProfile
 					});
-					console.log("UPDATED COMMENT:" + JSON.stringify(_this.state.updated));
 				});
 			},
 			writable: true,
@@ -289,3 +288,4 @@ var dispatchToProps = function (dispatch) {
 
 module.exports = connect(stateToProps, dispatchToProps)(Comments);
 // this.props.fetchComments({ zone:zone._id})
+// console.log("UPDATED COMMENT:" + JSON.stringify(this.state.updated))

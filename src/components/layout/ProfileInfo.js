@@ -12,10 +12,8 @@ class ProfileInfo extends Component{
     return(
       <div>
         <div>
-          <Profile username={this.props.params.username}/>
+          <Profile username={this.props.params.username} />
         </div>
-
-
       </div>
     )
   }

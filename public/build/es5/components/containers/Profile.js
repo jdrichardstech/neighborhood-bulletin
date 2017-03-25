@@ -98,15 +98,6 @@ var Profile = (function (Component) {
                   { style: { marginRight: 15 }, type: "", className: "btn btn-info" },
                   "Home"
                 )
-              ),
-              React.createElement(
-                Link,
-                { to: "/updateprofile/" },
-                React.createElement(
-                  "button",
-                  { type: "", className: "btn btn-warning" },
-                  "Update Profile"
-                )
               )
             )
           );

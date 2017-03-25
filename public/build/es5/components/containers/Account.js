@@ -38,6 +38,7 @@ var Account = (function (Component) {
     _get(Object.getPrototypeOf(Account.prototype), "constructor", this).call(this, props);
     this.clearValues = this.clearValues.bind(this);
     this.state = {
+      user: {},
       username: "",
       password: ""
     };
@@ -48,16 +49,23 @@ var Account = (function (Component) {
   _prototypeProperties(Account, null, {
     componentDidMount: {
       value: function componentDidMount() {
-        // APIManager.get('/account/currentuser', null, (err, response)=>{
-        //   if(err){
-        //     // not logged in, reject
-        //     // alert(err)
-        //     return
-        //   }
-        //   // console.log('hi currentuser: ' +JSON.stringify(response))
-        //   this.props.currentUserReceived(response.result)
-        // })
-        this.props.fetchCurrentUser(null);
+        console.log("account componentDidMount");
+        var updated = Object.assign({}, this.state.user);
+        updated = this.props.user;
+        this.setState({
+          user: updated
+        });
+        console.log("USER: " + JSON.stringify(updated));
+      },
+      writable: true,
+      configurable: true
+    },
+    componentDidUpdate: {
+      value: function componentDidUpdate() {
+        console.log("account componentDidUpdate");
+        console.log("PROPS: " + JSON.stringify(this.props.user));
+
+        console.log("STATE: " + JSON.stringify(this.state.user));
       },
       writable: true,
       configurable: true
@@ -314,8 +322,18 @@ var Account = (function (Component) {
                 React.createElement(
                   "span",
                   { style: { color: "blue" } },
-                  this.props.user.username
+                  React.createElement(
+                    Link,
+                    { to: "/profile/" + this.props.user.username },
+                    this.props.user.username
+                  )
                 )
+              ),
+              React.createElement(
+                "p",
+                null,
+                "Gender: ",
+                this.props.user.gender
               ),
               React.createElement("br", null),
               React.createElement("br", null),
@@ -387,6 +405,16 @@ var dispatchToProps = function (dispatch) {
 
 
 module.exports = connect(stateToProps, dispatchToProps)(Account);
+// APIManager.get('/account/currentuser', null, (err, response)=>{
+//   if(err){
+//     // not logged in, reject
+//     // alert(err)
+//     return
+//   }
+//   // console.log('hi currentuser: ' +JSON.stringify(response))
+//   this.props.currentUserReceived(response.result)
+// })
+
 // this.props.fetchZone(null)
 
 /*  let content = (this.props.appStatus=='loading') ? 'Loading...' : contentFiller*/

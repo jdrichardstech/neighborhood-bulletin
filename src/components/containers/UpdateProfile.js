@@ -14,7 +14,7 @@ class UpdateProfile extends Component{
   constructor(props){
     super(props)
     this.state={
-
+				user:{},
         updated:{
 
         }
@@ -23,8 +23,8 @@ class UpdateProfile extends Component{
   }
 
   componentDidMount(){
-    console.log("UpdateProfile Username: " +JSON.stringify(this.props.user._id))
-      console.log("UpdateProfile Profiles: " +JSON.stringify(this.props.user.username))
+    // console.log("UpdateProfile Username: " +JSON.stringify(this.props.user._id))
+      // console.log("UpdateProfile Profiles: " +JSON.stringify(this.props.user.username))
   		// const profile = this.props.profiles[this.props.username]
   		// if (profile != null)
   		// 	return
@@ -41,6 +41,12 @@ class UpdateProfile extends Component{
       //
   		// this.props.fetchProfile({username: this.props.user.username})
       // this.props.fetchCurrentUser(null)
+}
+componentDidUpdate(){
+	console.log("PROPS: " + JSON.stringify(this.props.user))
+
+	console.log("componentDidUpdate:" + JSON.stringify(this.state.updated))
+
 }
 
 // updateProfile(event){
@@ -59,7 +65,9 @@ updateCurrentUser(event){
   updatedProfile[event.target.id] = event.target.value
   this.setState({
     updated: updatedProfile
+
   })
+
 }
 
 updateProfile(event){
@@ -70,8 +78,10 @@ updateProfile(event){
 			alert('No Changes Made!!')
 			return
 		}
+console.log("STATE: " + JSON.stringify(this.state.updated))
 
 		this.props.updateProfile(this.props.user, this.state.updated)
+		alert("Profile Updated")
 	}
 
 
@@ -142,7 +152,7 @@ updateProfile(event){
           <label>Upload or Drop Image below:</label>
           <DropZone onDrop={this.uploadImage.bind(this)}/>
           <br />
-          <button onClick={this.updateProfile.bind(this)} className="btn btn-danger" type="submit">Update Profile</button>
+          <button onClick={this.updateProfile.bind(this)} className="btn btn-danger" type="submit"><Link to='/'>Update Profile</Link></button>
         </div>
         </div>
       )

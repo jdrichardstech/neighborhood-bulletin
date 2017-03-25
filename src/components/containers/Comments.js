@@ -104,7 +104,7 @@ class Comments extends Component {
 			this.setState({
 				updated: updatedProfile
 			})
-			console.log("UPDATED COMMENT:" + JSON.stringify(this.state.updated))
+			// console.log("UPDATED COMMENT:" + JSON.stringify(this.state.updated))
 	})
 	}
 

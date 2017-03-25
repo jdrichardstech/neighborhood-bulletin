@@ -83,9 +83,9 @@ var Zones = (function (Component) {
 		},
 		selectZone: {
 			value: function selectZone(index) {
-				console.log("selectZone: " + index);
-				console.log("Hi current user: " + this.props.user.username);
-				console.log("Hi zone user: " + this.props.list[this.props.selected].username);
+				// console.log('selectZone: '+index)
+				// console.log('Hi current user: '+ this.props.user.username)
+				// console.log('Hi zone user: '+ this.props.list[this.props.selected].username)
 				this.props.selectZone(index);
 			},
 			writable: true,

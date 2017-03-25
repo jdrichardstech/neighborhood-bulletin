@@ -42,7 +42,7 @@ class Profile extends Component{
               City:<span style={styles.profile.entry}> {profile.city}</span><br /><br />
 
             <Link to ="/"><button style={{marginRight:15}} type="" className="btn btn-info">Home</button></Link>
-            <Link to = "/updateprofile/"><button type="" className="btn btn-warning">Update Profile</button></Link>
+           
 
               </p>
             </div>

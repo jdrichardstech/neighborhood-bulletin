@@ -31,7 +31,7 @@ var Zone = (function (Component) {
 		onSelectTitle: {
 			value: function onSelectTitle(event) {
 				event.preventDefault();
-				console.log("onSelectTitle: " + this.props.index);
+				// console.log('onSelectTitle: '+this.props.index)
 				this.props.select(this.props.index);
 			},
 			writable: true,

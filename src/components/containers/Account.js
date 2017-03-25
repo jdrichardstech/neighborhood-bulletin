@@ -13,12 +13,27 @@ class Account extends Component{
     super(props)
     this.clearValues=this.clearValues.bind(this)
     this.state={
+			user:{},
       username:'',
       password:''
     }
   }
+	componentDidMount(){
+		console.log("account componentDidMount")
+		let updated = Object.assign({}, this.state.user)
+		updated = this.props.user
+		this.setState({
+			user: updated
+		})
+		console.log("USER: " + JSON.stringify(updated))
+	}
 
-  componentDidMount(){
+  componentDidUpdate(){
+		console.log('account componentDidUpdate')
+		console.log("PROPS: " + JSON.stringify(this.props.user))
+
+		console.log("STATE: " + JSON.stringify(this.state.user))
+
     // APIManager.get('/account/currentuser', null, (err, response)=>{
     //   if(err){
     //     // not logged in, reject
@@ -28,7 +43,7 @@ class Account extends Component{
     //   // console.log('hi currentuser: ' +JSON.stringify(response))
     //   this.props.currentUserReceived(response.result)
     // })
-  	this.props.fetchCurrentUser(null)
+
   }
 
   updateProfile(event){
@@ -195,7 +210,8 @@ clearValues(){
         <div>
 	        <div>
 	          <img style={{borderRadius:36, float:'left', marginRight:12}} src={ImageHelper.thumbnail(this.props.user.image, 72)} />
-	          <h3>Hi <span style={{color:'blue'}}>{this.props.user.username}</span></h3><br /><br />
+	          <h3>Hi <span style={{color:'blue'}}><Link to={'/profile/'+ this.props.user.username}>{this.props.user.username}</Link></span></h3>
+						<p>Gender: {this.props.user.gender}</p><br /><br />
 	          <button style={styles.account.button} className="btn btn-danger" onClick={this.logout.bind(this)}>Log Out</button>
 	          &nbsp;<Link to="/updateprofile/"><button style={styles.account.button} className="btn btn-warning" type="">Update Profile</button></Link>
 	        </div>

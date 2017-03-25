@@ -35,7 +35,7 @@ var UpdateProfile = (function (Component) {
 
     _get(Object.getPrototypeOf(UpdateProfile.prototype), "constructor", this).call(this, props);
     this.state = {
-
+      user: {},
       updated: {}
 
     };
@@ -45,9 +45,15 @@ var UpdateProfile = (function (Component) {
 
   _prototypeProperties(UpdateProfile, null, {
     componentDidMount: {
-      value: function componentDidMount() {
-        console.log("UpdateProfile Username: " + JSON.stringify(this.props.user._id));
-        console.log("UpdateProfile Profiles: " + JSON.stringify(this.props.user.username));
+      value: function componentDidMount() {},
+      writable: true,
+      configurable: true
+    },
+    componentDidUpdate: {
+      value: function componentDidUpdate() {
+        console.log("PROPS: " + JSON.stringify(this.props.user));
+
+        console.log("componentDidUpdate:" + JSON.stringify(this.state.updated));
       },
       writable: true,
       configurable: true
@@ -70,6 +76,7 @@ var UpdateProfile = (function (Component) {
         updatedProfile[event.target.id] = event.target.value;
         this.setState({
           updated: updatedProfile
+
         });
       },
       writable: true,
@@ -84,8 +91,10 @@ var UpdateProfile = (function (Component) {
           alert("No Changes Made!!");
           return;
         }
+        console.log("STATE: " + JSON.stringify(this.state.updated));
 
         this.props.updateProfile(this.props.user, this.state.updated);
+        alert("Profile Updated");
       },
       writable: true,
       configurable: true
@@ -246,7 +255,11 @@ var UpdateProfile = (function (Component) {
             React.createElement(
               "button",
               { onClick: this.updateProfile.bind(this), className: "btn btn-danger", type: "submit" },
-              "Update Profile"
+              React.createElement(
+                Link,
+                { to: "/" },
+                "Update Profile"
+              )
             )
           )
         );
@@ -290,6 +303,8 @@ var dispatchToProps = function (dispatch) {
 };
 
 module.exports = connect(stateToProps, dispatchToProps)(UpdateProfile);
+// console.log("UpdateProfile Username: " +JSON.stringify(this.props.user._id))
+// console.log("UpdateProfile Profiles: " +JSON.stringify(this.props.user.username))
 // const profile = this.props.profiles[this.props.username]
 // if (profile != null)
 // 	return
