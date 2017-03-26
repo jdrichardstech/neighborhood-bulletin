@@ -48,25 +48,12 @@ var Account = (function (Component) {
 
   _prototypeProperties(Account, null, {
     componentDidMount: {
-      value: function componentDidMount() {
-        console.log("account componentDidMount");
-        var updated = Object.assign({}, this.state.user);
-        updated = this.props.user;
-        this.setState({
-          user: updated
-        });
-        console.log("USER: " + JSON.stringify(updated));
-      },
+      value: function componentDidMount() {},
       writable: true,
       configurable: true
     },
     componentDidUpdate: {
-      value: function componentDidUpdate() {
-        console.log("account componentDidUpdate");
-        console.log("PROPS: " + JSON.stringify(this.props.user));
-
-        console.log("STATE: " + JSON.stringify(this.state.user));
-      },
+      value: function componentDidUpdate() {},
       writable: true,
       configurable: true
     },
@@ -405,6 +392,14 @@ var dispatchToProps = function (dispatch) {
 
 
 module.exports = connect(stateToProps, dispatchToProps)(Account);
+// console.log("account componentDidMount")
+
+// console.log("USER: " + JSON.stringify(updated))
+// console.log('account componentDidUpdate')
+// console.log("PROPS: " + JSON.stringify(this.props.user))
+//
+// console.log("STATE: " + JSON.stringify(this.state.user))
+
 // APIManager.get('/account/currentuser', null, (err, response)=>{
 //   if(err){
 //     // not logged in, reject

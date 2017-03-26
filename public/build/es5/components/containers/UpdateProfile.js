@@ -35,7 +35,7 @@ var UpdateProfile = (function (Component) {
 
     _get(Object.getPrototypeOf(UpdateProfile.prototype), "constructor", this).call(this, props);
     this.state = {
-      user: {},
+      user: null,
       updated: {}
 
     };
@@ -45,15 +45,33 @@ var UpdateProfile = (function (Component) {
 
   _prototypeProperties(UpdateProfile, null, {
     componentDidMount: {
-      value: function componentDidMount() {},
+      value: function componentDidMount() {
+
+
+        var updated = Object.assign({}, this.state.user);
+        updated = this.props.user;
+        this.setState({
+          user: updated
+        });
+      },
       writable: true,
       configurable: true
     },
     componentDidUpdate: {
       value: function componentDidUpdate() {
+        if (this.state.user == null) {
+          this.props.fetchCurrentUser(null);
+          var updated = Object.assign({}, this.state.user);
+          updated = this.props.user;
+          this.setState({
+            user: updated
+          });
+        }
+
+        console.log("componentDidUpdate");
         console.log("PROPS: " + JSON.stringify(this.props.user));
 
-        console.log("componentDidUpdate:" + JSON.stringify(this.state.updated));
+        console.log("componentDidUpdate:" + JSON.stringify(this.state.user));
       },
       writable: true,
       configurable: true
@@ -94,6 +112,9 @@ var UpdateProfile = (function (Component) {
         console.log("STATE: " + JSON.stringify(this.state.updated));
 
         this.props.updateProfile(this.props.user, this.state.updated);
+        this.setState({
+          user: null
+        });
         alert("Profile Updated");
       },
       writable: true,
@@ -255,11 +276,7 @@ var UpdateProfile = (function (Component) {
             React.createElement(
               "button",
               { onClick: this.updateProfile.bind(this), className: "btn btn-danger", type: "submit" },
-              React.createElement(
-                Link,
-                { to: "/" },
-                "Update Profile"
-              )
+              "Update Profile"
             )
           )
         );

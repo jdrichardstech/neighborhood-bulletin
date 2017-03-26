@@ -19,20 +19,16 @@ class Account extends Component{
     }
   }
 	componentDidMount(){
-		console.log("account componentDidMount")
-		let updated = Object.assign({}, this.state.user)
-		updated = this.props.user
-		this.setState({
-			user: updated
-		})
-		console.log("USER: " + JSON.stringify(updated))
+		// console.log("account componentDidMount")
+		
+		// console.log("USER: " + JSON.stringify(updated))
 	}
 
   componentDidUpdate(){
-		console.log('account componentDidUpdate')
-		console.log("PROPS: " + JSON.stringify(this.props.user))
-
-		console.log("STATE: " + JSON.stringify(this.state.user))
+		// console.log('account componentDidUpdate')
+		// console.log("PROPS: " + JSON.stringify(this.props.user))
+		//
+		// console.log("STATE: " + JSON.stringify(this.state.user))
 
     // APIManager.get('/account/currentuser', null, (err, response)=>{
     //   if(err){

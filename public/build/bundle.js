@@ -21739,21 +21739,17 @@
 	  _createClass(Account, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      console.log("account componentDidMount");
-	      var updated = Object.assign({}, this.state.user);
-	      updated = this.props.user;
-	      this.setState({
-	        user: updated
-	      });
-	      console.log("USER: " + JSON.stringify(updated));
+	      // console.log("account componentDidMount")
+	
+	      // console.log("USER: " + JSON.stringify(updated))
 	    }
 	  }, {
 	    key: 'componentDidUpdate',
 	    value: function componentDidUpdate() {
-	      console.log('account componentDidUpdate');
-	      console.log("PROPS: " + JSON.stringify(this.props.user));
-	
-	      console.log("STATE: " + JSON.stringify(this.state.user));
+	      // console.log('account componentDidUpdate')
+	      // console.log("PROPS: " + JSON.stringify(this.props.user))
+	      //
+	      // console.log("STATE: " + JSON.stringify(this.state.user))
 	
 	      // APIManager.get('/account/currentuser', null, (err, response)=>{
 	      //   if(err){
@@ -21764,6 +21760,7 @@
 	      //   // console.log('hi currentuser: ' +JSON.stringify(response))
 	      //   this.props.currentUserReceived(response.result)
 	      // })
+	
 	    }
 	  }, {
 	    key: 'updateProfile',
@@ -35658,7 +35655,7 @@
 	    var _this = _possibleConstructorReturn(this, (UpdateProfile.__proto__ || Object.getPrototypeOf(UpdateProfile)).call(this, props));
 	
 	    _this.state = {
-	      user: {},
+	      user: null,
 	      updated: {}
 	
 	    };
@@ -35668,6 +35665,12 @@
 	  _createClass(UpdateProfile, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	
+	      var updated = Object.assign({}, this.state.user);
+	      updated = this.props.user;
+	      this.setState({
+	        user: updated
+	      });
 	      // console.log("UpdateProfile Username: " +JSON.stringify(this.props.user._id))
 	      // console.log("UpdateProfile Profiles: " +JSON.stringify(this.props.user.username))
 	      // const profile = this.props.profiles[this.props.username]
@@ -35690,9 +35693,19 @@
 	  }, {
 	    key: 'componentDidUpdate',
 	    value: function componentDidUpdate() {
+	      if (this.state.user == null) {
+	        this.props.fetchCurrentUser(null);
+	        var updated = Object.assign({}, this.state.user);
+	        updated = this.props.user;
+	        this.setState({
+	          user: updated
+	        });
+	      }
+	
+	      console.log("componentDidUpdate");
 	      console.log("PROPS: " + JSON.stringify(this.props.user));
 	
-	      console.log("componentDidUpdate:" + JSON.stringify(this.state.updated));
+	      console.log("componentDidUpdate:" + JSON.stringify(this.state.user));
 	    }
 	
 	    // updateProfile(event){
@@ -35730,6 +35743,9 @@
 	      console.log("STATE: " + JSON.stringify(this.state.updated));
 	
 	      this.props.updateProfile(this.props.user, this.state.updated);
+	      this.setState({
+	        user: null
+	      });
 	      alert("Profile Updated");
 	    }
 	  }, {
@@ -35888,11 +35904,7 @@
 	          _react2.default.createElement(
 	            'button',
 	            { onClick: this.updateProfile.bind(this), className: 'btn btn-danger', type: 'submit' },
-	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: '/' },
-	              'Update Profile'
-	            )
+	            'Update Profile'
 	          )
 	        )
 	      );
