@@ -89,6 +89,8 @@ var Profile = (function (Component) {
                 profile.city
               ),
               React.createElement("br", null),
+              "Bio: ",
+              profile.bio,
               React.createElement("br", null),
               React.createElement(
                 Link,

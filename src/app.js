@@ -15,7 +15,7 @@ const app = (
 			<Route path="/" component={Main}>
 				<IndexRoute component={Home}></IndexRoute>
 				<Route path="/profile/:username" component={ProfileInfo}></Route>
-				<Route path="/updateprofile/" component={UpdateProfile}></Route>
+				<Route path="/updateprofile/:username" component={UpdateProfile}></Route>
 				<Route path="/updatezone/:zoneid" component={UpdateZone}></Route>
 			</Route>
 

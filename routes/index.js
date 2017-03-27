@@ -149,6 +149,46 @@ router.get('/:page/:slug', function(req, res, next){
 	})
 })
 
+// router.get('/updateprofile/:username', function(req, res,next){
+// 	var username = req.params.username
+// 	console.log("USERNAME: " + username)
+// 	var initialStore = null
+// 	var reducers = {}
+//
+// 	AccountController.currentUser(req)
+//
+// 	.then(function(result){
+// //		console.log('CURRENT USER: '+JSON.stringify(result))
+// 		reducers['account'] = { // Populate store/reducer with current user:
+// 			user: result,
+// 			appStatus: 'ready'
+// 		}
+//
+//
+// 		initialStore = store.configureStore(reducers)
+//
+// 		var routes = {
+// 			path: '/updateprofile/:username',
+// 			component: serverapp,
+// 			initial: initialStore,
+// 			indexRoute: {
+// 				component: UpdateProfile
+// 			}
+// 		}
+//
+// 		return matchRoutes(req, routes)
+// 	})
+// 	.then(function(renderProps){
+// 		var html = ReactDOMServer.renderToString(React.createElement(ReactRouter.RouterContext, renderProps))
+// 	    res.render('index', { react: html, preloadedState: JSON.stringify(initialStore.getState()) })
+// 	})
+// 	.catch(function(err){
+// 			console.log('not working')
+// 	})
+//
+//
+// })
+
 router.get('/login',function(req, res, next){
 	res.render('login', null)
 })

@@ -85,7 +85,7 @@
 				{ path: '/', component: _Main2.default },
 				_react2.default.createElement(_reactRouter.IndexRoute, { component: _layout.Home }),
 				_react2.default.createElement(_reactRouter.Route, { path: '/profile/:username', component: _layout.ProfileInfo }),
-				_react2.default.createElement(_reactRouter.Route, { path: '/updateprofile/', component: _containers.UpdateProfile }),
+				_react2.default.createElement(_reactRouter.Route, { path: '/updateprofile/:username', component: _containers.UpdateProfile }),
 				_react2.default.createElement(_reactRouter.Route, { path: '/updatezone/:zoneid', component: _containers.UpdateZone })
 			)
 		)
@@ -22029,7 +22029,7 @@
 	            '\xA0',
 	            _react2.default.createElement(
 	              _reactRouter.Link,
-	              { to: '/updateprofile/' },
+	              { to: '/updateprofile/' + this.props.user.username },
 	              _react2.default.createElement(
 	                'button',
 	                { style: _styles2.default.account.button, className: 'btn btn-warning', type: '' },
@@ -25936,6 +25936,21 @@
 					dispatch({
 						type: _constants2.default.COMMENT_UPDATED,
 						comment: newComment
+					});
+				});
+			};
+		},
+	
+		deleteComment: function deleteComment(comment) {
+			return function (dispatch) {
+				var endpoint = 'api/comment/' + comment._id;
+				_utils.APIManager.delete(endpoint, function (err, response) {
+					if (err) {
+						alert('Comment not deleted' + err.message);
+						return;
+					}
+					dispatch({
+						type: _constants2.default.COMMENT_UPDATED
 					});
 				});
 			};
@@ -35556,6 +35571,8 @@
 	              profile.city
 	            ),
 	            _react2.default.createElement('br', null),
+	            'Bio: ',
+	            profile.bio,
 	            _react2.default.createElement('br', null),
 	            _react2.default.createElement(
 	              _reactRouter.Link,
@@ -35607,7 +35624,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+			value: true
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -35647,299 +35664,266 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var UpdateProfile = function (_Component) {
-	  _inherits(UpdateProfile, _Component);
+			_inherits(UpdateProfile, _Component);
 	
-	  function UpdateProfile(props) {
-	    _classCallCheck(this, UpdateProfile);
+			function UpdateProfile(props) {
+					_classCallCheck(this, UpdateProfile);
 	
-	    var _this = _possibleConstructorReturn(this, (UpdateProfile.__proto__ || Object.getPrototypeOf(UpdateProfile)).call(this, props));
+					var _this = _possibleConstructorReturn(this, (UpdateProfile.__proto__ || Object.getPrototypeOf(UpdateProfile)).call(this, props));
 	
-	    _this.state = {
-	      user: null,
-	      updated: {}
+					_this.state = {
+							user: null,
+							updated: {}
+					};
+					return _this;
+			}
 	
-	    };
-	    return _this;
-	  }
+			_createClass(UpdateProfile, [{
+					key: 'componentDidMount',
+					value: function componentDidMount() {
+							var updated = Object.assign({}, this.state.user);
+							updated = this.props.user;
+							this.setState({
+									user: updated
+							});
+					}
+			}, {
+					key: 'componentDidUpdate',
+					value: function componentDidUpdate() {
+							if (this.state.user == null) {
+									this.props.fetchCurrentUser(null);
+									var updated = Object.assign({}, this.state.user);
+									updated = this.props.user;
+									this.setState({
+											user: updated
+									});
+							}
+					}
+			}, {
+					key: 'updateCurrentUser',
+					value: function updateCurrentUser(event) {
+							event.preventDefault();
+							// console.log('updateCurrentUser: '+event.target.id+' == '+event.target.value)
+							var updatedProfile = Object.assign({}, this.state.updated);
+							updatedProfile[event.target.id] = event.target.value;
+							this.setState({
+									updated: updatedProfile
+							});
+					}
+			}, {
+					key: 'updateProfile',
+					value: function updateProfile(event) {
+							event.preventDefault();
 	
-	  _createClass(UpdateProfile, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
+							if (Object.keys(this.state.updated).length == 0) {
+									alert('No Changes Made!!');
+									return;
+							}
 	
-	      var updated = Object.assign({}, this.state.user);
-	      updated = this.props.user;
-	      this.setState({
-	        user: updated
-	      });
-	      // console.log("UpdateProfile Username: " +JSON.stringify(this.props.user._id))
-	      // console.log("UpdateProfile Profiles: " +JSON.stringify(this.props.user.username))
-	      // const profile = this.props.profiles[this.props.username]
-	      // if (profile != null)
-	      // 	return
-	      //
-	      //   APIManager.get('/account/currentuser', null, (err, response)=>{
-	      //     if(err){
-	      //       // not logged in, reject
-	      //       // alert(err)
-	      //       return
-	      //     }
-	      //     // console.log('hi currentuser: ' +JSON.stringify(response))
-	      //     this.props.currentUserReceived(response.result)
-	      //   })
-	      //
-	      // this.props.fetchProfile({username: this.props.user.username})
-	      // this.props.fetchCurrentUser(null)
-	    }
-	  }, {
-	    key: 'componentDidUpdate',
-	    value: function componentDidUpdate() {
-	      if (this.state.user == null) {
-	        this.props.fetchCurrentUser(null);
-	        var updated = Object.assign({}, this.state.user);
-	        updated = this.props.user;
-	        this.setState({
-	          user: updated
-	        });
-	      }
+							this.props.updateProfile(this.props.user, this.state.updated);
+							this.setState({
+									user: null
+							});
+							alert("Profile Updated");
+					}
+			}, {
+					key: 'uploadImage',
+					value: function uploadImage(files) {
+							var _this2 = this;
 	
-	      console.log("componentDidUpdate");
-	      console.log("PROPS: " + JSON.stringify(this.props.user));
+							var image = files[0];
+							console.log("COMMENT Container Image file: " + JSON.stringify(image));
+							var timestamp = Date.now() / 1000;
+							var cloudName = 'jdrichardstech';
+							var uploadPreset = 'qfk6kfpf';
+							var apiSecret = 'e8LAFbk1H23PLU02S5Og2DzsMYQ';
+							var paramStr = 'timestamp=' + timestamp + '&upload_preset=' + uploadPreset + 'e8LAFbk1H23PLU02S5Og2DzsMYQ';
+							var signature = (0, _sha2.default)(paramStr);
+							var apiKey = '854536555581142';
+							var params = {
+									'api_key': apiKey,
+									'timestamp': timestamp,
+									'upload_preset': uploadPreset,
+									'signature': signature
+							};
+							var url = 'https://api.cloudinary.com/v1_1/' + cloudName + '/image/upload';
+							_utils.APIManager.upload(url, image, params, function (err, response) {
+									if (err) {
+											console.log('Upload err: ' + err.message);
+											return;
+									}
+									console.log('Uploaded image: ' + JSON.stringify(response.body));
+									var imageUrl = response.body['secure_url'];
 	
-	      console.log("componentDidUpdate:" + JSON.stringify(this.state.user));
-	    }
+									var updatedProfile = Object.assign({}, _this2.state.updated);
+									updatedProfile['image'] = response.body['secure_url'];
+									_this2.setState({
+											updated: updatedProfile
+									});
+							});
+					}
+			}, {
+					key: 'render',
+					value: function render() {
+							var content = null;
+							var image = null;
+							var currentUser = this.props.user;
+							image = this.props.user == null ? '' : _utils.ImageHelper.thumbnail(this.props.user.image, 150);
+							content = this.props.user == null ? "loading" : _react2.default.createElement(
+									'div',
+									null,
+									' ',
+									_react2.default.createElement(
+											'h1',
+											{ style: { color: 'white' } },
+											'Update Your Profile'
+									),
+									_react2.default.createElement('br', null),
+									_react2.default.createElement(
+											'div',
+											{ style: _styles2.default.profile.container },
+											_react2.default.createElement(
+													'h2',
+													null,
+													'Current Profile:'
+											),
+											_react2.default.createElement(
+													'h3',
+													null,
+													'User: ',
+													_react2.default.createElement(
+															'span',
+															{ style: _styles2.default.profile.entry },
+															' ',
+															this.props.user.username
+													)
+											),
+											_react2.default.createElement(
+													'p',
+													null,
+													'Gender: ',
+													_react2.default.createElement(
+															'span',
+															{ style: _styles2.default.profile.entry },
+															this.props.user.gender
+													),
+													_react2.default.createElement('br', null),
+													'City:',
+													_react2.default.createElement(
+															'span',
+															{ style: _styles2.default.profile.entry },
+															' ',
+															this.props.user.city
+													),
+													_react2.default.createElement('br', null),
+													_react2.default.createElement('br', null),
+													'Bio:',
+													_react2.default.createElement(
+															'span',
+															{ style: _styles2.default.profile.entry },
+															' ',
+															this.props.user.bio
+													),
+													_react2.default.createElement('br', null),
+													_react2.default.createElement('br', null),
+													'Image: ',
+													_react2.default.createElement('img', { src: image }),
+													_react2.default.createElement('br', null),
+													_react2.default.createElement('br', null),
+													_react2.default.createElement(
+															_reactRouter.Link,
+															{ to: '/' },
+															_react2.default.createElement(
+																	'button',
+																	{ style: { marginRight: 10 }, type: '', className: 'btn btn-info' },
+																	'Home'
+															)
+													),
+													_react2.default.createElement(
+															_reactRouter.Link,
+															{ to: "/profile/" + this.props.user.username },
+															_react2.default.createElement(
+																	'button',
+																	{ type: '', className: 'btn btn-warning' },
+																	'View Current Profile'
+															)
+													)
+											)
+									),
+									_react2.default.createElement('br', null),
+									_react2.default.createElement('br', null),
+									_react2.default.createElement(
+											'div',
+											{ style: _styles2.default.account.container },
+											_react2.default.createElement(
+													'label',
+													null,
+													'New Gender:'
+											),
+											_react2.default.createElement('input', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'gender', defaultValue: currentUser.gender }),
+											_react2.default.createElement(
+													'label',
+													null,
+													'New City:'
+											),
+											_react2.default.createElement('input', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'city', defaultValue: currentUser.city }),
+											_react2.default.createElement(
+													'label',
+													null,
+													'Bio:'
+											),
+											_react2.default.createElement('textarea', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'bio', defaultValue: currentUser.bio }),
+											_react2.default.createElement('br', null),
+											_react2.default.createElement(
+													'label',
+													null,
+													'Upload or Drop Image below:'
+											),
+											_react2.default.createElement(_reactDropzone2.default, { onDrop: this.uploadImage.bind(this) }),
+											_react2.default.createElement('br', null),
+											_react2.default.createElement(
+													'button',
+													{ onClick: this.updateProfile.bind(this), className: 'btn btn-danger', type: 'submit' },
+													'Update Profile'
+											)
+									)
+							);
+							return _react2.default.createElement(
+									'div',
+									{ style: _styles2.default.profile.profiledetails },
+									content
+							);
+					}
+			}]);
 	
-	    // updateProfile(event){
-	    // let updatedProfile = Object.assign({},this.state.profile)
-	    // updatedProfile[event.target.id] = event.target.value
-	    // this.setState({
-	    //   profile: updatedProfile
-	    // })
-	    // console.log('Update Profile: ' + event.target.id+": "+event.target.value)
-	    // }
-	
-	  }, {
-	    key: 'updateCurrentUser',
-	    value: function updateCurrentUser(event) {
-	      event.preventDefault();
-	      // console.log('updateCurrentUser: '+event.target.id+' == '+event.target.value)
-	
-	      var updatedProfile = Object.assign({}, this.state.updated);
-	      updatedProfile[event.target.id] = event.target.value;
-	      this.setState({
-	        updated: updatedProfile
-	
-	      });
-	    }
-	  }, {
-	    key: 'updateProfile',
-	    value: function updateProfile(event) {
-	      event.preventDefault();
-	      console.log('Update USER PROFILE CONTAINTER: ' + JSON.stringify(this.props.user));
-	
-	      if (Object.keys(this.state.updated).length == 0) {
-	        alert('No Changes Made!!');
-	        return;
-	      }
-	      console.log("STATE: " + JSON.stringify(this.state.updated));
-	
-	      this.props.updateProfile(this.props.user, this.state.updated);
-	      this.setState({
-	        user: null
-	      });
-	      alert("Profile Updated");
-	    }
-	  }, {
-	    key: 'uploadImage',
-	    value: function uploadImage(files) {
-	      var _this2 = this;
-	
-	      var image = files[0];
-	      console.log("COMMENT Container Image file: " + JSON.stringify(image));
-	      var timestamp = Date.now() / 1000;
-	      var cloudName = 'jdrichardstech';
-	      var uploadPreset = 'qfk6kfpf';
-	      var apiSecret = 'e8LAFbk1H23PLU02S5Og2DzsMYQ';
-	      var paramStr = 'timestamp=' + timestamp + '&upload_preset=' + uploadPreset + 'e8LAFbk1H23PLU02S5Og2DzsMYQ';
-	      var signature = (0, _sha2.default)(paramStr);
-	      var apiKey = '854536555581142';
-	      var params = {
-	        'api_key': apiKey,
-	        'timestamp': timestamp,
-	        'upload_preset': uploadPreset,
-	        'signature': signature
-	      };
-	      var url = 'https://api.cloudinary.com/v1_1/' + cloudName + '/image/upload';
-	      _utils.APIManager.upload(url, image, params, function (err, response) {
-	        if (err) {
-	          console.log('Upload err: ' + err.message);
-	          return;
-	        }
-	        console.log('Uploaded image: ' + JSON.stringify(response.body));
-	        var imageUrl = response.body['secure_url'];
-	
-	        var updatedProfile = Object.assign({}, _this2.state.updated);
-	        updatedProfile['image'] = response.body['secure_url'];
-	        _this2.setState({
-	          updated: updatedProfile
-	        });
-	      });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var currentUser = this.props.user;
-	      var image = this.state.updated.image == null ? '' : _utils.ImageHelper.thumbnail(this.state.updated.image, 150);
-	
-	      return _react2.default.createElement(
-	        'div',
-	        { style: _styles2.default.profile.profiledetails },
-	        _react2.default.createElement(
-	          'h1',
-	          { style: { color: 'white' } },
-	          'Update Your Profile'
-	        ),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement(
-	          'div',
-	          { style: _styles2.default.profile.container },
-	          _react2.default.createElement(
-	            'h2',
-	            null,
-	            'Current Profile:'
-	          ),
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            'User: ',
-	            _react2.default.createElement(
-	              'span',
-	              { style: _styles2.default.profile.entry },
-	              ' ',
-	              this.props.user.username
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'Gender: ',
-	            _react2.default.createElement(
-	              'span',
-	              { style: _styles2.default.profile.entry },
-	              this.props.user.gender
-	            ),
-	            _react2.default.createElement('br', null),
-	            'City:',
-	            _react2.default.createElement(
-	              'span',
-	              { style: _styles2.default.profile.entry },
-	              ' ',
-	              this.props.user.city
-	            ),
-	            _react2.default.createElement('br', null),
-	            _react2.default.createElement('br', null),
-	            'Bio:',
-	            _react2.default.createElement(
-	              'span',
-	              { style: _styles2.default.profile.entry },
-	              ' ',
-	              this.props.user.bio
-	            ),
-	            _react2.default.createElement('br', null),
-	            _react2.default.createElement('br', null),
-	            'Image: ',
-	            _react2.default.createElement('img', { src: image }),
-	            _react2.default.createElement('br', null),
-	            _react2.default.createElement('br', null),
-	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: '/' },
-	              _react2.default.createElement(
-	                'button',
-	                { style: { marginRight: 10 }, type: '', className: 'btn btn-info' },
-	                'Back'
-	              )
-	            ),
-	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: "/profile/" + this.props.user.username },
-	              _react2.default.createElement(
-	                'button',
-	                { type: '', className: 'btn btn-warning' },
-	                'View Current Profile'
-	              )
-	            )
-	          )
-	        ),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement(
-	          'div',
-	          { style: _styles2.default.account.container },
-	          _react2.default.createElement(
-	            'label',
-	            null,
-	            'New Gender:'
-	          ),
-	          _react2.default.createElement('input', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'gender', defaultValue: currentUser.gender }),
-	          _react2.default.createElement(
-	            'label',
-	            null,
-	            'New City:'
-	          ),
-	          _react2.default.createElement('input', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'city', defaultValue: currentUser.city }),
-	          _react2.default.createElement(
-	            'label',
-	            null,
-	            'Bio:'
-	          ),
-	          _react2.default.createElement('textarea', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'bio', defaultValue: currentUser.bio }),
-	          _react2.default.createElement('br', null),
-	          _react2.default.createElement(
-	            'label',
-	            null,
-	            'Upload or Drop Image below:'
-	          ),
-	          _react2.default.createElement(_reactDropzone2.default, { onDrop: this.uploadImage.bind(this) }),
-	          _react2.default.createElement('br', null),
-	          _react2.default.createElement(
-	            'button',
-	            { onClick: this.updateProfile.bind(this), className: 'btn btn-danger', type: 'submit' },
-	            'Update Profile'
-	          )
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return UpdateProfile;
+			return UpdateProfile;
 	}(_react.Component);
 	
 	var stateToProps = function stateToProps(state) {
-	  return {
-	    // profiles: state.profile.map,
-	    appStatus: state.profile.appStatus,
-	    user: state.account.user
-	  };
+			return {
+					appStatus: state.profile.appStatus,
+					user: state.account.user
+			};
 	};
 	
 	var dispatchToProps = function dispatchToProps(dispatch) {
-	  return {
-	    fetchProfile: function fetchProfile(params) {
-	      return dispatch(_actions2.default.fetchProfile(params));
-	    },
-	    updateProfile: function updateProfile(profile, updated) {
-	      return dispatch(_actions2.default.updateProfile(profile, updated));
-	    },
-	    fetchCurrentUser: function fetchCurrentUser(params) {
-	      return dispatch(_actions2.default.fetchCurrentUser(params));
-	    },
-	    currentUserUpdated: function currentUserUpdated(user) {
-	      return dispatch(_actions2.default.currentUserUpdated(user));
-	    },
-	    currentUserReceived: function currentUserReceived(user) {
-	      return dispatch(_actions2.default.currentUserReceived(user));
-	    }
-	  };
+			return {
+					fetchProfile: function fetchProfile(params) {
+							return dispatch(_actions2.default.fetchProfile(params));
+					},
+					updateProfile: function updateProfile(profile, updated) {
+							return dispatch(_actions2.default.updateProfile(profile, updated));
+					},
+					fetchCurrentUser: function fetchCurrentUser(params) {
+							return dispatch(_actions2.default.fetchCurrentUser(params));
+					},
+					currentUserUpdated: function currentUserUpdated(user) {
+							return dispatch(_actions2.default.currentUserUpdated(user));
+					},
+					currentUserReceived: function currentUserReceived(user) {
+							return dispatch(_actions2.default.currentUserReceived(user));
+					}
+			};
 	};
 	
 	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(UpdateProfile);

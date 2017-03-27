@@ -59,6 +59,12 @@ var ProfileDetails = function (props) {
       )
     ),
     React.createElement(
+      "h4",
+      null,
+      "Bio: ",
+      props.bio
+    ),
+    React.createElement(
       Link,
       { to: "/" },
       React.createElement(

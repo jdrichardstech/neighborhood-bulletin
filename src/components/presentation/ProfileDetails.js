@@ -11,6 +11,7 @@ const ProfileDetails = (props) => {
       <h3>Image: <img src={props.image} /></h3>
       <h4>Gender: <span style={styles.profile.entry}> {props.gender}</span> </h4>
       <h4>City: <span style={styles.profile.entry}> {props.city}</span></h4>
+			<h4>Bio: {props.bio}</h4>
       <Link to = "/"><button type="" className="btn btn-info">Back</button></Link>
     </div>
   )

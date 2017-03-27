@@ -39,11 +39,9 @@ class Profile extends Component{
               <img src={profile.image} /><br />
               <p>
                 Gender: <span style={styles.profile.entry}>{profile.gender}</span><br />
-              City:<span style={styles.profile.entry}> {profile.city}</span><br /><br />
-
-            <Link to ="/"><button style={{marginRight:15}} type="" className="btn btn-info">Home</button></Link>
-           
-
+              	City:<span style={styles.profile.entry}> {profile.city}</span><br />
+								Bio: {profile.bio}<br />
+	            	<Link to ="/"><button style={{marginRight:15}} type="" className="btn btn-info">Home</button></Link>
               </p>
             </div>
           )

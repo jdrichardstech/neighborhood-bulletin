@@ -20,7 +20,7 @@ class Account extends Component{
   }
 	componentDidMount(){
 		// console.log("account componentDidMount")
-		
+
 		// console.log("USER: " + JSON.stringify(updated))
 	}
 
@@ -209,7 +209,7 @@ clearValues(){
 	          <h3>Hi <span style={{color:'blue'}}><Link to={'/profile/'+ this.props.user.username}>{this.props.user.username}</Link></span></h3>
 						<p>Gender: {this.props.user.gender}</p><br /><br />
 	          <button style={styles.account.button} className="btn btn-danger" onClick={this.logout.bind(this)}>Log Out</button>
-	          &nbsp;<Link to="/updateprofile/"><button style={styles.account.button} className="btn btn-warning" type="">Update Profile</button></Link>
+	          &nbsp;<Link to={'/updateprofile/'+this.props.user.username}><button style={styles.account.button} className="btn btn-warning" type="">Update Profile</button></Link>
 	        </div>
         </div>
       )

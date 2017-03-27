@@ -280,6 +280,21 @@ export default {
 		}
 	},
 
+	deleteComment:(comment) =>{
+		return(dispatch)=>{
+			let endpoint = 'api/comment/'+ comment._id
+			APIManager.delete(endpoint, (err, response)=>{
+				if(err){
+					alert('Comment not deleted' + err.message)
+					return
+				}
+				dispatch({
+					type:constants.COMMENT_UPDATED
+				})
+			})
+		}
+	},
+
 	updateProfile: (profile, updated) => {
 
 		return (dispatch) => {

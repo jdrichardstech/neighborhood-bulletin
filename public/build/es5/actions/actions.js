@@ -274,6 +274,21 @@ module.exports = {
 		};
 	},
 
+	deleteComment: function (comment) {
+		return function (dispatch) {
+			var endpoint = "api/comment/" + comment._id;
+			APIManager["delete"](endpoint, function (err, response) {
+				if (err) {
+					alert("Comment not deleted" + err.message);
+					return;
+				}
+				dispatch({
+					type: constants.COMMENT_UPDATED
+				});
+			});
+		};
+	},
+
 	updateProfile: function (profile, updated) {
 		return function (dispatch) {
 			console.log("UPdate Profile actions:" + JSON.stringify(profile));

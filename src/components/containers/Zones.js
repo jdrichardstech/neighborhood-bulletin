@@ -78,7 +78,7 @@ class Zones extends Component {
 
 		// let update = (this.props.user.username == this.props.list[this.props.selected].username) ? "Button" : "NoButton"
 		 header = 	<div style={styles.zone.container}>
-			 					<h4>Neighborhoods</h4>
+			 						<h4>Neighborhoods</h4>
 										<ul style={styles.zone.ul}>
 											{listItems}
 										</ul>

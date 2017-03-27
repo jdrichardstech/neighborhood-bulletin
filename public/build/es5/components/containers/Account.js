@@ -332,7 +332,7 @@ var Account = (function (Component) {
               " ",
               React.createElement(
                 Link,
-                { to: "/updateprofile/" },
+                { to: "/updateprofile/" + this.props.user.username },
                 React.createElement(
                   "button",
                   { style: styles.account.button, className: "btn btn-warning", type: "" },

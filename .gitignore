@@ -1,3 +1,5 @@
-/public/theme
+/public/material
+/public/eventually
 /node_modules/
 .env
+/views/scratch

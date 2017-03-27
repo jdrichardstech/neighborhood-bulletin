@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#333">
+    <title>Neighborhood Bulletin Board</title>
+    <meta name="description" content="Material Style Theme">
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="assets/css/preload.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins.min.css" />
+    <link rel="stylesheet" href="assets/css/style.light-blue-500.min.css" />
+    <!--[if lt IE 9]>
+        <script src="assets/js/html5shiv.min.js"></script>
+        <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="ms-preload" class="ms-preload">
+      <div id="status">
+        <div class="spinner">
+          <div class="dot1"></div>
+          <div class="dot2"></div>
+        </div>
+      </div>
+    </div>
+    <div class="sb-site-container" style="background:#BCDCF5">
+      <!-- Modal -->
+      <div class="modal modal-primary" id="ms-account-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog animated zoomIn animated-3x" role="document">
+          <div class="modal-content">
+            <div class="modal-header shadow-2dp no-pb">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">
+                  <i class="zmdi zmdi-close"></i>
+                </span>
+              </button>
+              <div class="modal-title text-center">
+                <span class="ms-logo ms-logo-white ms-logo-sm mr-1">JD</span>
+                <h3 class="no-m ms-site-title">Neighborhood
+                  <span>Bulletin Board</span>
+                </h3>
+              </div>
+              <div class="modal-header-tabs">
+                <ul class="nav nav-tabs nav-tabs-full nav-tabs-3 nav-tabs-primary" role="tablist">
+                  <li role="presentation" class="active">
+                    <a href="#ms-login-tab" aria-controls="ms-login-tab" role="tab" data-toggle="tab" class="withoutripple">
+                      <i class="zmdi zmdi-account"></i> Login</a>
+                  </li>
+                  <li role="presentation">
+                    <a href="#ms-register-tab" aria-controls="ms-register-tab" role="tab" data-toggle="tab" class="withoutripple">
+                      <i class="zmdi zmdi-account-add"></i> Register</a>
+                  </li>
+                  <li role="presentation">
+                    <a href="#ms-recovery-tab" aria-controls="ms-recovery-tab" role="tab" data-toggle="tab" class="withoutripple">
+                      <i class="zmdi zmdi-key"></i> Recovery Pass</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="modal-body">
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="ms-login-tab">
+                  <form autocomplete="off">
+                    <fieldset>
+                      <div class="form-group label-floating">
+                        <div class="input-group">
+                          <span class="input-group-addon">
+                            <i class="zmdi zmdi-account"></i>
+                          </span>
+                          <label class="control-label" for="ms-form-user">Username</label>
+                          <input type="text" id="ms-form-user" class="form-control"> </div>
+                      </div>
+                      <div class="form-group label-floating">
+                        <div class="input-group">
+                          <span class="input-group-addon">
+                            <i class="zmdi zmdi-lock"></i>
+                          </span>
+                          <label class="control-label" for="ms-form-pass">Password</label>
+                          <input type="password" id="ms-form-pass" class="form-control"> </div>
+                      </div>
+                      <div class="row mt-2">
+                        <div class="col-md-6">
+                          <div class="form-group no-mt">
+                            <div class="checkbox">
+                              <label>
+                                <input type="checkbox"> Remember Me </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <button class="btn btn-raised btn-primary pull-right">Login</button>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </form>
+                  <div class="text-center">
+                    <h3>Login with</h3>
+                    <a href="javascript:void(0)" class="wave-effect-light btn btn-raised btn-facebook">
+                      <i class="zmdi zmdi-facebook"></i> Facebook</a>
+                    <a href="javascript:void(0)" class="wave-effect-light btn btn-raised btn-twitter">
+                      <i class="zmdi zmdi-twitter"></i> Twitter</a>
+                    <a href="javascript:void(0)" class="wave-effect-light btn btn-raised btn-google">
+                      <i class="zmdi zmdi-google"></i> Google</a>
+                  </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="ms-register-tab">
+                  <form>
+                    <fieldset>
+                      <div class="form-group label-floating">
+                        <div class="input-group">
+                          <span class="input-group-addon">
+                            <i class="zmdi zmdi-account"></i>
+                          </span>
+                          <label class="control-label" for="ms-form-user">Username</label>
+                          <input type="text" id="ms-form-user" class="form-control"> </div>
+                      </div>
+                      <div class="form-group label-floating">
+                        <div class="input-group">
+                          <span class="input-group-addon">
+                            <i class="zmdi zmdi-email"></i>
+                          </span>
+                          <label class="control-label" for="ms-form-email">Email</label>
+                          <input type="email" id="ms-form-email" class="form-control"> </div>
+                      </div>
+                      <div class="form-group label-floating">
+                        <div class="input-group">
+                          <span class="input-group-addon">
+                            <i class="zmdi zmdi-lock"></i>
+                          </span>
+                          <label class="control-label" for="ms-form-pass">Password</label>
+                          <input type="password" id="ms-form-pass" class="form-control"> </div>
+                      </div>
+                      <div class="form-group label-floating">
+                        <div class="input-group">
+                          <span class="input-group-addon">
+                            <i class="zmdi zmdi-lock"></i>
+                          </span>
+                          <label class="control-label" for="ms-form-pass">Re-type Password</label>
+                          <input type="password" id="ms-form-pass" class="form-control"> </div>
+                      </div>
+                      <button class="btn btn-raised btn-block btn-primary">Register Now</button>
+                    </fieldset>
+                  </form>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="ms-recovery-tab">
+                  <fieldset>
+                    <div class="form-group label-floating">
+                      <div class="input-group">
+                        <span class="input-group-addon">
+                          <i class="zmdi zmdi-account"></i>
+                        </span>
+                        <label class="control-label" for="ms-form-user">Username</label>
+                        <input type="text" id="ms-form-user" class="form-control"> </div>
+                    </div>
+                    <div class="form-group label-floating">
+                      <div class="input-group">
+                        <span class="input-group-addon">
+                          <i class="zmdi zmdi-email"></i>
+                        </span>
+                        <label class="control-label" for="ms-form-email">Email</label>
+                        <input type="email" id="ms-form-email" class="form-control"> </div>
+                    </div>
+										<a href="#">Download your profile photo</a>
+                    <button class="btn btn-raised btn-block btn-primary">Send Password</button>
+                  </fieldset>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <header class="ms-header ms-header-white">
+        <div class="container container-full">
+          <div class="ms-title">
+            <a href="index.html">
+              <!-- <img src="assets/img/demo/logo-header.png" alt=""> -->
+              <span class="ms-logo animated zoomInDown animation-delay-5">JD</span>
+              <h1 class="animated fadeInRight animation-delay-6">Neighborhood
+                <span>Bulletin Board</span>
+              </h1>
+            </a>
+          </div>
+
+        </div>
+      </header>
+      <nav class="navbar navbar-static-top yamm ms-navbar ms-navbar-primary">
+        <div class="container container-full">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">
+              <!-- <img src="assets/img/demo/logo-navbar.png" alt=""> -->
+              <span class="ms-logo ms-logo-sm">JD</span>
+              <span class="ms-title">Neighborhood
+                <strong>Bulletin Board</strong>
+              </span>
+            </a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+
+          </div>
+          <!-- navbar-collapse collapse -->
+
+        </div>
+        <!-- container -->
+      </nav>
+      <div class="ms-hero-page-override ms-hero-img-city ms-hero-bg-dark-light">
+        <div class="container">
+          <div class="text-center">
+            <span class="ms-logo ms-logo-lg ms-logo-white center-block mb-2 mt-2 animated zoomInDown animation-delay-5">JD</span>
+            <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5">Neighborhood
+              <span>Bulletin Board</span>
+            </h1>
+            <p  class="lead lead-lg color-white text-center center-block mt-2 mw-800 text-uppercase fw-500 animated fadeInUp animation-delay-7">Share and discover happenings and observances in your neighborhood
+              Please register or Login<br /> <span style="text-transform:lowercase" class="color-warning"> (feel free to login with -- username: jd &amp; password:123 -- if you like)</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="card card-hero card-primary animated fadeInUp animation-delay-7">
+              <div class="card-block">
+                <h1 class="color-primary text-center">Login</h1>
+                <form class="form-horizontal">
+                  <fieldset>
+                    <div class="form-group">
+                      <label for="inputEmail" class="col-md-2 control-label">Email</label>
+                      <div class="col-md-10">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email"> </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputPassword" class="col-md-2 control-label">Password</label>
+                      <div class="col-md-10">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password"> </div>
+                    </div>
+
+                  </fieldset>
+									<button class="btn btn-raised btn-primary btn-block">Login
+										<i class="zmdi zmdi-long-arrow-right no-mr ml-1"></i>
+									</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="margin-top:130px;" class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<div class="card card-hero card-primary animated fadeInUp animation-delay-9">
+						<div class="card-block">
+									<h2 class="color-primary text-center">Register</h2>
+										<fieldset>
+											<div class="form-group label-floating">
+												<div class="input-group">
+													<span class="input-group-addon">
+														<i class="zmdi zmdi-account"></i>
+													</span>
+													<label class="control-label" for="ms-form-user">Username</label>
+													<input type="text" id="ms-form-user" class="form-control"> </div>
+											</div>
+
+											<div class="form-group label-floating">
+												<div class="input-group">
+													<span class="input-group-addon">
+														<i class="zmdi zmdi-lock"></i>
+													</span>
+													<label class="control-label" for="ms-form-pass">Password</label>
+													<input type="password" id="ms-form-pass" class="form-control"> </div>
+											</div>
+											<div class="form-group label-floating">
+												<div class="input-group">
+													<span class="input-group-addon">
+														<i class="zmdi zmdi-male-female"></i>
+													</span>
+													<label class="control-label" for="ms-form-email">Gender</label>
+													<input type="email" id="ms-form-email" class="form-control"> </div>
+											</div>
+											<div class="form-group label-floating">
+												<div class="input-group">
+													<span class="input-group-addon">
+														<i class="zmdi zmdi-city"></i>
+													</span>
+													<label class="control-label" for="ms-form-pass">City</label>
+													<input type="password" id="ms-form-pass" class="form-control"> </div>
+											</div>
+											<div class="form-group label-floating">
+												<div class="input-group">
+													<span class="input-group-addon">
+														<i class="zmdi zmdi-puzzle-piece"></i>
+													</span>
+													<label class="control-label" for="ms-form-pass">Short Bio</label>
+													<input type="text" id="ms-form-pass" class="form-control"> </div>
+											</div>
+											<div class="form-group label-floating">
+												<div class="input-group">
+													<span class="input-group-addon">
+														<i class="zmdi zmdi-camera"></i>
+													</span>
+													<a href="#">Add your profile image</a>
+													 </div>
+											</div>
+											<button class="btn btn-raised btn-block btn-primary">Register Now</button>
+										</fieldset>
+									 </form>
+								 </div>
+							 </div>
+						 </div>
+					 </div>
+              </div>
+
+      <!-- container -->
+
+      <footer class="ms-footer">
+        <div class="container">
+          <p>Copyright &copy; JDRicardsTech 2017</p>
+        </div>
+      </footer>
+      <div class="btn-back-top">
+        <a href="#" data-scroll id="back-top" class="btn-circle btn-circle-primary btn-circle-sm btn-circle-raised ">
+          <i class="zmdi zmdi-long-arrow-up"></i>
+        </a>
+      </div>
+    </div>
+    <!-- sb-site-container -->
+
+    <script src="assets/js/plugins.min.js"></script>
+    <script src="assets/js/app.min.js"></script>
+  </body>
+</html>
