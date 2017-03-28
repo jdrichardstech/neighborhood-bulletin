@@ -6,7 +6,8 @@
               <div className="card-block">
                 <div className="row">
                   <div className="col-lg-6">
-                    <img src="assets/img/demo/post4.jpg" alt="" className="img-responsive mb-4"> </div>
+                    <img src="assets/img/demo/post4.jpg" alt="" className="img-responsive mb-4">
+									</div>
                   <div className="col-lg-6">
                     <h3 className="no-mt">
                       <a href="javascript:void(0)">Earum delectus libero ipsa temporibus in minus</a>
@@ -188,18 +189,6 @@
               <div className="card-block pt-4 text-center">
                 <h3 className="color-primary">About me</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur alter adipisicing elit. Facilis, natuse inse voluptates officia repudiandae beatae magni es magnam autem molestias.</p>
-                <a href="javascript:void(0)" className="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-google">
-                  <i className="zmdi zmdi-google"></i>
-                </a>
-                <a href="javascript:void(0)" className="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook">
-                  <i className="zmdi zmdi-facebook"></i>
-                </a>
-                <a href="javascript:void(0)" className="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-twitter">
-                  <i className="zmdi zmdi-twitter"></i>
-                </a>
-                <a href="javascript:void(0)" className="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-instagram">
-                  <i className="zmdi zmdi-instagram"></i>
-                </a>
               </div>
             </div>
             <div className="card card-primary animated fadeInUp animation-delay-7">
@@ -238,7 +227,7 @@
                       <div className="media">
                         <div className="media-left media-middle">
                           <a href="#">
-                            <img className="media-object media-object-circle" src="assets/img/demo/p75.jpg" alt="..."> </a>
+                            <img className="media-object media-object-circle" src="/material/assets/img/demo/p75.jpg" alt="..." /> </a>
                         </div>
                         <div className="media-body">
                           <a href="javascript:void(0)" className="media-heading">Lorem ipsum dolor sit amet in consectetur adipisicing</a>

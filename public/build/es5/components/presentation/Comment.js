@@ -180,7 +180,7 @@ var Comment = (function (Component) {
 								{ onDrop: this.grabImage.bind(this) },
 								React.createElement(
 									"div",
-									{ style: { width: 150, height: 150, border: "1px groove #D0D3DB", borderRadius: 5, margin: "25px auto", padding: 30 } },
+									{ style: { width: 150, height: 150, border: "1px inset #D0D3DB", borderRadius: 5, margin: "15px auto", padding: 30 } },
 									React.createElement(
 										"center",
 										null,

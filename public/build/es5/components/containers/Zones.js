@@ -104,7 +104,7 @@ var Zones = (function (Component) {
 						var selected = i == _this.props.selected;
 						return React.createElement(
 							"li",
-							{ key: i },
+							{ style: { marginTop: 15 }, role: "presentation", key: i },
 							React.createElement(Zone, { index: i, username: _this.props.user.username, select: _this.selectZone.bind(_this), isSelected: selected, currentZone: zone })
 						);
 					});
@@ -113,18 +113,56 @@ var Zones = (function (Component) {
 					// let update = (this.props.user.username == this.props.list[this.props.selected].username) ? "Button" : "NoButton"
 					header = React.createElement(
 						"div",
-						{ style: styles.zone.container },
+						null,
 						React.createElement(
-							"h4",
+							"div",
 							null,
-							"Neighborhoods"
+							React.createElement(
+								"div",
+								{ className: "card card-primary animated fadeInUp animation-delay-7" },
+								React.createElement(
+									"div",
+									{ className: "card-header" },
+									React.createElement(
+										"h3",
+										{ className: "card-title" },
+										React.createElement("i", { className: "zmdi zmdi-apps" }),
+										" Neighborhoods"
+									)
+								),
+								React.createElement(
+									"div",
+									{ className: "tab-content" },
+									React.createElement(
+										"div",
+										{ role: "tabpanel", className: "tab-pane fade active in", id: "favorite" },
+										React.createElement(
+											"div",
+											{ className: "card-block" },
+											React.createElement(
+												"h4",
+												null,
+												"Select Neighborhood to view comments"
+											),
+											React.createElement(
+												"div",
+												{ className: "ms-media-list" },
+												React.createElement(
+													"ul",
+													{ style: { listStyle: "none" } },
+													listItems
+												)
+											)
+										)
+									)
+								)
+							)
 						),
 						React.createElement(
-							"ul",
-							{ style: styles.zone.ul },
-							listItems
-						),
-						React.createElement(CreateZone, { onCreate: this.addZone.bind(this) })
+							"div",
+							{ style: { background: "white" } },
+							React.createElement(CreateZone, { onCreate: this.addZone.bind(this) })
+						)
 					);
 				} else {
 					header = React.createElement("div", null);

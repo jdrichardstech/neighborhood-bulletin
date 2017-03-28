@@ -66,13 +66,13 @@ class CreateComment extends Component {
 				<h4>Create Comment</h4>
 				<div className="row">
 					<div className="col-md-12">
-						<input onChange={this.updateComment.bind(this)} id="body" className="form-control" type="text" placeholder="Comment" /><br />
+						<input onChange={this.updateComment.bind(this)} id="body" className="form-control" type="text" placeholder="Add New Comment" /><br />
 					</div>
 				</div>
 			<div className="row">
 				<div className="col-md-6">
-					<DropZone  onDrop={this.grabImage.bind(this)} >
-						<div style={{width:150, height:150, border:'1px groove #E6E7F5',borderRadius:5, margin:'25px auto',padding:30}}><center><a href="#">Click here <br /> or drag and drop your image in this box</a></center></div>
+					<DropZone id="dropzoneSpot" style={{border:'1px solid white'}} onDrop={this.grabImage.bind(this)} >
+						<div style={{width:150, height:150, border:'1px inset #E6E7F5',borderRadius:5, margin:'25px auto',padding:10}}><center><a href="#dropzoneSpot">To Upload Image <br /> Click or drag and drop here</a></center></div>
 
 					</DropZone><br />
 				</div>
@@ -80,7 +80,7 @@ class CreateComment extends Component {
 					<br /><br />{newImage} <br />
 				</div>
 			</div>
-	
+
 				<button onClick={this.submitComment.bind(this)} className="btn btn-info">Submit Comment</button>
 
 		</div>

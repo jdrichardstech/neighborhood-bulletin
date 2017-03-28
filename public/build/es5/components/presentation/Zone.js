@@ -41,15 +41,8 @@ var Zone = (function (Component) {
 			value: function render() {
 				var zoneStyle = styles.zone;
 				var zipCode = this.props.currentZone.zipCodes[0];
-				var title = this.props.isSelected ? React.createElement(
-					"a",
-					{ style: zoneStyle.title, href: "#" },
-					this.props.currentZone.name
-				) : React.createElement(
-					"a",
-					{ href: "#" },
-					this.props.currentZone.name
-				);
+
+
 				var button = this.props.currentZone.username == this.props.username ? React.createElement(
 					Link,
 					{ to: "/updatezone/" + this.props.currentZone._id },
@@ -62,16 +55,40 @@ var Zone = (function (Component) {
 				) : null;
 				return React.createElement(
 					"div",
-					{ style: styles.zone.li },
+					null,
 					React.createElement(
-						"h4",
-						{ onClick: this.onSelectTitle.bind(this), style: zoneStyle.header },
-						title
-					),
-					React.createElement(
-						"span",
-						{ className: "detail" },
-						zipCode
+						"div",
+						{ className: "media" },
+						React.createElement(
+							"div",
+							{ className: "media-left media-middle" },
+							React.createElement(
+								"a",
+								{ onClick: this.onSelectTitle.bind(this), href: "#" },
+								React.createElement("img", { className: "media-object media-object-circle", src: "/images/zonePin1.jpg", alt: "..." }),
+								" "
+							)
+						),
+						React.createElement(
+							"div",
+							{ className: "media-body", style: { padding: "20px 0 0 10px" } },
+							React.createElement(
+								"a",
+								{ style: { fontSize: "1.2em" }, onClick: this.onSelectTitle.bind(this), href: "javascript:void(0)", className: "media-heading" },
+								this.props.currentZone.name
+							),
+							React.createElement(
+								"div",
+								{ className: "media-footer text-medium" },
+								React.createElement(
+									"span",
+									{ className: "mr-1" },
+									React.createElement("i", { className: "zmdi zmdi-city-alt color-default mr-05" }),
+									" ",
+									zipCode
+								)
+							)
+						)
 					)
 				);
 			},

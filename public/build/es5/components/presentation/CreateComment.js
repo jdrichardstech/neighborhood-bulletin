@@ -101,7 +101,7 @@ var CreateComment = (function (Component) {
 						React.createElement(
 							"div",
 							{ className: "col-md-12" },
-							React.createElement("input", { onChange: this.updateComment.bind(this), id: "body", className: "form-control", type: "text", placeholder: "Comment" }),
+							React.createElement("input", { onChange: this.updateComment.bind(this), id: "body", className: "form-control", type: "text", placeholder: "Add New Comment" }),
 							React.createElement("br", null)
 						)
 					),
@@ -113,19 +113,19 @@ var CreateComment = (function (Component) {
 							{ className: "col-md-6" },
 							React.createElement(
 								DropZone,
-								{ onDrop: this.grabImage.bind(this) },
+								{ id: "dropzoneSpot", style: { border: "1px solid white" }, onDrop: this.grabImage.bind(this) },
 								React.createElement(
 									"div",
-									{ style: { width: 150, height: 150, border: "1px groove #E6E7F5", borderRadius: 5, margin: "25px auto", padding: 30 } },
+									{ style: { width: 150, height: 150, border: "1px inset #E6E7F5", borderRadius: 5, margin: "25px auto", padding: 10 } },
 									React.createElement(
 										"center",
 										null,
 										React.createElement(
 											"a",
-											{ href: "#" },
-											"Click here ",
+											{ href: "#dropzoneSpot" },
+											"To Upload Image ",
 											React.createElement("br", null),
-											" or drag and drop your image in this box"
+											" Click or drag and drop here"
 										)
 									)
 								)

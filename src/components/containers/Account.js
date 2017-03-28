@@ -290,20 +290,23 @@ clearValues(){
 
 							 <div className="card animated fadeInUp animation-delay-7">
 								 <div className="ms-hero-bg-info ms-hero-img-mountain">
-									 <h3 className="color-white index-1 text-center no-m pt-4"><Link to={'/profile/'+ this.props.user.username}>{this.props.user.username}</Link></h3>
-									 <img src={this.props.user.image} alt="..." className="img-avatar-circle" /> </div>
+									 <h3  className="color-white index-1 text-center no-m pt-4" style={{fontWeight:300,fontSize:'2.3em'}}><Link style={{color:'white'}} to={'/profile/'+ this.props.user.username}>{this.props.user.username.toUpperCase()}</Link></h3>
+									 <Link to={'/profile/'+ this.props.user.username}><img src={this.props.user.image} alt="..." className="img-avatar-circle" /></Link> </div>
 								 <div className="card-block pt-4 text-center">
 									 <h3 className="color-primary">About me</h3>
 									 <p>Gender: {this.props.user.gender}</p>
 									 <p>City: {this.props.user.city}</p>
 									 <p>Bio: {this.props.user.bio}</p>
-									 <button  className="btn btn-default" onClick={this.logout.bind(this)}>Log Out</button>
-									 &nbsp;<Link to={'/updateprofile/'+this.props.user.username}><button  className="btn btn-default" type="">Update Profile</button></Link>
+
+									 &nbsp;
+								 	<Link to={'/updateprofile/'+this.props.user.username}>
+										<a href='#'className="btn btn-raised btn-danger"><i className="zmdi zmdi-account-box-o"></i>Update Profile</a>
+								 	</Link><br />
+								<a style={{fontSize:'1em'}} className="pull-right" href="#" onClick={this.logout.bind(this)}>Logout</a><br />
 								 </div>
 							 </div>
 								<Zones />
 						 </div>
-
 					 </div>
 					</div>
 					<Footer />

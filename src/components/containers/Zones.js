@@ -69,22 +69,42 @@ class Zones extends Component {
 		 listItems = this.props.list.map((zone, i) => {
 			let selected = (i==this.props.selected)
 			return (
-				<li key={i}>
+				<li style={{marginTop:15}} role="presentation" key={i}>
 					<Zone index={i} username={this.props.user.username} select={this.selectZone.bind(this)} isSelected={selected} currentZone={zone} />
 				</li>
+
+
 			)
 		})
 
 
 		// let update = (this.props.user.username == this.props.list[this.props.selected].username) ? "Button" : "NoButton"
-		 header = 	<div style={styles.zone.container}>
-			 						<h4>Neighborhoods</h4>
-										<ul style={styles.zone.ul}>
-											{listItems}
-										</ul>
-
-										<CreateZone  onCreate={this.addZone.bind(this)} />
+		 header = 	<div>
+			 						<div>
+				 						<div className="card card-primary animated fadeInUp animation-delay-7">
+											<div className="card-header">
+												<h3 className="card-title">
+													<i className="zmdi zmdi-apps"></i> Neighborhoods</h3>
+											</div>
+											<div className="tab-content">
+				                <div role="tabpanel" className="tab-pane fade active in" id="favorite">
+				                  <div className="card-block">
+														<h4>Select Neighborhood to view comments</h4>
+				                    <div className="ms-media-list">
+															<ul style={{listStyle:'none'}}>
+																{listItems}
+															</ul>
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
+								</div>
+								<div style={{background:'white'}}>
+									<CreateZone  onCreate={this.addZone.bind(this)} />
+								</div>
+
+						</div>
 	}else{
 		header = <div>
 

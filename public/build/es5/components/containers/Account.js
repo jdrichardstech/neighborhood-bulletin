@@ -522,14 +522,18 @@ var Account = (function (Component) {
 												{ className: "ms-hero-bg-info ms-hero-img-mountain" },
 												React.createElement(
 													"h3",
-													{ className: "color-white index-1 text-center no-m pt-4" },
+													{ className: "color-white index-1 text-center no-m pt-4", style: { fontWeight: 300, fontSize: "2.3em" } },
 													React.createElement(
 														Link,
-														{ to: "/profile/" + this.props.user.username },
-														this.props.user.username
+														{ style: { color: "white" }, to: "/profile/" + this.props.user.username },
+														this.props.user.username.toUpperCase()
 													)
 												),
-												React.createElement("img", { src: this.props.user.image, alt: "...", className: "img-avatar-circle" }),
+												React.createElement(
+													Link,
+													{ to: "/profile/" + this.props.user.username },
+													React.createElement("img", { src: this.props.user.image, alt: "...", className: "img-avatar-circle" })
+												),
 												" "
 											),
 											React.createElement(
@@ -558,21 +562,24 @@ var Account = (function (Component) {
 													"Bio: ",
 													this.props.user.bio
 												),
-												React.createElement(
-													"button",
-													{ className: "btn btn-default", onClick: this.logout.bind(this) },
-													"Log Out"
-												),
 												" ",
 												React.createElement(
 													Link,
 													{ to: "/updateprofile/" + this.props.user.username },
 													React.createElement(
-														"button",
-														{ className: "btn btn-default", type: "" },
+														"a",
+														{ href: "#", className: "btn btn-raised btn-danger" },
+														React.createElement("i", { className: "zmdi zmdi-account-box-o" }),
 														"Update Profile"
 													)
-												)
+												),
+												React.createElement("br", null),
+												React.createElement(
+													"a",
+													{ style: { fontSize: "1em" }, className: "pull-right", href: "#", onClick: this.logout.bind(this) },
+													"Logout"
+												),
+												React.createElement("br", null)
 											)
 										),
 										React.createElement(Zones, null)

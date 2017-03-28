@@ -105,7 +105,7 @@ grabImage(files){
 			<div className="col-md-6">
 		<label>Edit Image</label>
 	 <DropZone onDrop={this.grabImage.bind(this)} >
-			 <div style={{width:150, height:150, border:'1px groove #D0D3DB',borderRadius:5, margin:'25px auto',padding:30}}><center><a href="#">Click here <br /> or drag and drop your image in this box</a></center></div>
+			 <div style={{width:150, height:150, border:'1px inset #D0D3DB',borderRadius:5, margin:'15px auto',padding:30}}><center><a href="#">Click here <br /> or drag and drop your image in this box</a></center></div>
 			 </DropZone> <br />
 			 <br />
 			 </div>
