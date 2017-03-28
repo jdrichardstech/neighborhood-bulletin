@@ -216,8 +216,8 @@ clearValues(){
 								<h1 className="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5">Neighborhood
 									<span>Bulletin Board</span>
 								</h1>
-								<p  className="lead lead-lg color-white text-center center-block mt-2 mw-800 text-uppercase fw-500 animated fadeInUp animation-delay-7">Share and discover happenings and observances in your neighborhood
-									Please register or Login<br /> <span style={{textTransform:'lowercase'}} className="color-warning"> (feel free to login with -- username: jd &amp; password:123 -- if you like)</span></p>
+								<p  className="lead lead-lg color-white text-center center-block mt-2 mw-800 text-uppercase fw-500 animated fadeInUp animation-delay-7">Share and discover happenings and observances in your neighborhood Please register or Login<br /><br />
+								 </p>
 							</div>
 						</div>
 					</div>
@@ -227,6 +227,7 @@ clearValues(){
 								<div className="card card-hero card-primary animated fadeInUp animation-delay-7">
 									<div className="card-block">
 										<h1 className="color-primary text-center">Login</h1>
+										<center><span style={{fontSize:'.9em',textAlign:'center',color:'#9e9e9e'}} > If you do not want to register...feel free to login with<br />username: jd&nbsp;&nbsp;&nbsp;password:123</span></center>	
 										<form className="form-horizontal">
 											<fieldset>
 												<div className="form-group">

@@ -22033,12 +22033,7 @@
 											{ className: 'lead lead-lg color-white text-center center-block mt-2 mw-800 text-uppercase fw-500 animated fadeInUp animation-delay-7' },
 											'Share and discover happenings and observances in your neighborhood Please register or Login',
 											_react2.default.createElement('br', null),
-											' ',
-											_react2.default.createElement(
-												'span',
-												{ style: { textTransform: 'lowercase' }, className: 'color-warning' },
-												' (feel free to login with -- username: jd & password:123 -- if you like)'
-											)
+											_react2.default.createElement('br', null)
 										)
 									)
 								)
@@ -22062,6 +22057,17 @@
 													'h1',
 													{ className: 'color-primary text-center' },
 													'Login'
+												),
+												_react2.default.createElement(
+													'center',
+													null,
+													_react2.default.createElement(
+														'span',
+														{ style: { fontSize: '.9em', textAlign: 'center', color: '#9e9e9e' } },
+														' If you do not want to register...feel free to login with',
+														_react2.default.createElement('br', null),
+														'username: jd\xA0\xA0\xA0password:123'
+													)
 												),
 												_react2.default.createElement(
 													'form',

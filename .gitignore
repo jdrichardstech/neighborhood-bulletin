@@ -2,5 +2,6 @@
 /public/eventually
 /node_modules/
 .env
-/views/scratch
+/views/scratch.hjs
 /public/assets2
+/public/mypages
