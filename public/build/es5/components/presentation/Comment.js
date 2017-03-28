@@ -36,7 +36,9 @@ var Comment = (function (Component) {
 
 	_prototypeProperties(Comment, null, {
 		componentDidMount: {
-			value: function componentDidMount() {},
+			value: function componentDidMount() {
+				console.log("Comment ID: " + this.props.currentComment._id);
+			},
 			writable: true,
 			configurable: true
 		},
@@ -285,4 +287,3 @@ var Comment = (function (Component) {
 })(Component);
 
 module.exports = Comment;
-// console.log("Comment ID: " + this.props.currentComment._id)

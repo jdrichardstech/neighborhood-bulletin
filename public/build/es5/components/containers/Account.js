@@ -505,49 +505,8 @@ var Account = (function (Component) {
 								{ className: "container" },
 								React.createElement(
 									"div",
-									{ className: "row" },
-									React.createElement(
-										"div",
-										{ className: "col-md-12" },
-										React.createElement("img", { style: { borderRadius: 36, float: "left", marginRight: 12 }, src: ImageHelper.thumbnail(this.props.user.image, 72) }),
-										React.createElement(
-											"h3",
-											null,
-											"Hi ",
-											React.createElement(
-												"span",
-												{ style: { color: "blue" } },
-												React.createElement(
-													Link,
-													{ to: "/profile/" + this.props.user.username },
-													this.props.user.username
-												)
-											)
-										),
-										React.createElement(
-											"p",
-											null,
-											"Gender: ",
-											this.props.user.gender
-										),
-										React.createElement("br", null),
-										React.createElement("br", null),
-										React.createElement(
-											"button",
-											{ style: styles.account.button, className: "btn btn-danger", onClick: this.logout.bind(this) },
-											"Log Out"
-										),
-										" ",
-										React.createElement(
-											Link,
-											{ to: "/updateprofile/" + this.props.user.username },
-											React.createElement(
-												"button",
-												{ style: styles.account.button, className: "btn btn-warning", type: "" },
-												"Update Profile"
-											)
-										)
-									)
+									{ className: "col-md-8" },
+									React.createElement(Comments, null)
 								),
 								React.createElement(
 									"div",
@@ -555,12 +514,68 @@ var Account = (function (Component) {
 									React.createElement(
 										"div",
 										{ className: "col-md-4" },
+										React.createElement(
+											"div",
+											{ className: "card animated fadeInUp animation-delay-7" },
+											React.createElement(
+												"div",
+												{ className: "ms-hero-bg-info ms-hero-img-mountain" },
+												React.createElement(
+													"h3",
+													{ className: "color-white index-1 text-center no-m pt-4" },
+													React.createElement(
+														Link,
+														{ to: "/profile/" + this.props.user.username },
+														this.props.user.username
+													)
+												),
+												React.createElement("img", { src: this.props.user.image, alt: "...", className: "img-avatar-circle" }),
+												" "
+											),
+											React.createElement(
+												"div",
+												{ className: "card-block pt-4 text-center" },
+												React.createElement(
+													"h3",
+													{ className: "color-primary" },
+													"About me"
+												),
+												React.createElement(
+													"p",
+													null,
+													"Gender: ",
+													this.props.user.gender
+												),
+												React.createElement(
+													"p",
+													null,
+													"City: ",
+													this.props.user.city
+												),
+												React.createElement(
+													"p",
+													null,
+													"Bio: ",
+													this.props.user.bio
+												),
+												React.createElement(
+													"button",
+													{ className: "btn btn-default", onClick: this.logout.bind(this) },
+													"Log Out"
+												),
+												" ",
+												React.createElement(
+													Link,
+													{ to: "/updateprofile/" + this.props.user.username },
+													React.createElement(
+														"button",
+														{ className: "btn btn-default", type: "" },
+														"Update Profile"
+													)
+												)
+											)
+										),
 										React.createElement(Zones, null)
-									),
-									React.createElement(
-										"div",
-										{ className: "col-md-8" },
-										React.createElement(Comments, null)
 									)
 								)
 							),

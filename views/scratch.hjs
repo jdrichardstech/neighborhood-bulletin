@@ -1,313 +1,576 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#333">
-    <title>Neighborhood Bulletin Board</title>
-    <meta name="description" content="JDRichardsTech Portfolio Bulletin Board">
-    <link rel="shortcut icon" href="../images/favicon.ico">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="assets/css/preload.min.css" />
-    <link rel="stylesheet" href="assets/css/plugins.min.css" />
-    <link rel="stylesheet" href="assets/css/style.light-blue-500.min.css" />
-    <!--[if lt IE 9]>
-        <script src="assets/js/html5shiv.min.js"></script>
-        <script src="assets/js/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div id="ms-preload" className="ms-preload">
-      <div id="status">
-        <div className="spinner">
-          <div className="dot1"></div>
-          <div className="dot2"></div>
-        </div>
-      </div>
-    </div>
-    <div className="sb-site-container" style={{background:'#BCDCF5'}}>
 
-      <div className="modal modal-primary" id="ms-account-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div className="modal-dialog animated zoomIn animated-3x" role="document">
-          <div className="modal-content">
-            <div className="modal-header shadow-2dp no-pb">
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">
-                  <i className="zmdi zmdi-close"></i>
-                </span>
-              </button>
-              <div className="modal-title text-center">
-                <span className="ms-logo ms-logo-white ms-logo-sm mr-1">JD</span>
-                <h3 className="no-m ms-site-title">Neighborhood
-                  <span>Bulletin Board</span>
-                </h3>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-8">
+            <article className="card wow fadeInLeft animation-delay-5 mb-4">
+              <div className="card-block">
+                <div className="row">
+                  <div className="col-lg-6">
+                    <img src="assets/img/demo/post4.jpg" alt="" className="img-responsive mb-4"> </div>
+                  <div className="col-lg-6">
+                    <h3 className="no-mt">
+                      <a href="javascript:void(0)">Earum delectus libero ipsa temporibus in minus</a>
+                    </h3>
+                    <p className="mb-4">Lorem ipsum dolor sit amet, consectetur alter adipisicing elit. Facilis, natuse inse voluptates officia repudianda beatae magni es repudiandae beatae magni magnam autem natuse inse on voluptates elit sit molestias.</p>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-lg-8">
+                    <img src="assets/img/demo/avatar50.jpg" alt="..." className="img-circle mr-1"> by
+                    <a href="javascript:void(0)">Victoria</a> in
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-info">Design</a>
+                    <span className="ml-1 hidden-xs">
+                      <i className="zmdi zmdi-time mr-05 color-info"></i>
+                      <span className="color-medium-dark">April 15, 2015</span>
+                    </span>
+                  </div>
+                  <div className="col-lg-4 text-right">
+                    <a href="javascript:void(0)" className="btn btn-primary btn-raised btn-block animate-icon">Read More
+                      <i className="ml-1 no-mr zmdi zmdi-long-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div className="modal-header-tabs">
-                <ul className="nav nav-tabs nav-tabs-full nav-tabs-3 nav-tabs-primary" role="tablist">
+            </article>
+            <article className="card wow fadeInLeft animation-delay-5 mb-4">
+              <div className="card-block">
+                <div className="row">
+                  <div className="col-lg-6">
+                    <img src="assets/img/demo/post5.jpg" alt="" className="img-responsive mb-4"> </div>
+                  <div className="col-lg-6">
+                    <h3 className="no-mt">
+                      <a href="javascript:void(0)">Earum delectus libero ipsa temporibus in minus</a>
+                    </h3>
+                    <p className="mb-4">Lorem ipsum dolor sit amet, consectetur alter adipisicing elit. Facilis, natuse inse voluptates officia repudianda beatae magni es repudiandae beatae magni magnam autem natuse inse on voluptates elit sit molestias.</p>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-lg-8">
+                    <img src="assets/img/demo/avatar50.jpg" alt="..." className="img-circle mr-1"> by
+                    <a href="javascript:void(0)">Victoria</a> in
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-warning">Graphics</a>
+                    <span className="ml-1 hidden-xs">
+                      <i className="zmdi zmdi-time mr-05 color-info"></i>
+                      <span className="color-medium-dark">January 27, 2016</span>
+                    </span>
+                  </div>
+                  <div className="col-lg-4 text-right">
+                    <a href="javascript:void(0)" className="btn btn-primary btn-raised btn-block animate-icon">Read More
+                      <i className="ml-1 no-mr zmdi zmdi-long-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article className="card wow fadeInLeft animation-delay-5 mb-4">
+              <div className="card-block">
+                <div className="row">
+                  <div className="col-lg-6">
+                    <img src="assets/img/demo/post2.jpg" alt="" className="img-responsive mb-4"> </div>
+                  <div className="col-lg-6">
+                    <h3 className="no-mt">
+                      <a href="javascript:void(0)">Earum delectus libero ipsa temporibus in minus</a>
+                    </h3>
+                    <p className="mb-4">Lorem ipsum dolor sit amet, consectetur alter adipisicing elit. Facilis, natuse inse voluptates officia repudianda beatae magni es repudiandae beatae magni magnam autem natuse inse on voluptates elit sit molestias.</p>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-lg-8">
+                    <img src="assets/img/demo/avatar50.jpg" alt="..." className="img-circle mr-1"> by
+                    <a href="javascript:void(0)">Victoria</a> in
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-royal">Productivity</a>
+                    <span className="ml-1 hidden-xs">
+                      <i className="zmdi zmdi-time mr-05 color-info"></i>
+                      <span className="color-medium-dark">Aufust 18, 2015</span>
+                    </span>
+                  </div>
+                  <div className="col-lg-4 text-right">
+                    <a href="javascript:void(0)" className="btn btn-primary btn-raised btn-block animate-icon">Read More
+                      <i className="ml-1 no-mr zmdi zmdi-long-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article className="card wow fadeInLeft animation-delay-5 mb-4">
+              <div className="card-block">
+                <div className="row">
+                  <div className="col-lg-6">
+                    <img src="assets/img/demo/post3.jpg" alt="" className="img-responsive mb-4"> </div>
+                  <div className="col-lg-6">
+                    <h3 className="no-mt">
+                      <a href="javascript:void(0)">Earum delectus libero ipsa temporibus in minus</a>
+                    </h3>
+                    <p className="mb-4">Lorem ipsum dolor sit amet, consectetur alter adipisicing elit. Facilis, natuse inse voluptates officia repudianda beatae magni es repudiandae beatae magni magnam autem natuse inse on voluptates elit sit molestias.</p>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-lg-8">
+                    <img src="assets/img/demo/avatar50.jpg" alt="..." className="img-circle mr-1"> by
+                    <a href="javascript:void(0)">Victoria</a> in
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-warning">Graphics</a>
+                    <span className="ml-1 hidden-xs">
+                      <i className="zmdi zmdi-time mr-05 color-info"></i>
+                      <span className="color-medium-dark">January 27, 2016</span>
+                    </span>
+                  </div>
+                  <div className="col-lg-4 text-right">
+                    <a href="javascript:void(0)" className="btn btn-primary btn-raised btn-block animate-icon">Read More
+                      <i className="ml-1 no-mr zmdi zmdi-long-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article className="card wow fadeInLeft animation-delay-5 mb-4">
+              <div className="card-block">
+                <div className="row">
+                  <div className="col-lg-6">
+                    <img src="assets/img/demo/post1.jpg" alt="" className="img-responsive mb-4"> </div>
+                  <div className="col-lg-6">
+                    <h3 className="no-mt">
+                      <a href="javascript:void(0)">Earum delectus libero ipsa temporibus in minus</a>
+                    </h3>
+                    <p className="mb-4">Lorem ipsum dolor sit amet, consectetur alter adipisicing elit. Facilis, natuse inse voluptates officia repudianda beatae magni es repudiandae beatae magni magnam autem natuse inse on voluptates elit sit molestias.</p>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-lg-8">
+                    <img src="assets/img/demo/avatar50.jpg" alt="..." className="img-circle mr-1"> by
+                    <a href="javascript:void(0)">Victoria</a> in
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-success">Multimedia</a>
+                    <span className="ml-1 hidden-xs">
+                      <i className="zmdi zmdi-time mr-05 color-info"></i>
+                      <span className="color-medium-dark">January 27, 2016</span>
+                    </span>
+                  </div>
+                  <div className="col-lg-4 text-right">
+                    <a href="javascript:void(0)" className="btn btn-primary btn-raised btn-block animate-icon">Read More
+                      <i className="ml-1 no-mr zmdi zmdi-long-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <nav aria-label="Page navigation">
+              <ul className="pagination pagination-plain">
+                <li>
+                  <a href="javascript:void(0)" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li className="active">
+                  <a href="javascript:void(0)">1</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">2</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">3</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">4</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div className="col-md-4">
+            <div className="card animated fadeInUp animation-delay-7">
+              <div className="ms-hero-bg-info ms-hero-img-mountain">
+                <h3 className="color-white index-1 text-center no-m pt-4">Victoria Smith</h3>
+                <div className="color-medium index-1 text-center np-m">@vic_smith</div>
+                <img src="assets/img/demo/avatar1.jpg" alt="..." className="img-avatar-circle"> </div>
+              <div className="card-block pt-4 text-center">
+                <h3 className="color-primary">About me</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur alter adipisicing elit. Facilis, natuse inse voluptates officia repudiandae beatae magni es magnam autem molestias.</p>
+                <a href="javascript:void(0)" className="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-google">
+                  <i className="zmdi zmdi-google"></i>
+                </a>
+                <a href="javascript:void(0)" className="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook">
+                  <i className="zmdi zmdi-facebook"></i>
+                </a>
+                <a href="javascript:void(0)" className="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-twitter">
+                  <i className="zmdi zmdi-twitter"></i>
+                </a>
+                <a href="javascript:void(0)" className="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-instagram">
+                  <i className="zmdi zmdi-instagram"></i>
+                </a>
+              </div>
+            </div>
+            <div className="card card-primary animated fadeInUp animation-delay-7">
+              <div className="card-header">
+                <h3 className="card-title">
+                  <i className="zmdi zmdi-apps"></i> Navigation</h3>
+              </div>
+              <div className="card-tabs">
+                <ul className="nav nav-tabs nav-tabs-transparent indicator-primary nav-tabs-full nav-tabs-4" role="tablist">
                   <li role="presentation" className="active">
-                    <a href="#ms-login-tab" aria-controls="ms-login-tab" role="tab" data-toggle="tab" className="withoutripple">
-                      <i className="zmdi zmdi-account"></i> Login</a>
+                    <a href="#favorite" aria-controls="favorite" role="tab" data-toggle="tab" className="withoutripple">
+                      <i className="no-mr zmdi zmdi-star"></i>
+                    </a>
                   </li>
                   <li role="presentation">
-                    <a href="#ms-register-tab" aria-controls="ms-register-tab" role="tab" data-toggle="tab" className="withoutripple">
-                      <i className="zmdi zmdi-account-add"></i> Register</a>
+                    <a href="#categories" aria-controls="categories" role="tab" data-toggle="tab" className="withoutripple">
+                      <i className="no-mr zmdi zmdi-folder"></i>
+                    </a>
                   </li>
                   <li role="presentation">
-                    <a href="#ms-recovery-tab" aria-controls="ms-recovery-tab" role="tab" data-toggle="tab" className="withoutripple">
-                      <i className="zmdi zmdi-key"></i> Recovery Pass</a>
+                    <a href="#archives" aria-controls="archives" role="tab" data-toggle="tab" className="withoutripple">
+                      <i className="no-mr zmdi zmdi-time"></i>
+                    </a>
+                  </li>
+                  <li role="presentation">
+                    <a href="#tags" aria-controls="tags" role="tab" data-toggle="tab" className="withoutripple">
+                      <i className="no-mr zmdi zmdi-tag-more"></i>
+                    </a>
                   </li>
                 </ul>
               </div>
-            </div>
-            <div className="modal-body">
               <div className="tab-content">
-                <div role="tabpanel" className="tab-pane fade active in" id="ms-login-tab">
-                  <form autocomplete="off">
-                    <fieldset>
-                      <div className="form-group label-floating">
-                        <div className="input-group">
-                          <span className="input-group-addon">
-                            <i className="zmdi zmdi-account"></i>
-                          </span>
-                          <label className="control-label" for="ms-form-user">Username</label>
-                          <input type="text" id="ms-form-user" className="form-control" /> </div>
-                      </div>
-                      <div className="form-group label-floating">
-                        <div className="input-group">
-                          <span className="input-group-addon">
-                            <i className="zmdi zmdi-lock"></i>
-                          </span>
-                          <label className="control-label" for="ms-form-pass">Password</label>
-                          <input type="password" id="ms-form-pass" className="form-control"> </div>
-                      </div>
-                      <div className="row mt-2">
-                        <div className="col-md-12">
-                          <button className="btn btn-raised btn-primary pull-right">Login</button>
+                <div role="tabpanel" className="tab-pane fade active in" id="favorite">
+                  <div className="card-block">
+                    <div className="ms-media-list">
+                      <div className="media">
+                        <div className="media-left media-middle">
+                          <a href="#">
+                            <img className="media-object media-object-circle" src="assets/img/demo/p75.jpg" alt="..."> </a>
+                        </div>
+                        <div className="media-body">
+                          <a href="javascript:void(0)" className="media-heading">Lorem ipsum dolor sit amet in consectetur adipisicing</a>
+                          <div className="media-footer text-small">
+                            <span className="mr-1">
+                              <i className="zmdi zmdi-time color-info mr-05"></i> August 18, 2016</span>
+                            <span>
+                              <i className="zmdi zmdi-folder-outline color-success mr-05"></i>
+                              <a href="javascript:void(0)">Design</a>
+                            </span>
+                          </div>
                         </div>
                       </div>
-                    </fieldset>
-                  </form>
-                  <div className="text-center">
-                    <h3>Login with</h3>
-                    <a href="javascript:void(0)" className="wave-effect-light btn btn-raised btn-facebook">
-                      <i className="zmdi zmdi-facebook"></i> Facebook</a>
-                    <a href="javascript:void(0)" className="wave-effect-light btn btn-raised btn-twitter">
-                      <i className="zmdi zmdi-twitter"></i> Twitter</a>
-                    <a href="javascript:void(0)" className="wave-effect-light btn btn-raised btn-google">
-                      <i className="zmdi zmdi-google"></i> Google</a>
+                      <div className="media">
+                        <div className="media-left media-middle">
+                          <a href="#">
+                            <img className="media-object media-object-circle" src="assets/img/demo/p75.jpg" alt="..."> </a>
+                        </div>
+                        <div className="media-body">
+                          <a href="javascript:void(0)" className="media-heading">Nemo enim ipsam voluptatem quia voluptas sit aspernatur</a>
+                          <div className="media-footer text-small">
+                            <span className="mr-1">
+                              <i className="zmdi zmdi-time color-info mr-05"></i> August 18, 2016</span>
+                            <span>
+                              <i className="zmdi zmdi-folder-outline color-danger mr-05"></i>
+                              <a href="javascript:void(0)">Productivity</a>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="media">
+                        <div className="media-left media-middle">
+                          <a href="#">
+                            <img className="media-object media-object-circle" src="assets/img/demo/p75.jpg" alt="..."> </a>
+                        </div>
+                        <div className="media-body">
+                          <a href="javascript:void(0)" className="media-heading">inventore veritatis et vitae quasi architecto beatae </a>
+                          <div className="media-footer text-small">
+                            <span className="mr-1">
+                              <i className="zmdi zmdi-time color-info mr-05"></i> August 18, 2016</span>
+                            <span>
+                              <i className="zmdi zmdi-folder-outline color-royal-light mr-05"></i>
+                              <a href="javascript:void(0)">Resources</a>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div role="tabpanel" className="tab-pane fade" id="ms-register-tab">
-                  <form>
-                    <fieldset>
-                      <div className="form-group label-floating">
-                        <div className="input-group">
-                          <span className="input-group-addon">
-                            <i className="zmdi zmdi-account"></i>
-                          </span>
-                          <label className="control-label" for="ms-form-user">Username</label>
-                          <input type="text" id="ms-form-user" className="form-control"> </div>
-                      </div>
-											<div className="form-group label-floating">
-												<div className="input-group">
-													<span className="input-group-addon">
-														<i className="zmdi zmdi-account"></i>
-													</span>
-													<label className="control-label" for="ms-form-user">Username</label>
-													<input type="text" id="ms-form-user" className="form-control"> </div>
-											</div>
-                      <div className="form-group label-floating">
-                        <div className="input-group">
-                          <span className="input-group-addon">
-                            <i className="zmdi zmdi-lock"></i>
-                          </span>
-                          <label className="control-label" for="ms-form-pass">Password</label>
-                          <input type="password" id="ms-form-pass" className="form-control"> </div>
-                      </div>
-                      <div className="form-group label-floating">
-                        <div className="input-group">
-                          <span className="input-group-addon">
-                            <i className="zmdi zmdi-lock"></i>
-                          </span>
-                          <label className="control-label" for="ms-form-pass">Re-type Password</label>
-                          <input type="password" id="ms-form-pass" className="form-control"> </div>
-                      </div>
-                      <button className="btn btn-raised btn-block btn-primary">Register Now</button>
-                    </fieldset>
-                  </form>
+                <div role="tabpanel" className="tab-pane fade" id="categories">
+                  <div className="list-group">
+                    <a href="javascript:void(0)" className="list-group-item withripple">
+                      <i className=" color-info zmdi zmdi-cocktail"></i>Design
+                      <span className="badge badge-info">25</span>
+                    </a>
+                    <a href="javascript:void(0)" className="list-group-item withripple">
+                      <i className=" color-warning zmdi zmdi-collection-image"></i> Graphics
+                      <span className="badge badge-warning">14</span>
+                    </a>
+                    <a href="javascript:void(0)" className="list-group-item withripple">
+                      <i className=" color-danger zmdi zmdi-case-check"></i> Productivity
+                      <span className="badge badge-danger">7</span>
+                    </a>
+                    <a href="javascript:void(0)" className="list-group-item withripple">
+                      <i className=" color-royal zmdi zmdi-folder-star-alt"></i>Resources
+                      <span className="badge badge-royal">67</span>
+                    </a>
+                    <a href="javascript:void(0)" className="list-group-item withripple">
+                      <i className=" color-success zmdi zmdi-play-circle-outline"></i>Multimedia
+                      <span className="badge badge-success">32</span>
+                    </a>
+                  </div>
                 </div>
-                <div role="tabpanel" className="tab-pane fade" id="ms-recovery-tab">
-                  <fieldset>
-                    <div className="form-group label-floating">
-                      <div className="input-group">
-                        <span className="input-group-addon">
-                          <i className="zmdi zmdi-account"></i>
-                        </span>
-                        <label className="control-label" for="ms-form-user">Username</label>
-                        <input type="text" id="ms-form-user" className="form-control"> </div>
-                    </div>
-                    <div className="form-group label-floating">
-                      <div className="input-group">
-                        <span className="input-group-addon">
-                          <i className="zmdi zmdi-email"></i>
-                        </span>
-                        <label className="control-label" for="ms-form-email">Email</label>
-                        <input type="email" id="ms-form-email" className="form-control"> </div>
-                    </div>
-										<a href="#">Download your profile photo</a>
-                    <button className="btn btn-raised btn-block btn-primary">Send Password</button>
-                  </fieldset>
-                  </form>
+                <div role="tabpanel" className="tab-pane fade" id="archives">
+                  <div className="list-group">
+                    <a href="javascript:void(0)" className="list-group-item withripple">
+                      <i className="zmdi zmdi-calendar"></i> January 2016
+                      <span className="badge">25</span>
+                    </a>
+                    <a href="javascript:void(0)" className="list-group-item withripple">
+                      <i className="zmdi zmdi-calendar"></i> February 2016
+                      <span className="badge">14</span>
+                    </a>
+                    <a href="javascript:void(0)" className="list-group-item withripple">
+                      <i className="zmdi zmdi-calendar"></i> March 2016
+                      <span className="badge">9</span>
+                    </a>
+                    <a href="javascript:void(0)" className="list-group-item withripple">
+                      <i className="zmdi zmdi-calendar"></i> April 2016
+                      <span className="badge">12</span>
+                    </a>
+                    <a href="javascript:void(0)" className="list-group-item withripple">
+                      <i className="zmdi zmdi-calendar"></i> June 2016
+                      <span className="badge">65</span>
+                    </a>
+                  </div>
                 </div>
+                <div role="tabpanel" className="tab-pane fade" id="tags">
+                  <div className="card-block text-center">
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-primary">Design</a>
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-primary">Productivity</a>
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-primary">Web</a>
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-primary">Resources</a>
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-primary">Multimedia</a>
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-primary">HTML5</a>
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-primary">CSS3</a>
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-primary">Javascript</a>
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-primary">Jquery</a>
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-primary">Bootstrap</a>
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-primary">Angular</a>
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-primary">Gulp</a>
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-primary">Atom</a>
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-primary">Fonts</a>
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-primary">Pictures</a>
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-primary">Developers</a>
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-primary">Code</a>
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-primary">SASS</a>
+                    <a href="javascript:void(0)" className="ms-tag ms-tag-primary">Less</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="card card-success animated fadeInUp animation-delay-7">
+              <div className="card-header">
+                <h3 className="card-title">
+                  <i className="zmdi zmdi-play-circle-outline"></i> Feature Video</h3>
+              </div>
+              <div data-type="vimeo" data-video-id="187935649"></div>
+            </div>
+            <div className="card card-primary animated fadeInUp animation-delay-7">
+              <div className="card-header">
+                <h3 className="card-title">
+                  <i className="zmdi zmdi-widgets"></i> Text Widget</h3>
+              </div>
+              <div className="card-block">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat ipsam non eaque est architecto doloribus, labore nesciunt laudantium, ex id ea, cum facilis similique tenetur fugit nemo id minima possimus.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <header className="ms-header ms-header-white">
-        <div className="container container-full">
-          <div className="ms-title">
-            <a href="index.html">
-
-              <span className="ms-logo animated zoomInDown animation-delay-5">JD</span>
-              <h1 className="animated fadeInRight animation-delay-6">Neighborhood
-                <span>Bulletin Board</span>
-              </h1>
-            </a>
-          </div>
-
-        </div>
-      </header>
-      <nav className="navbar navbar-static-top yamm ms-navbar ms-navbar-primary">
-        <div className="container container-full">
-          <div className="navbar-header">
-            <a className="navbar-brand" href="index.html">
-
-              <span className="ms-logo ms-logo-sm">JD</span>
-              <span className="ms-title">Neighborhood
-                <strong>Bulletin Board</strong>
-              </span>
-            </a>
-          </div>
-          <div id="navbar" className="navbar-collapse collapse">
-
-          </div>
-
-
-        </div>
-
-      </nav>
-      <div className="ms-hero-page-override ms-hero-img-city ms-hero-bg-dark-light">
+      <!-- container -->
+      <aside className="ms-footbar">
         <div className="container">
-          <div className="text-center">
-            <span className="ms-logo ms-logo-lg ms-logo-white center-block mb-2 mt-2 animated zoomInDown animation-delay-5">JD</span>
-            <h1 className="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5">Neighborhood
-              <span>Bulletin Board</span>
-            </h1>
-            <p  className="lead lead-lg color-white text-center center-block mt-2 mw-800 text-uppercase fw-500 animated fadeInUp animation-delay-7">Share and discover happenings and observances in your neighborhood
-              Please register or Login<br /> <span style={{textTransform:'lowercase'}} className="color-warning"> (feel free to login with -- username: jd &amp; password:123 -- if you like)</span></p>
+          <div className="row">
+            <div className="col-md-4 ms-footer-col">
+              <div className="ms-footbar-block">
+                <h3 className="ms-footbar-title">Sitemap</h3>
+                <ul className="list-unstyled ms-icon-list three_cols">
+                  <li>
+                    <a href="index.html">
+                      <i className="zmdi zmdi-home"></i> Home</a>
+                  </li>
+                  <li>
+                    <a href="page-blog.html">
+                      <i className="zmdi zmdi-edit"></i> Blog</a>
+                  </li>
+                  <li>
+                    <a href="page-blog.html">
+                      <i className="zmdi zmdi-image-o"></i> Portafolio</a>
+                  </li>
+                  <li>
+                    <a href="portfolio-filters_sidebar.html">
+                      <i className="zmdi zmdi-case"></i> Works</a>
+                  </li>
+                  <li>
+                    <a href="page-timeline_left2.html">
+                      <i className="zmdi zmdi-time"></i> Timeline</a>
+                  </li>
+                  <li>
+                    <a href="page-pricing.html">
+                      <i className="zmdi zmdi-money"></i> Pricing</a>
+                  </li>
+                  <li>
+                    <a href="page-about.html">
+                      <i className="zmdi zmdi-favorite-outline"></i> About Us</a>
+                  </li>
+                  <li>
+                    <a href="page-team2.html">
+                      <i className="zmdi zmdi-accounts"></i> Our Team</a>
+                  </li>
+                  <li>
+                    <a href="page-services.html">
+                      <i className="zmdi zmdi-face"></i> Services</a>
+                  </li>
+                  <li>
+                    <a href="page-faq2.html">
+                      <i className="zmdi zmdi-help"></i> FAQ</a>
+                  </li>
+                  <li>
+                    <a href="page-login2.html">
+                      <i className="zmdi zmdi-lock"></i> Login</a>
+                  </li>
+                  <li>
+                    <a href="page-contact.html">
+                      <i className="zmdi zmdi-email"></i> Contact</a>
+                  </li>
+                </ul>
+              </div>
+              <div className="ms-footbar-block">
+                <h3 className="ms-footbar-title">Subscribe</h3>
+                <p className="">Lorem ipsum Amet fugiat elit nisi anim mollit minim labore ut esse Duis ullamco ad dolor veniam velit.</p>
+                <form>
+                  <div className="form-group label-floating mt-2 mb-1">
+                    <div className="input-group ms-input-subscribe">
+                      <label className="control-label" for="ms-subscribe">
+                        <i className="zmdi zmdi-email"></i> Email Adress</label>
+                      <input type="email" id="ms-subscribe" className="form-control" /> </div>
+                  </div>
+                  <button className="ms-subscribre-btn" type="button">Subscribe</button>
+                </form>
+              </div>
+            </div>
+            <div className="col-md-5 col-sm-7 ms-footer-col ms-footer-alt-color">
+              <div className="ms-footbar-block">
+                <h3 className="ms-footbar-title text-center mb-2">Last Articles</h3>
+                <div className="ms-footer-media">
+                  <div className="media">
+                    <div className="media-left media-middle">
+                      <a href="javascript:void(0)">
+                        <img className="media-object media-object-circle" src="assets/img/demo/p75.jpg" alt="..." /> </a>
+                    </div>
+                    <div className="media-body">
+                      <h4 className="media-heading">
+                        <a href="javascript:void(0)">Lorem ipsum dolor sit expedita cumque amet consectetur adipisicing repellat</a>
+                      </h4>
+                      <div className="media-footer">
+                        <span>
+                          <i className="zmdi zmdi-time color-info-light"></i> August 18, 2016</span>
+                        <span>
+                          <i className="zmdi zmdi-folder-outline color-warning-light"></i>
+                          <a href="javascript:void(0)">Design</a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="media">
+                    <div className="media-left media-middle">
+                      <a href="javascript:void(0)">
+                        <img className="media-object media-object-circle" src="assets/img/demo/p75.jpg" alt="..." /> </a>
+                    </div>
+                    <div className="media-body">
+                      <h4 className="media-heading">
+                        <a href="javascript:void(0)">Labore ut esse Duis consectetur expedita cumque ullamco ad dolor veniam velit</a>
+                      </h4>
+                      <div className="media-footer">
+                        <span>
+                          <i className="zmdi zmdi-time color-info-light"></i> August 18, 2016</span>
+                        <span>
+                          <i className="zmdi zmdi-folder-outline color-warning-light"></i>
+                          <a href="javascript:void(0)">News</a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="media">
+                    <div className="media-left media-middle">
+                      <a href="javascript:void(0)">
+                        <img className="media-object media-object-circle" src="assets/img/demo/p75.jpg" alt="..." /> </a>
+                    </div>
+                    <div className="media-body">
+                      <h4 className="media-heading">
+                        <a href="javascript:void(0)">voluptates deserunt ducimus expedita cumque quaerat molestiae labore</a>
+                      </h4>
+                      <div className="media-footer">
+                        <span>
+                          <i className="zmdi zmdi-time color-info-light"></i> August 18, 2016</span>
+                        <span>
+                          <i className="zmdi zmdi-folder-outline color-warning-light"></i>
+                          <a href="javascript:void(0)">Productivity</a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-3 col-sm-5 ms-footer-col ms-footer-text-right">
+              <div className="ms-footbar-block">
+                <div className="ms-footbar-title">
+                  <span className="ms-logo ms-logo-white ms-logo-sm mr-1">M</span>
+                  <h3 className="no-m ms-site-title">Material
+                    <span>Style</span>
+                  </h3>
+                </div>
+                <address className="no-mb">
+                  <p>
+                    <i className="color-danger-light zmdi zmdi-pin mr-1"></i> 795 Folsom Ave, Suite 600</p>
+                  <p>
+                    <i className="color-warning-light zmdi zmdi-map mr-1"></i> San Francisco, CA 94107</p>
+                  <p>
+                    <i className="color-info-light zmdi zmdi-email mr-1"></i>
+                    <a href="mailto:joe@example.com">example@domain.com</a>
+                  </p>
+                  <p>
+                    <i className="color-royal-light zmdi zmdi-phone mr-1"></i>+34 123 456 7890 </p>
+                  <p>
+                    <i className="color-success-light fa fa-fax mr-1"></i>+34 123 456 7890 </p>
+                </address>
+              </div>
+              <div className="ms-footbar-block">
+                <h3 className="ms-footbar-title">Social Media</h3>
+                <div className="ms-footbar-social">
+                  <a href="javascript:void(0)" className="btn-circle btn-facebook">
+                    <i className="zmdi zmdi-facebook"></i>
+                  </a>
+                  <a href="javascript:void(0)" className="btn-circle btn-twitter">
+                    <i className="zmdi zmdi-twitter"></i>
+                  </a>
+                  <a href="javascript:void(0)" className="btn-circle btn-youtube">
+                    <i className="zmdi zmdi-youtube"></i>
+                  </a>
+                  <br>
+                  <a href="javascript:void(0)" className="btn-circle btn-google">
+                    <i className="zmdi zmdi-google"></i>
+                  </a>
+                  <a href="javascript:void(0)" className="btn-circle btn-instagram">
+                    <i className="zmdi zmdi-instagram"></i>
+                  </a>
+                  <a href="javascript:void(0)" className="btn-circle btn-github">
+                    <i className="zmdi zmdi-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="container">
-        <div className="row">
-          <div className="col-md-6 col-md-offset-3">
-            <div className="card card-hero card-primary animated fadeInUp animation-delay-7">
-              <div className="card-block">
-                <h1 className="color-primary text-center">Login</h1>
-                <form className="form-horizontal">
-                  <fieldset>
-                    <div className="form-group">
-                      <label for="inputEmail" className="col-md-2 control-label">Email</label>
-                      <div className="col-md-10">
-                        <input type="email" className="form-control" id="inputEmail" placeholder="Email" /> </div>
-                    </div>
-                    <div className="form-group">
-                      <label for="inputPassword" className="col-md-2 control-label">Password</label>
-                      <div className="col-md-10">
-                        <input type="password" className="form-control" id="inputPassword" placeholder="Password" /> </div>
-                    </div>
-
-                  </fieldset>
-									<button className="btn btn-raised btn-primary btn-block">Login
-										<i className="zmdi zmdi-long-arrow-right no-mr ml-1"></i>
-									</button>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div style={{marginTop:130}} className="row">
-				<div className="col-md-6 col-md-offset-3">
-					<div className="card card-hero card-primary animated fadeInUp animation-delay-9">
-						<div className="card-block">
-									<h2 className="color-primary text-center">Register</h2>
-										<fieldset>
-											<div className="form-group label-floating">
-												<div className="input-group">
-													<span className="input-group-addon">
-														<i className="zmdi zmdi-account"></i>
-													</span>
-													<label className="control-label" for="ms-form-user">Username</label>
-													<input type="text" id="ms-form-user" className="form-control" /> </div>
-											</div>
-
-											<div className="form-group label-floating">
-												<div className="input-group">
-													<span className="input-group-addon">
-														<i className="zmdi zmdi-lock"></i>
-													</span>
-													<label className="control-label" for="ms-form-pass">Password</label>
-													<input type="password" id="ms-form-pass" className="form-control" /> </div>
-											</div>
-											<div className="form-group label-floating">
-												<div className="input-group">
-													<span className="input-group-addon">
-														<i className="zmdi zmdi-male-female"></i>
-													</span>
-													<label className="control-label" for="ms-form-email">Gender</label>
-													<input type="text" id="ms-form-email" className="form-control" /> </div>
-											</div>
-											<div className="form-group label-floating">
-												<div className="input-group">
-													<span className="input-group-addon">
-														<i className="zmdi zmdi-city"></i>
-													</span>
-													<label className="control-label" for="ms-form-pass">City</label>
-													<input type="password" id="ms-form-pass" className="form-control"> </div>
-											</div>
-											<div className="form-group label-floating">
-												<div className="input-group">
-													<span className="input-group-addon">
-														<i className="zmdi zmdi-puzzle-piece"></i>
-													</span>
-													<label className="control-label" for="ms-form-pass">Short Bio</label>
-													<input type="text" id="ms-form-pass" className="form-control" /> </div>
-											</div>
-											<div className="form-group label-floating">
-												<div className="input-group">
-													<span className="input-group-addon">
-														<i className="zmdi zmdi-camera"></i>
-													</span>
-													<a href="#">Add your profile image</a>
-													 </div>
-											</div>
-											<button className="btn btn-raised btn-block btn-primary">Register Now</button>
-										</fieldset>
-									 </form>
-								 </div>
-							 </div>
-						 </div>
-					 </div>
-              </div>
-
-
-
+      </aside>
       <footer className="ms-footer">
         <div className="container">
-          <p>Copyright &copy; JDRicardsTech 2017</p>
+          <p>Copyright &copy; Material Style 2017</p>
         </div>
       </footer>
       <div className="btn-back-top">
@@ -316,9 +579,205 @@
         </a>
       </div>
     </div>
-
-
-    <script src="/public/assets/js/plugins.min.js"></script>
-    <script src="/public/assets/js/app.min.js"></script>
+    <!-- sb-site-container -->
+    <div className="ms-slidebar sb-slidebar sb-left sb-style-overlay" id="ms-slidebar">
+      <div className="sb-slidebar-container">
+        <header className="ms-slidebar-header">
+          <div className="ms-slidebar-login">
+            <a href="javascript:void(0)" className="withripple">
+              <i className="zmdi zmdi-account"></i> Login</a>
+            <a href="javascript:void(0)" className="withripple">
+              <i className="zmdi zmdi-account-add"></i> Register</a>
+          </div>
+          <div className="ms-slidebar-title">
+            <form className="search-form">
+              <input id="search-box-slidebar" type="text" className="search-input" placeholder="Search..." name="q" />
+              <label for="search-box-slidebar">
+                <i className="zmdi zmdi-search"></i>
+              </label>
+            </form>
+            <div className="ms-slidebar-t">
+              <span className="ms-logo ms-logo-sm">M</span>
+              <h3>Material
+                <span>Style</span>
+              </h3>
+            </div>
+          </div>
+        </header>
+        <ul className="ms-slidebar-menu" id="slidebar-menu" role="tablist" aria-multiselectable="true">
+          <li className="panel" role="tab" id="sch1">
+            <a className="collapsed" role="button" data-toggle="collapse" data-parent="#slidebar-menu" href="#sc1" aria-expanded="false" aria-controls="sc1">
+              <i className="zmdi zmdi-home"></i> Home </a>
+            <ul id="sc1" className="panel-collapse collapse" role="tabpanel" aria-labelledby="sch1">
+              <li>
+                <a href="index.html">Default Home</a>
+              </li>
+              <li>
+                <a href="home-generic-2.html">Home Black Slider</a>
+              </li>
+              <li>
+                <a href="home-landing.html">Home Landing Intro</a>
+              </li>
+              <li>
+                <a href="home-landing3.html">Home Landing Video</a>
+              </li>
+              <li>
+                <a href="home-shop.html">Home Shop 1</a>
+              </li>
+            </ul>
+          </li>
+          <li className="panel" role="tab" id="sch2">
+            <a className="collapsed" role="button" data-toggle="collapse" data-parent="#slidebar-menu" href="#sc2" aria-expanded="false" aria-controls="sc2">
+              <i className="zmdi zmdi-desktop-mac"></i> Pages </a>
+            <ul id="sc2" className="panel-collapse collapse" role="tabpanel" aria-labelledby="sch2">
+              <li>
+                <a href="page-about.html">About US</a>
+              </li>
+              <li>
+                <a href="page-team.html">Our Team</a>
+              </li>
+              <li>
+                <a href="page-product.html">Products</a>
+              </li>
+              <li>
+                <a href="page-services.html">Services</a>
+              </li>
+              <li>
+                <a href="page-faq.html">FAQ</a>
+              </li>
+              <li>
+                <a href="page-timeline_left.html">Timeline</a>
+              </li>
+              <li>
+                <a href="page-contact.html">Contact Option</a>
+              </li>
+              <li>
+                <a href="page-login.html">Login</a>
+              </li>
+              <li>
+                <a href="page-pricing.html">Pricing</a>
+              </li>
+              <li>
+                <a href="page-coming.html">Coming Soon</a>
+              </li>
+            </ul>
+          </li>
+          <li className="panel" role="tab" id="sch4">
+            <a className="collapsed" role="button" data-toggle="collapse" data-parent="#slidebar-menu" href="#sc4" aria-expanded="false" aria-controls="sc4">
+              <i className="zmdi zmdi-edit"></i> Blog </a>
+            <ul id="sc4" className="panel-collapse collapse" role="tabpanel" aria-labelledby="sch4">
+              <li>
+                <a href="blog-sidebar.html">Blog Sidebar 1</a>
+              </li>
+              <li>
+                <a href="blog-sidebar2.html">Blog Sidebar 2</a>
+              </li>
+              <li>
+                <a href="blog-masonry.html">Blog Masonry 1</a>
+              </li>
+              <li>
+                <a href="blog-masonry2.html">Blog Masonry 2</a>
+              </li>
+              <li>
+                <a href="blog-full.html">Blog Full Page 1</a>
+              </li>
+              <li>
+                <a href="blog-full2.html">Blog Full Page 2</a>
+              </li>
+              <li>
+                <a href="blog-post.html">Blog Post 1</a>
+              </li>
+              <li>
+                <a href="blog-post2.html">Blog Post 2</a>
+              </li>
+            </ul>
+          </li>
+          <li className="panel" role="tab" id="sch5">
+            <a className="collapsed" role="button" data-toggle="collapse" data-parent="#slidebar-menu" href="#sc5" aria-expanded="false" aria-controls="sc5">
+              <i className="zmdi zmdi-shopping-basket"></i> E-Commerce </a>
+            <ul id="sc5" className="panel-collapse collapse" role="tabpanel" aria-labelledby="sch5">
+              <li>
+                <a href="ecommerce-filters.html">E-Commerce Sidebar</a>
+              </li>
+              <li>
+                <a href="ecommerce-filters-full.html">E-Commerce Sidebar Full</a>
+              </li>
+              <li>
+                <a href="ecommerce-filters-full2.html">E-Commerce Topbar Full</a>
+              </li>
+              <li>
+                <a href="ecommerce-item.html">E-Commerce Item</a>
+              </li>
+              <li>
+                <a href="ecommerce-cart.html">E-Commerce Cart</a>
+              </li>
+            </ul>
+          </li>
+          <li className="panel" role="tab" id="sch6">
+            <a className="collapsed" role="button" data-toggle="collapse" data-parent="#slidebar-menu" href="#sc6" aria-expanded="false" aria-controls="sc6">
+              <i className="zmdi zmdi-collection-image-o"></i> Portfolio </a>
+            <ul id="sc6" className="panel-collapse collapse" role="tabpanel" aria-labelledby="sch6">
+              <li>
+                <a href="portfolio-filters_sidebar.html">Portfolio Sidebar Filters</a>
+              </li>
+              <li>
+                <a href="portfolio-filters_topbar.html">Portfolio Topbar Filters</a>
+              </li>
+              <li>
+                <a href="portfolio-filters_sidebar_fluid.html">Portfolio Sidebar Fluid</a>
+              </li>
+              <li>
+                <a href="portfolio-filters_topbar_fluid.html">Portfolio Topbar Fluid</a>
+              </li>
+              <li>
+                <a href="portfolio-cards.html">Porfolio Cards</a>
+              </li>
+              <li>
+                <a href="portfolio-masonry.html">Porfolio Masonry</a>
+              </li>
+              <li>
+                <a href="portfolio-item.html">Portfolio Item 1</a>
+              </li>
+              <li>
+                <a href="portfolio-item2.html">Portfolio Item 2</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a className="link" href="component-typography.html">
+              <i className="zmdi zmdi-view-compact"></i> UI Elements</a>
+          </li>
+          <li>
+            <a className="link" href="page-all.html">
+              <i className="zmdi zmdi-link"></i> All Pages</a>
+          </li>
+        </ul>
+        <div className="ms-slidebar-social ms-slidebar-block">
+          <h4 className="ms-slidebar-block-title">Social Links</h4>
+          <div className="ms-slidebar-social">
+            <a href="javascript:void(0)" className="btn-circle btn-circle-raised btn-facebook">
+              <i className="zmdi zmdi-facebook"></i>
+              <span className="badge badge-pink">12</span>
+              <div className="ripple-container"></div>
+            </a>
+            <a href="javascript:void(0)" className="btn-circle btn-circle-raised btn-twitter">
+              <i className="zmdi zmdi-twitter"></i>
+              <span className="badge badge-pink">4</span>
+              <div className="ripple-container"></div>
+            </a>
+            <a href="javascript:void(0)" className="btn-circle btn-circle-raised btn-google">
+              <i className="zmdi zmdi-google"></i>
+              <div className="ripple-container"></div>
+            </a>
+            <a href="javascript:void(0)" className="btn-circle btn-circle-raised btn-instagram">
+              <i className="zmdi zmdi-instagram"></i>
+              <div className="ripple-container"></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/plugins.min.js"></script>
+    <script src="assets/js/app.min.js"></script>
   </body>
 </html>

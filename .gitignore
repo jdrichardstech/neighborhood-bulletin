@@ -3,5 +3,6 @@
 /node_modules/
 .env
 /views/scratch.hjs
+/views/scratch2.hjs
 /public/assets2
 /public/mypages

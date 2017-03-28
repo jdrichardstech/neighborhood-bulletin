@@ -22184,49 +22184,8 @@
 								{ className: 'container' },
 								_react2.default.createElement(
 									'div',
-									{ className: 'row' },
-									_react2.default.createElement(
-										'div',
-										{ className: 'col-md-12' },
-										_react2.default.createElement('img', { style: { borderRadius: 36, float: 'left', marginRight: 12 }, src: _utils.ImageHelper.thumbnail(this.props.user.image, 72) }),
-										_react2.default.createElement(
-											'h3',
-											null,
-											'Hi ',
-											_react2.default.createElement(
-												'span',
-												{ style: { color: 'blue' } },
-												_react2.default.createElement(
-													_reactRouter.Link,
-													{ to: '/profile/' + this.props.user.username },
-													this.props.user.username
-												)
-											)
-										),
-										_react2.default.createElement(
-											'p',
-											null,
-											'Gender: ',
-											this.props.user.gender
-										),
-										_react2.default.createElement('br', null),
-										_react2.default.createElement('br', null),
-										_react2.default.createElement(
-											'button',
-											{ style: _styles2.default.account.button, className: 'btn btn-danger', onClick: this.logout.bind(this) },
-											'Log Out'
-										),
-										'\xA0',
-										_react2.default.createElement(
-											_reactRouter.Link,
-											{ to: '/updateprofile/' + this.props.user.username },
-											_react2.default.createElement(
-												'button',
-												{ style: _styles2.default.account.button, className: 'btn btn-warning', type: '' },
-												'Update Profile'
-											)
-										)
-									)
+									{ className: 'col-md-8' },
+									_react2.default.createElement(_Comments2.default, null)
 								),
 								_react2.default.createElement(
 									'div',
@@ -22234,12 +22193,68 @@
 									_react2.default.createElement(
 										'div',
 										{ className: 'col-md-4' },
+										_react2.default.createElement(
+											'div',
+											{ className: 'card animated fadeInUp animation-delay-7' },
+											_react2.default.createElement(
+												'div',
+												{ className: 'ms-hero-bg-info ms-hero-img-mountain' },
+												_react2.default.createElement(
+													'h3',
+													{ className: 'color-white index-1 text-center no-m pt-4' },
+													_react2.default.createElement(
+														_reactRouter.Link,
+														{ to: '/profile/' + this.props.user.username },
+														this.props.user.username
+													)
+												),
+												_react2.default.createElement('img', { src: this.props.user.image, alt: '...', className: 'img-avatar-circle' }),
+												' '
+											),
+											_react2.default.createElement(
+												'div',
+												{ className: 'card-block pt-4 text-center' },
+												_react2.default.createElement(
+													'h3',
+													{ className: 'color-primary' },
+													'About me'
+												),
+												_react2.default.createElement(
+													'p',
+													null,
+													'Gender: ',
+													this.props.user.gender
+												),
+												_react2.default.createElement(
+													'p',
+													null,
+													'City: ',
+													this.props.user.city
+												),
+												_react2.default.createElement(
+													'p',
+													null,
+													'Bio: ',
+													this.props.user.bio
+												),
+												_react2.default.createElement(
+													'button',
+													{ className: 'btn btn-default', onClick: this.logout.bind(this) },
+													'Log Out'
+												),
+												'\xA0',
+												_react2.default.createElement(
+													_reactRouter.Link,
+													{ to: '/updateprofile/' + this.props.user.username },
+													_react2.default.createElement(
+														'button',
+														{ className: 'btn btn-default', type: '' },
+														'Update Profile'
+													)
+												)
+											)
+										),
 										_react2.default.createElement(_Zones2.default, null)
-									),
-									_react2.default.createElement(
-										'div',
-										{ className: 'col-md-8' },
-										_react2.default.createElement(_Comments2.default, null)
 									)
 								)
 							),
@@ -34983,7 +34998,7 @@
 		_createClass(Comment, [{
 			key: 'componentDidMount',
 			value: function componentDidMount() {
-				// console.log("Comment ID: " + this.props.currentComment._id)
+				console.log("Comment ID: " + this.props.currentComment._id);
 			}
 		}, {
 			key: 'handleEditClick',

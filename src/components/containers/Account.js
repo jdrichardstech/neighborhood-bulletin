@@ -279,26 +279,31 @@ clearValues(){
       content = (
         <div>
 					<div className="sb-site-container" style={{background:'#BCDCF5'}}>
-						<Header />
-
+					<Header />
 					<div className="container">
-						<div className="row">
-							<div className="col-md-12">
-								<img style={{borderRadius:36, float:'left', marginRight:12}} src={ImageHelper.thumbnail(this.props.user.image, 72)} />
-								<h3>Hi <span style={{color:'blue'}}><Link to={'/profile/'+ this.props.user.username}>{this.props.user.username}</Link></span></h3>
-								<p>Gender: {this.props.user.gender}</p><br /><br />
-								<button style={styles.account.button} className="btn btn-danger" onClick={this.logout.bind(this)}>Log Out</button>
-								&nbsp;<Link to={'/updateprofile/'+this.props.user.username}><button style={styles.account.button} className="btn btn-warning" type="">Update Profile</button></Link>
-							</div>
-						</div>
 
+						<div className="col-md-8">
+							<Comments />
+						</div>
 					 <div className="row">
 						 <div className="col-md-4">
-							<Zones />
+
+							 <div className="card animated fadeInUp animation-delay-7">
+								 <div className="ms-hero-bg-info ms-hero-img-mountain">
+									 <h3 className="color-white index-1 text-center no-m pt-4"><Link to={'/profile/'+ this.props.user.username}>{this.props.user.username}</Link></h3>
+									 <img src={this.props.user.image} alt="..." className="img-avatar-circle" /> </div>
+								 <div className="card-block pt-4 text-center">
+									 <h3 className="color-primary">About me</h3>
+									 <p>Gender: {this.props.user.gender}</p>
+									 <p>City: {this.props.user.city}</p>
+									 <p>Bio: {this.props.user.bio}</p>
+									 <button  className="btn btn-default" onClick={this.logout.bind(this)}>Log Out</button>
+									 &nbsp;<Link to={'/updateprofile/'+this.props.user.username}><button  className="btn btn-default" type="">Update Profile</button></Link>
+								 </div>
+							 </div>
+								<Zones />
 						 </div>
-						 <div className="col-md-8">
-							 <Comments />
-						 </div>
+
 					 </div>
 					</div>
 					<Footer />

@@ -15,7 +15,7 @@ constructor(){
 }
 
 componentDidMount(){
-	// console.log("Comment ID: " + this.props.currentComment._id)
+	console.log("Comment ID: " + this.props.currentComment._id)
 }
 
 handleEditClick(event){
