@@ -140,6 +140,7 @@ uploadImage(files){
   })
 }
 
+
 clearValues(){
     this.refs.use.value=''
     this.refs.pass.value=''
@@ -156,6 +157,7 @@ clearValues(){
     if(this.props.user==null){
       content = (
 			<div>
+
 				<div className="sb-site-container" style={{background:'#BCDCF5'}}>
 					<Header />
 					<div className="ms-hero-page-override ms-hero-img-city ms-hero-bg-dark-light">
@@ -267,8 +269,8 @@ clearValues(){
 								 </div>
 							 </div>
 							</div>
-						<Footer />
-						<BackToTop />
+					<Footer />
+					<BackToTop />
 			</div>
 		</div>
       )
@@ -276,6 +278,9 @@ clearValues(){
 
       content = (
         <div>
+					<div className="sb-site-container" style={{background:'#BCDCF5'}}>
+						<Header />
+
 					<div className="container">
 						<div className="row">
 							<div className="col-md-12">
@@ -296,7 +301,10 @@ clearValues(){
 						 </div>
 					 </div>
 					</div>
+					<Footer />
+					<BackToTop />
         </div>
+			</div>
       )
     }
 

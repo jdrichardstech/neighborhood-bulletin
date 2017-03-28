@@ -498,67 +498,74 @@ var Account = (function (Component) {
 						null,
 						React.createElement(
 							"div",
-							{ className: "container" },
+							{ className: "sb-site-container", style: { background: "#BCDCF5" } },
+							React.createElement(Header, null),
 							React.createElement(
 								"div",
-								{ className: "row" },
+								{ className: "container" },
 								React.createElement(
 									"div",
-									{ className: "col-md-12" },
-									React.createElement("img", { style: { borderRadius: 36, float: "left", marginRight: 12 }, src: ImageHelper.thumbnail(this.props.user.image, 72) }),
+									{ className: "row" },
 									React.createElement(
-										"h3",
-										null,
-										"Hi ",
+										"div",
+										{ className: "col-md-12" },
+										React.createElement("img", { style: { borderRadius: 36, float: "left", marginRight: 12 }, src: ImageHelper.thumbnail(this.props.user.image, 72) }),
 										React.createElement(
-											"span",
-											{ style: { color: "blue" } },
+											"h3",
+											null,
+											"Hi ",
 											React.createElement(
-												Link,
-												{ to: "/profile/" + this.props.user.username },
-												this.props.user.username
+												"span",
+												{ style: { color: "blue" } },
+												React.createElement(
+													Link,
+													{ to: "/profile/" + this.props.user.username },
+													this.props.user.username
+												)
 											)
-										)
-									),
-									React.createElement(
-										"p",
-										null,
-										"Gender: ",
-										this.props.user.gender
-									),
-									React.createElement("br", null),
-									React.createElement("br", null),
-									React.createElement(
-										"button",
-										{ style: styles.account.button, className: "btn btn-danger", onClick: this.logout.bind(this) },
-										"Log Out"
-									),
-									" ",
-									React.createElement(
-										Link,
-										{ to: "/updateprofile/" + this.props.user.username },
+										),
+										React.createElement(
+											"p",
+											null,
+											"Gender: ",
+											this.props.user.gender
+										),
+										React.createElement("br", null),
+										React.createElement("br", null),
 										React.createElement(
 											"button",
-											{ style: styles.account.button, className: "btn btn-warning", type: "" },
-											"Update Profile"
+											{ style: styles.account.button, className: "btn btn-danger", onClick: this.logout.bind(this) },
+											"Log Out"
+										),
+										" ",
+										React.createElement(
+											Link,
+											{ to: "/updateprofile/" + this.props.user.username },
+											React.createElement(
+												"button",
+												{ style: styles.account.button, className: "btn btn-warning", type: "" },
+												"Update Profile"
+											)
 										)
 									)
-								)
-							),
-							React.createElement(
-								"div",
-								{ className: "row" },
-								React.createElement(
-									"div",
-									{ className: "col-md-4" },
-									React.createElement(Zones, null)
 								),
 								React.createElement(
 									"div",
-									{ className: "col-md-8" },
-									React.createElement(Comments, null)
+									{ className: "row" },
+									React.createElement(
+										"div",
+										{ className: "col-md-4" },
+										React.createElement(Zones, null)
+									),
+									React.createElement(
+										"div",
+										{ className: "col-md-8" },
+										React.createElement(Comments, null)
+									)
 								)
-							)
+							),
+							React.createElement(Footer, null),
+							React.createElement(BackToTop, null)
 						)
 					);
 				}

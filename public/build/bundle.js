@@ -56,9 +56,9 @@
 	
 	var _containers = __webpack_require__(179);
 	
-	var _layout = __webpack_require__(302);
+	var _layout = __webpack_require__(304);
 	
-	var _Main = __webpack_require__(305);
+	var _Main = __webpack_require__(307);
 	
 	var _Main2 = _interopRequireDefault(_Main);
 	
@@ -21638,7 +21638,7 @@
 	
 	var _Account2 = _interopRequireDefault(_Account);
 	
-	var _Comments = __webpack_require__(298);
+	var _Comments = __webpack_require__(300);
 	
 	var _Comments2 = _interopRequireDefault(_Comments);
 	
@@ -21646,15 +21646,15 @@
 	
 	var _Zones2 = _interopRequireDefault(_Zones);
 	
-	var _Profile = __webpack_require__(299);
+	var _Profile = __webpack_require__(301);
 	
 	var _Profile2 = _interopRequireDefault(_Profile);
 	
-	var _UpdateProfile = __webpack_require__(300);
+	var _UpdateProfile = __webpack_require__(302);
 	
 	var _UpdateProfile2 = _interopRequireDefault(_UpdateProfile);
 	
-	var _UpdateZone = __webpack_require__(301);
+	var _UpdateZone = __webpack_require__(303);
 	
 	var _UpdateZone2 = _interopRequireDefault(_UpdateZone);
 	
@@ -21713,7 +21713,7 @@
 	
 	var _Zones2 = _interopRequireDefault(_Zones);
 	
-	var _Comments = __webpack_require__(298);
+	var _Comments = __webpack_require__(300);
 	
 	var _Comments2 = _interopRequireDefault(_Comments);
 	
@@ -22177,67 +22177,74 @@
 						null,
 						_react2.default.createElement(
 							'div',
-							{ className: 'container' },
+							{ className: 'sb-site-container', style: { background: '#BCDCF5' } },
+							_react2.default.createElement(_presentation.Header, null),
 							_react2.default.createElement(
 								'div',
-								{ className: 'row' },
+								{ className: 'container' },
 								_react2.default.createElement(
 									'div',
-									{ className: 'col-md-12' },
-									_react2.default.createElement('img', { style: { borderRadius: 36, float: 'left', marginRight: 12 }, src: _utils.ImageHelper.thumbnail(this.props.user.image, 72) }),
+									{ className: 'row' },
 									_react2.default.createElement(
-										'h3',
-										null,
-										'Hi ',
+										'div',
+										{ className: 'col-md-12' },
+										_react2.default.createElement('img', { style: { borderRadius: 36, float: 'left', marginRight: 12 }, src: _utils.ImageHelper.thumbnail(this.props.user.image, 72) }),
 										_react2.default.createElement(
-											'span',
-											{ style: { color: 'blue' } },
+											'h3',
+											null,
+											'Hi ',
 											_react2.default.createElement(
-												_reactRouter.Link,
-												{ to: '/profile/' + this.props.user.username },
-												this.props.user.username
+												'span',
+												{ style: { color: 'blue' } },
+												_react2.default.createElement(
+													_reactRouter.Link,
+													{ to: '/profile/' + this.props.user.username },
+													this.props.user.username
+												)
 											)
-										)
-									),
-									_react2.default.createElement(
-										'p',
-										null,
-										'Gender: ',
-										this.props.user.gender
-									),
-									_react2.default.createElement('br', null),
-									_react2.default.createElement('br', null),
-									_react2.default.createElement(
-										'button',
-										{ style: _styles2.default.account.button, className: 'btn btn-danger', onClick: this.logout.bind(this) },
-										'Log Out'
-									),
-									'\xA0',
-									_react2.default.createElement(
-										_reactRouter.Link,
-										{ to: '/updateprofile/' + this.props.user.username },
+										),
+										_react2.default.createElement(
+											'p',
+											null,
+											'Gender: ',
+											this.props.user.gender
+										),
+										_react2.default.createElement('br', null),
+										_react2.default.createElement('br', null),
 										_react2.default.createElement(
 											'button',
-											{ style: _styles2.default.account.button, className: 'btn btn-warning', type: '' },
-											'Update Profile'
+											{ style: _styles2.default.account.button, className: 'btn btn-danger', onClick: this.logout.bind(this) },
+											'Log Out'
+										),
+										'\xA0',
+										_react2.default.createElement(
+											_reactRouter.Link,
+											{ to: '/updateprofile/' + this.props.user.username },
+											_react2.default.createElement(
+												'button',
+												{ style: _styles2.default.account.button, className: 'btn btn-warning', type: '' },
+												'Update Profile'
+											)
 										)
 									)
-								)
-							),
-							_react2.default.createElement(
-								'div',
-								{ className: 'row' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-md-4' },
-									_react2.default.createElement(_Zones2.default, null)
 								),
 								_react2.default.createElement(
 									'div',
-									{ className: 'col-md-8' },
-									_react2.default.createElement(_Comments2.default, null)
+									{ className: 'row' },
+									_react2.default.createElement(
+										'div',
+										{ className: 'col-md-4' },
+										_react2.default.createElement(_Zones2.default, null)
+									),
+									_react2.default.createElement(
+										'div',
+										{ className: 'col-md-8' },
+										_react2.default.createElement(_Comments2.default, null)
+									)
 								)
-							)
+							),
+							_react2.default.createElement(_presentation.Footer, null),
+							_react2.default.createElement(_presentation.BackToTop, null)
 						)
 					);
 				}
@@ -34638,11 +34645,11 @@
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
-	var _Footer = __webpack_require__(306);
+	var _Footer = __webpack_require__(298);
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
-	var _BackToTop = __webpack_require__(307);
+	var _BackToTop = __webpack_require__(299);
 	
 	var _BackToTop2 = _interopRequireDefault(_BackToTop);
 	
@@ -35523,6 +35530,78 @@
 /* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Footer = function Footer(props) {
+		return _react2.default.createElement(
+			"div",
+			null,
+			_react2.default.createElement(
+				"footer",
+				{ className: "ms-footer" },
+				_react2.default.createElement(
+					"div",
+					{ className: "container" },
+					_react2.default.createElement(
+						"p",
+						null,
+						"Copyright \xA9 JDRichardsTech 2017"
+					)
+				)
+			)
+		);
+	};
+	
+	exports.default = Footer;
+
+/***/ },
+/* 299 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var BackToTop = function BackToTop(props) {
+		return _react2.default.createElement(
+			"div",
+			null,
+			_react2.default.createElement(
+				"div",
+				{ className: "btn-back-top" },
+				_react2.default.createElement(
+					"a",
+					{ href: "#", "data-scroll": true, id: "back-top", className: "btn-circle btn-circle-primary btn-circle-sm btn-circle-raised " },
+					_react2.default.createElement("i", { className: "zmdi zmdi-long-arrow-up" })
+				)
+			)
+		);
+	};
+	
+	exports.default = BackToTop;
+
+/***/ },
+/* 300 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
@@ -35811,7 +35890,7 @@
 	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Comments);
 
 /***/ },
-/* 299 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35963,7 +36042,7 @@
 	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Profile);
 
 /***/ },
-/* 300 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36274,7 +36353,7 @@
 	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(UpdateProfile);
 
 /***/ },
-/* 301 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36472,7 +36551,7 @@
 	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(UpdateZone);
 
 /***/ },
-/* 302 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36482,11 +36561,11 @@
 	});
 	exports.ProfileInfo = exports.Home = undefined;
 	
-	var _Home = __webpack_require__(303);
+	var _Home = __webpack_require__(305);
 	
 	var _Home2 = _interopRequireDefault(_Home);
 	
-	var _ProfileInfo = __webpack_require__(304);
+	var _ProfileInfo = __webpack_require__(306);
 	
 	var _ProfileInfo2 = _interopRequireDefault(_ProfileInfo);
 	
@@ -36496,7 +36575,7 @@
 	exports.ProfileInfo = _ProfileInfo2.default;
 
 /***/ },
-/* 303 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36547,7 +36626,7 @@
 	exports.default = Home;
 
 /***/ },
-/* 304 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36607,7 +36686,7 @@
 	exports.default = ProfileInfo;
 
 /***/ },
-/* 305 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36654,78 +36733,6 @@
 	}(_react.Component);
 	
 	exports.default = Main;
-
-/***/ },
-/* 306 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Footer = function Footer(props) {
-		return _react2.default.createElement(
-			"div",
-			null,
-			_react2.default.createElement(
-				"footer",
-				{ className: "ms-footer" },
-				_react2.default.createElement(
-					"div",
-					{ className: "container" },
-					_react2.default.createElement(
-						"p",
-						null,
-						"Copyright \xA9 JDRichardsTech 2017"
-					)
-				)
-			)
-		);
-	};
-	
-	exports.default = Footer;
-
-/***/ },
-/* 307 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var BackToTop = function BackToTop(props) {
-		return _react2.default.createElement(
-			"div",
-			null,
-			_react2.default.createElement(
-				"div",
-				{ className: "btn-back-top" },
-				_react2.default.createElement(
-					"a",
-					{ href: "#", "data-scroll": true, id: "back-top", className: "btn-circle btn-circle-primary btn-circle-sm btn-circle-raised " },
-					_react2.default.createElement("i", { className: "zmdi zmdi-long-arrow-up" })
-				)
-			)
-		);
-	};
-	
-	exports.default = BackToTop;
 
 /***/ }
 /******/ ]);
