@@ -37,6 +37,7 @@ var Zones = _interopRequire(require("../containers/Zones"));
 
 var Comments = _interopRequire(require("../containers/Comments"));
 
+var Header = require("../presentation").Header;
 var Account = (function (Component) {
 	function Account(props) {
 		_classCallCheck(this, Account);
@@ -101,25 +102,15 @@ var Account = (function (Component) {
 					return;
 				}
 
-				console.log("user from Account.js: " + JSON.stringify(this.state.profile));
-				// APIManager.post('/account/login', this.state.profile, (err, response)=>{
-				//   if(err){
-				//
-				//     alert(err.message)
-				//     return
-				//   }
-				//   console.log("This.state.profile: " + JSON.stringify(this.state.profile))
-				//   this.props.currentUserReceived(response.user)
-				//   // this.props.fetchCurrentUser(response.user)
-				// })
-				console.log("LOGIN PROFILE: " + JSON.stringify(this.state.profile));
+				// console.log("user from Account.js: " + JSON.stringify(this.state.profile))
+
+				// console.log("LOGIN PROFILE: " +JSON.stringify(this.state.profile))
 				this.props.createLogin(this.state.profile);
 
 				this.setState({
 					flag: true
 				});
 				this.context.router.push("/");
-				console.log("LOGIN: " + JSON.stringify(this.state.user));
 			},
 			writable: true,
 			configurable: true
@@ -127,7 +118,7 @@ var Account = (function (Component) {
 		signUp: {
 			value: function signUp(event) {
 				event.preventDefault();
-				console.log("Sign Up:" + JSON.stringify(this.state.profile));
+				// console.log("Sign Up:" + JSON.stringify(this.state.profile))
 				if (this.state.profile.username.length == 0) {
 					alert("you must enter a username");
 					return;
@@ -136,19 +127,6 @@ var Account = (function (Component) {
 					alert("you must enter password");
 					return;
 				}
-
-
-
-				// APIManager.post('/account/register', this.state.profile, (err, response)=>{
-				//   if(err){
-				//     alert('Username Taken. Choose another UserName')
-				//     return
-				//   }
-				//   console.log("post 2nd step: " + JSON.stringify(response))
-				//   this.props.currentUserReceived(response.user)
-				//   // this.props.fetchCurrentUser(response.user)
-				// })
-				// console.log("Sign Up:" + JSON.stringify(this.state.profile))
 				this.props.createSignUp(this.state.profile);
 			},
 			writable: true,
@@ -206,6 +184,7 @@ var Account = (function (Component) {
 					_this.setState({
 						profile: updatedProfile
 					});
+					alert("Your profile image has been uploaded");
 				});
 			},
 			writable: true,
@@ -234,118 +213,7 @@ var Account = (function (Component) {
 						React.createElement(
 							"div",
 							{ className: "sb-site-container", style: { background: "#BCDCF5" } },
-							React.createElement(
-								"div",
-								{ className: "modal modal-primary", id: "ms-account-modal", tabIndex: "-1", role: "dialog", "aria-labelledby": "myModalLabel" },
-								React.createElement(
-									"div",
-									{ className: "modal-dialog animated zoomIn animated-3x", role: "document" },
-									React.createElement(
-										"div",
-										{ className: "modal-content" },
-										React.createElement(
-											"div",
-											{ className: "modal-header shadow-2dp no-pb" },
-											React.createElement(
-												"button",
-												{ type: "button", className: "close", "data-dismiss": "modal", "aria-label": "Close" },
-												React.createElement(
-													"span",
-													{ "aria-hidden": "true" },
-													React.createElement("i", { className: "zmdi zmdi-close" })
-												)
-											),
-											React.createElement(
-												"div",
-												{ className: "modal-title text-center" },
-												React.createElement(
-													"span",
-													{ className: "ms-logo ms-logo-white ms-logo-sm mr-1" },
-													"JD"
-												),
-												React.createElement(
-													"h3",
-													{ className: "no-m ms-site-title" },
-													"Neighborhood",
-													React.createElement(
-														"span",
-														null,
-														"Bulletin Board"
-													)
-												)
-											)
-										)
-									)
-								)
-							),
-							React.createElement(
-								"header",
-								{ className: "ms-header ms-header-white" },
-								React.createElement(
-									"div",
-									{ className: "container container-full" },
-									React.createElement(
-										"div",
-										{ className: "ms-title" },
-										React.createElement(
-											"a",
-											{ href: "index.html" },
-											React.createElement(
-												"span",
-												{ className: "ms-logo animated zoomInDown animation-delay-5" },
-												"JD"
-											),
-											React.createElement(
-												"h1",
-												{ className: "animated fadeInRight animation-delay-6" },
-												"Neighborhood",
-												React.createElement(
-													"span",
-													null,
-													"Bulletin Board"
-												)
-											)
-										)
-									)
-								)
-							),
-							React.createElement(
-								"nav",
-								{ className: "navbar navbar-static-top yamm ms-navbar ms-navbar-primary" },
-								React.createElement(
-									"div",
-									{ className: "container container-full" },
-									React.createElement(
-										"div",
-										{ className: "navbar-header" },
-										React.createElement(
-											"a",
-											{ className: "navbar-brand", href: "index.html" },
-											React.createElement(
-												"span",
-												{ className: "ms-logo ms-logo-sm" },
-												"JD"
-											),
-											React.createElement(
-												"span",
-												{ className: "ms-title" },
-												"Neighborhood",
-												React.createElement(
-													"strong",
-													null,
-													"Bulletin Board"
-												)
-											)
-										)
-									),
-									React.createElement("div", { id: "navbar", className: "navbar-collapse collapse" }),
-									React.createElement(
-										"a",
-										{ href: "javascript:void(0)", className: "sb-toggle-left btn-navbar-menu" },
-										React.createElement("i", { className: "zmdi zmdi-menu" })
-									)
-								)
-							),
+							React.createElement(Header, null),
 							React.createElement(
 								"div",
 								{ className: "ms-hero-page-override ms-hero-img-city ms-hero-bg-dark-light" },
@@ -375,12 +243,7 @@ var Account = (function (Component) {
 											{ className: "lead lead-lg color-white text-center center-block mt-2 mw-800 text-uppercase fw-500 animated fadeInUp animation-delay-7" },
 											"Share and discover happenings and observances in your neighborhood Please register or Login",
 											React.createElement("br", null),
-											" ",
-											React.createElement(
-												"span",
-												{ style: { textTransform: "lowercase" }, className: "color-warning" },
-												" (feel free to login with -- username: jd & password:123 -- if you like)"
-											)
+											React.createElement("br", null)
 										)
 									)
 								)
@@ -404,6 +267,17 @@ var Account = (function (Component) {
 													"h1",
 													{ className: "color-primary text-center" },
 													"Login"
+												),
+												React.createElement(
+													"center",
+													null,
+													React.createElement(
+														"span",
+														{ style: { fontSize: ".9em", textAlign: "center", color: "#9e9e9e" } },
+														" If you do not want to register...feel free to login with",
+														React.createElement("br", null),
+														"username: jd   password:123"
+													)
 												),
 												React.createElement(
 													"form",
@@ -492,7 +366,7 @@ var Account = (function (Component) {
 																	{ className: "control-label" },
 																	"Username"
 																),
-																React.createElement("input", { onChange: this.updateProfile.bind(this), type: "text", id: "username ms-form-user", className: "form-control", ref: "username" }),
+																React.createElement("input", { onChange: this.updateProfile.bind(this), type: "text", id: "username", className: "form-control", ref: "username" }),
 																" "
 															)
 														),
@@ -512,7 +386,7 @@ var Account = (function (Component) {
 																	{ className: "control-label" },
 																	"Password"
 																),
-																React.createElement("input", { onChange: this.updateProfile.bind(this), type: "password", id: "password ms-form-pass", className: "form-control", ref: "password" }),
+																React.createElement("input", { onChange: this.updateProfile.bind(this), type: "password", id: "password", className: "form-control", ref: "password" }),
 																" "
 															)
 														),
@@ -552,7 +426,7 @@ var Account = (function (Component) {
 																	{ className: "control-label" },
 																	"City"
 																),
-																React.createElement("input", { onChange: this.updateProfile.bind(this), type: "password", id: "city ms-form-pass", className: "form-control", ref: "city" }),
+																React.createElement("input", { onChange: this.updateProfile.bind(this), type: "text", id: "city", className: "form-control", ref: "city" }),
 																" "
 															)
 														),
@@ -572,7 +446,7 @@ var Account = (function (Component) {
 																	{ className: "control-label" },
 																	"Short Bio"
 																),
-																React.createElement("input", { onChange: this.updateProfile.bind(this), type: "text", id: " bio ms-form-pass", className: "form-control", ref: "bio" }),
+																React.createElement("input", { onChange: this.updateProfile.bind(this), type: "text", id: "bio", className: "form-control", ref: "bio" }),
 																" "
 															)
 														),
@@ -589,10 +463,10 @@ var Account = (function (Component) {
 																),
 																React.createElement(
 																	DropZone,
-																	{ style: { color: "blue" }, onDrop: this.uploadImage.bind(this) },
+																	{ id: "dropzoneLocation", style: { color: "blue" }, onDrop: this.uploadImage.bind(this) },
 																	React.createElement(
 																		"a",
-																		null,
+																		{ href: "#dropzoneLocation" },
 																		"Add Profile Image"
 																	)
 																)
@@ -752,6 +626,8 @@ Account.contextTypes = {
 };
 
 module.exports = connect(stateToProps, dispatchToProps)(Account);
+// console.log('LOGIN: ' + JSON.stringify(this.state.user))
+
 // this.props.fetchZone(null)
 
 /*  let content = (this.props.appStatus=='loading') ? 'Loading...' : contentFiller*/
