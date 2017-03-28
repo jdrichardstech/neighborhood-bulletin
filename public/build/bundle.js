@@ -22166,28 +22166,8 @@
 									)
 								)
 							),
-							_react2.default.createElement(
-								'footer',
-								{ className: 'ms-footer' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'container' },
-									_react2.default.createElement(
-										'p',
-										null,
-										'Copyright \xA9 JDRichardsTech 2017'
-									)
-								)
-							),
-							_react2.default.createElement(
-								'div',
-								{ className: 'btn-back-top' },
-								_react2.default.createElement(
-									'a',
-									{ href: '#', 'data-scroll': true, id: 'back-top', className: 'btn-circle btn-circle-primary btn-circle-sm btn-circle-raised ' },
-									_react2.default.createElement('i', { className: 'zmdi zmdi-long-arrow-up' })
-								)
-							)
+							_react2.default.createElement(_presentation.Footer, null),
+							_react2.default.createElement(_presentation.BackToTop, null)
 						)
 					);
 				} else {
@@ -34636,7 +34616,7 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.Header = exports.Zone = exports.Comment = exports.CreateZone = exports.CreateComment = undefined;
+	exports.BackToTop = exports.Footer = exports.Header = exports.Zone = exports.Comment = exports.CreateZone = exports.CreateComment = undefined;
 	
 	var _CreateComment = __webpack_require__(292);
 	
@@ -34658,6 +34638,14 @@
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
+	var _Footer = __webpack_require__(306);
+	
+	var _Footer2 = _interopRequireDefault(_Footer);
+	
+	var _BackToTop = __webpack_require__(307);
+	
+	var _BackToTop2 = _interopRequireDefault(_BackToTop);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.CreateComment = _CreateComment2.default;
@@ -34665,6 +34653,8 @@
 	exports.Comment = _Comment2.default;
 	exports.Zone = _Zone2.default;
 	exports.Header = _Header2.default;
+	exports.Footer = _Footer2.default;
+	exports.BackToTop = _BackToTop2.default;
 
 /***/ },
 /* 292 */
@@ -36664,6 +36654,78 @@
 	}(_react.Component);
 	
 	exports.default = Main;
+
+/***/ },
+/* 306 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Footer = function Footer(props) {
+		return _react2.default.createElement(
+			"div",
+			null,
+			_react2.default.createElement(
+				"footer",
+				{ className: "ms-footer" },
+				_react2.default.createElement(
+					"div",
+					{ className: "container" },
+					_react2.default.createElement(
+						"p",
+						null,
+						"Copyright \xA9 JDRichardsTech 2017"
+					)
+				)
+			)
+		);
+	};
+	
+	exports.default = Footer;
+
+/***/ },
+/* 307 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var BackToTop = function BackToTop(props) {
+		return _react2.default.createElement(
+			"div",
+			null,
+			_react2.default.createElement(
+				"div",
+				{ className: "btn-back-top" },
+				_react2.default.createElement(
+					"a",
+					{ href: "#", "data-scroll": true, id: "back-top", className: "btn-circle btn-circle-primary btn-circle-sm btn-circle-raised " },
+					_react2.default.createElement("i", { className: "zmdi zmdi-long-arrow-up" })
+				)
+			)
+		);
+	};
+	
+	exports.default = BackToTop;
 
 /***/ }
 /******/ ]);

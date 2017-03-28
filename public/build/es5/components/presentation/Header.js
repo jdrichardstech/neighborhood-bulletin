@@ -4,11 +4,6 @@ var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["defau
 
 var React = _interopRequire(require("react"));
 
-
-
-
-
-
 var Header = function (props) {
 	return React.createElement(
 		"div",

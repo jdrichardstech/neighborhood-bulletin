@@ -10,7 +10,7 @@ import sha1 from 'sha1'
 // import { Zones, Comments } from '../containers'
 import Zones from '../containers/Zones'
 import Comments from '../containers/Comments'
-import { Header } from '../presentation'
+import { Header, Footer, BackToTop } from '../presentation'
 
 class Account extends Component{
   constructor(props){
@@ -156,7 +156,6 @@ clearValues(){
     if(this.props.user==null){
       content = (
 			<div>
-
 				<div className="sb-site-container" style={{background:'#BCDCF5'}}>
 					<Header />
 					<div className="ms-hero-page-override ms-hero-img-city ms-hero-bg-dark-light">
@@ -268,16 +267,8 @@ clearValues(){
 								 </div>
 							 </div>
 							</div>
-					<footer className="ms-footer">
-						<div className="container">
-							<p>Copyright &copy; JDRichardsTech 2017</p>
-						</div>
-					</footer>
-					<div className="btn-back-top">
-						<a href="#" data-scroll id="back-top" className="btn-circle btn-circle-primary btn-circle-sm btn-circle-raised ">
-							<i className="zmdi zmdi-long-arrow-up"></i>
-						</a>
-					</div>
+						<Footer />
+						<BackToTop />
 			</div>
 		</div>
       )

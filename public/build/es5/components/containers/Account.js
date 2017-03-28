@@ -37,7 +37,11 @@ var Zones = _interopRequire(require("../containers/Zones"));
 
 var Comments = _interopRequire(require("../containers/Comments"));
 
-var Header = require("../presentation").Header;
+var _presentation = require("../presentation");
+
+var Header = _presentation.Header;
+var Footer = _presentation.Footer;
+var BackToTop = _presentation.BackToTop;
 var Account = (function (Component) {
 	function Account(props) {
 		_classCallCheck(this, Account);
@@ -484,28 +488,8 @@ var Account = (function (Component) {
 									)
 								)
 							),
-							React.createElement(
-								"footer",
-								{ className: "ms-footer" },
-								React.createElement(
-									"div",
-									{ className: "container" },
-									React.createElement(
-										"p",
-										null,
-										"Copyright © JDRichardsTech 2017"
-									)
-								)
-							),
-							React.createElement(
-								"div",
-								{ className: "btn-back-top" },
-								React.createElement(
-									"a",
-									{ href: "#", "data-scroll": true, id: "back-top", className: "btn-circle btn-circle-primary btn-circle-sm btn-circle-raised " },
-									React.createElement("i", { className: "zmdi zmdi-long-arrow-up" })
-								)
-							)
+							React.createElement(Footer, null),
+							React.createElement(BackToTop, null)
 						)
 					);
 				} else {
