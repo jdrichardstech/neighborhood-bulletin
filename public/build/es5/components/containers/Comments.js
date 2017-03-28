@@ -216,29 +216,22 @@ var Comments = (function (Component) {
 							React.createElement(CreateComment, { commentImage: this.state.updated.commentImage, handleImage: this.uploadImage.bind(this), onCreate: this.submitComment.bind(this) })
 						)
 					);
-				} else {
-					header = React.createElement(
-						"div",
-						{ style: styles.zone.container },
-						React.createElement(
-							"h2",
-							null,
-							"Welcome to Neighborhood Bulletin Board"
-						),
-						React.createElement(
-							"h3",
-							null,
-							"Please Log In Or Register"
-						),
-						React.createElement(
-							"center",
-							null,
-							React.createElement("img", { style: { width: 570, height: 300 }, src: "/images/neighborhood.jpg" })
-						)
-					);
 				}
 
-				var content = this.props.appStatus == "loading" ? "Loading..." : header;
+				var content = this.props.appStatus == "loading" ? React.createElement(
+					"div",
+					{ id: "ms-preload", className: "ms-preload" },
+					React.createElement(
+						"div",
+						{ id: "status" },
+						React.createElement(
+							"div",
+							{ className: "spinner" },
+							React.createElement("div", { className: "dot1" }),
+							React.createElement("div", { className: "dot2" })
+						)
+					)
+				) : header;
 
 				return React.createElement(
 					"div",

@@ -16,7 +16,7 @@ class Zones extends Component {
 	}
 
 	componentDidMount(){
-		console.log('componentDidMount: '+this.props.user)
+		console.log('componentDidMount: '+JSON.stringify(this.props.user))
 		// APIManager.get('/api/zone', null, (err, response) => {
 		// 	if (err){
 		// 		alert('ERROR: '+err.message)

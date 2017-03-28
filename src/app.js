@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import { UpdateProfile, UpdateZone } from './components/containers'
+import { UpdateProfile, UpdateZone, Account  } from './components/containers'
 import {Home, ProfileInfo } from './components/layout/'
 import Main from './components/Main'
 import { Provider } from 'react-redux'
@@ -13,7 +13,7 @@ const app = (
 	<Provider store={ store.configureStore(initialState)}>
 		<Router history={browserHistory}>
 			<Route path="/" component={Main}>
-				<IndexRoute component={Home}></IndexRoute>
+				<IndexRoute component={Account}></IndexRoute>
 				<Route path="/profile/:username" component={ProfileInfo}></Route>
 				<Route path="/updateprofile/:username" component={UpdateProfile}></Route>
 				<Route path="/updatezone/:zoneid" component={UpdateZone}></Route>

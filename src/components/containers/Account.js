@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { APIManager, ImageHelper } from '../../utils'
 import { connect } from 'react-redux'
 import styles from './styles'
@@ -7,40 +7,35 @@ import store from '../../stores/store'
 import { Link } from 'react-router'
 import DropZone from 'react-dropzone'
 import sha1 from 'sha1'
+// import { Zones, Comments } from '../containers'
+import Zones from '../containers/Zones'
+import Comments from '../containers/Comments'
 
 class Account extends Component{
   constructor(props){
     super(props)
     this.clearValues=this.clearValues.bind(this)
     this.state={
-			user:{},
+			user:null,
       username:'',
-      password:''
+      password:'',
+			flag:true
     }
   }
 	componentDidMount(){
-		// console.log("account componentDidMount")
 
-		// console.log("USER: " + JSON.stringify(updated))
 	}
-
-  componentDidUpdate(){
-		// console.log('account componentDidUpdate')
-		// console.log("PROPS: " + JSON.stringify(this.props.user))
-		//
-		// console.log("STATE: " + JSON.stringify(this.state.user))
-
-    // APIManager.get('/account/currentuser', null, (err, response)=>{
-    //   if(err){
-    //     // not logged in, reject
-    //     // alert(err)
-    //     return
-    //   }
-    //   // console.log('hi currentuser: ' +JSON.stringify(response))
-    //   this.props.currentUserReceived(response.result)
-    // })
-
-  }
+	componentDidUpdate(){
+		console.log('componentDidUpdate' +JSON.stringify(this.state.flag) +'ugh  '+ JSON.stringify(this.props.user))
+		if(this.state.flag==false&&this.props.user!=null){
+			this.props.fetchZone(null)
+			this.context.router.push('/')
+			this.setState({
+				user:this.props.user,
+				flag:true
+			})
+		}
+	}
 
   updateProfile(event){
     event.preventDefault()
@@ -65,25 +60,22 @@ class Account extends Component{
       return
     }
 
-    console.log("user from Account.js: " + JSON.stringify(this.state.profile))
-    // APIManager.post('/account/login', this.state.profile, (err, response)=>{
-    //   if(err){
-    //
-    //     alert(err.message)
-    //     return
-    //   }
-    //   console.log("This.state.profile: " + JSON.stringify(this.state.profile))
-    //   this.props.currentUserReceived(response.user)
-    //   // this.props.fetchCurrentUser(response.user)
-    // })
+    // console.log("user from Account.js: " + JSON.stringify(this.state.profile))
+
+		// console.log("LOGIN PROFILE: " +JSON.stringify(this.state.profile))
     this.props.createLogin(this.state.profile)
 
+		this.setState({
+			flag: true
+		})
+		this.context.router.push('/')
+		// console.log('LOGIN: ' + JSON.stringify(this.state.user))
 
   }
 
   signUp(event){
     event.preventDefault()
-    console.log("Sign Up:" + JSON.stringify(this.state.profile))
+    // console.log("Sign Up:" + JSON.stringify(this.state.profile))
     if(this.state.profile.username.length==0){
       alert('you must enter a username')
       return
@@ -92,19 +84,6 @@ class Account extends Component{
       alert('you must enter password')
       return
     }
-
-
-
-    // APIManager.post('/account/register', this.state.profile, (err, response)=>{
-    //   if(err){
-    //     alert('Username Taken. Choose another UserName')
-    //     return
-    //   }
-    //   console.log("post 2nd step: " + JSON.stringify(response))
-    //   this.props.currentUserReceived(response.user)
-    //   // this.props.fetchCurrentUser(response.user)
-    // })
-    // console.log("Sign Up:" + JSON.stringify(this.state.profile))
     this.props.createSignUp(this.state.profile)
   }
 
@@ -117,7 +96,10 @@ logout(event){
     // this.props.fetchCurrentUser(response.result)
     this.props.currentUserReceived(null)
     this.clearValues()
-
+		this.setState({
+			flag: false
+		})
+		console.log("HERE YOU GO: " + JSON.stringify(this.state.flag))
   })
     // this.props.fetchZone(null)
 
@@ -153,6 +135,7 @@ uploadImage(files){
       this.setState({
         profile: updatedProfile
       })
+			alert('Your profile image has been uploaded')
   })
 }
 
@@ -168,60 +151,220 @@ clearValues(){
 }
 
   render(){
-    // let contentFiller = null
+
     let content = null
     if(this.props.user==null){
       content = (
-        <div >
-          <div style={styles.comment.commentsBox}>
-            <h3>Login</h3>
-            <label>Username:</label>
-            <input className="form-control" onChange={this.updateProfile.bind(this)} onChange={this.updateProfile.bind(this)} id="username" type="text" ref="use" /><br />
-            <label>Password:</label>
-            <input className="form-control" onChange={this.updateProfile.bind(this)} onChange={this.updateProfile.bind(this)} id="password" type="password" ref="pass" /><br />
-            <button className="btn btn-info" onClick={this.login.bind(this)} type="submit">Log In</button>
-            <br />
-          </div>
+			<div>
 
-          <div style={styles.comment.accountBox}>
-            <h3>Sign Up:</h3>
-            <label>Username:</label>
-            <input className="form-control" onChange={this.updateProfile.bind(this)} id="username"  type="text" ref="username"/><br />
-            <label>Password:</label>
-            <input className="form-control" onChange={this.updateProfile.bind(this)} id="password" type="password" ref="password" /><br />
-            <label>Gender:</label>
-            <input className="form-control" onChange={this.updateProfile.bind(this)} id="gender" type="text" ref="gender" /><br />
-            <label>City:</label>
-            <input className="form-control" onChange={this.updateProfile.bind(this)} id="city" type="text" ref="city" /><br />
-            <label>Bio:</label>
-            <textarea  onChange={this.updateProfile.bind(this)} type="text" className="form-control" id="bio" ref="bio" ></textarea><br />
-            <DropZone style={{color:'blue'}} onDrop={this.uploadImage.bind(this)}><a>Add Profile Image</a></DropZone><br />
-            <button className="btn btn-info" onClick={this.signUp.bind(this)} type="submit">Join</button>
-          </div>
-        </div>
+				<div className="sb-site-container" style={{background:'#BCDCF5'}}>
+					<div className="modal modal-primary" id="ms-account-modal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
+						<div className="modal-dialog animated zoomIn animated-3x" role="document">
+							<div className="modal-content">
+								<div className="modal-header shadow-2dp no-pb">
+									<button type="button" className="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">
+											<i className="zmdi zmdi-close"></i>
+										</span>
+									</button>
+									<div className="modal-title text-center">
+										<span className="ms-logo ms-logo-white ms-logo-sm mr-1">JD</span>
+										<h3 className="no-m ms-site-title">Neighborhood
+											<span>Bulletin Board</span>
+										</h3>
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<header className="ms-header ms-header-white">
+						<div className="container container-full">
+							<div className="ms-title">
+								<a href="index.html">
+									<span className="ms-logo animated zoomInDown animation-delay-5">JD</span>
+									<h1 className="animated fadeInRight animation-delay-6">Neighborhood
+										<span>Bulletin Board</span>
+									</h1>
+								</a>
+							</div>
+						</div>
+					</header>
+					<nav className="navbar navbar-static-top yamm ms-navbar ms-navbar-primary">
+						<div className="container container-full">
+							<div className="navbar-header">
+								<a className="navbar-brand" href="index.html">
+
+									<span className="ms-logo ms-logo-sm">JD</span>
+									<span className="ms-title">Neighborhood
+										<strong>Bulletin Board</strong>
+									</span>
+								</a>
+							</div>
+							<div id="navbar" className="navbar-collapse collapse">
+								<ul class="nav navbar-nav">
+							</ul>
+							</div>
+
+						</div>
+					</nav>
+					<div className="ms-hero-page-override ms-hero-img-city ms-hero-bg-dark-light">
+						<div className="container">
+							<div className="text-center">
+								<span className="ms-logo ms-logo-lg ms-logo-white center-block mb-2 mt-2 animated zoomInDown animation-delay-5">JD</span>
+								<h1 className="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5">Neighborhood
+									<span>Bulletin Board</span>
+								</h1>
+								<p  className="lead lead-lg color-white text-center center-block mt-2 mw-800 text-uppercase fw-500 animated fadeInUp animation-delay-7">Share and discover happenings and observances in your neighborhood
+									Please register or Login<br /> <span style={{textTransform:'lowercase'}} className="color-warning"> (feel free to login with -- username: jd &amp; password:123 -- if you like)</span></p>
+							</div>
+						</div>
+					</div>
+					<div className="container">
+						<div className="row">
+							<div className="col-md-6 col-md-offset-3">
+								<div className="card card-hero card-primary animated fadeInUp animation-delay-7">
+									<div className="card-block">
+										<h1 className="color-primary text-center">Login</h1>
+										<form className="form-horizontal">
+											<fieldset>
+												<div className="form-group">
+													<label  className="col-md-2 control-label">Username</label>
+													<div className="col-md-10">
+														<input onChange={this.updateProfile.bind(this)} type="text" className="form-control" id="username" placeholder="Username" ref="use"  /> </div>
+												</div>
+												<div className="form-group">
+													<label  className="col-md-2 control-label">Password</label>
+													<div className="col-md-10">
+														<input onChange={this.updateProfile.bind(this)} type="password" className="form-control" id="password" placeholder="Password" ref="pass" /> </div>
+												</div>
+											</fieldset>
+											<button onClick={this.login.bind(this)} className="btn btn-raised btn-primary btn-block" type="submit">Login
+												<i className="zmdi zmdi-long-arrow-right no-mr ml-1"></i>
+											</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style={{marginTop:130}} className="row">
+						<div className="col-md-6 col-md-offset-3">
+							<div className="card card-hero card-primary animated fadeInUp animation-delay-9">
+								<div className="card-block">
+											<h2 className="color-primary text-center">Register</h2>
+											<form>
+												<fieldset>
+													<div className="form-group label-floating">
+														<div className="input-group">
+															<span className="input-group-addon">
+																<i className="zmdi zmdi-account"></i>
+															</span>
+															<label className="control-label" >Username</label>
+
+															<input onChange={this.updateProfile.bind(this)} type="text" id="username" className="form-control" ref="username" /> </div>
+													</div>
+
+													<div className="form-group label-floating">
+														<div className="input-group">
+															<span className="input-group-addon">
+																<i className="zmdi zmdi-lock"></i>
+															</span>
+															<label className="control-label" >Password</label>
+															<input onChange={this.updateProfile.bind(this)} type="password" id="password" className="form-control" ref="password"/> </div>
+													</div>
+													<div className="form-group label-floating">
+														<div className="input-group">
+															<span className="input-group-addon">
+																<i className="zmdi zmdi-male-female"></i>
+															</span>
+															<label className="control-label" >Gender</label>
+															<input onChange={this.updateProfile.bind(this)} type="text" id="gender" className="form-control" ref="gender" /> </div>
+													</div>
+													<div className="form-group label-floating">
+														<div className="input-group">
+															<span className="input-group-addon">
+																<i className="zmdi zmdi-city"></i>
+															</span>
+															<label className="control-label" >City</label>
+															<input onChange={this.updateProfile.bind(this)} type="text" id="city" className="form-control" ref="city" /> </div>
+													</div>
+													<div className="form-group label-floating">
+														<div className="input-group">
+															<span className="input-group-addon">
+																<i className="zmdi zmdi-puzzle-piece"></i>
+															</span>
+															<label className="control-label" >Short Bio</label>
+															<input onChange={this.updateProfile.bind(this)} type="text" id="bio" className="form-control" ref="bio" /> </div>
+													</div>
+													<div className="form-group label-floating">
+														<div className="input-group">
+															<span className="input-group-addon">
+																<i className="zmdi zmdi-camera"></i>
+															</span>
+														 <DropZone id="dropzoneLocation" style={{color:'blue'}} onDrop={this.uploadImage.bind(this)}>
+															 <a href="#dropzoneLocation">
+																 Add Profile Image
+															 </a>
+														 </DropZone>
+													 </div>
+													</div>
+													<button onClick={this.signUp.bind(this)} className="btn btn-raised btn-block btn-primary" type="submit">Register Now</button>
+												</fieldset>
+											 </form>
+										 </div>
+									 </div>
+								 </div>
+							 </div>
+							</div>
+					<footer className="ms-footer">
+						<div className="container">
+							<p>Copyright &copy; JDRichardsTech 2017</p>
+						</div>
+					</footer>
+					<div className="btn-back-top">
+						<a href="#" data-scroll id="back-top" className="btn-circle btn-circle-primary btn-circle-sm btn-circle-raised ">
+							<i className="zmdi zmdi-long-arrow-up"></i>
+						</a>
+					</div>
+			</div>
+		</div>
       )
     }else{
 
       content = (
         <div>
-	        <div>
-	          <img style={{borderRadius:36, float:'left', marginRight:12}} src={ImageHelper.thumbnail(this.props.user.image, 72)} />
-	          <h3>Hi <span style={{color:'blue'}}><Link to={'/profile/'+ this.props.user.username}>{this.props.user.username}</Link></span></h3>
-						<p>Gender: {this.props.user.gender}</p><br /><br />
-	          <button style={styles.account.button} className="btn btn-danger" onClick={this.logout.bind(this)}>Log Out</button>
-	          &nbsp;<Link to={'/updateprofile/'+this.props.user.username}><button style={styles.account.button} className="btn btn-warning" type="">Update Profile</button></Link>
-	        </div>
+					<div className="container">
+						<div className="row">
+							<div className="col-md-12">
+								<img style={{borderRadius:36, float:'left', marginRight:12}} src={ImageHelper.thumbnail(this.props.user.image, 72)} />
+								<h3>Hi <span style={{color:'blue'}}><Link to={'/profile/'+ this.props.user.username}>{this.props.user.username}</Link></span></h3>
+								<p>Gender: {this.props.user.gender}</p><br /><br />
+								<button style={styles.account.button} className="btn btn-danger" onClick={this.logout.bind(this)}>Log Out</button>
+								&nbsp;<Link to={'/updateprofile/'+this.props.user.username}><button style={styles.account.button} className="btn btn-warning" type="">Update Profile</button></Link>
+							</div>
+						</div>
+
+					 <div className="row">
+						 <div className="col-md-4">
+							<Zones />
+						 </div>
+						 <div className="col-md-8">
+							 <Comments />
+						 </div>
+					 </div>
+					</div>
         </div>
       )
     }
 
   {/*  let content = (this.props.appStatus=='loading') ? 'Loading...' : contentFiller*/}
     return(
-      <div>
-        <div className="col-md-12" style={styles.account.accountBox}>
+
+        <div>
           {content}
         </div>
-      </div>
+
     )
   }
 }
@@ -245,6 +388,8 @@ const dispatchToProps = (dispatch) => {
   }
 
 }
-
+Account.contextTypes={
+	router:PropTypes.object
+}
 
 export default connect(stateToProps, dispatchToProps)(Account)

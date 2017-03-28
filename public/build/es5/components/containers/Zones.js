@@ -40,7 +40,7 @@ var Zones = (function (Component) {
 	_prototypeProperties(Zones, null, {
 		componentDidMount: {
 			value: function componentDidMount() {
-				console.log("componentDidMount: " + this.props.user);
+				console.log("componentDidMount: " + JSON.stringify(this.props.user));
 				// APIManager.get('/api/zone', null, (err, response) => {
 				// 	if (err){
 				// 		alert('ERROR: '+err.message)

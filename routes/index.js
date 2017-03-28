@@ -9,6 +9,7 @@ var React = require('react')
 var ReactRouter = require('react-router')
 var ReactDOMServer = require('react-dom/server')
 var Home = require('../public/build/es5/components/layout/Home')
+var Account = require('../public/build/es5/components/containers/Account')
 var ProfileInfo = require('../public/build/es5/components/layout/ProfileInfo')
 var store = require('../public/build/es5/stores/store')
 
@@ -82,7 +83,7 @@ router.get('/', function(req, res, next) {
 			component: serverapp,
 			initial: initialStore,
 			indexRoute: {
-				component: Home
+				component: Account
 			}
 		}
 

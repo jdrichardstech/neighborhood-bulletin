@@ -147,16 +147,16 @@ class Comments extends Component {
 							<CreateComment commentImage={this.state.updated.commentImage}  handleImage={this.uploadImage.bind(this)}  onCreate={this.submitComment.bind(this)} />
 						</div>
 				</div>
-				}else{
-					header =
-						<div style={styles.zone.container}>
-							<h2>Welcome to Neighborhood Bulletin Board</h2>
-							<h3>Please Log In Or Register</h3>
-							<center><img style={{width:570, height:300}} src="/images/neighborhood.jpg" /></center>
-						</div>
-					}
+				}
 
-		let content = (this.props.appStatus=='loading') ? 'Loading...' : header
+		let content = (this.props.appStatus=='loading') ? <div id="ms-preload" className="ms-preload">
+			<div id="status">
+				<div className="spinner">
+					<div className="dot1"></div>
+					<div className="dot2"></div>
+				</div>
+			</div>
+		</div> : header
 
 		return (
 			<div>
