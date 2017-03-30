@@ -96,7 +96,7 @@ var Profile = (function (Component) {
 								{ className: "row" },
 								React.createElement(
 									"div",
-									{ className: "col-md-12" },
+									{ className: "col-md-6 col-md-offset-3" },
 									React.createElement(
 										"div",
 										{ className: "card-block" },
@@ -107,96 +107,100 @@ var Profile = (function (Component) {
 										)
 									),
 									React.createElement(
-										"table",
-										{ className: "table table-no-border table-striped", style: { width: "65%", margin: "0 auto 50px auto" } },
+										"div",
+										null,
 										React.createElement(
-											"tbody",
-											null,
+											"table",
+											{ className: "table  table-striped table-striped-warning" },
 											React.createElement(
-												"tr",
+												"tbody",
 												null,
 												React.createElement(
-													"th",
-													null,
-													React.createElement("i", { className: "zmdi zmdi-face mr-1 color-warning" }),
-													" Fullname"
-												),
-												React.createElement(
-													"td",
-													null,
-													profile.firstName,
-													" ",
-													profile.lastName
-												)
-											),
-											React.createElement(
-												"tr",
-												null,
-												React.createElement(
-													"th",
-													null,
-													React.createElement("i", { className: "zmdi zmdi-account mr-1 color-royal" }),
-													" User Name"
-												),
-												React.createElement(
-													"td",
-													null,
-													profile.username
-												)
-											),
-											React.createElement(
-												"tr",
-												null,
-												React.createElement(
-													"th",
-													null,
-													React.createElement("i", { className: "zmdi zmdi-male-female mr-1 color-success" }),
-													" Gender"
-												),
-												React.createElement(
-													"td",
-													null,
-													profile.gender
-												)
-											),
-											React.createElement(
-												"tr",
-												null,
-												React.createElement(
-													"th",
-													null,
-													React.createElement("i", { className: "zmdi zmdi-email mr-1 color-primary" }),
-													" Email"
-												),
-												React.createElement(
-													"td",
+													"tr",
 													null,
 													React.createElement(
-														"a",
-														{ href: "#" },
-														profile.username,
-														"@me.com"
+														"th",
+														null,
+														React.createElement("i", { className: "zmdi zmdi-face mr-1 color-warning" }),
+														" Fullname"
+													),
+													React.createElement(
+														"td",
+														null,
+														profile.firstName,
+														" ",
+														profile.lastName
 													)
-												)
-											),
-											React.createElement(
-												"tr",
-												null,
-												React.createElement(
-													"th",
-													null,
-													React.createElement("i", { className: "zmdi zmdi-link mr-1 color-danger" }),
-													" Website"
 												),
 												React.createElement(
-													"td",
+													"tr",
 													null,
 													React.createElement(
-														"a",
-														{ href: "#" },
-														"www.",
-														profile.username,
-														".com"
+														"th",
+														null,
+														React.createElement("i", { className: "zmdi zmdi-account mr-1 color-royal" }),
+														" User Name"
+													),
+													React.createElement(
+														"td",
+														null,
+														profile.username
+													)
+												),
+												React.createElement(
+													"tr",
+													null,
+													React.createElement(
+														"th",
+														null,
+														React.createElement("i", { className: "zmdi zmdi-male-female mr-1 color-success" }),
+														" Gender"
+													),
+													React.createElement(
+														"td",
+														null,
+														profile.gender
+													)
+												),
+												React.createElement(
+													"tr",
+													null,
+													React.createElement(
+														"th",
+														null,
+														React.createElement("i", { className: "zmdi zmdi-email mr-1 color-primary" }),
+														" Email"
+													),
+													React.createElement(
+														"td",
+														null,
+														React.createElement(
+															"a",
+															{ href: "#" },
+															profile.username,
+															"@me.com"
+														)
+													)
+												),
+												React.createElement(
+													"tr",
+													null,
+													React.createElement(
+														"th",
+														null,
+														React.createElement("i", { className: "zmdi zmdi-link mr-1 color-danger" }),
+														" Website"
+													),
+													React.createElement(
+														"td",
+														null,
+														React.createElement(
+															"a",
+															{ href: "#" },
+															"www.",
+															profile.username,
+															".com"
+														)
 													)
 												)
 											)

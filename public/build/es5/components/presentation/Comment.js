@@ -76,6 +76,7 @@ var Comment = (function (Component) {
 					isEditing: false,
 					showEdit: true
 				});
+				this.refs.image.value = "";
 			},
 			writable: true,
 			configurable: true
@@ -132,10 +133,10 @@ var Comment = (function (Component) {
 									null,
 									"Edit your current comment below:"
 								),
-								React.createElement("input", { className: "form-control", onChange: this.handleEditChange.bind(this), type: "text", placeholder: currentComment.title, id: "title" }),
+								React.createElement("input", { className: "form-control", onChange: this.handleEditChange.bind(this), type: "text", placeholder: "Change Title", id: "title" }),
 								" ",
 								React.createElement("br", null),
-								React.createElement("input", { className: "form-control", onChange: this.handleEditChange.bind(this), type: "text", placeholder: currentComment.body, id: "body" }),
+								React.createElement("input", { className: "form-control", onChange: this.handleEditChange.bind(this), type: "text", placeholder: "Change Text", id: "body" }),
 								" ",
 								React.createElement("br", null)
 							)
@@ -164,7 +165,7 @@ var Comment = (function (Component) {
 							React.createElement(
 								"div",
 								{ style: { marginTop: 50 } },
-								React.createElement("img", { style: { height: 100 }, src: this.props.commentImage })
+								React.createElement("img", { style: { height: 100 }, src: this.props.commentImage, ref: "image" })
 							)
 						)
 					),

@@ -22273,7 +22273,6 @@
 														{ style: { color: '#03a9f4' } },
 														'Gender: '
 													),
-													'Gender: ',
 													this.props.user.gender
 												),
 												_react2.default.createElement(
@@ -35157,6 +35156,7 @@
 					isEditing: false,
 					showEdit: true
 				});
+				this.refs.image.value = '';
 			}
 		}, {
 			key: 'grabImage',
@@ -35207,10 +35207,10 @@
 									null,
 									'Edit your current comment below:'
 								),
-								_react2.default.createElement('input', { className: 'form-control', onChange: this.handleEditChange.bind(this), type: 'text', placeholder: currentComment.title, id: 'title' }),
+								_react2.default.createElement('input', { className: 'form-control', onChange: this.handleEditChange.bind(this), type: 'text', placeholder: 'Change Title', id: 'title' }),
 								' ',
 								_react2.default.createElement('br', null),
-								_react2.default.createElement('input', { className: 'form-control', onChange: this.handleEditChange.bind(this), type: 'text', placeholder: currentComment.body, id: 'body' }),
+								_react2.default.createElement('input', { className: 'form-control', onChange: this.handleEditChange.bind(this), type: 'text', placeholder: 'Change Text', id: 'body' }),
 								' ',
 								_react2.default.createElement('br', null)
 							)
@@ -35239,7 +35239,7 @@
 							_react2.default.createElement(
 								'div',
 								{ style: { marginTop: 50 } },
-								_react2.default.createElement('img', { style: { height: 100 }, src: this.props.commentImage })
+								_react2.default.createElement('img', { style: { height: 100 }, src: this.props.commentImage, ref: 'image' })
 							)
 						)
 					),
@@ -36183,7 +36183,7 @@
 								{ className: 'row' },
 								_react2.default.createElement(
 									'div',
-									{ className: 'col-md-12' },
+									{ className: 'col-md-6 col-md-offset-3' },
 									_react2.default.createElement(
 										'div',
 										{ className: 'card-block' },
@@ -36194,96 +36194,100 @@
 										)
 									),
 									_react2.default.createElement(
-										'table',
-										{ className: 'table table-no-border table-striped', style: { width: '65%', margin: '0 auto 50px auto' } },
+										'div',
+										null,
 										_react2.default.createElement(
-											'tbody',
-											null,
+											'table',
+											{ className: 'table  table-striped table-striped-warning' },
 											_react2.default.createElement(
-												'tr',
+												'tbody',
 												null,
 												_react2.default.createElement(
-													'th',
-													null,
-													_react2.default.createElement('i', { className: 'zmdi zmdi-face mr-1 color-warning' }),
-													' Fullname'
-												),
-												_react2.default.createElement(
-													'td',
-													null,
-													profile.firstName,
-													' ',
-													profile.lastName
-												)
-											),
-											_react2.default.createElement(
-												'tr',
-												null,
-												_react2.default.createElement(
-													'th',
-													null,
-													_react2.default.createElement('i', { className: 'zmdi zmdi-account mr-1 color-royal' }),
-													' User Name'
-												),
-												_react2.default.createElement(
-													'td',
-													null,
-													profile.username
-												)
-											),
-											_react2.default.createElement(
-												'tr',
-												null,
-												_react2.default.createElement(
-													'th',
-													null,
-													_react2.default.createElement('i', { className: 'zmdi zmdi-male-female mr-1 color-success' }),
-													' Gender'
-												),
-												_react2.default.createElement(
-													'td',
-													null,
-													profile.gender
-												)
-											),
-											_react2.default.createElement(
-												'tr',
-												null,
-												_react2.default.createElement(
-													'th',
-													null,
-													_react2.default.createElement('i', { className: 'zmdi zmdi-email mr-1 color-primary' }),
-													' Email'
-												),
-												_react2.default.createElement(
-													'td',
+													'tr',
 													null,
 													_react2.default.createElement(
-														'a',
-														{ href: '#' },
-														profile.username,
-														'@me.com'
+														'th',
+														null,
+														_react2.default.createElement('i', { className: 'zmdi zmdi-face mr-1 color-warning' }),
+														' Fullname'
+													),
+													_react2.default.createElement(
+														'td',
+														null,
+														profile.firstName,
+														' ',
+														profile.lastName
 													)
-												)
-											),
-											_react2.default.createElement(
-												'tr',
-												null,
-												_react2.default.createElement(
-													'th',
-													null,
-													_react2.default.createElement('i', { className: 'zmdi zmdi-link mr-1 color-danger' }),
-													' Website'
 												),
 												_react2.default.createElement(
-													'td',
+													'tr',
 													null,
 													_react2.default.createElement(
-														'a',
-														{ href: '#' },
-														'www.',
-														profile.username,
-														'.com'
+														'th',
+														null,
+														_react2.default.createElement('i', { className: 'zmdi zmdi-account mr-1 color-royal' }),
+														' User Name'
+													),
+													_react2.default.createElement(
+														'td',
+														null,
+														profile.username
+													)
+												),
+												_react2.default.createElement(
+													'tr',
+													null,
+													_react2.default.createElement(
+														'th',
+														null,
+														_react2.default.createElement('i', { className: 'zmdi zmdi-male-female mr-1 color-success' }),
+														' Gender'
+													),
+													_react2.default.createElement(
+														'td',
+														null,
+														profile.gender
+													)
+												),
+												_react2.default.createElement(
+													'tr',
+													null,
+													_react2.default.createElement(
+														'th',
+														null,
+														_react2.default.createElement('i', { className: 'zmdi zmdi-email mr-1 color-primary' }),
+														' Email'
+													),
+													_react2.default.createElement(
+														'td',
+														null,
+														_react2.default.createElement(
+															'a',
+															{ href: '#' },
+															profile.username,
+															'@me.com'
+														)
+													)
+												),
+												_react2.default.createElement(
+													'tr',
+													null,
+													_react2.default.createElement(
+														'th',
+														null,
+														_react2.default.createElement('i', { className: 'zmdi zmdi-link mr-1 color-danger' }),
+														' Website'
+													),
+													_react2.default.createElement(
+														'td',
+														null,
+														_react2.default.createElement(
+															'a',
+															{ href: '#' },
+															'www.',
+															profile.username,
+															'.com'
+														)
 													)
 												)
 											)

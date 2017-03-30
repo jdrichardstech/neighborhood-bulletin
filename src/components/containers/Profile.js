@@ -43,11 +43,12 @@ class Profile extends Component{
 					</div>
 					<div  className="container">
 						<div className="row">
-							<div className="col-md-12">
+							<div className="col-md-6 col-md-offset-3">
 								<div className="card-block">
 									<h2  className="color-primary no-mb" style={{textAlign:'center',padding:'20px 0 20px 0'}}>Personal Information</h2>
 								</div>
-								<table className="table table-no-border table-striped" style={{width:'65%',margin:'0 auto 50px auto'}}>
+								<div>
+								<table className="table  table-striped table-striped-warning">
 									<tbody>
 										<tr>
 											<th>
@@ -80,7 +81,9 @@ class Profile extends Component{
 										</tr>
 									</tbody>
 								</table>
+								</div>
 								<Link to ="/"><button style={{margin:'0 auto 100px auto',width:'25%'}} type="" className="btn btn-success  btn-raised btn-block"><i className="ml-1 no-mr zmdi zmdi-home"></i>&nbsp;&nbsp;Home</button></Link>
+
 							</div>
 						</div>
 					</div>

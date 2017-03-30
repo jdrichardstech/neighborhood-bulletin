@@ -315,7 +315,7 @@ clearValues(){
 									 <Link to={'/profile/'+ this.props.user.username}><img src={this.props.user.image} alt="..." className="img-avatar-circle" /></Link> </div>
 								 <div className="card-block pt-4 text-center">
 									 <h3 className="color-primary">About me</h3>
-									 <p><span style={{color:'#03a9f4'}}>Gender: </span>Gender: {this.props.user.gender}</p>
+									 <p><span style={{color:'#03a9f4'}}>Gender: </span>{this.props.user.gender}</p>
 									 <p><span style={{color:'#03a9f4'}}>City:</span>{this.props.user.city}</p>
 									 <p><span style={{color:'#03a9f4'}}>Bio:</span>  {this.props.user.bio}</p>
 

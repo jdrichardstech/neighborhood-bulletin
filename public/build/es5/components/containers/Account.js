@@ -594,7 +594,6 @@ var Account = (function (Component) {
 														{ style: { color: "#03a9f4" } },
 														"Gender: "
 													),
-													"Gender: ",
 													this.props.user.gender
 												),
 												React.createElement(

@@ -49,6 +49,7 @@ updateComment(event){
 		isEditing:false,
 		showEdit:true
 	})
+	this.refs.image.value=''
 
 }
 
@@ -89,8 +90,8 @@ grabImage(files){
 			<div style={{padding:30}}>
 			<h3>Edit your current comment below:</h3>
 
-			<input  className="form-control" onChange={this.handleEditChange.bind(this)} type="text" placeholder={currentComment.title} id="title" /> <br />
-			<input  className="form-control" onChange={this.handleEditChange.bind(this)} type="text" placeholder={currentComment.body} id="body" /> <br />
+			<input  className="form-control" onChange={this.handleEditChange.bind(this)} type="text" placeholder="Change Title" id="title" /> <br />
+			<input  className="form-control" onChange={this.handleEditChange.bind(this)} type="text" placeholder="Change Text" id="body"  /> <br />
 			</div>
 		</div>
 	</div>
@@ -103,7 +104,7 @@ grabImage(files){
 			</a></DropZone>
 		</div>
 			 <div className="col-md-6" style={{padding:30}}>
-				 <div style={{marginTop:50}} ><img style={{height:100}} src={this.props.commentImage} /></div>
+				 <div style={{marginTop:50}} ><img style={{height:100}} src={this.props.commentImage} ref="image" /></div>
 			 </div>
 
 			 </div>
