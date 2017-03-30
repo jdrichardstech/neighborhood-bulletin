@@ -6,6 +6,7 @@ import actions from '../../actions/actions'
 import { Link } from 'react-router'
 import DropZone from 'react-dropzone'
 import sha1 from 'sha1'
+import { Header, Footer, BackToTop } from '../presentation'
 
 class UpdateProfile extends Component{
   constructor(props){
@@ -35,13 +36,13 @@ class UpdateProfile extends Component{
 	}
 
 	updateCurrentUser(event){
-	  event.preventDefault()
-	  // console.log('updateCurrentUser: '+event.target.id+' == '+event.target.value)
-	  let updatedProfile = Object.assign({}, this.state.updated)
-	  updatedProfile[event.target.id] = event.target.value
-	  this.setState({
-	    updated: updatedProfile
-	  })
+		event.preventDefault()
+		// console.log('updateCurrentUser: '+event.target.id+' == '+event.target.value)
+		let updatedProfile = Object.assign({}, this.state.updated)
+		updatedProfile[event.target.id] = event.target.value
+		this.setState({
+			updated: updatedProfile
+		})
 	}
 
 	updateProfile(event){
@@ -95,37 +96,99 @@ class UpdateProfile extends Component{
   render(){
 		let content = null
 		let image = null
-    const currentUser = this.props.user
-     image = (this.props.user==null) ? '' : ImageHelper.thumbnail(this.props.user.image, 150)
-		 content = (this.props.user==null) ? "loading" : <div> <h1 style={{color:'white'}}>Update Your Profile</h1><br />
-		 <div style={styles.profile.container}>
-			 <h2>Current Profile:</h2>
-			 <h3>User: <span style={styles.profile.entry}> {this.props.user.username}</span></h3>
-			 <p>
-				 Gender: <span style={styles.profile.entry}>{this.props.user.gender}</span><br />
-				 City:<span style={styles.profile.entry}> {this.props.user.city}</span><br /><br />
-				 Bio:<span style={styles.profile.entry}> {this.props.user.bio}</span><br /><br />
-			 Image: <img src={this.props.user.image} /><br /><br />
-			 <Link to ="/"><button style={{marginRight:10}} type="" className="btn btn-info">Home</button></Link>
-				 <Link to = {"/profile/"+this.props.user.username}><button type="" className="btn btn-warning">View Current Profile</button></Link>
-			 </p>
-		 </div><br /><br />
-		 <div style={styles.account.container}>
-				 <label>New Gender:</label>
-				 <input onChange={this.updateCurrentUser.bind(this)} type="text" className="form-control" id="gender" defaultValue={currentUser.gender} />
-				 <label>New City:</label>
-				 <input onChange={this.updateCurrentUser.bind(this)} type="text" className="form-control" id="city" defaultValue={currentUser.city} />
-				 <label>Bio:</label>
-				 <textarea  onChange={this.updateCurrentUser.bind(this)} type="text" className="form-control" id="bio" defaultValue={currentUser.bio} ></textarea>
-				 <br />
-				 <label>Upload or Drop Image below:</label>
-				 <DropZone onDrop={this.uploadImage.bind(this)}/>
-				 <br />
-				 <button onClick={this.updateProfile.bind(this)} className="btn btn-danger" type="submit">Update Profile</button>
-		 </div></div>
+
+		const currentUser = this.props.user
+
+		content = <div>
+			<div className="ms-hero-page-override ms-hero-img-city ms-bg-fixed ms-hero-bg-primary">
+				<div className="container" >
+					<div  className="text-center mt-2" style={{paddingTop:75}}>
+						<h1 className="color-white mt-4 animated fadeInUp animation-delay-10">Profile Page</h1>
+						<img src={currentUser.image} className="ms-avatar-hero animated zoomIn animation-delay-7" />
+						<h1 className="color-white mt-4 animated fadeInUp animation-delay-10">{currentUser.firstName} {currentUser.lastName}</h1>
+						<h3 className="color-medium no-mb animated fadeInUp animation-delay-10">{currentUser.bio}</h3>
+					</div>
+				</div>
+			</div>
+			<div className="container">
+				<div className="row">
+					<div className="col-md-6">
+						<div className="card-block">
+							<h2  className="color-primary no-mb" style={{textAlign:'center',padding:'20px 0 20px 0'}}>Your Current Information</h2>
+
+						<table className="table table-no-border table-striped" style={{width:'65%',margin:'0 auto 50px auto'}}>
+							<tbody>
+								<tr>
+									<th>
+										<i className="zmdi zmdi-face mr-1 color-warning"></i> Fullname</th>
+									<td>{currentUser.firstName} {currentUser.lastName}</td>
+								</tr>
+								<tr>
+									<th>
+										<i className="zmdi zmdi-account mr-1 color-royal"></i> User Name</th>
+									<td>{currentUser.username}</td>
+								</tr>
+								<tr>
+									<th>
+										<i className="zmdi zmdi-male-female mr-1 color-success"></i> Gender</th>
+									<td>{currentUser.gender}</td>
+								</tr>
+								<tr>
+									<th>
+										<i className="zmdi zmdi-email mr-1 color-primary"></i> Email</th>
+									<td>
+										<a href="#">{currentUser.username}@me.com</a>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										<i className="zmdi zmdi-link mr-1 color-danger"></i> Website</th>
+									<td>
+										<a href="#">www.{currentUser.username}.com</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div>
+						<Link to ="/"><button style={{margin:'0 auto 100px auto',width:'25%'}} type="" className="btn btn-success  btn-raised btn-block"><i className="ml-1 no-mr zmdi zmdi-home"></i>&nbsp;&nbsp;Home</button></Link>
+
+					</div>
+				</div>
+					</div>
+				<div className="col-md-6">
+					<div className="card-block">
+						<h2 style={{textAlign:'center',padding:'20px 0 20px 0'}}>Update Your Info</h2>
+						<div style={{width:'65%',margin:'0 auto 50px auto'}}>
+							<label>First Name:</label>
+							<input onChange={this.updateCurrentUser.bind(this)} type="text" className="form-control" id="firstName" defaultValue={currentUser.firstName} />
+							<label>Last Name:</label>
+							<input onChange={this.updateCurrentUser.bind(this)} type="text" className="form-control" id="lastName" defaultValue={currentUser.lastName} />
+							<label>New Gender:</label>
+							<input onChange={this.updateCurrentUser.bind(this)} type="text" className="form-control" id="gender" defaultValue={currentUser.gender} />
+							<label>New City:</label>
+							<input onChange={this.updateCurrentUser.bind(this)} type="text" className="form-control" id="city" defaultValue={currentUser.city} />
+							<label>Bio:</label>
+							<input  onChange={this.updateCurrentUser.bind(this)} type="text" className="form-control" id="bio" defaultValue={currentUser.bio} ></input>
+							<br />
+								<DropZone style={{border:'1px solid white',fontSize:'1.5em'}} nDrop={this.uploadImage.bind(this)}><a href="javascript:void(0)">
+									<i className="ml-1 no-mr zmdi zmdi-camera"></i>&nbsp;Upload New Profile Image
+								</a></DropZone>
+
+							<br />
+							<button onClick={this.updateProfile.bind(this)} className="btn btn-warning  btn-raised btn-block" type="submit"><i className="ml-1 no-mr zmdi zmdi-face"></i>&nbsp;&nbsp;Update Profile</button>
+				 </div>
+			 </div>
+			</div>
+		</div>
+	</div>
+
+		 </div>
       return (
-        <div>
+        <div className="sb-site-container" style={{background:'#fff'}}>
+					<Header />
 					{content}
+					<BackToTop />
+					<Footer />
         </div>
       )
 
@@ -143,9 +206,11 @@ const dispatchToProps = (dispatch) => {
   return{
     fetchProfile: (params) => dispatch(actions.fetchProfile(params)),
     updateProfile:(profile, updated)=> dispatch(actions.updateProfile(profile, updated)),
-    fetchCurrentUser:(params) => dispatch(actions.fetchCurrentUser(params)),
-    currentUserUpdated: (user) => dispatch(actions.currentUserUpdated(user)),
-    currentUserReceived: (user) => dispatch(actions.currentUserReceived(user))
+    fetchprofile:(params) => dispatch(actions.fetchprofile(params)),
+    profileUpdated: (user) => dispatch(actions.profileUpdated(user)),
+    profileReceived: (user) => dispatch(actions.profileReceived(user)),
+		fetchCurrentUser:(params) => dispatch(actions.fetchCurrentUser(params)),
+    currentUserUpdated: (user) => dispatch(actions.currentUserUpdated(user))
   }
 }
 

@@ -21882,6 +21882,8 @@
 				this.refs.gender.value = '';
 				this.refs.city.value = '';
 				this.refs.bio.value = '';
+				this.refs.firstName.value = '';
+				this.refs.lastName.value = '';
 			}
 		}, {
 			key: 'render',
@@ -22032,6 +22034,46 @@
 													_react2.default.createElement(
 														'fieldset',
 														null,
+														_react2.default.createElement(
+															'div',
+															{ className: 'form-group label-floating' },
+															_react2.default.createElement(
+																'div',
+																{ className: 'input-group' },
+																_react2.default.createElement(
+																	'span',
+																	{ className: 'input-group-addon' },
+																	_react2.default.createElement('i', { className: 'zmdi zmdi-account' })
+																),
+																_react2.default.createElement(
+																	'label',
+																	{ className: 'control-label' },
+																	'First Name'
+																),
+																_react2.default.createElement('input', { onChange: this.updateProfile.bind(this), type: 'text', id: 'firstName', className: 'form-control', ref: 'firstName' }),
+																' '
+															)
+														),
+														_react2.default.createElement(
+															'div',
+															{ className: 'form-group label-floating' },
+															_react2.default.createElement(
+																'div',
+																{ className: 'input-group' },
+																_react2.default.createElement(
+																	'span',
+																	{ className: 'input-group-addon' },
+																	_react2.default.createElement('i', { className: 'zmdi zmdi-account' })
+																),
+																_react2.default.createElement(
+																	'label',
+																	{ className: 'control-label' },
+																	'Last Name'
+																),
+																_react2.default.createElement('input', { onChange: this.updateProfile.bind(this), type: 'text', id: 'lastName', className: 'form-control', ref: 'lastName' }),
+																' '
+															)
+														),
 														_react2.default.createElement(
 															'div',
 															{ className: 'form-group label-floating' },
@@ -22226,19 +22268,33 @@
 												_react2.default.createElement(
 													'p',
 													null,
+													_react2.default.createElement(
+														'span',
+														{ style: { color: '#03a9f4' } },
+														'Gender: '
+													),
 													'Gender: ',
 													this.props.user.gender
 												),
 												_react2.default.createElement(
 													'p',
 													null,
-													'City: ',
+													_react2.default.createElement(
+														'span',
+														{ style: { color: '#03a9f4' } },
+														'City:'
+													),
 													this.props.user.city
 												),
 												_react2.default.createElement(
 													'p',
 													null,
-													'Bio: ',
+													_react2.default.createElement(
+														'span',
+														{ style: { color: '#03a9f4' } },
+														'Bio:'
+													),
+													'  ',
 													this.props.user.bio
 												),
 												'\xA0',
@@ -35172,7 +35228,7 @@
 								_react2.default.createElement(
 									'a',
 									{ onClick: this.handleEditClick.bind(this), href: 'javascript:void(0)' },
-									_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-long-arrow-up' }),
+									_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-camera' }),
 									'\xA0Upload New Post Image'
 								)
 							)
@@ -35256,7 +35312,7 @@
 										{ to: '/profile/' + currentComment.username },
 										_react2.default.createElement('img', { style: { height: 50, width: 50, borderRadius: 25 }, src: author.image, alt: '...', className: 'img-circle mr-1' })
 									),
-									' by\xA0',
+									'by\xA0',
 									_react2.default.createElement(
 										'a',
 										{ className: 'ms-tag ms-tag-primary', href: 'javascript:void(0)' },
@@ -35279,7 +35335,11 @@
 										)
 									)
 								),
-								showEditButton,
+								_react2.default.createElement(
+									'div',
+									null,
+									showEditButton
+								),
 								_react2.default.createElement('br', null),
 								_react2.default.createElement(
 									'div',
@@ -36103,7 +36163,9 @@
 									_react2.default.createElement(
 										'h1',
 										{ className: 'color-white mt-4 animated fadeInUp animation-delay-10' },
-										profile.username
+										profile.firstName,
+										' ',
+										profile.lastName
 									),
 									_react2.default.createElement(
 										'h3',
@@ -36137,6 +36199,23 @@
 										_react2.default.createElement(
 											'tbody',
 											null,
+											_react2.default.createElement(
+												'tr',
+												null,
+												_react2.default.createElement(
+													'th',
+													null,
+													_react2.default.createElement('i', { className: 'zmdi zmdi-face mr-1 color-warning' }),
+													' Fullname'
+												),
+												_react2.default.createElement(
+													'td',
+													null,
+													profile.firstName,
+													' ',
+													profile.lastName
+												)
+											),
 											_react2.default.createElement(
 												'tr',
 												null,
@@ -36271,7 +36350,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-			value: true
+		value: true
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -36302,6 +36381,8 @@
 	
 	var _sha2 = _interopRequireDefault(_sha);
 	
+	var _presentation = __webpack_require__(291);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -36311,266 +36392,387 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var UpdateProfile = function (_Component) {
-			_inherits(UpdateProfile, _Component);
+		_inherits(UpdateProfile, _Component);
 	
-			function UpdateProfile(props) {
-					_classCallCheck(this, UpdateProfile);
+		function UpdateProfile(props) {
+			_classCallCheck(this, UpdateProfile);
 	
-					var _this = _possibleConstructorReturn(this, (UpdateProfile.__proto__ || Object.getPrototypeOf(UpdateProfile)).call(this, props));
+			var _this = _possibleConstructorReturn(this, (UpdateProfile.__proto__ || Object.getPrototypeOf(UpdateProfile)).call(this, props));
 	
-					_this.state = {
-							user: null,
-							updated: {}
-					};
-					return _this;
+			_this.state = {
+				user: null,
+				updated: {}
+			};
+			return _this;
+		}
+	
+		_createClass(UpdateProfile, [{
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				var updated = Object.assign({}, this.state.user);
+				updated = this.props.user;
+				this.setState({
+					user: updated
+				});
 			}
+		}, {
+			key: 'componentDidUpdate',
+			value: function componentDidUpdate() {
+				if (this.state.user == null) {
+					this.props.fetchCurrentUser(null);
+					var updated = Object.assign({}, this.state.user);
+					updated = this.props.user;
+					this.setState({
+						user: updated
+					});
+				}
+			}
+		}, {
+			key: 'updateCurrentUser',
+			value: function updateCurrentUser(event) {
+				event.preventDefault();
+				// console.log('updateCurrentUser: '+event.target.id+' == '+event.target.value)
+				var updatedProfile = Object.assign({}, this.state.updated);
+				updatedProfile[event.target.id] = event.target.value;
+				this.setState({
+					updated: updatedProfile
+				});
+			}
+		}, {
+			key: 'updateProfile',
+			value: function updateProfile(event) {
+				event.preventDefault();
 	
-			_createClass(UpdateProfile, [{
-					key: 'componentDidMount',
-					value: function componentDidMount() {
-							var updated = Object.assign({}, this.state.user);
-							updated = this.props.user;
-							this.setState({
-									user: updated
-							});
-					}
-			}, {
-					key: 'componentDidUpdate',
-					value: function componentDidUpdate() {
-							if (this.state.user == null) {
-									this.props.fetchCurrentUser(null);
-									var updated = Object.assign({}, this.state.user);
-									updated = this.props.user;
-									this.setState({
-											user: updated
-									});
-							}
-					}
-			}, {
-					key: 'updateCurrentUser',
-					value: function updateCurrentUser(event) {
-							event.preventDefault();
-							// console.log('updateCurrentUser: '+event.target.id+' == '+event.target.value)
-							var updatedProfile = Object.assign({}, this.state.updated);
-							updatedProfile[event.target.id] = event.target.value;
-							this.setState({
-									updated: updatedProfile
-							});
-					}
-			}, {
-					key: 'updateProfile',
-					value: function updateProfile(event) {
-							event.preventDefault();
+				if (Object.keys(this.state.updated).length == 0) {
+					alert('No Changes Made!!');
+					return;
+				}
 	
-							if (Object.keys(this.state.updated).length == 0) {
-									alert('No Changes Made!!');
-									return;
-							}
+				this.props.updateProfile(this.props.user, this.state.updated);
+				this.setState({
+					user: null
+				});
+				alert("Profile Updated");
+			}
+		}, {
+			key: 'uploadImage',
+			value: function uploadImage(files) {
+				var _this2 = this;
 	
-							this.props.updateProfile(this.props.user, this.state.updated);
-							this.setState({
-									user: null
-							});
-							alert("Profile Updated");
+				var image = files[0];
+				console.log("COMMENT Container Image file: " + JSON.stringify(image));
+				var timestamp = Date.now() / 1000;
+				var cloudName = 'jdrichardstech';
+				var uploadPreset = 'qfk6kfpf';
+				var apiSecret = 'e8LAFbk1H23PLU02S5Og2DzsMYQ';
+				var paramStr = 'timestamp=' + timestamp + '&upload_preset=' + uploadPreset + 'e8LAFbk1H23PLU02S5Og2DzsMYQ';
+				var signature = (0, _sha2.default)(paramStr);
+				var apiKey = '854536555581142';
+				var params = {
+					'api_key': apiKey,
+					'timestamp': timestamp,
+					'upload_preset': uploadPreset,
+					'signature': signature
+				};
+				var url = 'https://api.cloudinary.com/v1_1/' + cloudName + '/image/upload';
+				_utils.APIManager.upload(url, image, params, function (err, response) {
+					if (err) {
+						console.log('Upload err: ' + err.message);
+						return;
 					}
-			}, {
-					key: 'uploadImage',
-					value: function uploadImage(files) {
-							var _this2 = this;
+					console.log('Uploaded image: ' + JSON.stringify(response.body));
+					var imageUrl = response.body['secure_url'];
 	
-							var image = files[0];
-							console.log("COMMENT Container Image file: " + JSON.stringify(image));
-							var timestamp = Date.now() / 1000;
-							var cloudName = 'jdrichardstech';
-							var uploadPreset = 'qfk6kfpf';
-							var apiSecret = 'e8LAFbk1H23PLU02S5Og2DzsMYQ';
-							var paramStr = 'timestamp=' + timestamp + '&upload_preset=' + uploadPreset + 'e8LAFbk1H23PLU02S5Og2DzsMYQ';
-							var signature = (0, _sha2.default)(paramStr);
-							var apiKey = '854536555581142';
-							var params = {
-									'api_key': apiKey,
-									'timestamp': timestamp,
-									'upload_preset': uploadPreset,
-									'signature': signature
-							};
-							var url = 'https://api.cloudinary.com/v1_1/' + cloudName + '/image/upload';
-							_utils.APIManager.upload(url, image, params, function (err, response) {
-									if (err) {
-											console.log('Upload err: ' + err.message);
-											return;
-									}
-									console.log('Uploaded image: ' + JSON.stringify(response.body));
-									var imageUrl = response.body['secure_url'];
+					var updatedProfile = Object.assign({}, _this2.state.updated);
+					updatedProfile['image'] = response.body['secure_url'];
+					_this2.setState({
+						updated: updatedProfile
+					});
+				});
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				var content = null;
+				var image = null;
 	
-									var updatedProfile = Object.assign({}, _this2.state.updated);
-									updatedProfile['image'] = response.body['secure_url'];
-									_this2.setState({
-											updated: updatedProfile
-									});
-							});
-					}
-			}, {
-					key: 'render',
-					value: function render() {
-							var content = null;
-							var image = null;
-							var currentUser = this.props.user;
-							image = this.props.user == null ? '' : _utils.ImageHelper.thumbnail(this.props.user.image, 150);
-							content = this.props.user == null ? "loading" : _react2.default.createElement(
-									'div',
-									null,
+				var currentUser = this.props.user;
+	
+				content = _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'div',
+						{ className: 'ms-hero-page-override ms-hero-img-city ms-bg-fixed ms-hero-bg-primary' },
+						_react2.default.createElement(
+							'div',
+							{ className: 'container' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'text-center mt-2', style: { paddingTop: 75 } },
+								_react2.default.createElement(
+									'h1',
+									{ className: 'color-white mt-4 animated fadeInUp animation-delay-10' },
+									'Profile Page'
+								),
+								_react2.default.createElement('img', { src: currentUser.image, className: 'ms-avatar-hero animated zoomIn animation-delay-7' }),
+								_react2.default.createElement(
+									'h1',
+									{ className: 'color-white mt-4 animated fadeInUp animation-delay-10' },
+									currentUser.firstName,
 									' ',
-									_react2.default.createElement(
-											'h1',
-											{ style: { color: 'white' } },
-											'Update Your Profile'
-									),
-									_react2.default.createElement('br', null),
-									_react2.default.createElement(
-											'div',
-											{ style: _styles2.default.profile.container },
-											_react2.default.createElement(
-													'h2',
-													null,
-													'Current Profile:'
-											),
-											_react2.default.createElement(
-													'h3',
-													null,
-													'User: ',
-													_react2.default.createElement(
-															'span',
-															{ style: _styles2.default.profile.entry },
-															' ',
-															this.props.user.username
-													)
-											),
-											_react2.default.createElement(
-													'p',
-													null,
-													'Gender: ',
-													_react2.default.createElement(
-															'span',
-															{ style: _styles2.default.profile.entry },
-															this.props.user.gender
-													),
-													_react2.default.createElement('br', null),
-													'City:',
-													_react2.default.createElement(
-															'span',
-															{ style: _styles2.default.profile.entry },
-															' ',
-															this.props.user.city
-													),
-													_react2.default.createElement('br', null),
-													_react2.default.createElement('br', null),
-													'Bio:',
-													_react2.default.createElement(
-															'span',
-															{ style: _styles2.default.profile.entry },
-															' ',
-															this.props.user.bio
-													),
-													_react2.default.createElement('br', null),
-													_react2.default.createElement('br', null),
-													'Image: ',
-													_react2.default.createElement('img', { src: this.props.user.image }),
-													_react2.default.createElement('br', null),
-													_react2.default.createElement('br', null),
-													_react2.default.createElement(
-															_reactRouter.Link,
-															{ to: '/' },
-															_react2.default.createElement(
-																	'button',
-																	{ style: { marginRight: 10 }, type: '', className: 'btn btn-info' },
-																	'Home'
-															)
-													),
-													_react2.default.createElement(
-															_reactRouter.Link,
-															{ to: "/profile/" + this.props.user.username },
-															_react2.default.createElement(
-																	'button',
-																	{ type: '', className: 'btn btn-warning' },
-																	'View Current Profile'
-															)
-													)
-											)
-									),
-									_react2.default.createElement('br', null),
-									_react2.default.createElement('br', null),
-									_react2.default.createElement(
-											'div',
-											{ style: _styles2.default.account.container },
-											_react2.default.createElement(
-													'label',
-													null,
-													'New Gender:'
-											),
-											_react2.default.createElement('input', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'gender', defaultValue: currentUser.gender }),
-											_react2.default.createElement(
-													'label',
-													null,
-													'New City:'
-											),
-											_react2.default.createElement('input', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'city', defaultValue: currentUser.city }),
-											_react2.default.createElement(
-													'label',
-													null,
-													'Bio:'
-											),
-											_react2.default.createElement('textarea', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'bio', defaultValue: currentUser.bio }),
-											_react2.default.createElement('br', null),
-											_react2.default.createElement(
-													'label',
-													null,
-													'Upload or Drop Image below:'
-											),
-											_react2.default.createElement(_reactDropzone2.default, { onDrop: this.uploadImage.bind(this) }),
-											_react2.default.createElement('br', null),
-											_react2.default.createElement(
-													'button',
-													{ onClick: this.updateProfile.bind(this), className: 'btn btn-danger', type: 'submit' },
-													'Update Profile'
-											)
-									)
-							);
-							return _react2.default.createElement(
+									currentUser.lastName
+								),
+								_react2.default.createElement(
+									'h3',
+									{ className: 'color-medium no-mb animated fadeInUp animation-delay-10' },
+									currentUser.bio
+								)
+							)
+						)
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'container' },
+						_react2.default.createElement(
+							'div',
+							{ className: 'row' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'col-md-6' },
+								_react2.default.createElement(
 									'div',
-									null,
-									content
-							);
-					}
-			}]);
+									{ className: 'card-block' },
+									_react2.default.createElement(
+										'h2',
+										{ className: 'color-primary no-mb', style: { textAlign: 'center', padding: '20px 0 20px 0' } },
+										'Your Current Information'
+									),
+									_react2.default.createElement(
+										'table',
+										{ className: 'table table-no-border table-striped', style: { width: '65%', margin: '0 auto 50px auto' } },
+										_react2.default.createElement(
+											'tbody',
+											null,
+											_react2.default.createElement(
+												'tr',
+												null,
+												_react2.default.createElement(
+													'th',
+													null,
+													_react2.default.createElement('i', { className: 'zmdi zmdi-face mr-1 color-warning' }),
+													' Fullname'
+												),
+												_react2.default.createElement(
+													'td',
+													null,
+													currentUser.firstName,
+													' ',
+													currentUser.lastName
+												)
+											),
+											_react2.default.createElement(
+												'tr',
+												null,
+												_react2.default.createElement(
+													'th',
+													null,
+													_react2.default.createElement('i', { className: 'zmdi zmdi-account mr-1 color-royal' }),
+													' User Name'
+												),
+												_react2.default.createElement(
+													'td',
+													null,
+													currentUser.username
+												)
+											),
+											_react2.default.createElement(
+												'tr',
+												null,
+												_react2.default.createElement(
+													'th',
+													null,
+													_react2.default.createElement('i', { className: 'zmdi zmdi-male-female mr-1 color-success' }),
+													' Gender'
+												),
+												_react2.default.createElement(
+													'td',
+													null,
+													currentUser.gender
+												)
+											),
+											_react2.default.createElement(
+												'tr',
+												null,
+												_react2.default.createElement(
+													'th',
+													null,
+													_react2.default.createElement('i', { className: 'zmdi zmdi-email mr-1 color-primary' }),
+													' Email'
+												),
+												_react2.default.createElement(
+													'td',
+													null,
+													_react2.default.createElement(
+														'a',
+														{ href: '#' },
+														currentUser.username,
+														'@me.com'
+													)
+												)
+											),
+											_react2.default.createElement(
+												'tr',
+												null,
+												_react2.default.createElement(
+													'th',
+													null,
+													_react2.default.createElement('i', { className: 'zmdi zmdi-link mr-1 color-danger' }),
+													' Website'
+												),
+												_react2.default.createElement(
+													'td',
+													null,
+													_react2.default.createElement(
+														'a',
+														{ href: '#' },
+														'www.',
+														currentUser.username,
+														'.com'
+													)
+												)
+											)
+										)
+									),
+									_react2.default.createElement(
+										'div',
+										null,
+										_react2.default.createElement(
+											_reactRouter.Link,
+											{ to: '/' },
+											_react2.default.createElement(
+												'button',
+												{ style: { margin: '0 auto 100px auto', width: '25%' }, type: '', className: 'btn btn-success  btn-raised btn-block' },
+												_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-home' }),
+												'\xA0\xA0Home'
+											)
+										)
+									)
+								)
+							),
+							_react2.default.createElement(
+								'div',
+								{ className: 'col-md-6' },
+								_react2.default.createElement(
+									'div',
+									{ className: 'card-block' },
+									_react2.default.createElement(
+										'h2',
+										{ style: { textAlign: 'center', padding: '20px 0 20px 0' } },
+										'Update Your Info'
+									),
+									_react2.default.createElement(
+										'div',
+										{ style: { width: '65%', margin: '0 auto 50px auto' } },
+										_react2.default.createElement(
+											'label',
+											null,
+											'First Name:'
+										),
+										_react2.default.createElement('input', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'firstName', defaultValue: currentUser.firstName }),
+										_react2.default.createElement(
+											'label',
+											null,
+											'Last Name:'
+										),
+										_react2.default.createElement('input', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'lastName', defaultValue: currentUser.lastName }),
+										_react2.default.createElement(
+											'label',
+											null,
+											'New Gender:'
+										),
+										_react2.default.createElement('input', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'gender', defaultValue: currentUser.gender }),
+										_react2.default.createElement(
+											'label',
+											null,
+											'New City:'
+										),
+										_react2.default.createElement('input', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'city', defaultValue: currentUser.city }),
+										_react2.default.createElement(
+											'label',
+											null,
+											'Bio:'
+										),
+										_react2.default.createElement('input', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'bio', defaultValue: currentUser.bio }),
+										_react2.default.createElement('br', null),
+										_react2.default.createElement(
+											_reactDropzone2.default,
+											{ style: { border: '1px solid white', fontSize: '1.5em' }, nDrop: this.uploadImage.bind(this) },
+											_react2.default.createElement(
+												'a',
+												{ href: 'javascript:void(0)' },
+												_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-camera' }),
+												'\xA0Upload New Profile Image'
+											)
+										),
+										_react2.default.createElement('br', null),
+										_react2.default.createElement(
+											'button',
+											{ onClick: this.updateProfile.bind(this), className: 'btn btn-warning  btn-raised btn-block', type: 'submit' },
+											_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-face' }),
+											'\xA0\xA0Update Profile'
+										)
+									)
+								)
+							)
+						)
+					)
+				);
+				return _react2.default.createElement(
+					'div',
+					{ className: 'sb-site-container', style: { background: '#fff' } },
+					_react2.default.createElement(_presentation.Header, null),
+					content,
+					_react2.default.createElement(_presentation.BackToTop, null),
+					_react2.default.createElement(_presentation.Footer, null)
+				);
+			}
+		}]);
 	
-			return UpdateProfile;
+		return UpdateProfile;
 	}(_react.Component);
 	
 	var stateToProps = function stateToProps(state) {
-			return {
-					appStatus: state.profile.appStatus,
-					user: state.account.user
-			};
+		return {
+			appStatus: state.profile.appStatus,
+			user: state.account.user
+		};
 	};
 	
 	var dispatchToProps = function dispatchToProps(dispatch) {
-			return {
-					fetchProfile: function fetchProfile(params) {
-							return dispatch(_actions2.default.fetchProfile(params));
-					},
-					updateProfile: function updateProfile(profile, updated) {
-							return dispatch(_actions2.default.updateProfile(profile, updated));
-					},
-					fetchCurrentUser: function fetchCurrentUser(params) {
-							return dispatch(_actions2.default.fetchCurrentUser(params));
-					},
-					currentUserUpdated: function currentUserUpdated(user) {
-							return dispatch(_actions2.default.currentUserUpdated(user));
-					},
-					currentUserReceived: function currentUserReceived(user) {
-							return dispatch(_actions2.default.currentUserReceived(user));
-					}
-			};
+		return {
+			fetchProfile: function fetchProfile(params) {
+				return dispatch(_actions2.default.fetchProfile(params));
+			},
+			updateProfile: function updateProfile(profile, updated) {
+				return dispatch(_actions2.default.updateProfile(profile, updated));
+			},
+			fetchprofile: function fetchprofile(params) {
+				return dispatch(_actions2.default.fetchprofile(params));
+			},
+			profileUpdated: function profileUpdated(user) {
+				return dispatch(_actions2.default.profileUpdated(user));
+			},
+			profileReceived: function profileReceived(user) {
+				return dispatch(_actions2.default.profileReceived(user));
+			},
+			fetchCurrentUser: function fetchCurrentUser(params) {
+				return dispatch(_actions2.default.fetchCurrentUser(params));
+			},
+			currentUserUpdated: function currentUserUpdated(user) {
+				return dispatch(_actions2.default.currentUserUpdated(user));
+			}
+		};
 	};
 	
 	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(UpdateProfile);

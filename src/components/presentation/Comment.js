@@ -73,7 +73,6 @@ grabImage(files){
 
 			<div className="col-lg-4 text-right">
 				<a onClick={this.handleEditClick.bind(this)} href="javascript:void(0)" className="btn btn-primary btn-raised btn-block"><i className="ml-1 no-mr zmdi zmdi-edit"></i>&nbsp;&nbsp;Edit
-
 				</a>
 			</div>
 
@@ -100,7 +99,7 @@ grabImage(files){
 		<div className="col-md-6" style={{padding:30}}>
 
 			<DropZone style={{border:'1px solid white',fontSize:'1.5em'}} onDrop={this.grabImage.bind(this)}><a onClick={this.handleEditClick.bind(this)} href="javascript:void(0)">
-				<i className="ml-1 no-mr zmdi zmdi-long-arrow-up"></i>&nbsp;Upload New Post Image
+				<i className="ml-1 no-mr zmdi zmdi-camera"></i>&nbsp;Upload New Post Image
 			</a></DropZone>
 		</div>
 			 <div className="col-md-6" style={{padding:30}}>
@@ -147,7 +146,10 @@ grabImage(files){
 						</div>
 						<div className="row">
 							<div className="col-lg-8">
-								<Link  to = {'/profile/'+ currentComment.username}><img style={{height:50, width:50, borderRadius:25}} src={author.image} alt="..." className="img-circle mr-1" /></Link> by&nbsp;
+								<Link  to = {'/profile/'+ currentComment.username}>
+									<img style={{height:50, width:50, borderRadius:25}} src={author.image} alt="..." className="img-circle mr-1" />
+								</Link>
+								by&nbsp;
 								<a  className="ms-tag ms-tag-primary"  href="javascript:void(0)"><Link style={{color:'white'}}  to = {'/profile/'+ currentComment.username}>{currentComment.username}</Link></a>
 
 								<span className="ml-1 hidden-xs">
@@ -156,7 +158,10 @@ grabImage(files){
 								</span>
 
 							</div>
-							{showEditButton}
+							<div>
+								{showEditButton}
+							</div>
+
 							<br />
 
 							<div>

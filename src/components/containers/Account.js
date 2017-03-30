@@ -149,6 +149,8 @@ clearValues(){
     this.refs.gender.value=''
     this.refs.city.value=''
     this.refs.bio.value=''
+		this.refs.firstName.value=''
+		this.refs.lastName.value=''
 }
 
   render(){
@@ -207,6 +209,24 @@ clearValues(){
 											<h2 className="color-primary text-center">Register</h2>
 											<form>
 												<fieldset>
+													<div className="form-group label-floating">
+														<div className="input-group">
+															<span className="input-group-addon">
+																<i className="zmdi zmdi-account"></i>
+															</span>
+															<label className="control-label" >First Name</label>
+
+															<input onChange={this.updateProfile.bind(this)} type="text" id="firstName" className="form-control" ref="firstName" /> </div>
+													</div>
+													<div className="form-group label-floating">
+														<div className="input-group">
+															<span className="input-group-addon">
+																<i className="zmdi zmdi-account"></i>
+															</span>
+															<label className="control-label" >Last Name</label>
+
+															<input onChange={this.updateProfile.bind(this)} type="text" id="lastName" className="form-control" ref="lastName" /> </div>
+													</div>
 													<div className="form-group label-floating">
 														<div className="input-group">
 															<span className="input-group-addon">
@@ -295,9 +315,9 @@ clearValues(){
 									 <Link to={'/profile/'+ this.props.user.username}><img src={this.props.user.image} alt="..." className="img-avatar-circle" /></Link> </div>
 								 <div className="card-block pt-4 text-center">
 									 <h3 className="color-primary">About me</h3>
-									 <p>Gender: {this.props.user.gender}</p>
-									 <p>City: {this.props.user.city}</p>
-									 <p>Bio: {this.props.user.bio}</p>
+									 <p><span style={{color:'#03a9f4'}}>Gender: </span>Gender: {this.props.user.gender}</p>
+									 <p><span style={{color:'#03a9f4'}}>City:</span>{this.props.user.city}</p>
+									 <p><span style={{color:'#03a9f4'}}>Bio:</span>  {this.props.user.bio}</p>
 
 									 &nbsp;
 								 	<Link className="btn btn-raised btn-danger" to={'/updateprofile/'+this.props.user.username}>

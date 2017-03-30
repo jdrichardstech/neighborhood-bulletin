@@ -1,0 +1,727 @@
+
+      <div className="ms-hero-page-override ms-hero-img-coffee ms-bg-fixed ms-hero-bg-primary">
+        <div className="container">
+          <div className="text-center mt-2">
+            <img src="assets/img/demo/avatar1.jpg" alt="..." className="ms-avatar-hero animated zoomIn animation-delay-7" />
+            <h1 className="color-white mt-4 animated fadeInUp animation-delay-10">Ana Sanz</h1>
+            <h3 className="color-medium no-mb animated fadeInUp animation-delay-10">@anasanz</h3>
+          </div>
+        </div>
+      </div>
+      <div className="container">
+        <div className="card card-hero card-primary animated fadeInUp animation-delay-7">
+          <div className="card-header-100 bg-primary-dark">
+            <div className="row">
+              <div className="col-sm-2 col-xs-4 col-sm-offset-3">
+                <div className="item">
+                  <span>142</span>Posts </div>
+              </div>
+              <div className="col-sm-2 col-xs-4">
+                <div className="item">
+                  <span>75</span>Comments </div>
+              </div>
+              <div className="col-sm-2 col-xs-4">
+                <div className="item">
+                  <span>96</span>Tweets </div>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+              <div className="card-block">
+                <h2 className="color-primary no-mb">Personal Information</h2>
+              </div>
+              <table className="table table-no-border table-striped">
+                <tr>
+                  <th>
+                    <i className="zmdi zmdi-account mr-1 color-royal"></i> User Name</th>
+                  <td>anasanz</td>
+                </tr>
+                <tr>
+                  <th>
+                    <i className="zmdi zmdi-face mr-1 color-warning"></i> Fullname</th>
+                  <td>Ana Sanz</td>
+                </tr>
+                <tr>
+                  <th>
+                    <i className="zmdi zmdi-male-female mr-1 color-success"></i> Gender</th>
+                  <td>Female</td>
+                </tr>
+                <tr>
+                  <th>
+                    <i className="zmdi zmdi-email mr-1 color-primary"></i> Email</th>
+                  <td>
+                    <a href="#">ana.sanz@example.com</a>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <i className="zmdi zmdi-link mr-1 color-danger"></i> Website</th>
+                  <td>
+                    <a href="#">www.example.com</a>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <i className="zmdi zmdi-calendar mr-1 color-info"></i> Member Since</th>
+                  <td>Mar 21, 2015</td>
+                </tr>
+              </table>
+            </div>
+            <div className="col-md-4">
+              <div className="card-block">
+                <h2 className="color-primary">Recent Posts</h2>
+                <div className="media mb-3">
+                  <div className="media-left">
+                    <a href="#">
+                      <img className="media-object" src="holder.js/64x64?theme=social" /> </a>
+                  </div>
+                  <div className="media-body">
+                    <h4 className="no-m">
+                      <a href="#">Lorem ipsum dolor sit</a>
+                    </h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  </div>
+                </div>
+                <div className="media mb-3">
+                  <div className="media-left">
+                    <a href="#">
+                      <img className="media-object" src="holder.js/64x64?theme=lava" /> </a>
+                  </div>
+                  <div className="media-body">
+                    <h4 className="no-m">
+                      <a href="#">Lorem ipsum dolor sit</a>
+                    </h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  </div>
+                </div>
+                <div className="media mb-3">
+                  <div className="media-left">
+                    <a href="#">
+                      <img className="media-object" src="holder.js/64x64?theme=sky"> </a>
+                  </div>
+                  <div className="media-body">
+                    <h4 className="no-m">
+                      <a href="#">Lorem ipsum dolor sit</a>
+                    </h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="card-block">
+                <h2 className="color-primary">Recent contacts</h2>
+                <div className="ms-media-list">
+                  <div className="media">
+                    <div className="media-left media-middle">
+                      <a href="#">
+                        <img className="media-object" src="assets/img/demo/avatar6.jpg"> </a>
+                    </div>
+                    <div className="media-body">
+                      <h4 className="media-heading color-warning">Maria Sharaphova</h4>
+                      <a href="mailto:joe@example.com?subject=feedback">maria.sha@example.com</a>
+                      <div className="">
+                        <a href="javascript:void(0)" className="btn-circle btn-circle-xs no-mr-md btn-facebook">
+                          <i className="zmdi zmdi-facebook"></i>
+                        </a>
+                        <a href="javascript:void(0)" className="btn-circle btn-circle-xs no-mr-md btn-twitter">
+                          <i className="zmdi zmdi-twitter"></i>
+                        </a>
+                        <a href="javascript:void(0)" className="btn-circle btn-circle-xs no-mr-md btn-instagram">
+                          <i className="zmdi zmdi-instagram"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="media">
+                    <div className="media-left media-middle">
+                      <a href="#">
+                        <img className="media-object" src="assets/img/demo/avatar3.jpg"> </a>
+                    </div>
+                    <div className="media-body">
+                      <h4 className="media-heading color-warning">Rafael Nadal</h4>
+                      <a href="mailto:joe@example.com?subject=feedback">rafa.nad@example.com</a>
+                      <div className="">
+                        <a href="javascript:void(0)" className="btn-circle btn-circle-xs no-mr-md btn-facebook">
+                          <i className="zmdi zmdi-facebook"></i>
+                        </a>
+                        <a href="javascript:void(0)" className="btn-circle btn-circle-xs no-mr-md btn-twitter">
+                          <i className="zmdi zmdi-twitter"></i>
+                        </a>
+                        <a href="javascript:void(0)" className="btn-circle btn-circle-xs no-mr-md btn-instagram">
+                          <i className="zmdi zmdi-instagram"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="media">
+                    <div className="media-left media-middle">
+                      <a href="#">
+                        <img className="media-object" src="assets/img/demo/avatar5.jpg"> </a>
+                    </div>
+                    <div className="media-body">
+                      <h4 className="media-heading color-warning">Roger Federer</h4>
+                      <a href="mailto:joe@example.com?subject=feedback">roger.fef@example.com</a>
+                      <div className="">
+                        <a href="javascript:void(0)" className="btn-circle btn-circle-xs no-mr-md btn-facebook">
+                          <i className="zmdi zmdi-facebook"></i>
+                        </a>
+                        <a href="javascript:void(0)" className="btn-circle btn-circle-xs no-mr-md btn-twitter">
+                          <i className="zmdi zmdi-twitter"></i>
+                        </a>
+                        <a href="javascript:void(0)" className="btn-circle btn-circle-xs no-mr-md btn-instagram">
+                          <i className="zmdi zmdi-instagram"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- container -->
+      <div className="container">
+        <h1 className="color-primary text-center mb-4">Recent Activity</h1>
+        <div className="row">
+          <div className="col-md-12">
+            <ul className="ms-timeline">
+              <li className="ms-timeline-item wow materialUp">
+                <div className="ms-timeline-date">
+                  <time className="timeline-time" datetime="">2016
+                    <span>October</span>
+                  </time>
+                  <i className="ms-timeline-point"></i>
+                </div>
+                <div className="card card-primary">
+                  <div className="card-header">
+                    <h3 className="card-title">Simple text event in Timeline</h3>
+                  </div>
+                  <div className="card-block"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus officiis autem magni et, nisi eveniet nulla magnam tenetur voluptatem dolore, assumenda delectus error porro animi architecto dolorum quod veniam nesciunt. </div>
+                </div>
+              </li>
+              <li className="ms-timeline-item wow materialUp">
+                <div className="ms-timeline-date">
+                  <time className="timeline-time" datetime="">2016
+                    <span>March</span>
+                  </time>
+                  <i className="ms-timeline-point bg-royal"></i>
+                  <img src="assets/img/demo/avatar6.jpg" className="ms-timeline-point-img"> </div>
+                <div className="card card-royal">
+                  <div className="card-header">
+                    <h3 className="card-title">Card Title</h3>
+                  </div>
+                  <div className="card-block">
+                    <div className="row">
+                      <div className="col-sm-4">
+                        <img src="assets/img/demo/office1.jpg" alt="" className="img-responsive"> </div>
+                      <div className="col-sm-8">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, praesentium, quam! Quia fugiat aperiam.</p>
+                        <p>Perspiciatis soluta voluptate dolore officiis libero repellat cupiditate explicabo atque facere aliquam.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li className="ms-timeline-item wow materialUp">
+                <div className="ms-timeline-date">
+                  <time className="timeline-time" datetime="">2015
+                    <span>October</span>
+                  </time>
+                  <i className="ms-timeline-point bg-success"></i>
+                </div>
+                <div className="card card-success-inverse">
+                  <div className="card-block"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus officiis autem magni et, nisi eveniet nulla magnam tenetur voluptatem dolore, assumenda delectus error porro animi architecto dolorum quod veniam nesciunt. </div>
+                </div>
+              </li>
+              <li className="ms-timeline-item wow materialUp">
+                <div className="ms-timeline-date">
+                  <time className="timeline-time" datetime="">2015
+                    <span>February</span>
+                  </time>
+                  <i className="ms-timeline-point bg-warning"></i>
+                  <img src="assets/img/demo/avatar2.jpg" className="ms-timeline-point-img"> </div>
+                <div className="card card-warning">
+                  <div className="card-header">
+                    <h3 className="card-title">Card Title</h3>
+                  </div>
+                  <div className="card-block">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, nulla recusandae blanditiis architecto soluta culpa obcaecati quis earum atque consequuntur.</p>
+                    <div className="row">
+                      <div className="col-sm-4">
+                        <img src="assets/img/demo/office2.jpg" alt="" className="img-responsive"> </div>
+                      <div className="col-sm-4">
+                        <img src="assets/img/demo/office3.jpg" alt="" className="img-responsive"> </div>
+                      <div className="col-sm-4">
+                        <img src="assets/img/demo/office4.jpg" alt="" className="img-responsive"> </div>
+                    </div>
+                    <br>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, ipsum voluptates eius placeat dolorum reprehenderit ducimus accusamus magni aspernatur at dolore assumenda quae suscipit enim veritatis obcaecati molestias laudantium
+                      maxime!</p>
+                  </div>
+                </div>
+              </li>
+              <li className="ms-timeline-item wow materialUp">
+                <div className="ms-timeline-date">
+                  <time className="timeline-time" datetime="">2014
+                    <span>July</span>
+                  </time>
+                  <i className="ms-timeline-point"></i>
+                </div>
+                <div className="card">
+                  <blockquote className="blockquote-color-bg-primary withripple color-white">
+                    <p>
+                      <strong>Blockquote in timeline!</strong> consectetur adipiscing elit. Integer sodales sagittis magna. consectetur adipiscing elit sed consequat, quam semper libero.</p>
+                    <footer>Someone famous in
+                      <cite title="Source Title">Source Title</cite>
+                    </footer>
+                  </blockquote>
+                </div>
+              </li>
+              <li className="ms-timeline-item wow materialUp">
+                <div className="ms-timeline-date">
+                  <time className="timeline-time" datetime="">2014
+                    <span>January</span>
+                  </time>
+                  <i className="ms-timeline-point bg-info"></i>
+                  <img src="assets/img/demo/avatar3.jpg" className="ms-timeline-point-img"> </div>
+                <div className="card card-info">
+                  <div className="card-header">
+                    <h3 className="card-title">Card Title</h3>
+                  </div>
+                  <div data-type="youtube" data-video-id="9ZfN87gSjvI"></div>
+                </div>
+              </li>
+              <li className="ms-timeline-item wow materialUp">
+                <div className="ms-timeline-date">
+                  <time className="timeline-time" datetime="">2013
+                    <span>June</span>
+                  </time>
+                  <i className="ms-timeline-point"></i>
+                </div>
+                <div className="card">
+                  <div className="ms-hero-bg-primary ms-hero-img-coffee">
+                    <h3 className="color-white index-1 text-center no-m pt-4">Victoria Smith</h3>
+                    <div className="color-medium index-1 text-center np-m">@vic_smith</div>
+                    <img src="assets/img/demo/avatar1.jpg" alt="..." className="img-avatar-circle"> </div>
+                  <div className="card-block pt-4 text-center">
+                    <h3 className="color-primary">Bio</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur alter adipisicing elit. Facilis, natuse inse voluptates officia repudiandae beatae magni es magnam autem molestias.</p>
+                    <a href="javascript:void(0)" className="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook">
+                      <i className="zmdi zmdi-facebook"></i>
+                    </a>
+                    <a href="javascript:void(0)" className="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-twitter">
+                      <i className="zmdi zmdi-twitter"></i>
+                    </a>
+                    <a href="javascript:void(0)" className="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-instagram">
+                      <i className="zmdi zmdi-instagram"></i>
+                    </a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- container -->
+      <aside className="ms-footbar">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-4 ms-footer-col">
+              <div className="ms-footbar-block">
+                <h3 className="ms-footbar-title">Sitemap</h3>
+                <ul className="list-unstyled ms-icon-list three_cols">
+                  <li>
+                    <a href="index.html">
+                      <i className="zmdi zmdi-home"></i> Home</a>
+                  </li>
+                  <li>
+                    <a href="page-blog.html">
+                      <i className="zmdi zmdi-edit"></i> Blog</a>
+                  </li>
+                  <li>
+                    <a href="page-blog.html">
+                      <i className="zmdi zmdi-image-o"></i> Portafolio</a>
+                  </li>
+                  <li>
+                    <a href="portfolio-filters_sidebar.html">
+                      <i className="zmdi zmdi-case"></i> Works</a>
+                  </li>
+                  <li>
+                    <a href="page-timeline_left2.html">
+                      <i className="zmdi zmdi-time"></i> Timeline</a>
+                  </li>
+                  <li>
+                    <a href="page-pricing.html">
+                      <i className="zmdi zmdi-money"></i> Pricing</a>
+                  </li>
+                  <li>
+                    <a href="page-about.html">
+                      <i className="zmdi zmdi-favorite-outline"></i> About Us</a>
+                  </li>
+                  <li>
+                    <a href="page-team2.html">
+                      <i className="zmdi zmdi-accounts"></i> Our Team</a>
+                  </li>
+                  <li>
+                    <a href="page-services.html">
+                      <i className="zmdi zmdi-face"></i> Services</a>
+                  </li>
+                  <li>
+                    <a href="page-faq2.html">
+                      <i className="zmdi zmdi-help"></i> FAQ</a>
+                  </li>
+                  <li>
+                    <a href="page-login2.html">
+                      <i className="zmdi zmdi-lock"></i> Login</a>
+                  </li>
+                  <li>
+                    <a href="page-contact.html">
+                      <i className="zmdi zmdi-email"></i> Contact</a>
+                  </li>
+                </ul>
+              </div>
+              <div className="ms-footbar-block">
+                <h3 className="ms-footbar-title">Subscribe</h3>
+                <p className="">Lorem ipsum Amet fugiat elit nisi anim mollit minim labore ut esse Duis ullamco ad dolor veniam velit.</p>
+                <form>
+                  <div className="form-group label-floating mt-2 mb-1">
+                    <div className="input-group ms-input-subscribe">
+                      <label className="control-label" for="ms-subscribe">
+                        <i className="zmdi zmdi-email"></i> Email Adress</label>
+                      <input type="email" id="ms-subscribe" className="form-control"> </div>
+                  </div>
+                  <button className="ms-subscribre-btn" type="button">Subscribe</button>
+                </form>
+              </div>
+            </div>
+            <div className="col-md-5 col-sm-7 ms-footer-col ms-footer-alt-color">
+              <div className="ms-footbar-block">
+                <h3 className="ms-footbar-title text-center mb-2">Last Articles</h3>
+                <div className="ms-footer-media">
+                  <div className="media">
+                    <div className="media-left media-middle">
+                      <a href="javascript:void(0)">
+                        <img className="media-object media-object-circle" src="assets/img/demo/p75.jpg" alt="..."> </a>
+                    </div>
+                    <div className="media-body">
+                      <h4 className="media-heading">
+                        <a href="javascript:void(0)">Lorem ipsum dolor sit expedita cumque amet consectetur adipisicing repellat</a>
+                      </h4>
+                      <div className="media-footer">
+                        <span>
+                          <i className="zmdi zmdi-time color-info-light"></i> August 18, 2016</span>
+                        <span>
+                          <i className="zmdi zmdi-folder-outline color-warning-light"></i>
+                          <a href="javascript:void(0)">Design</a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="media">
+                    <div className="media-left media-middle">
+                      <a href="javascript:void(0)">
+                        <img className="media-object media-object-circle" src="assets/img/demo/p75.jpg" alt="..."> </a>
+                    </div>
+                    <div className="media-body">
+                      <h4 className="media-heading">
+                        <a href="javascript:void(0)">Labore ut esse Duis consectetur expedita cumque ullamco ad dolor veniam velit</a>
+                      </h4>
+                      <div className="media-footer">
+                        <span>
+                          <i className="zmdi zmdi-time color-info-light"></i> August 18, 2016</span>
+                        <span>
+                          <i className="zmdi zmdi-folder-outline color-warning-light"></i>
+                          <a href="javascript:void(0)">News</a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="media">
+                    <div className="media-left media-middle">
+                      <a href="javascript:void(0)">
+                        <img className="media-object media-object-circle" src="assets/img/demo/p75.jpg" alt="..."> </a>
+                    </div>
+                    <div className="media-body">
+                      <h4 className="media-heading">
+                        <a href="javascript:void(0)">voluptates deserunt ducimus expedita cumque quaerat molestiae labore</a>
+                      </h4>
+                      <div className="media-footer">
+                        <span>
+                          <i className="zmdi zmdi-time color-info-light"></i> August 18, 2016</span>
+                        <span>
+                          <i className="zmdi zmdi-folder-outline color-warning-light"></i>
+                          <a href="javascript:void(0)">Productivity</a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-3 col-sm-5 ms-footer-col ms-footer-text-right">
+              <div className="ms-footbar-block">
+                <div className="ms-footbar-title">
+                  <span className="ms-logo ms-logo-white ms-logo-sm mr-1">M</span>
+                  <h3 className="no-m ms-site-title">Material
+                    <span>Style</span>
+                  </h3>
+                </div>
+                <address className="no-mb">
+                  <p>
+                    <i className="color-danger-light zmdi zmdi-pin mr-1"></i> 795 Folsom Ave, Suite 600</p>
+                  <p>
+                    <i className="color-warning-light zmdi zmdi-map mr-1"></i> San Francisco, CA 94107</p>
+                  <p>
+                    <i className="color-info-light zmdi zmdi-email mr-1"></i>
+                    <a href="mailto:joe@example.com">example@domain.com</a>
+                  </p>
+                  <p>
+                    <i className="color-royal-light zmdi zmdi-phone mr-1"></i>+34 123 456 7890 </p>
+                  <p>
+                    <i className="color-success-light fa fa-fax mr-1"></i>+34 123 456 7890 </p>
+                </address>
+              </div>
+              <div className="ms-footbar-block">
+                <h3 className="ms-footbar-title">Social Media</h3>
+                <div className="ms-footbar-social">
+                  <a href="javascript:void(0)" className="btn-circle btn-facebook">
+                    <i className="zmdi zmdi-facebook"></i>
+                  </a>
+                  <a href="javascript:void(0)" className="btn-circle btn-twitter">
+                    <i className="zmdi zmdi-twitter"></i>
+                  </a>
+                  <a href="javascript:void(0)" className="btn-circle btn-youtube">
+                    <i className="zmdi zmdi-youtube"></i>
+                  </a>
+                  <br>
+                  <a href="javascript:void(0)" className="btn-circle btn-google">
+                    <i className="zmdi zmdi-google"></i>
+                  </a>
+                  <a href="javascript:void(0)" className="btn-circle btn-instagram">
+                    <i className="zmdi zmdi-instagram"></i>
+                  </a>
+                  <a href="javascript:void(0)" className="btn-circle btn-github">
+                    <i className="zmdi zmdi-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <footer className="ms-footer">
+        <div className="container">
+          <p>Copyright &copy; Material Style 2017</p>
+        </div>
+      </footer>
+      <div className="btn-back-top">
+        <a href="#" data-scroll id="back-top" className="btn-circle btn-circle-primary btn-circle-sm btn-circle-raised ">
+          <i className="zmdi zmdi-long-arrow-up"></i>
+        </a>
+      </div>
+    </div>
+    <!-- sb-site-container -->
+    <div className="ms-slidebar sb-slidebar sb-left sb-style-overlay" id="ms-slidebar">
+      <div className="sb-slidebar-container">
+        <header className="ms-slidebar-header">
+          <div className="ms-slidebar-login">
+            <a href="javascript:void(0)" className="withripple">
+              <i className="zmdi zmdi-account"></i> Login</a>
+            <a href="javascript:void(0)" className="withripple">
+              <i className="zmdi zmdi-account-add"></i> Register</a>
+          </div>
+          <div className="ms-slidebar-title">
+            <form className="search-form">
+              <input id="search-box-slidebar" type="text" className="search-input" placeholder="Search..." name="q" />
+              <label for="search-box-slidebar">
+                <i className="zmdi zmdi-search"></i>
+              </label>
+            </form>
+            <div className="ms-slidebar-t">
+              <span className="ms-logo ms-logo-sm">M</span>
+              <h3>Material
+                <span>Style</span>
+              </h3>
+            </div>
+          </div>
+        </header>
+        <ul className="ms-slidebar-menu" id="slidebar-menu" role="tablist" aria-multiselectable="true">
+          <li className="panel" role="tab" id="sch1">
+            <a className="collapsed" role="button" data-toggle="collapse" data-parent="#slidebar-menu" href="#sc1" aria-expanded="false" aria-controls="sc1">
+              <i className="zmdi zmdi-home"></i> Home </a>
+            <ul id="sc1" className="panel-collapse collapse" role="tabpanel" aria-labelledby="sch1">
+              <li>
+                <a href="index.html">Default Home</a>
+              </li>
+              <li>
+                <a href="home-generic-2.html">Home Black Slider</a>
+              </li>
+              <li>
+                <a href="home-landing.html">Home Landing Intro</a>
+              </li>
+              <li>
+                <a href="home-landing3.html">Home Landing Video</a>
+              </li>
+              <li>
+                <a href="home-shop.html">Home Shop 1</a>
+              </li>
+            </ul>
+          </li>
+          <li className="panel" role="tab" id="sch2">
+            <a className="collapsed" role="button" data-toggle="collapse" data-parent="#slidebar-menu" href="#sc2" aria-expanded="false" aria-controls="sc2">
+              <i className="zmdi zmdi-desktop-mac"></i> Pages </a>
+            <ul id="sc2" className="panel-collapse collapse" role="tabpanel" aria-labelledby="sch2">
+              <li>
+                <a href="page-about.html">About US</a>
+              </li>
+              <li>
+                <a href="page-team.html">Our Team</a>
+              </li>
+              <li>
+                <a href="page-product.html">Products</a>
+              </li>
+              <li>
+                <a href="page-services.html">Services</a>
+              </li>
+              <li>
+                <a href="page-faq.html">FAQ</a>
+              </li>
+              <li>
+                <a href="page-timeline_left.html">Timeline</a>
+              </li>
+              <li>
+                <a href="page-contact.html">Contact Option</a>
+              </li>
+              <li>
+                <a href="page-login.html">Login</a>
+              </li>
+              <li>
+                <a href="page-pricing.html">Pricing</a>
+              </li>
+              <li>
+                <a href="page-coming.html">Coming Soon</a>
+              </li>
+            </ul>
+          </li>
+          <li className="panel" role="tab" id="sch4">
+            <a className="collapsed" role="button" data-toggle="collapse" data-parent="#slidebar-menu" href="#sc4" aria-expanded="false" aria-controls="sc4">
+              <i className="zmdi zmdi-edit"></i> Blog </a>
+            <ul id="sc4" className="panel-collapse collapse" role="tabpanel" aria-labelledby="sch4">
+              <li>
+                <a href="blog-sidebar.html">Blog Sidebar 1</a>
+              </li>
+              <li>
+                <a href="blog-sidebar2.html">Blog Sidebar 2</a>
+              </li>
+              <li>
+                <a href="blog-masonry.html">Blog Masonry 1</a>
+              </li>
+              <li>
+                <a href="blog-masonry2.html">Blog Masonry 2</a>
+              </li>
+              <li>
+                <a href="blog-full.html">Blog Full Page 1</a>
+              </li>
+              <li>
+                <a href="blog-full2.html">Blog Full Page 2</a>
+              </li>
+              <li>
+                <a href="blog-post.html">Blog Post 1</a>
+              </li>
+              <li>
+                <a href="blog-post2.html">Blog Post 2</a>
+              </li>
+            </ul>
+          </li>
+          <li className="panel" role="tab" id="sch5">
+            <a className="collapsed" role="button" data-toggle="collapse" data-parent="#slidebar-menu" href="#sc5" aria-expanded="false" aria-controls="sc5">
+              <i className="zmdi zmdi-shopping-basket"></i> E-Commerce </a>
+            <ul id="sc5" className="panel-collapse collapse" role="tabpanel" aria-labelledby="sch5">
+              <li>
+                <a href="ecommerce-filters.html">E-Commerce Sidebar</a>
+              </li>
+              <li>
+                <a href="ecommerce-filters-full.html">E-Commerce Sidebar Full</a>
+              </li>
+              <li>
+                <a href="ecommerce-filters-full2.html">E-Commerce Topbar Full</a>
+              </li>
+              <li>
+                <a href="ecommerce-item.html">E-Commerce Item</a>
+              </li>
+              <li>
+                <a href="ecommerce-cart.html">E-Commerce Cart</a>
+              </li>
+            </ul>
+          </li>
+          <li className="panel" role="tab" id="sch6">
+            <a className="collapsed" role="button" data-toggle="collapse" data-parent="#slidebar-menu" href="#sc6" aria-expanded="false" aria-controls="sc6">
+              <i className="zmdi zmdi-collection-image-o"></i> Portfolio </a>
+            <ul id="sc6" className="panel-collapse collapse" role="tabpanel" aria-labelledby="sch6">
+              <li>
+                <a href="portfolio-filters_sidebar.html">Portfolio Sidebar Filters</a>
+              </li>
+              <li>
+                <a href="portfolio-filters_topbar.html">Portfolio Topbar Filters</a>
+              </li>
+              <li>
+                <a href="portfolio-filters_sidebar_fluid.html">Portfolio Sidebar Fluid</a>
+              </li>
+              <li>
+                <a href="portfolio-filters_topbar_fluid.html">Portfolio Topbar Fluid</a>
+              </li>
+              <li>
+                <a href="portfolio-cards.html">Porfolio Cards</a>
+              </li>
+              <li>
+                <a href="portfolio-masonry.html">Porfolio Masonry</a>
+              </li>
+              <li>
+                <a href="portfolio-item.html">Portfolio Item 1</a>
+              </li>
+              <li>
+                <a href="portfolio-item2.html">Portfolio Item 2</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a className="link" href="component-typography.html">
+              <i className="zmdi zmdi-view-compact"></i> UI Elements</a>
+          </li>
+          <li>
+            <a className="link" href="page-all.html">
+              <i className="zmdi zmdi-link"></i> All Pages</a>
+          </li>
+        </ul>
+        <div className="ms-slidebar-social ms-slidebar-block">
+          <h4 className="ms-slidebar-block-title">Social Links</h4>
+          <div className="ms-slidebar-social">
+            <a href="javascript:void(0)" className="btn-circle btn-circle-raised btn-facebook">
+              <i className="zmdi zmdi-facebook"></i>
+              <span className="badge badge-pink">12</span>
+              <div className="ripple-container"></div>
+            </a>
+            <a href="javascript:void(0)" className="btn-circle btn-circle-raised btn-twitter">
+              <i className="zmdi zmdi-twitter"></i>
+              <span className="badge badge-pink">4</span>
+              <div className="ripple-container"></div>
+            </a>
+            <a href="javascript:void(0)" className="btn-circle btn-circle-raised btn-google">
+              <i className="zmdi zmdi-google"></i>
+              <div className="ripple-container"></div>
+            </a>
+            <a href="javascript:void(0)" className="btn-circle btn-circle-raised btn-instagram">
+              <i className="zmdi zmdi-instagram"></i>
+              <div className="ripple-container"></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/plugins.min.js"></script>
+    <script src="assets/js/app.min.js"></script>
+  </body>
+</html>

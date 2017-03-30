@@ -153,7 +153,7 @@ var Comment = (function (Component) {
 								React.createElement(
 									"a",
 									{ onClick: this.handleEditClick.bind(this), href: "javascript:void(0)" },
-									React.createElement("i", { className: "ml-1 no-mr zmdi zmdi-long-arrow-up" }),
+									React.createElement("i", { className: "ml-1 no-mr zmdi zmdi-camera" }),
 									" Upload New Post Image"
 								)
 							)
@@ -237,7 +237,7 @@ var Comment = (function (Component) {
 										{ to: "/profile/" + currentComment.username },
 										React.createElement("img", { style: { height: 50, width: 50, borderRadius: 25 }, src: author.image, alt: "...", className: "img-circle mr-1" })
 									),
-									" by ",
+									"by ",
 									React.createElement(
 										"a",
 										{ className: "ms-tag ms-tag-primary", href: "javascript:void(0)" },
@@ -260,7 +260,11 @@ var Comment = (function (Component) {
 										)
 									)
 								),
-								showEditButton,
+								React.createElement(
+									"div",
+									null,
+									showEditButton
+								),
 								React.createElement("br", null),
 								React.createElement(
 									"div",

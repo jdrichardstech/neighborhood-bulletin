@@ -36,7 +36,7 @@ class Profile extends Component{
 							<div  className="text-center mt-2" style={{paddingTop:75}}>
 								<h1 className="color-white mt-4 animated fadeInUp animation-delay-10">Profile Page</h1>
 								<img src={profile.image} className="ms-avatar-hero animated zoomIn animation-delay-7" />
-								<h1 className="color-white mt-4 animated fadeInUp animation-delay-10">{profile.username}</h1>
+								<h1 className="color-white mt-4 animated fadeInUp animation-delay-10">{profile.firstName} {profile.lastName}</h1>
 								<h3 className="color-medium no-mb animated fadeInUp animation-delay-10">{profile.bio}</h3>
 							</div>
 						</div>
@@ -49,6 +49,11 @@ class Profile extends Component{
 								</div>
 								<table className="table table-no-border table-striped" style={{width:'65%',margin:'0 auto 50px auto'}}>
 									<tbody>
+										<tr>
+											<th>
+												<i className="zmdi zmdi-face mr-1 color-warning"></i> Fullname</th>
+											<td>{profile.firstName} {profile.lastName}</td>
+										</tr>
 										<tr>
 											<th>
 												<i className="zmdi zmdi-account mr-1 color-royal"></i> User Name</th>

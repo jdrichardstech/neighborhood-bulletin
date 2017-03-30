@@ -2,6 +2,8 @@ var mongoose = require('mongoose')
 
 
 var ProfileSchema = new mongoose.Schema({
+	firstName:{type:String, default:''},
+	lastName:{type:String, default: ''},
   username:{type:String, unique:true, default:''},
   password:{type:String, default:''},
   image:{type:String, default:''},

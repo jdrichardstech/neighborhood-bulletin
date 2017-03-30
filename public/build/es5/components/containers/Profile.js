@@ -76,7 +76,9 @@ var Profile = (function (Component) {
 									React.createElement(
 										"h1",
 										{ className: "color-white mt-4 animated fadeInUp animation-delay-10" },
-										profile.username
+										profile.firstName,
+										" ",
+										profile.lastName
 									),
 									React.createElement(
 										"h3",
@@ -110,6 +112,23 @@ var Profile = (function (Component) {
 										React.createElement(
 											"tbody",
 											null,
+											React.createElement(
+												"tr",
+												null,
+												React.createElement(
+													"th",
+													null,
+													React.createElement("i", { className: "zmdi zmdi-face mr-1 color-warning" }),
+													" Fullname"
+												),
+												React.createElement(
+													"td",
+													null,
+													profile.firstName,
+													" ",
+													profile.lastName
+												)
+											),
 											React.createElement(
 												"tr",
 												null,

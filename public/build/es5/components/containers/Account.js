@@ -203,6 +203,8 @@ var Account = (function (Component) {
 				this.refs.gender.value = "";
 				this.refs.city.value = "";
 				this.refs.bio.value = "";
+				this.refs.firstName.value = "";
+				this.refs.lastName.value = "";
 			},
 			writable: true,
 			configurable: true
@@ -354,6 +356,46 @@ var Account = (function (Component) {
 													React.createElement(
 														"fieldset",
 														null,
+														React.createElement(
+															"div",
+															{ className: "form-group label-floating" },
+															React.createElement(
+																"div",
+																{ className: "input-group" },
+																React.createElement(
+																	"span",
+																	{ className: "input-group-addon" },
+																	React.createElement("i", { className: "zmdi zmdi-account" })
+																),
+																React.createElement(
+																	"label",
+																	{ className: "control-label" },
+																	"First Name"
+																),
+																React.createElement("input", { onChange: this.updateProfile.bind(this), type: "text", id: "firstName", className: "form-control", ref: "firstName" }),
+																" "
+															)
+														),
+														React.createElement(
+															"div",
+															{ className: "form-group label-floating" },
+															React.createElement(
+																"div",
+																{ className: "input-group" },
+																React.createElement(
+																	"span",
+																	{ className: "input-group-addon" },
+																	React.createElement("i", { className: "zmdi zmdi-account" })
+																),
+																React.createElement(
+																	"label",
+																	{ className: "control-label" },
+																	"Last Name"
+																),
+																React.createElement("input", { onChange: this.updateProfile.bind(this), type: "text", id: "lastName", className: "form-control", ref: "lastName" }),
+																" "
+															)
+														),
 														React.createElement(
 															"div",
 															{ className: "form-group label-floating" },
@@ -547,19 +589,33 @@ var Account = (function (Component) {
 												React.createElement(
 													"p",
 													null,
+													React.createElement(
+														"span",
+														{ style: { color: "#03a9f4" } },
+														"Gender: "
+													),
 													"Gender: ",
 													this.props.user.gender
 												),
 												React.createElement(
 													"p",
 													null,
-													"City: ",
+													React.createElement(
+														"span",
+														{ style: { color: "#03a9f4" } },
+														"City:"
+													),
 													this.props.user.city
 												),
 												React.createElement(
 													"p",
 													null,
-													"Bio: ",
+													React.createElement(
+														"span",
+														{ style: { color: "#03a9f4" } },
+														"Bio:"
+													),
+													"  ",
 													this.props.user.bio
 												),
 												" ",
