@@ -72,8 +72,8 @@ grabImage(files){
 		const showEditButton = (this.props.user.username == author.username && this.state.showEdit==true) ?
 
 			<div className="col-lg-4 text-right">
-				<a onClick={this.handleEditClick.bind(this)} href="javascript:void(0)" className="btn btn-primary btn-raised btn-block animate-icon">Edit
-					<i className="ml-1 no-mr zmdi zmdi-long-arrow-right"></i>
+				<a onClick={this.handleEditClick.bind(this)} href="javascript:void(0)" className="btn btn-primary btn-raised btn-block"><i className="ml-1 no-mr zmdi zmdi-edit"></i>&nbsp;&nbsp;Edit
+
 				</a>
 			</div>
 

@@ -38,14 +38,24 @@ class CreateZone extends Component {
 
 	render(){
 		return (
-			<div>
-				<h4>Create Neighborhood:</h4>
-				<label>Neighborhood:</label>
-				<input id="name" onChange={this.updateZone.bind(this)} className="form-control" type="text" ref="name" /><br />
-				<label>Zip Code:</label>
-				<input id="zipCode" onChange={this.updateZone.bind(this)} className="form-control" type="text" ref="zip" /><br />
-				<button onClick={this.submitZone.bind(this)} className="btn btn-info">Add Neighborhood</button>
+
+
+			<div className="card card-primary animated fadeInUp animation-delay-7">
+				<div className="card-header">
+					<h3 className="card-title">
+						<i className="zmdi zmdi-widgets"></i> Create Neighborhood</h3>
+				</div>
+				<div className="card-block">
+
+					<input style={{width:'75%',fontSize:'1.1em'}} id="name" placeholder="Enter Neighborhood Name" ref="name" onChange={this.updateZone.bind(this)} className="form-control" type="text" ref="name" />
+
+					<input style={{width:'75%',fontSize:'1.1em'}} placeholder="Enter Zip Code" id="zipCode" ref="zipCode" onChange={this.updateZone.bind(this)} className="form-control" type="text" ref="zip" /><br />
+						<a onClick={this.submitZone.bind(this)} href="javascript:void(0)" className="btn btn-success btn-raised btn-block">
+							<i className="ml-1 no-mr zmdi zmdi-home"></i>&nbsp;&nbsp;Add 	New Neighborhood
+						</a>
+				</div>
 			</div>
+
 		)
 	}
 }

@@ -34919,6 +34919,8 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -34973,30 +34975,29 @@
 			value: function render() {
 				return _react2.default.createElement(
 					'div',
-					null,
+					{ className: 'card card-primary animated fadeInUp animation-delay-7' },
 					_react2.default.createElement(
-						'h4',
-						null,
-						'Create Neighborhood:'
+						'div',
+						{ className: 'card-header' },
+						_react2.default.createElement(
+							'h3',
+							{ className: 'card-title' },
+							_react2.default.createElement('i', { className: 'zmdi zmdi-widgets' }),
+							' Create Neighborhood'
+						)
 					),
 					_react2.default.createElement(
-						'label',
-						null,
-						'Neighborhood:'
-					),
-					_react2.default.createElement('input', { id: 'name', onChange: this.updateZone.bind(this), className: 'form-control', type: 'text', ref: 'name' }),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement(
-						'label',
-						null,
-						'Zip Code:'
-					),
-					_react2.default.createElement('input', { id: 'zipCode', onChange: this.updateZone.bind(this), className: 'form-control', type: 'text', ref: 'zip' }),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement(
-						'button',
-						{ onClick: this.submitZone.bind(this), className: 'btn btn-info' },
-						'Add Neighborhood'
+						'div',
+						{ className: 'card-block' },
+						_react2.default.createElement('input', _defineProperty({ style: { width: '75%', fontSize: '1.1em' }, id: 'name', placeholder: 'Enter Neighborhood Name', ref: 'name', onChange: this.updateZone.bind(this), className: 'form-control', type: 'text' }, 'ref', 'name')),
+						_react2.default.createElement('input', _defineProperty({ style: { width: '75%', fontSize: '1.1em' }, placeholder: 'Enter Zip Code', id: 'zipCode', ref: 'zipCode', onChange: this.updateZone.bind(this), className: 'form-control', type: 'text' }, 'ref', 'zip')),
+						_react2.default.createElement('br', null),
+						_react2.default.createElement(
+							'a',
+							{ onClick: this.submitZone.bind(this), href: 'javascript:void(0)', className: 'btn btn-success btn-raised btn-block' },
+							_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-home' }),
+							'\xA0\xA0Add  New Neighborhood'
+						)
 					)
 				);
 			}
@@ -35124,9 +35125,9 @@
 					{ className: 'col-lg-4 text-right' },
 					_react2.default.createElement(
 						'a',
-						{ onClick: this.handleEditClick.bind(this), href: 'javascript:void(0)', className: 'btn btn-primary btn-raised btn-block animate-icon' },
-						'Edit',
-						_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-long-arrow-right' })
+						{ onClick: this.handleEditClick.bind(this), href: 'javascript:void(0)', className: 'btn btn-primary btn-raised btn-block' },
+						_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-edit' }),
+						'\xA0\xA0Edit'
 					)
 				) : null;
 	
@@ -36004,7 +36005,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -36027,6 +36028,8 @@
 	
 	var _reactRouter = __webpack_require__(228);
 	
+	var _presentation = __webpack_require__(291);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -36036,115 +36039,212 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var Profile = function (_Component) {
-	  _inherits(Profile, _Component);
+		_inherits(Profile, _Component);
 	
-	  function Profile(props) {
-	    _classCallCheck(this, Profile);
+		function Profile(props) {
+			_classCallCheck(this, Profile);
 	
-	    var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this, props));
+			var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this, props));
 	
-	    _this.state = {};
-	    return _this;
-	  }
+			_this.state = {};
+			return _this;
+		}
 	
-	  _createClass(Profile, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      console.log(JSON.stringify(this.props.username));
-	      var profile = this.props.profiles[this.props.username];
-	      if (profile != null) return;
+		_createClass(Profile, [{
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				console.log(JSON.stringify(this.props.username));
+				var profile = this.props.profiles[this.props.username];
+				if (profile != null) return;
 	
-	      this.props.fetchProfile({ username: this.props.username });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
+				this.props.fetchProfile({ username: this.props.username });
+			}
+		}, {
+			key: 'render',
+			value: function render() {
 	
-	      var profile = this.props.profiles[this.props.username];
+				var profile = this.props.profiles[this.props.username];
 	
-	      var header = null;
-	      if (profile != null) {
-	        header = _react2.default.createElement(
-	          'div',
-	          { style: { background: '#fff', padding: 15 } },
-	          _react2.default.createElement(
-	            'h1',
-	            null,
-	            'Profile Details:'
-	          ),
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            'User: ',
-	            _react2.default.createElement(
-	              'span',
-	              { style: _styles2.default.profile.entry },
-	              ' ',
-	              profile.username
-	            )
-	          ),
-	          _react2.default.createElement('img', { src: profile.image }),
-	          _react2.default.createElement('br', null),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'Gender: ',
-	            _react2.default.createElement(
-	              'span',
-	              { style: _styles2.default.profile.entry },
-	              profile.gender
-	            ),
-	            _react2.default.createElement('br', null),
-	            'City:',
-	            _react2.default.createElement(
-	              'span',
-	              { style: _styles2.default.profile.entry },
-	              ' ',
-	              profile.city
-	            ),
-	            _react2.default.createElement('br', null),
-	            'Bio: ',
-	            profile.bio,
-	            _react2.default.createElement('br', null),
-	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: '/' },
-	              _react2.default.createElement(
-	                'button',
-	                { style: { marginRight: 15 }, type: '', className: 'btn btn-info' },
-	                'Home'
-	              )
-	            )
-	          )
-	        );
-	      }
+				var header = null;
+				if (profile != null) {
+					header = _react2.default.createElement(
+						'div',
+						null,
+						_react2.default.createElement(
+							'div',
+							{ className: 'ms-hero-page-override ms-hero-img-city ms-bg-fixed ms-hero-bg-primary' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'container' },
+								_react2.default.createElement(
+									'div',
+									{ className: 'text-center mt-2', style: { paddingTop: 75 } },
+									_react2.default.createElement(
+										'h1',
+										{ className: 'color-white mt-4 animated fadeInUp animation-delay-10' },
+										'Profile Page'
+									),
+									_react2.default.createElement('img', { src: profile.image, className: 'ms-avatar-hero animated zoomIn animation-delay-7' }),
+									_react2.default.createElement(
+										'h1',
+										{ className: 'color-white mt-4 animated fadeInUp animation-delay-10' },
+										profile.username
+									),
+									_react2.default.createElement(
+										'h3',
+										{ className: 'color-medium no-mb animated fadeInUp animation-delay-10' },
+										profile.bio
+									)
+								)
+							)
+						),
+						_react2.default.createElement(
+							'div',
+							{ className: 'container' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'row' },
+								_react2.default.createElement(
+									'div',
+									{ className: 'col-md-12' },
+									_react2.default.createElement(
+										'div',
+										{ className: 'card-block' },
+										_react2.default.createElement(
+											'h2',
+											{ className: 'color-primary no-mb', style: { textAlign: 'center', padding: '20px 0 20px 0' } },
+											'Personal Information'
+										)
+									),
+									_react2.default.createElement(
+										'table',
+										{ className: 'table table-no-border table-striped', style: { width: '65%', margin: '0 auto 50px auto' } },
+										_react2.default.createElement(
+											'tbody',
+											null,
+											_react2.default.createElement(
+												'tr',
+												null,
+												_react2.default.createElement(
+													'th',
+													null,
+													_react2.default.createElement('i', { className: 'zmdi zmdi-account mr-1 color-royal' }),
+													' User Name'
+												),
+												_react2.default.createElement(
+													'td',
+													null,
+													profile.username
+												)
+											),
+											_react2.default.createElement(
+												'tr',
+												null,
+												_react2.default.createElement(
+													'th',
+													null,
+													_react2.default.createElement('i', { className: 'zmdi zmdi-male-female mr-1 color-success' }),
+													' Gender'
+												),
+												_react2.default.createElement(
+													'td',
+													null,
+													profile.gender
+												)
+											),
+											_react2.default.createElement(
+												'tr',
+												null,
+												_react2.default.createElement(
+													'th',
+													null,
+													_react2.default.createElement('i', { className: 'zmdi zmdi-email mr-1 color-primary' }),
+													' Email'
+												),
+												_react2.default.createElement(
+													'td',
+													null,
+													_react2.default.createElement(
+														'a',
+														{ href: '#' },
+														profile.username,
+														'@me.com'
+													)
+												)
+											),
+											_react2.default.createElement(
+												'tr',
+												null,
+												_react2.default.createElement(
+													'th',
+													null,
+													_react2.default.createElement('i', { className: 'zmdi zmdi-link mr-1 color-danger' }),
+													' Website'
+												),
+												_react2.default.createElement(
+													'td',
+													null,
+													_react2.default.createElement(
+														'a',
+														{ href: '#' },
+														'www.',
+														profile.username,
+														'.com'
+													)
+												)
+											)
+										)
+									),
+									_react2.default.createElement(
+										_reactRouter.Link,
+										{ to: '/' },
+										_react2.default.createElement(
+											'button',
+											{ style: { margin: '0 auto 100px auto', width: '25%' }, type: '', className: 'btn btn-success  btn-raised btn-block' },
+											_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-home' }),
+											'\xA0\xA0Home'
+										)
+									)
+								)
+							)
+						)
+					);
+				}
 	
-	      var content = this.props.appStatus == 'loading' ? 'Loading...' : header;
+				var content = this.props.appStatus == 'loading' ? 'Loading...' : header;
 	
-	      return _react2.default.createElement(
-	        'div',
-	        { style: _styles2.default.profile.profiledetails },
-	        content
-	      );
-	    }
-	  }]);
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'div',
+						{ className: 'sb-site-container', style: { background: '#fff' } },
+						_react2.default.createElement(_presentation.Header, null),
+						content
+					),
+					_react2.default.createElement(_presentation.BackToTop, null),
+					_react2.default.createElement(_presentation.Footer, null)
+				);
+			}
+		}]);
 	
-	  return Profile;
+		return Profile;
 	}(_react.Component);
 	
 	var stateToProps = function stateToProps(state) {
-	  return {
-	    profiles: state.profile.map,
-	    appStatus: state.profile.appStatus
-	  };
+		return {
+	
+			profiles: state.profile.map,
+			appStatus: state.profile.appStatus
+		};
 	};
 	
 	var dispatchToProps = function dispatchToProps(dispatch) {
-	  return {
-	    fetchProfile: function fetchProfile(params) {
-	      return dispatch(_actions2.default.fetchProfile(params));
-	    }
-	  };
+		return {
+			fetchProfile: function fetchProfile(params) {
+				return dispatch(_actions2.default.fetchProfile(params));
+			}
+		};
 	};
 	
 	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Profile);

@@ -66,30 +66,29 @@ var CreateZone = (function (Component) {
 			value: function render() {
 				return React.createElement(
 					"div",
-					null,
+					{ className: "card card-primary animated fadeInUp animation-delay-7" },
 					React.createElement(
-						"h4",
-						null,
-						"Create Neighborhood:"
+						"div",
+						{ className: "card-header" },
+						React.createElement(
+							"h3",
+							{ className: "card-title" },
+							React.createElement("i", { className: "zmdi zmdi-widgets" }),
+							" Create Neighborhood"
+						)
 					),
 					React.createElement(
-						"label",
-						null,
-						"Neighborhood:"
-					),
-					React.createElement("input", { id: "name", onChange: this.updateZone.bind(this), className: "form-control", type: "text", ref: "name" }),
-					React.createElement("br", null),
-					React.createElement(
-						"label",
-						null,
-						"Zip Code:"
-					),
-					React.createElement("input", { id: "zipCode", onChange: this.updateZone.bind(this), className: "form-control", type: "text", ref: "zip" }),
-					React.createElement("br", null),
-					React.createElement(
-						"button",
-						{ onClick: this.submitZone.bind(this), className: "btn btn-info" },
-						"Add Neighborhood"
+						"div",
+						{ className: "card-block" },
+						React.createElement("input", { style: { width: "75%", fontSize: "1.1em" }, id: "name", placeholder: "Enter Neighborhood Name", ref: "name", onChange: this.updateZone.bind(this), className: "form-control", type: "text", ref: "name" }),
+						React.createElement("input", { style: { width: "75%", fontSize: "1.1em" }, placeholder: "Enter Zip Code", id: "zipCode", ref: "zipCode", onChange: this.updateZone.bind(this), className: "form-control", type: "text", ref: "zip" }),
+						React.createElement("br", null),
+						React.createElement(
+							"a",
+							{ onClick: this.submitZone.bind(this), href: "javascript:void(0)", className: "btn btn-success btn-raised btn-block" },
+							React.createElement("i", { className: "ml-1 no-mr zmdi zmdi-home" }),
+							"  Add  New Neighborhood"
+						)
 					)
 				);
 			},

@@ -106,9 +106,9 @@ var Comment = (function (Component) {
 					{ className: "col-lg-4 text-right" },
 					React.createElement(
 						"a",
-						{ onClick: this.handleEditClick.bind(this), href: "javascript:void(0)", className: "btn btn-primary btn-raised btn-block animate-icon" },
-						"Edit",
-						React.createElement("i", { className: "ml-1 no-mr zmdi zmdi-long-arrow-right" })
+						{ onClick: this.handleEditClick.bind(this), href: "javascript:void(0)", className: "btn btn-primary btn-raised btn-block" },
+						React.createElement("i", { className: "ml-1 no-mr zmdi zmdi-edit" }),
+						"  Edit"
 					)
 				) : null;
 
