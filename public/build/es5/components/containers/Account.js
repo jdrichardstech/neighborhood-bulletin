@@ -498,7 +498,7 @@ var Account = (function (Component) {
 						null,
 						React.createElement(
 							"div",
-							{ className: "sb-site-container", style: { background: "#BCDCF5" } },
+							{ className: "sb-site-container", style: { background: "#fbfeff" } },
 							React.createElement(Header, null),
 							React.createElement(
 								"div",

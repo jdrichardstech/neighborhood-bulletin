@@ -105,7 +105,7 @@ class UpdateProfile extends Component{
 				 Gender: <span style={styles.profile.entry}>{this.props.user.gender}</span><br />
 				 City:<span style={styles.profile.entry}> {this.props.user.city}</span><br /><br />
 				 Bio:<span style={styles.profile.entry}> {this.props.user.bio}</span><br /><br />
-				 Image: <img src={image} /><br /><br />
+			 Image: <img src={this.props.user.image} /><br /><br />
 			 <Link to ="/"><button style={{marginRight:10}} type="" className="btn btn-info">Home</button></Link>
 				 <Link to = {"/profile/"+this.props.user.username}><button type="" className="btn btn-warning">View Current Profile</button></Link>
 			 </p>
@@ -124,7 +124,7 @@ class UpdateProfile extends Component{
 				 <button onClick={this.updateProfile.bind(this)} className="btn btn-danger" type="submit">Update Profile</button>
 		 </div></div>
       return (
-        <div style={styles.profile.profiledetails}>
+        <div>
 					{content}
         </div>
       )

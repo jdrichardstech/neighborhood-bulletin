@@ -118,54 +118,65 @@ var Comment = (function (Component) {
 					"div",
 					null,
 					React.createElement(
-						"label",
-						null,
-						"Edit Comment: "
-					),
-					React.createElement("br", null),
-					React.createElement("textarea", { style: { border: "1px solid #D0D3DB", width: "100%", paddingLeft: 15 }, className: "form-control", onChange: this.handleEditChange.bind(this), type: "text", defaultValue: currentComment.body, id: "body" }),
-					" ",
-					React.createElement("br", null),
-					React.createElement(
-						"label",
-						null,
-						"Edit Image"
-					),
-					React.createElement(
-						DropZone,
-						{ style: { border: "1px solid #fff" }, onDrop: this.grabImage.bind(this) },
+						"div",
+						{ className: "row" },
 						React.createElement(
 							"div",
-							{ style: { width: 150, height: 150, border: "1px inset #D0D3DB", borderRadius: 5, margin: "15px auto", padding: 15 } },
+							{ className: "col-md-12" },
+							React.createElement("hr", { style: { border: "2px solid #03a9f4", background: "#03a9f4", color: "#03a9f4" } }),
 							React.createElement(
-								"center",
-								null,
+								"div",
+								{ style: { padding: 30 } },
 								React.createElement(
-									"a",
-									{ href: "#" },
-									"To upload",
-									React.createElement("br", null),
-									"Click here or drag and drop image here "
-								)
+									"h3",
+									null,
+									"Edit your current comment below:"
+								),
+								React.createElement("input", { className: "form-control", onChange: this.handleEditChange.bind(this), type: "text", placeholder: currentComment.body, id: "body" }),
+								" ",
+								React.createElement("br", null)
 							)
 						)
 					),
-					" ",
-					React.createElement("br", null),
-					React.createElement("br", null),
 					React.createElement(
 						"div",
-						{ className: "col-md-6" },
+						{ className: "row" },
 						React.createElement(
 							"div",
-							{ style: { marginTop: 50 } },
-							React.createElement("img", { style: { height: 100 }, src: this.props.commentImage })
+							{ className: "col-md-6", style: { padding: 30 } },
+							React.createElement(
+								DropZone,
+								{ style: { border: "1px solid white", fontSize: "1.5em" }, onDrop: this.grabImage.bind(this) },
+								React.createElement(
+									"a",
+									{ onClick: this.handleEditClick.bind(this), href: "javascript:void(0)" },
+									React.createElement("i", { className: "ml-1 no-mr zmdi zmdi-long-arrow-up" }),
+									" Upload New Post Image"
+								)
+							)
+						),
+						React.createElement(
+							"div",
+							{ className: "col-md-6", style: { padding: 30 } },
+							React.createElement(
+								"div",
+								{ style: { marginTop: 50 } },
+								React.createElement("img", { style: { height: 100 }, src: this.props.commentImage })
+							)
 						)
 					),
 					React.createElement(
-						"button",
-						{ style: { marginTop: 10 }, className: "btn btn-danger", onClick: this.updateComment.bind(this) },
-						"Submit"
+						"div",
+						{ className: "row" },
+						React.createElement(
+							"div",
+							{ className: "col-md-12", style: { padding: 30 } },
+							React.createElement(
+								"a",
+								{ className: "pull-right", style: { width: "30%", color: "white", margin: "0 auto" }, onClick: this.updateComment.bind(this), href: "javascript:void(0)", className: "btn btn-primary btn-raised btn-block animate-icon" },
+								"Submit"
+							)
+						)
 					)
 				) : React.createElement("div", null);
 
@@ -202,12 +213,9 @@ var Comment = (function (Component) {
 									{ className: "col-lg-6" },
 									React.createElement(
 										"h3",
-										{ className: "no-mt" },
-										React.createElement(
-											"a",
-											{ href: "javascript:void(0)" },
-											"Create A Title In Model"
-										)
+										{ className: "no-mt", style: { color: "#03a9f4" } },
+										"Post ",
+										this.props.index + 1
 									),
 									React.createElement(
 										"p",
@@ -225,23 +233,17 @@ var Comment = (function (Component) {
 									React.createElement(
 										Link,
 										{ to: "/profile/" + currentComment.username },
-										React.createElement("img", { src: author.image, alt: "...", className: "img-circle mr-1" })
+										React.createElement("img", { style: { height: 50, width: 50, borderRadius: 25 }, src: author.image, alt: "...", className: "img-circle mr-1" })
 									),
-									" by",
+									" by ",
 									React.createElement(
 										"a",
-										{ href: "javascript:void(0)" },
+										{ className: "ms-tag ms-tag-primary", href: "javascript:void(0)" },
 										React.createElement(
 											Link,
-											{ to: "/profile/" + currentComment.username },
+											{ style: { color: "white" }, to: "/profile/" + currentComment.username },
 											currentComment.username
 										)
-									),
-									" in",
-									React.createElement(
-										"a",
-										{ href: "javascript:void(0)", className: "ms-tag ms-tag-info" },
-										"Design"
 									),
 									React.createElement(
 										"span",
@@ -257,9 +259,12 @@ var Comment = (function (Component) {
 									)
 								),
 								showEditButton,
+								React.createElement("br", null),
 								React.createElement(
 									"div",
 									null,
+									React.createElement("br", null),
+									React.createElement("br", null),
 									commentEditingInfo
 								)
 							)

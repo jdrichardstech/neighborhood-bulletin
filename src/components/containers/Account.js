@@ -278,14 +278,14 @@ clearValues(){
 
       content = (
         <div>
-					<div className="sb-site-container" style={{background:'#BCDCF5'}}>
+					<div className="sb-site-container" style={{background:'#fbfeff'}}>
 					<Header />
 					<div className="container">
 
 				          <div className="col-md-8">
 							<Comments />
 						</div>
-					
+
 					 <div className="row">
 						 <div className="col-md-4">
 

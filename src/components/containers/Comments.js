@@ -126,7 +126,7 @@ class Comments extends Component {
 					commentList = zoneComments.map((comment, i) => {
 						return (
 							<div key={i}>
-								<li ><Comment commentImage={this.state.updated.commentImage} handleImage={this.uploadImage.bind(this)} handleSubmitEdit={this.submitEdit.bind(this)}  user={this.props.user} currentComment={comment} /></li>
+								<li ><Comment commentImage={this.state.updated.commentImage} handleImage={this.uploadImage.bind(this)} handleSubmitEdit={this.submitEdit.bind(this)}  user={this.props.user} currentComment={comment} index={i} /></li>
 							</div>
 						)
 					})
@@ -136,25 +136,31 @@ class Comments extends Component {
 			 header =
 				<div>
 
-					<article className="card wow fadeInLeft animation-delay-5 mb-4">
+					<article className="card wow mb-4">
 					<div className="card-block">
 						<div className="row">
-							<div className="col-lg-6">
-							<h2>Neighborhood Bulletin Board</h2>
+							<div className="col-lg-12">
+							<h2>Posts for <span style={{color:'#03a9f4'}}>{zoneName}</span></h2>
 							<center><img style={{width:690, height:300}} src="/images/neighborhood.jpg" /></center>
-								<h3>Comments for <span style={styles.comment.title}>{zoneName}</span>: </h3>
+
 								</div>
 							</div>
 						</div>
 						</article>
 
-								<ul style={{listStyle:'none'}}>
+								<ul style={{listStyle:'none', padding:0}}>
 									{ commentList }
 								</ul>
 
-						<div style={{background:'white'}}>
+								<article className="card wow fadeInLeft animation-delay-5 mb-4">
+								<div className="card-block">
+									<div className="row">
+										<div className="col-lg-12">
 							<CreateComment commentImage={this.state.updated.commentImage}  handleImage={this.uploadImage.bind(this)}  onCreate={this.submitComment.bind(this)} />
-						</div>
+										</div>
+									</div>
+								</div>
+							</article>
 				</div>
 				}
 
@@ -169,7 +175,7 @@ class Comments extends Component {
 
 		return (
 			<div>
-				{content}
+				{header}
 			</div>
 		)
 	}

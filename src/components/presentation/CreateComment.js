@@ -12,6 +12,7 @@ class CreateComment extends Component {
 			comment: {
 				commentImage:null,
 				body:'',
+				title:''
 
 			}
 		}
@@ -61,30 +62,42 @@ class CreateComment extends Component {
 
 
 		return (
-
 			<div>
-				<h4>Create Comment</h4>
 				<div className="row">
 					<div className="col-md-12">
-						<input onChange={this.updateComment.bind(this)} id="body" className="form-control" type="text" placeholder="Add New Comment" /><br />
+						<h2 style={{fontWeight:400}}>Create New Post:</h2>
+						<hr style={{border:'2px solid #03a9f4', background:'#03a9f4', color:'#03a9f4'}} />
+						<div style={{padding:'20px 30px 20px 30px'}}>
+
+
+						<h3>Comment:</h3> <input style={{width:'75%',padding:'0 0 20px 0'}} onChange={this.updateComment.bind(this)} id="body" className="form-control" type="text" placeholder="Add Comment Here" />
+						</div>
 					</div>
 				</div>
-			<div className="row">
+
+			<div className="row" >
 				<div className="col-md-6">
-					<DropZone id="dropzoneSpot" style={{border:'1px solid white'}} onDrop={this.grabImage.bind(this)} >
-						<div style={{width:150, height:150, border:'1px inset #E6E7F5',borderRadius:5, margin:'25px auto',padding:10}}><center><a href="#dropzoneSpot">To Upload Image <br /> Click or drag and drop here</a></center></div>
-
-					</DropZone><br />
+				<div style={{padding:'35px 0 30px 30px'}}>
+					<h3>Image:</h3>
+						<DropZone id="dropzoneSpot" style={{border:'1px solid white',fontSize:'1.5em'}} onDrop={this.grabImage.bind(this)}>
+							<a href="#dropzoneSpot">
+								Click to Upload Image&nbsp;<i className="ml-1 no-mr zmdi zmdi-long-arrow-up"></i>
+							</a>
+						</DropZone>
 				</div>
-				<div className="col-md-6">
-					<br /><br />{newImage} <br />
+
 				</div>
-			</div>
-
-				<button onClick={this.submitComment.bind(this)} className="btn btn-info">Submit Comment</button>
-
-		</div>
-
+				 <div className="col-md-6" style={{paddingRight:30}}>
+					 <div style={{marginTop:50}} ><img style={{height:100}} src={this.props.commentImage} /></div>
+				 </div>
+			 </div>
+			 <div className="row">
+				 <div className="col-md-12" style={{padding:30}}>
+					 <a className="pull-right" style={{width:'30%', color:'white', margin:'0 auto'}} onClick={this.submitComment.bind(this)} href="javascript:void(0)" className="btn btn-primary btn-raised btn-block animate-icon">Submit Post
+					 </a>
+					</div>
+			 </div>
+		 </div>
 		)
 	}
 }

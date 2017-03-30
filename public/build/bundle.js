@@ -22177,7 +22177,7 @@
 						null,
 						_react2.default.createElement(
 							'div',
-							{ className: 'sb-site-container', style: { background: '#BCDCF5' } },
+							{ className: 'sb-site-container', style: { background: '#fbfeff' } },
 							_react2.default.createElement(_presentation.Header, null),
 							_react2.default.createElement(
 								'div',
@@ -34741,6 +34741,8 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -34760,7 +34762,8 @@
 				picDropped: false,
 				comment: {
 					commentImage: null,
-					body: ''
+					body: '',
+					title: ''
 	
 				}
 			};
@@ -34816,18 +34819,28 @@
 					'div',
 					null,
 					_react2.default.createElement(
-						'h4',
-						null,
-						'Create Comment'
-					),
-					_react2.default.createElement(
 						'div',
 						{ className: 'row' },
 						_react2.default.createElement(
 							'div',
 							{ className: 'col-md-12' },
-							_react2.default.createElement('input', { onChange: this.updateComment.bind(this), id: 'body', className: 'form-control', type: 'text', placeholder: 'Add New Comment' }),
-							_react2.default.createElement('br', null)
+							_react2.default.createElement(
+								'h2',
+								{ style: { fontWeight: 400 } },
+								'Create New Post:'
+							),
+							_react2.default.createElement('hr', { style: { border: '2px solid #03a9f4', background: '#03a9f4', color: '#03a9f4' } }),
+							_react2.default.createElement(
+								'div',
+								{ style: { padding: '20px 30px 20px 30px' } },
+								_react2.default.createElement(
+									'h3',
+									null,
+									'Comment:'
+								),
+								' ',
+								_react2.default.createElement('input', { style: { width: '75%', padding: '0 0 20px 0' }, onChange: this.updateComment.bind(this), id: 'body', className: 'form-control', type: 'text', placeholder: 'Add Comment Here' })
+							)
 						)
 					),
 					_react2.default.createElement(
@@ -34837,40 +34850,47 @@
 							'div',
 							{ className: 'col-md-6' },
 							_react2.default.createElement(
-								_reactDropzone2.default,
-								{ id: 'dropzoneSpot', style: { border: '1px solid white' }, onDrop: this.grabImage.bind(this) },
+								'div',
+								{ style: { padding: '35px 0 30px 30px' } },
 								_react2.default.createElement(
-									'div',
-									{ style: { width: 150, height: 150, border: '1px inset #E6E7F5', borderRadius: 5, margin: '25px auto', padding: 10 } },
+									'h3',
+									null,
+									'Image:'
+								),
+								_react2.default.createElement(
+									_reactDropzone2.default,
+									{ id: 'dropzoneSpot', style: { border: '1px solid white', fontSize: '1.5em' }, onDrop: this.grabImage.bind(this) },
 									_react2.default.createElement(
-										'center',
-										null,
-										_react2.default.createElement(
-											'a',
-											{ href: '#dropzoneSpot' },
-											'To Upload Image ',
-											_react2.default.createElement('br', null),
-											' Click or drag and drop here'
-										)
+										'a',
+										{ href: '#dropzoneSpot' },
+										'Click to Upload Image\xA0',
+										_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-long-arrow-up' })
 									)
 								)
-							),
-							_react2.default.createElement('br', null)
+							)
 						),
 						_react2.default.createElement(
 							'div',
-							{ className: 'col-md-6' },
-							_react2.default.createElement('br', null),
-							_react2.default.createElement('br', null),
-							newImage,
-							' ',
-							_react2.default.createElement('br', null)
+							{ className: 'col-md-6', style: { paddingRight: 30 } },
+							_react2.default.createElement(
+								'div',
+								{ style: { marginTop: 50 } },
+								_react2.default.createElement('img', { style: { height: 100 }, src: this.props.commentImage })
+							)
 						)
 					),
 					_react2.default.createElement(
-						'button',
-						{ onClick: this.submitComment.bind(this), className: 'btn btn-info' },
-						'Submit Comment'
+						'div',
+						{ className: 'row' },
+						_react2.default.createElement(
+							'div',
+							{ className: 'col-md-12', style: { padding: 30 } },
+							_react2.default.createElement(
+								'a',
+								_defineProperty({ className: 'pull-right', style: { width: '30%', color: 'white', margin: '0 auto' }, onClick: this.submitComment.bind(this), href: 'javascript:void(0)' }, 'className', 'btn btn-primary btn-raised btn-block animate-icon'),
+								'Submit Post'
+							)
+						)
 					)
 				);
 			}
@@ -35013,6 +35033,8 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -35112,54 +35134,65 @@
 					'div',
 					null,
 					_react2.default.createElement(
-						'label',
-						null,
-						'Edit Comment: '
-					),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement('textarea', { style: { border: '1px solid #D0D3DB', width: '100%', paddingLeft: 15 }, className: 'form-control', onChange: this.handleEditChange.bind(this), type: 'text', defaultValue: currentComment.body, id: 'body' }),
-					' ',
-					_react2.default.createElement('br', null),
-					_react2.default.createElement(
-						'label',
-						null,
-						'Edit Image'
-					),
-					_react2.default.createElement(
-						_reactDropzone2.default,
-						{ style: { border: '1px solid #fff' }, onDrop: this.grabImage.bind(this) },
+						'div',
+						{ className: 'row' },
 						_react2.default.createElement(
 							'div',
-							{ style: { width: 150, height: 150, border: '1px inset #D0D3DB', borderRadius: 5, margin: '15px auto', padding: 15 } },
+							{ className: 'col-md-12' },
+							_react2.default.createElement('hr', { style: { border: '2px solid #03a9f4', background: '#03a9f4', color: '#03a9f4' } }),
 							_react2.default.createElement(
-								'center',
-								null,
+								'div',
+								{ style: { padding: 30 } },
 								_react2.default.createElement(
-									'a',
-									{ href: '#' },
-									'To upload',
-									_react2.default.createElement('br', null),
-									'Click here or drag and drop image here '
-								)
+									'h3',
+									null,
+									'Edit your current comment below:'
+								),
+								_react2.default.createElement('input', { className: 'form-control', onChange: this.handleEditChange.bind(this), type: 'text', placeholder: currentComment.body, id: 'body' }),
+								' ',
+								_react2.default.createElement('br', null)
 							)
 						)
 					),
-					' ',
-					_react2.default.createElement('br', null),
-					_react2.default.createElement('br', null),
 					_react2.default.createElement(
 						'div',
-						{ className: 'col-md-6' },
+						{ className: 'row' },
 						_react2.default.createElement(
 							'div',
-							{ style: { marginTop: 50 } },
-							_react2.default.createElement('img', { style: { height: 100 }, src: this.props.commentImage })
+							{ className: 'col-md-6', style: { padding: 30 } },
+							_react2.default.createElement(
+								_reactDropzone2.default,
+								{ style: { border: '1px solid white', fontSize: '1.5em' }, onDrop: this.grabImage.bind(this) },
+								_react2.default.createElement(
+									'a',
+									{ onClick: this.handleEditClick.bind(this), href: 'javascript:void(0)' },
+									_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-long-arrow-up' }),
+									'\xA0Upload New Post Image'
+								)
+							)
+						),
+						_react2.default.createElement(
+							'div',
+							{ className: 'col-md-6', style: { padding: 30 } },
+							_react2.default.createElement(
+								'div',
+								{ style: { marginTop: 50 } },
+								_react2.default.createElement('img', { style: { height: 100 }, src: this.props.commentImage })
+							)
 						)
 					),
 					_react2.default.createElement(
-						'button',
-						{ style: { marginTop: 10 }, className: 'btn btn-danger', onClick: this.updateComment.bind(this) },
-						'Submit'
+						'div',
+						{ className: 'row' },
+						_react2.default.createElement(
+							'div',
+							{ className: 'col-md-12', style: { padding: 30 } },
+							_react2.default.createElement(
+								'a',
+								_defineProperty({ className: 'pull-right', style: { width: '30%', color: 'white', margin: '0 auto' }, onClick: this.updateComment.bind(this), href: 'javascript:void(0)' }, 'className', 'btn btn-primary btn-raised btn-block animate-icon'),
+								'Submit'
+							)
+						)
 					)
 				) : _react2.default.createElement('div', null);
 	
@@ -35196,12 +35229,9 @@
 									{ className: 'col-lg-6' },
 									_react2.default.createElement(
 										'h3',
-										{ className: 'no-mt' },
-										_react2.default.createElement(
-											'a',
-											{ href: 'javascript:void(0)' },
-											'Create A Title In Model'
-										)
+										{ className: 'no-mt', style: { color: '#03a9f4' } },
+										'Post ',
+										this.props.index + 1
 									),
 									_react2.default.createElement(
 										'p',
@@ -35219,23 +35249,17 @@
 									_react2.default.createElement(
 										_reactRouter.Link,
 										{ to: '/profile/' + currentComment.username },
-										_react2.default.createElement('img', { src: author.image, alt: '...', className: 'img-circle mr-1' })
+										_react2.default.createElement('img', { style: { height: 50, width: 50, borderRadius: 25 }, src: author.image, alt: '...', className: 'img-circle mr-1' })
 									),
-									' by',
+									' by\xA0',
 									_react2.default.createElement(
 										'a',
-										{ href: 'javascript:void(0)' },
+										{ className: 'ms-tag ms-tag-primary', href: 'javascript:void(0)' },
 										_react2.default.createElement(
 											_reactRouter.Link,
-											{ to: '/profile/' + currentComment.username },
+											{ style: { color: 'white' }, to: '/profile/' + currentComment.username },
 											currentComment.username
 										)
-									),
-									' in',
-									_react2.default.createElement(
-										'a',
-										{ href: 'javascript:void(0)', className: 'ms-tag ms-tag-info' },
-										'Design'
 									),
 									_react2.default.createElement(
 										'span',
@@ -35251,9 +35275,12 @@
 									)
 								),
 								showEditButton,
+								_react2.default.createElement('br', null),
 								_react2.default.createElement(
 									'div',
 									null,
+									_react2.default.createElement('br', null),
+									_react2.default.createElement('br', null),
 									commentEditingInfo
 								)
 							)
@@ -35844,7 +35871,7 @@
 									_react2.default.createElement(
 										'li',
 										null,
-										_react2.default.createElement(_presentation.Comment, { commentImage: _this4.state.updated.commentImage, handleImage: _this4.uploadImage.bind(_this4), handleSubmitEdit: _this4.submitEdit.bind(_this4), user: _this4.props.user, currentComment: comment })
+										_react2.default.createElement(_presentation.Comment, { commentImage: _this4.state.updated.commentImage, handleImage: _this4.uploadImage.bind(_this4), handleSubmitEdit: _this4.submitEdit.bind(_this4), user: _this4.props.user, currentComment: comment, index: i })
 									)
 								);
 							});
@@ -35856,6 +35883,42 @@
 						null,
 						_react2.default.createElement(
 							'article',
+							{ className: 'card wow mb-4' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'card-block' },
+								_react2.default.createElement(
+									'div',
+									{ className: 'row' },
+									_react2.default.createElement(
+										'div',
+										{ className: 'col-lg-12' },
+										_react2.default.createElement(
+											'h2',
+											null,
+											'Posts for ',
+											_react2.default.createElement(
+												'span',
+												{ style: { color: '#03a9f4' } },
+												zoneName
+											)
+										),
+										_react2.default.createElement(
+											'center',
+											null,
+											_react2.default.createElement('img', { style: { width: 690, height: 300 }, src: '/images/neighborhood.jpg' })
+										)
+									)
+								)
+							)
+						),
+						_react2.default.createElement(
+							'ul',
+							{ style: { listStyle: 'none', padding: 0 } },
+							commentList
+						),
+						_react2.default.createElement(
+							'article',
 							{ className: 'card wow fadeInLeft animation-delay-5 mb-4' },
 							_react2.default.createElement(
 								'div',
@@ -35865,41 +35928,11 @@
 									{ className: 'row' },
 									_react2.default.createElement(
 										'div',
-										{ className: 'col-lg-6' },
-										_react2.default.createElement(
-											'h2',
-											null,
-											'Neighborhood Bulletin Board'
-										),
-										_react2.default.createElement(
-											'center',
-											null,
-											_react2.default.createElement('img', { style: { width: 690, height: 300 }, src: '/images/neighborhood.jpg' })
-										),
-										_react2.default.createElement(
-											'h3',
-											null,
-											'Comments for ',
-											_react2.default.createElement(
-												'span',
-												{ style: _styles2.default.comment.title },
-												zoneName
-											),
-											': '
-										)
+										{ className: 'col-lg-12' },
+										_react2.default.createElement(_presentation.CreateComment, { commentImage: this.state.updated.commentImage, handleImage: this.uploadImage.bind(this), onCreate: this.submitComment.bind(this) })
 									)
 								)
 							)
-						),
-						_react2.default.createElement(
-							'ul',
-							{ style: { listStyle: 'none' } },
-							commentList
-						),
-						_react2.default.createElement(
-							'div',
-							{ style: { background: 'white' } },
-							_react2.default.createElement(_presentation.CreateComment, { commentImage: this.state.updated.commentImage, handleImage: this.uploadImage.bind(this), onCreate: this.submitComment.bind(this) })
 						)
 					);
 				}
@@ -35922,7 +35955,7 @@
 				return _react2.default.createElement(
 					'div',
 					null,
-					content
+					header
 				);
 			}
 		}]);
@@ -36326,7 +36359,7 @@
 													_react2.default.createElement('br', null),
 													_react2.default.createElement('br', null),
 													'Image: ',
-													_react2.default.createElement('img', { src: image }),
+													_react2.default.createElement('img', { src: this.props.user.image }),
 													_react2.default.createElement('br', null),
 													_react2.default.createElement('br', null),
 													_react2.default.createElement(
@@ -36389,7 +36422,7 @@
 							);
 							return _react2.default.createElement(
 									'div',
-									{ style: _styles2.default.profile.profiledetails },
+									null,
 									content
 							);
 					}

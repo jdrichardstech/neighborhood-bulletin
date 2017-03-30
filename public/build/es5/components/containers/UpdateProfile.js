@@ -200,7 +200,7 @@ var UpdateProfile = (function (Component) {
 														React.createElement("br", null),
 														React.createElement("br", null),
 														"Image: ",
-														React.createElement("img", { src: image }),
+														React.createElement("img", { src: this.props.user.image }),
 														React.createElement("br", null),
 														React.createElement("br", null),
 														React.createElement(
@@ -263,7 +263,7 @@ var UpdateProfile = (function (Component) {
 								);
 								return React.createElement(
 										"div",
-										{ style: styles.profile.profiledetails },
+										null,
 										content
 								);
 						},

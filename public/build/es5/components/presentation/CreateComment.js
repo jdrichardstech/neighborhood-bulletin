@@ -27,7 +27,10 @@ var CreateComment = (function (Component) {
 			picDropped: false,
 			comment: {
 				commentImage: null,
-				body: "" }
+				body: "",
+				title: ""
+
+			}
 		};
 	}
 
@@ -91,18 +94,28 @@ var CreateComment = (function (Component) {
 					"div",
 					null,
 					React.createElement(
-						"h4",
-						null,
-						"Create Comment"
-					),
-					React.createElement(
 						"div",
 						{ className: "row" },
 						React.createElement(
 							"div",
 							{ className: "col-md-12" },
-							React.createElement("input", { onChange: this.updateComment.bind(this), id: "body", className: "form-control", type: "text", placeholder: "Add New Comment" }),
-							React.createElement("br", null)
+							React.createElement(
+								"h2",
+								{ style: { fontWeight: 400 } },
+								"Create New Post:"
+							),
+							React.createElement("hr", { style: { border: "2px solid #03a9f4", background: "#03a9f4", color: "#03a9f4" } }),
+							React.createElement(
+								"div",
+								{ style: { padding: "20px 30px 20px 30px" } },
+								React.createElement(
+									"h3",
+									null,
+									"Comment:"
+								),
+								" ",
+								React.createElement("input", { style: { width: "75%", padding: "0 0 20px 0" }, onChange: this.updateComment.bind(this), id: "body", className: "form-control", type: "text", placeholder: "Add Comment Here" })
+							)
 						)
 					),
 					React.createElement(
@@ -112,40 +125,47 @@ var CreateComment = (function (Component) {
 							"div",
 							{ className: "col-md-6" },
 							React.createElement(
-								DropZone,
-								{ id: "dropzoneSpot", style: { border: "1px solid white" }, onDrop: this.grabImage.bind(this) },
+								"div",
+								{ style: { padding: "35px 0 30px 30px" } },
 								React.createElement(
-									"div",
-									{ style: { width: 150, height: 150, border: "1px inset #E6E7F5", borderRadius: 5, margin: "25px auto", padding: 10 } },
+									"h3",
+									null,
+									"Image:"
+								),
+								React.createElement(
+									DropZone,
+									{ id: "dropzoneSpot", style: { border: "1px solid white", fontSize: "1.5em" }, onDrop: this.grabImage.bind(this) },
 									React.createElement(
-										"center",
-										null,
-										React.createElement(
-											"a",
-											{ href: "#dropzoneSpot" },
-											"To Upload Image ",
-											React.createElement("br", null),
-											" Click or drag and drop here"
-										)
+										"a",
+										{ href: "#dropzoneSpot" },
+										"Click to Upload Image ",
+										React.createElement("i", { className: "ml-1 no-mr zmdi zmdi-long-arrow-up" })
 									)
 								)
-							),
-							React.createElement("br", null)
+							)
 						),
 						React.createElement(
 							"div",
-							{ className: "col-md-6" },
-							React.createElement("br", null),
-							React.createElement("br", null),
-							newImage,
-							" ",
-							React.createElement("br", null)
+							{ className: "col-md-6", style: { paddingRight: 30 } },
+							React.createElement(
+								"div",
+								{ style: { marginTop: 50 } },
+								React.createElement("img", { style: { height: 100 }, src: this.props.commentImage })
+							)
 						)
 					),
 					React.createElement(
-						"button",
-						{ onClick: this.submitComment.bind(this), className: "btn btn-info" },
-						"Submit Comment"
+						"div",
+						{ className: "row" },
+						React.createElement(
+							"div",
+							{ className: "col-md-12", style: { padding: 30 } },
+							React.createElement(
+								"a",
+								{ className: "pull-right", style: { width: "30%", color: "white", margin: "0 auto" }, onClick: this.submitComment.bind(this), href: "javascript:void(0)", className: "btn btn-primary btn-raised btn-block animate-icon" },
+								"Submit Post"
+							)
+						)
 					)
 				);
 			},

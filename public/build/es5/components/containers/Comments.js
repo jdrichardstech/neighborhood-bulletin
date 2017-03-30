@@ -170,7 +170,7 @@ var Comments = (function (Component) {
 									React.createElement(
 										"li",
 										null,
-										React.createElement(Comment, { commentImage: _this.state.updated.commentImage, handleImage: _this.uploadImage.bind(_this), handleSubmitEdit: _this.submitEdit.bind(_this), user: _this.props.user, currentComment: comment })
+										React.createElement(Comment, { commentImage: _this.state.updated.commentImage, handleImage: _this.uploadImage.bind(_this), handleSubmitEdit: _this.submitEdit.bind(_this), user: _this.props.user, currentComment: comment, index: i })
 									)
 								);
 							});
@@ -182,6 +182,42 @@ var Comments = (function (Component) {
 						null,
 						React.createElement(
 							"article",
+							{ className: "card wow mb-4" },
+							React.createElement(
+								"div",
+								{ className: "card-block" },
+								React.createElement(
+									"div",
+									{ className: "row" },
+									React.createElement(
+										"div",
+										{ className: "col-lg-12" },
+										React.createElement(
+											"h2",
+											null,
+											"Posts for ",
+											React.createElement(
+												"span",
+												{ style: { color: "#03a9f4" } },
+												zoneName
+											)
+										),
+										React.createElement(
+											"center",
+											null,
+											React.createElement("img", { style: { width: 690, height: 300 }, src: "/images/neighborhood.jpg" })
+										)
+									)
+								)
+							)
+						),
+						React.createElement(
+							"ul",
+							{ style: { listStyle: "none", padding: 0 } },
+							commentList
+						),
+						React.createElement(
+							"article",
 							{ className: "card wow fadeInLeft animation-delay-5 mb-4" },
 							React.createElement(
 								"div",
@@ -191,41 +227,11 @@ var Comments = (function (Component) {
 									{ className: "row" },
 									React.createElement(
 										"div",
-										{ className: "col-lg-6" },
-										React.createElement(
-											"h2",
-											null,
-											"Neighborhood Bulletin Board"
-										),
-										React.createElement(
-											"center",
-											null,
-											React.createElement("img", { style: { width: 690, height: 300 }, src: "/images/neighborhood.jpg" })
-										),
-										React.createElement(
-											"h3",
-											null,
-											"Comments for ",
-											React.createElement(
-												"span",
-												{ style: styles.comment.title },
-												zoneName
-											),
-											": "
-										)
+										{ className: "col-lg-12" },
+										React.createElement(CreateComment, { commentImage: this.state.updated.commentImage, handleImage: this.uploadImage.bind(this), onCreate: this.submitComment.bind(this) })
 									)
 								)
 							)
-						),
-						React.createElement(
-							"ul",
-							{ style: { listStyle: "none" } },
-							commentList
-						),
-						React.createElement(
-							"div",
-							{ style: { background: "white" } },
-							React.createElement(CreateComment, { commentImage: this.state.updated.commentImage, handleImage: this.uploadImage.bind(this), onCreate: this.submitComment.bind(this) })
 						)
 					);
 				}
@@ -248,7 +254,7 @@ var Comments = (function (Component) {
 				return React.createElement(
 					"div",
 					null,
-					content
+					header
 				);
 			},
 			writable: true,
