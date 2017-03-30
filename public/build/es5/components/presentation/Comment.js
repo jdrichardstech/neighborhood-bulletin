@@ -36,9 +36,7 @@ var Comment = (function (Component) {
 
 	_prototypeProperties(Comment, null, {
 		componentDidMount: {
-			value: function componentDidMount() {
-				console.log("Comment ID: " + this.props.currentComment._id);
-			},
+			value: function componentDidMount() {},
 			writable: true,
 			configurable: true
 		},
@@ -105,107 +103,63 @@ var Comment = (function (Component) {
 
 				var showEditButton = this.props.user.username == author.username && this.state.showEdit == true ? React.createElement(
 					"div",
-					null,
+					{ className: "col-lg-4 text-right" },
 					React.createElement(
-						"button",
-						{ onClick: this.handleEditClick.bind(this), className: "btn btn-info" },
-						"Edit"
+						"a",
+						{ onClick: this.handleEditClick.bind(this), href: "javascript:void(0)", className: "btn btn-primary btn-raised btn-block animate-icon" },
+						"Edit",
+						React.createElement("i", { className: "ml-1 no-mr zmdi zmdi-long-arrow-right" })
 					)
 				) : null;
 
 
 
-				var commentInfo = this.state.isEditing == false ? React.createElement(
+				var commentEditingInfo = this.state.isEditing == true ? React.createElement(
 					"div",
 					null,
 					React.createElement(
-						"div",
-						{ className: "row", style: { margin: "20px 0" } },
-						React.createElement(
-							"div",
-							{ className: "col-md-3", style: { marginLeft: 0, paddingLeft: 0 } },
-							React.createElement("img", { style: { height: 100, width: 100 }, src: currentComment.commentImage })
-						),
-						React.createElement(
-							"div",
-							{ className: "col-md-9" },
-							React.createElement(
-								"p",
-								{ style: { fontSize: 15, fontWeight: 400, paddingTop: 20 } },
-								"Comment: ",
-								React.createElement("br", null),
-								React.createElement(
-									"span",
-									{ style: { color: "blue" } },
-									" ",
-									currentComment.body
-								)
-							)
-						)
-					)
-				) : React.createElement(
-					"div",
-					{ style: { marginTop: 20 } },
+						"label",
+						null,
+						"Edit Comment: "
+					),
+					React.createElement("br", null),
+					React.createElement("textarea", { style: { border: "1px solid #D0D3DB", width: "100%", paddingLeft: 15 }, className: "form-control", onChange: this.handleEditChange.bind(this), type: "text", defaultValue: currentComment.body, id: "body" }),
+					" ",
+					React.createElement("br", null),
 					React.createElement(
-						"div",
-						{ className: "row" },
-						React.createElement(
-							"div",
-							{ className: "col-md-12" },
-							React.createElement(
-								"label",
-								null,
-								"Edit Comment: "
-							),
-							React.createElement("br", null),
-							React.createElement("textarea", { style: { width: "100%" }, className: "form-control", onChange: this.handleEditChange.bind(this), type: "text", defaultValue: currentComment.body, id: "body" }),
-							" ",
-							React.createElement("br", null),
-							React.createElement("br", null)
-						)
+						"label",
+						null,
+						"Edit Image"
 					),
 					React.createElement(
-						"div",
-						{ className: "row" },
+						DropZone,
+						{ style: { border: "1px solid #fff" }, onDrop: this.grabImage.bind(this) },
 						React.createElement(
 							"div",
-							{ className: "col-md-6" },
+							{ style: { width: 150, height: 150, border: "1px inset #D0D3DB", borderRadius: 5, margin: "15px auto", padding: 15 } },
 							React.createElement(
-								"label",
+								"center",
 								null,
-								"Edit Image"
-							),
-							React.createElement(
-								DropZone,
-								{ onDrop: this.grabImage.bind(this) },
 								React.createElement(
-									"div",
-									{ style: { width: 150, height: 150, border: "1px inset #D0D3DB", borderRadius: 5, margin: "15px auto", padding: 30 } },
-									React.createElement(
-										"center",
-										null,
-										React.createElement(
-											"a",
-											{ href: "#" },
-											"Click here ",
-											React.createElement("br", null),
-											" or drag and drop your image in this box"
-										)
-									)
+									"a",
+									{ href: "#" },
+									"To upload",
+									React.createElement("br", null),
+									"Click here or drag and drop image here "
 								)
-							),
-							" ",
-							React.createElement("br", null),
-							React.createElement("br", null)
-						),
+							)
+						)
+					),
+					" ",
+					React.createElement("br", null),
+					React.createElement("br", null),
+					React.createElement(
+						"div",
+						{ className: "col-md-6" },
 						React.createElement(
 							"div",
-							{ className: "col-md-6" },
-							React.createElement(
-								"div",
-								{ style: { marginTop: 50 } },
-								React.createElement("img", { style: { height: 100 }, src: this.props.commentImage })
-							)
+							{ style: { marginTop: 50 } },
+							React.createElement("img", { style: { height: 100 }, src: this.props.commentImage })
 						)
 					),
 					React.createElement(
@@ -213,7 +167,7 @@ var Comment = (function (Component) {
 						{ style: { marginTop: 10 }, className: "btn btn-danger", onClick: this.updateComment.bind(this) },
 						"Submit"
 					)
-				);
+				) : React.createElement("div", null);
 
 				var thisDate = currentComment.timestamp.substr(0, 10);
 				var year = thisDate.substr(0, 4);
@@ -230,51 +184,86 @@ var Comment = (function (Component) {
 					"div",
 					null,
 					React.createElement(
-						"div",
-						null,
-						commentInfo
-					),
-					React.createElement(
-						"div",
-						{ className: "pull-right" },
+						"article",
+						{ className: "card wow fadeInLeft animation-delay-5 mb-4" },
 						React.createElement(
-							"span",
-							null,
-							"Created By: ",
+							"div",
+							{ className: "card-block" },
 							React.createElement(
-								Link,
-								{ to: "/profile/" + currentComment.username },
+								"div",
+								{ className: "row" },
 								React.createElement(
-									"span",
-									{ style: { color: "blue" } },
-									currentComment.username
+									"div",
+									{ className: "col-lg-6" },
+									React.createElement("img", { src: currentComment.commentImage, alt: "", className: "img-responsive mb-4" })
+								),
+								React.createElement(
+									"div",
+									{ className: "col-lg-6" },
+									React.createElement(
+										"h3",
+										{ className: "no-mt" },
+										React.createElement(
+											"a",
+											{ href: "javascript:void(0)" },
+											"Create A Title In Model"
+										)
+									),
+									React.createElement(
+										"p",
+										{ className: "mb-4" },
+										currentComment.body
+									)
 								)
 							),
-							" at "
-						),
-						React.createElement(
-							"span",
-							{ style: { fontWeight: 200 } },
-							" ",
-							newTime,
-							" | ",
-							newDate
-						),
-						React.createElement(
-							"span",
-							{ style: { fontWeight: 200 } },
 							React.createElement(
-								Link,
-								{ to: "/profile/" + currentComment.username },
-								" ",
-								React.createElement("img", { style: { borderRadius: radius, marginRight: 6 }, src: ImageHelper.thumbnail(author.image, 2 * radius) })
+								"div",
+								{ className: "row" },
+								React.createElement(
+									"div",
+									{ className: "col-lg-8" },
+									React.createElement(
+										Link,
+										{ to: "/profile/" + currentComment.username },
+										React.createElement("img", { src: author.image, alt: "...", className: "img-circle mr-1" })
+									),
+									" by",
+									React.createElement(
+										"a",
+										{ href: "javascript:void(0)" },
+										React.createElement(
+											Link,
+											{ to: "/profile/" + currentComment.username },
+											currentComment.username
+										)
+									),
+									" in",
+									React.createElement(
+										"a",
+										{ href: "javascript:void(0)", className: "ms-tag ms-tag-info" },
+										"Design"
+									),
+									React.createElement(
+										"span",
+										{ className: "ml-1 hidden-xs" },
+										React.createElement("i", { className: "zmdi zmdi-time mr-05 color-info" }),
+										React.createElement(
+											"span",
+											{ className: "color-medium-dark" },
+											newTime,
+											" | ",
+											newDate
+										)
+									)
+								),
+								showEditButton,
+								React.createElement(
+									"div",
+									null,
+									commentEditingInfo
+								)
 							)
 						)
-					),
-					React.createElement(
-						"div",
-						null,
-						showEditButton
 					)
 				);
 			},
@@ -287,3 +276,4 @@ var Comment = (function (Component) {
 })(Component);
 
 module.exports = Comment;
+// console.log("Comment ID: " + this.props.currentComment._id)

@@ -125,8 +125,8 @@ class Comments extends Component {
 				if (zoneComments != null){
 					commentList = zoneComments.map((comment, i) => {
 						return (
-							<div key={i} className="col-md-12" style={{border:'2px solid #ddd',paddingBottom:10, marginBottom:10}}>
-								<li key={i}><Comment commentImage={this.state.updated.commentImage} handleImage={this.uploadImage.bind(this)} handleSubmitEdit={this.submitEdit.bind(this)}  user={this.props.user} currentComment={comment} /></li>
+							<div key={i}>
+								<li ><Comment commentImage={this.state.updated.commentImage} handleImage={this.uploadImage.bind(this)} handleSubmitEdit={this.submitEdit.bind(this)}  user={this.props.user} currentComment={comment} /></li>
 							</div>
 						)
 					})
@@ -135,15 +135,24 @@ class Comments extends Component {
 
 			 header =
 				<div>
-						<div style={styles.comment.commentsBox} className="col-md-12">
+
+					<article className="card wow fadeInLeft animation-delay-5 mb-4">
+					<div className="card-block">
+						<div className="row">
+							<div className="col-lg-6">
 							<h2>Neighborhood Bulletin Board</h2>
 							<center><img style={{width:690, height:300}} src="/images/neighborhood.jpg" /></center>
 								<h3>Comments for <span style={styles.comment.title}>{zoneName}</span>: </h3>
-								<ul style={styles.comment.commentsList}>
+								</div>
+							</div>
+						</div>
+						</article>
+
+								<ul style={{listStyle:'none'}}>
 									{ commentList }
 								</ul>
-						</div>
-						<div style={styles.comment.commentsBox} className="col-md-12">
+
+						<div style={{background:'white'}}>
 							<CreateComment commentImage={this.state.updated.commentImage}  handleImage={this.uploadImage.bind(this)}  onCreate={this.submitComment.bind(this)} />
 						</div>
 				</div>

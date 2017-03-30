@@ -15,7 +15,7 @@ constructor(){
 }
 
 componentDidMount(){
-	console.log("Comment ID: " + this.props.currentComment._id)
+	// console.log("Comment ID: " + this.props.currentComment._id)
 }
 
 handleEditClick(event){
@@ -70,51 +70,40 @@ grabImage(files){
 		const radius = 16
 
 		const showEditButton = (this.props.user.username == author.username && this.state.showEdit==true) ?
-		<div>
-			<button onClick={this.handleEditClick.bind(this)} className="btn btn-info">Edit</button>
-		</div>
+
+			<div className="col-lg-4 text-right">
+				<a onClick={this.handleEditClick.bind(this)} href="javascript:void(0)" className="btn btn-primary btn-raised btn-block animate-icon">Edit
+					<i className="ml-1 no-mr zmdi zmdi-long-arrow-right"></i>
+				</a>
+			</div>
+
 		: null
 
 
 
-		const commentInfo = (this.state.isEditing == false) ?
-			<div>
-				<div className="row" style={{margin:'20px 0'}}>
-					<div className="col-md-3" style={{marginLeft:0, paddingLeft:0}}>
-						<img style={{height:100, width:100}} src={currentComment.commentImage} />
-					</div>
-					<div className="col-md-9">
-						<p style={{fontSize:15, fontWeight:400, paddingTop:20}}>
-						Comment: <br />
-						<span style={{color:"blue"}}>	{currentComment.body}</span>
-						</p>
+		const commentEditingInfo = (this.state.isEditing == true) ?
 
-					</div>
-				</div>
+		<div>
 
-			</div>
-		:
-		<div style={{marginTop:20}}>
-			<div className="row">
-				<div className="col-md-12">
+
 			<label>Edit Comment: </label><br />
-			<textarea style={{width:'100%'}} className="form-control" onChange={this.handleEditChange.bind(this)} type="text" defaultValue={currentComment.body} id="body" ></textarea> <br /><br />
-			</div>
-		</div>
-		<div className="row">
-			<div className="col-md-6">
+			<textarea style={{border:'1px solid #D0D3DB',width:'100%',paddingLeft:15}} className="form-control" onChange={this.handleEditChange.bind(this)} type="text" defaultValue={currentComment.body} id="body" ></textarea> <br />
+
 		<label>Edit Image</label>
-	 <DropZone onDrop={this.grabImage.bind(this)} >
-			 <div style={{width:150, height:150, border:'1px inset #D0D3DB',borderRadius:5, margin:'15px auto',padding:30}}><center><a href="#">Click here <br /> or drag and drop your image in this box</a></center></div>
+	 <DropZone style={{border:'1px solid #fff'}} onDrop={this.grabImage.bind(this)} >
+			 <div style={{width:150, height:150, border:'1px inset #D0D3DB',borderRadius:5, margin:'15px auto',padding:15}}><center><a href="#">To upload<br />Click here or drag and drop image here </a></center></div>
 			 </DropZone> <br />
 			 <br />
-			 </div>
+
 			 <div className="col-md-6">
 				 <div style={{marginTop:50}} ><img style={{height:100}} src={this.props.commentImage} /></div>
 			 </div>
-		 </div>
+
 		<button style={{marginTop:10}} className="btn btn-danger" onClick={this.updateComment.bind(this)}>Submit</button>
 		</div>
+
+		:
+		<div></div>
 
 		var thisDate = currentComment.timestamp.substr(0,10)
 		var year = thisDate.substr(0,4)
@@ -129,20 +118,40 @@ grabImage(files){
 		var newTime = hour + minutes + amPm
 		return (
 
-				<div>
-					<div>
-						{commentInfo}
+			<div>
+				<article className="card wow fadeInLeft animation-delay-5 mb-4">
+					<div className="card-block">
+						<div className="row">
+							<div className="col-lg-6">
+								<img src={currentComment.commentImage} alt="" className="img-responsive mb-4" />
+							</div>
+							<div className="col-lg-6">
+								<h3 className="no-mt">
+									<a href="javascript:void(0)">Create A Title In Model</a>
+								</h3>
+								<p className="mb-4">{currentComment.body}</p>
+							</div>
+						</div>
+						<div className="row">
+							<div className="col-lg-8">
+								<Link  to = {'/profile/'+ currentComment.username}><img src={author.image} alt="..." className="img-circle mr-1" /></Link> by
+								<a href="javascript:void(0)"><Link  to = {'/profile/'+ currentComment.username}>{currentComment.username}</Link></a> in
+								<a href="javascript:void(0)" className="ms-tag ms-tag-info">Design</a>
+								<span className="ml-1 hidden-xs">
+									<i className="zmdi zmdi-time mr-05 color-info"></i>
+									<span className="color-medium-dark">{newTime} | {newDate}</span>
+								</span>
+
+							</div>
+							{showEditButton}
+
+							<div>
+								{commentEditingInfo}
+							</div>
+
+						</div>
 					</div>
-					<div className="pull-right">
-						<span>Created By: <Link  to = {'/profile/'+ currentComment.username}><span style={{color:'blue'}}>{currentComment.username}</span></Link> at </span>
-						<span style={{fontWeight:200}}> {newTime} | {newDate}</span>
-						<span style={{fontWeight:200}}>
-							<Link  to = {'/profile/'+ currentComment.username}>	<img style={{borderRadius:radius, marginRight:6}} src={ImageHelper.thumbnail(author.image, 2*radius)} /></Link>
-						</span>
-					</div>
-					<div>
-						{showEditButton}
-					</div>
+				</article>
 			</div>
 
 		)

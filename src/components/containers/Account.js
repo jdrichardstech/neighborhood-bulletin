@@ -282,9 +282,10 @@ clearValues(){
 					<Header />
 					<div className="container">
 
-						<div className="col-md-8">
+				          <div className="col-md-8">
 							<Comments />
 						</div>
+					
 					 <div className="row">
 						 <div className="col-md-4">
 
@@ -299,8 +300,8 @@ clearValues(){
 									 <p>Bio: {this.props.user.bio}</p>
 
 									 &nbsp;
-								 	<Link to={'/updateprofile/'+this.props.user.username}>
-										<a href='#'className="btn btn-raised btn-danger"><i className="zmdi zmdi-account-box-o"></i>Update Profile</a>
+								 	<Link className="btn btn-raised btn-danger" to={'/updateprofile/'+this.props.user.username}>
+										<i className="zmdi zmdi-account-box-o"></i>Update Profile
 								 	</Link><br />
 								<a style={{fontSize:'1em'}} className="pull-right" href="#" onClick={this.logout.bind(this)}>Logout</a><br />
 								 </div>

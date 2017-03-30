@@ -565,13 +565,9 @@ var Account = (function (Component) {
 												" ",
 												React.createElement(
 													Link,
-													{ to: "/updateprofile/" + this.props.user.username },
-													React.createElement(
-														"a",
-														{ href: "#", className: "btn btn-raised btn-danger" },
-														React.createElement("i", { className: "zmdi zmdi-account-box-o" }),
-														"Update Profile"
-													)
+													{ className: "btn btn-raised btn-danger", to: "/updateprofile/" + this.props.user.username },
+													React.createElement("i", { className: "zmdi zmdi-account-box-o" }),
+													"Update Profile"
 												),
 												React.createElement("br", null),
 												React.createElement(

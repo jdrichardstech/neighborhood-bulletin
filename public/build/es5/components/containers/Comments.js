@@ -166,10 +166,10 @@ var Comments = (function (Component) {
 							commentList = zoneComments.map(function (comment, i) {
 								return React.createElement(
 									"div",
-									{ key: i, className: "col-md-12", style: { border: "2px solid #ddd", paddingBottom: 10, marginBottom: 10 } },
+									{ key: i },
 									React.createElement(
 										"li",
-										{ key: i },
+										null,
 										React.createElement(Comment, { commentImage: _this.state.updated.commentImage, handleImage: _this.uploadImage.bind(_this), handleSubmitEdit: _this.submitEdit.bind(_this), user: _this.props.user, currentComment: comment })
 									)
 								);
@@ -181,38 +181,50 @@ var Comments = (function (Component) {
 						"div",
 						null,
 						React.createElement(
-							"div",
-							{ style: styles.comment.commentsBox, className: "col-md-12" },
+							"article",
+							{ className: "card wow fadeInLeft animation-delay-5 mb-4" },
 							React.createElement(
-								"h2",
-								null,
-								"Neighborhood Bulletin Board"
-							),
-							React.createElement(
-								"center",
-								null,
-								React.createElement("img", { style: { width: 690, height: 300 }, src: "/images/neighborhood.jpg" })
-							),
-							React.createElement(
-								"h3",
-								null,
-								"Comments for ",
+								"div",
+								{ className: "card-block" },
 								React.createElement(
-									"span",
-									{ style: styles.comment.title },
-									zoneName
-								),
-								": "
-							),
-							React.createElement(
-								"ul",
-								{ style: styles.comment.commentsList },
-								commentList
+									"div",
+									{ className: "row" },
+									React.createElement(
+										"div",
+										{ className: "col-lg-6" },
+										React.createElement(
+											"h2",
+											null,
+											"Neighborhood Bulletin Board"
+										),
+										React.createElement(
+											"center",
+											null,
+											React.createElement("img", { style: { width: 690, height: 300 }, src: "/images/neighborhood.jpg" })
+										),
+										React.createElement(
+											"h3",
+											null,
+											"Comments for ",
+											React.createElement(
+												"span",
+												{ style: styles.comment.title },
+												zoneName
+											),
+											": "
+										)
+									)
+								)
 							)
 						),
 						React.createElement(
+							"ul",
+							{ style: { listStyle: "none" } },
+							commentList
+						),
+						React.createElement(
 							"div",
-							{ style: styles.comment.commentsBox, className: "col-md-12" },
+							{ style: { background: "white" } },
 							React.createElement(CreateComment, { commentImage: this.state.updated.commentImage, handleImage: this.uploadImage.bind(this), onCreate: this.submitComment.bind(this) })
 						)
 					);
