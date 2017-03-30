@@ -18,8 +18,13 @@ class Zone extends Component {
 		const zoneStyle = styles.zone
 		const zipCode = this.props.currentZone.zipCodes[0]
 
+		const activeZone = (this.props.isSelected) ? <a style={{fontSize:'1.2em',color:'#ff9800'}} onClick={this.onSelectTitle.bind(this)}  href="javascript:void(0)" className="media-heading">
+			{this.props.currentZone.name}
+		</a>:<a style={{fontSize:'1.2em'}} onClick={this.onSelectTitle.bind(this)}  href="javascript:void(0)" className="media-heading">
+			{this.props.currentZone.name}
+		</a>
 
-	const button = (this.props.currentZone.username == this.props.username) ? <Link to={'/updatezone/'+this.props.currentZone._id}> <button style={{marginTop:10}} className="btn btn-warning">Update Zone</button></Link> : null
+		const button = (this.props.currentZone.username == this.props.username) ? <Link to={'/updatezone/'+this.props.currentZone._id}> <button style={{marginTop:10}} className="btn btn-warning">Update Zone</button></Link> : null
 		return (
 			<div>
 				<div className="media">
@@ -28,9 +33,8 @@ class Zone extends Component {
 							<img className="media-object media-object-circle" src="/images/zonePin1.jpg" alt="..." /> </a>
 					</div>
 					<div className="media-body" style={{padding:'20px 0 0 10px'}}>
-						<a style={{fontSize:'1.2em'}} onClick={this.onSelectTitle.bind(this)}  href="javascript:void(0)" className="media-heading">
-							{this.props.currentZone.name}
-						</a>
+					{activeZone}
+						<p>{this.props.currentZone.description}</p>
 						{/*	<span className="detail">{this.props.currentZone.username}</span><br />*/}
 						<div className="media-footer text-medium">
 							<span className="mr-1">

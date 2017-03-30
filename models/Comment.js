@@ -6,6 +6,7 @@ var CommentSchema = new mongoose.Schema({
 	commentImage:{type:String, default:''},
 	username: {type:String, default:''},
 	zone: {type:String, default:''},
+	title:{type:String, default:''},
 	body: {type:String, default:''},
 	timestamp: {type:Date, default:Date.now}
 })

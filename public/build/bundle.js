@@ -34838,7 +34838,7 @@
 									null,
 									'Comment:'
 								),
-								' ',
+								_react2.default.createElement('input', { style: { width: '75%', padding: '0 0 20px 0' }, onChange: this.updateComment.bind(this), id: 'title', className: 'form-control', type: 'text', placeholder: 'Add Title Here' }),
 								_react2.default.createElement('input', { style: { width: '75%', padding: '0 0 20px 0' }, onChange: this.updateComment.bind(this), id: 'body', className: 'form-control', type: 'text', placeholder: 'Add Comment Here' })
 							)
 						)
@@ -34968,7 +34968,8 @@
 			key: 'clearValues',
 			value: function clearValues() {
 				this.refs.name.value = '';
-				this.refs.zip.value - '';
+				this.refs.zip.value = '';
+				this.refs.description.value = '';
 			}
 		}, {
 			key: 'render',
@@ -34989,7 +34990,8 @@
 					_react2.default.createElement(
 						'div',
 						{ className: 'card-block' },
-						_react2.default.createElement('input', _defineProperty({ style: { width: '75%', fontSize: '1.1em' }, id: 'name', placeholder: 'Enter Neighborhood Name', ref: 'name', onChange: this.updateZone.bind(this), className: 'form-control', type: 'text' }, 'ref', 'name')),
+						_react2.default.createElement('input', { style: { width: '75%', fontSize: '1.1em' }, id: 'name', placeholder: 'Enter Neighborhood Name', ref: 'name', onChange: this.updateZone.bind(this), className: 'form-control', type: 'text' }),
+						_react2.default.createElement('input', { style: { width: '75%', fontSize: '1.1em' }, id: 'description', placeholder: 'Enter Neighborhood Description', ref: 'description', onChange: this.updateZone.bind(this), className: 'form-control', type: 'text' }),
 						_react2.default.createElement('input', _defineProperty({ style: { width: '75%', fontSize: '1.1em' }, placeholder: 'Enter Zip Code', id: 'zipCode', ref: 'zipCode', onChange: this.updateZone.bind(this), className: 'form-control', type: 'text' }, 'ref', 'zip')),
 						_react2.default.createElement('br', null),
 						_react2.default.createElement(
@@ -35149,6 +35151,9 @@
 									null,
 									'Edit your current comment below:'
 								),
+								_react2.default.createElement('input', { className: 'form-control', onChange: this.handleEditChange.bind(this), type: 'text', placeholder: currentComment.title, id: 'title' }),
+								' ',
+								_react2.default.createElement('br', null),
 								_react2.default.createElement('input', { className: 'form-control', onChange: this.handleEditChange.bind(this), type: 'text', placeholder: currentComment.body, id: 'body' }),
 								' ',
 								_react2.default.createElement('br', null)
@@ -35231,8 +35236,7 @@
 									_react2.default.createElement(
 										'h3',
 										{ className: 'no-mt', style: { color: '#03a9f4' } },
-										'Post ',
-										this.props.index + 1
+										currentComment.title
 									),
 									_react2.default.createElement(
 										'p',
@@ -35349,6 +35353,16 @@
 				var zoneStyle = _styles2.default.zone;
 				var zipCode = this.props.currentZone.zipCodes[0];
 	
+				var activeZone = this.props.isSelected ? _react2.default.createElement(
+					'a',
+					{ style: { fontSize: '1.2em', color: '#ff9800' }, onClick: this.onSelectTitle.bind(this), href: 'javascript:void(0)', className: 'media-heading' },
+					this.props.currentZone.name
+				) : _react2.default.createElement(
+					'a',
+					{ style: { fontSize: '1.2em' }, onClick: this.onSelectTitle.bind(this), href: 'javascript:void(0)', className: 'media-heading' },
+					this.props.currentZone.name
+				);
+	
 				var button = this.props.currentZone.username == this.props.username ? _react2.default.createElement(
 					_reactRouter.Link,
 					{ to: '/updatezone/' + this.props.currentZone._id },
@@ -35378,10 +35392,11 @@
 						_react2.default.createElement(
 							'div',
 							{ className: 'media-body', style: { padding: '20px 0 0 10px' } },
+							activeZone,
 							_react2.default.createElement(
-								'a',
-								{ style: { fontSize: '1.2em' }, onClick: this.onSelectTitle.bind(this), href: 'javascript:void(0)', className: 'media-heading' },
-								this.props.currentZone.name
+								'p',
+								null,
+								this.props.currentZone.description
 							),
 							_react2.default.createElement(
 								'div',
@@ -35884,7 +35899,7 @@
 						null,
 						_react2.default.createElement(
 							'article',
-							{ className: 'card wow mb-4' },
+							{ className: 'card wow fadeIn animation-delay-2 mb-4' },
 							_react2.default.createElement(
 								'div',
 								{ className: 'card-block' },

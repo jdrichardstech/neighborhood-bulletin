@@ -57,7 +57,8 @@ var CreateZone = (function (Component) {
 		clearValues: {
 			value: function clearValues() {
 				this.refs.name.value = "";
-				this.refs.zip.value - "";
+				this.refs.zip.value = "";
+				this.refs.description.value = "";
 			},
 			writable: true,
 			configurable: true
@@ -80,7 +81,8 @@ var CreateZone = (function (Component) {
 					React.createElement(
 						"div",
 						{ className: "card-block" },
-						React.createElement("input", { style: { width: "75%", fontSize: "1.1em" }, id: "name", placeholder: "Enter Neighborhood Name", ref: "name", onChange: this.updateZone.bind(this), className: "form-control", type: "text", ref: "name" }),
+						React.createElement("input", { style: { width: "75%", fontSize: "1.1em" }, id: "name", placeholder: "Enter Neighborhood Name", ref: "name", onChange: this.updateZone.bind(this), className: "form-control", type: "text" }),
+						React.createElement("input", { style: { width: "75%", fontSize: "1.1em" }, id: "description", placeholder: "Enter Neighborhood Description", ref: "description", onChange: this.updateZone.bind(this), className: "form-control", type: "text" }),
 						React.createElement("input", { style: { width: "75%", fontSize: "1.1em" }, placeholder: "Enter Zip Code", id: "zipCode", ref: "zipCode", onChange: this.updateZone.bind(this), className: "form-control", type: "text", ref: "zip" }),
 						React.createElement("br", null),
 						React.createElement(

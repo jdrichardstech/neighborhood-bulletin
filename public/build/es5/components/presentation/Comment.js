@@ -132,6 +132,9 @@ var Comment = (function (Component) {
 									null,
 									"Edit your current comment below:"
 								),
+								React.createElement("input", { className: "form-control", onChange: this.handleEditChange.bind(this), type: "text", placeholder: currentComment.title, id: "title" }),
+								" ",
+								React.createElement("br", null),
 								React.createElement("input", { className: "form-control", onChange: this.handleEditChange.bind(this), type: "text", placeholder: currentComment.body, id: "body" }),
 								" ",
 								React.createElement("br", null)
@@ -214,8 +217,7 @@ var Comment = (function (Component) {
 									React.createElement(
 										"h3",
 										{ className: "no-mt", style: { color: "#03a9f4" } },
-										"Post ",
-										this.props.index + 1
+										currentComment.title
 									),
 									React.createElement(
 										"p",

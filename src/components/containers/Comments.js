@@ -136,7 +136,7 @@ class Comments extends Component {
 			 header =
 				<div>
 
-					<article className="card wow mb-4">
+					<article className="card wow fadeIn animation-delay-2 mb-4">
 					<div className="card-block">
 						<div className="row">
 							<div className="col-lg-12">

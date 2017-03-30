@@ -32,7 +32,8 @@ class CreateZone extends Component {
 
 	clearValues(){
 		this.refs.name.value=''
-		this.refs.zip.value-''
+		this.refs.zip.value=''
+		this.refs.description.value=''
 	}
 
 
@@ -47,8 +48,8 @@ class CreateZone extends Component {
 				</div>
 				<div className="card-block">
 
-					<input style={{width:'75%',fontSize:'1.1em'}} id="name" placeholder="Enter Neighborhood Name" ref="name" onChange={this.updateZone.bind(this)} className="form-control" type="text" ref="name" />
-
+					<input style={{width:'75%',fontSize:'1.1em'}} id="name" placeholder="Enter Neighborhood Name" ref="name" onChange={this.updateZone.bind(this)} className="form-control" type="text" />
+					<input style={{width:'75%',fontSize:'1.1em'}} id="description" placeholder="Enter Neighborhood Description" ref="description" onChange={this.updateZone.bind(this)} className="form-control" type="text" />
 					<input style={{width:'75%',fontSize:'1.1em'}} placeholder="Enter Zip Code" id="zipCode" ref="zipCode" onChange={this.updateZone.bind(this)} className="form-control" type="text" ref="zip" /><br />
 						<a onClick={this.submitZone.bind(this)} href="javascript:void(0)" className="btn btn-success btn-raised btn-block">
 							<i className="ml-1 no-mr zmdi zmdi-home"></i>&nbsp;&nbsp;Add 	New Neighborhood

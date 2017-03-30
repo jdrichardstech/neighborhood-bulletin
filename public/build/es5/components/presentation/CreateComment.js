@@ -113,7 +113,7 @@ var CreateComment = (function (Component) {
 									null,
 									"Comment:"
 								),
-								" ",
+								React.createElement("input", { style: { width: "75%", padding: "0 0 20px 0" }, onChange: this.updateComment.bind(this), id: "title", className: "form-control", type: "text", placeholder: "Add Title Here" }),
 								React.createElement("input", { style: { width: "75%", padding: "0 0 20px 0" }, onChange: this.updateComment.bind(this), id: "body", className: "form-control", type: "text", placeholder: "Add Comment Here" })
 							)
 						)

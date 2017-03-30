@@ -182,7 +182,7 @@ var Comments = (function (Component) {
 						null,
 						React.createElement(
 							"article",
-							{ className: "card wow mb-4" },
+							{ className: "card wow fadeIn animation-delay-2 mb-4" },
 							React.createElement(
 								"div",
 								{ className: "card-block" },

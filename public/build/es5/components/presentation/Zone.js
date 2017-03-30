@@ -42,6 +42,15 @@ var Zone = (function (Component) {
 				var zoneStyle = styles.zone;
 				var zipCode = this.props.currentZone.zipCodes[0];
 
+				var activeZone = this.props.isSelected ? React.createElement(
+					"a",
+					{ style: { fontSize: "1.2em", color: "#ff9800" }, onClick: this.onSelectTitle.bind(this), href: "javascript:void(0)", className: "media-heading" },
+					this.props.currentZone.name
+				) : React.createElement(
+					"a",
+					{ style: { fontSize: "1.2em" }, onClick: this.onSelectTitle.bind(this), href: "javascript:void(0)", className: "media-heading" },
+					this.props.currentZone.name
+				);
 
 				var button = this.props.currentZone.username == this.props.username ? React.createElement(
 					Link,
@@ -72,10 +81,11 @@ var Zone = (function (Component) {
 						React.createElement(
 							"div",
 							{ className: "media-body", style: { padding: "20px 0 0 10px" } },
+							activeZone,
 							React.createElement(
-								"a",
-								{ style: { fontSize: "1.2em" }, onClick: this.onSelectTitle.bind(this), href: "javascript:void(0)", className: "media-heading" },
-								this.props.currentZone.name
+								"p",
+								null,
+								this.props.currentZone.description
 							),
 							React.createElement(
 								"div",

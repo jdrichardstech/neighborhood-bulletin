@@ -70,7 +70,9 @@ class CreateComment extends Component {
 						<div style={{padding:'20px 30px 20px 30px'}}>
 
 
-						<h3>Comment:</h3> <input style={{width:'75%',padding:'0 0 20px 0'}} onChange={this.updateComment.bind(this)} id="body" className="form-control" type="text" placeholder="Add Comment Here" />
+						<h3>Comment:</h3>
+							<input style={{width:'75%',padding:'0 0 20px 0'}} onChange={this.updateComment.bind(this)} id="title" className="form-control" type="text" placeholder="Add Title Here" />
+							<input style={{width:'75%',padding:'0 0 20px 0'}} onChange={this.updateComment.bind(this)} id="body" className="form-control" type="text" placeholder="Add Comment Here" />
 						</div>
 					</div>
 				</div>

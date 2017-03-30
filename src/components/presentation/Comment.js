@@ -90,6 +90,7 @@ grabImage(files){
 			<div style={{padding:30}}>
 			<h3>Edit your current comment below:</h3>
 
+			<input  className="form-control" onChange={this.handleEditChange.bind(this)} type="text" placeholder={currentComment.title} id="title" /> <br />
 			<input  className="form-control" onChange={this.handleEditChange.bind(this)} type="text" placeholder={currentComment.body} id="body" /> <br />
 			</div>
 		</div>
@@ -139,7 +140,7 @@ grabImage(files){
 							</div>
 							<div className="col-lg-6">
 								<h3 className="no-mt" style={{color:'#03a9f4'}}>
-									Post {this.props.index+1}
+									{currentComment.title}
 								</h3>
 								<p className="mb-4">{currentComment.body}</p>
 							</div>
