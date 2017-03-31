@@ -61,7 +61,7 @@ class CreateComment extends Component {
  }
 
 	render(){
-		let newImage =	(this.state.comment.commentImage == null && this.state.picDropped !=true) ? null : <img style={{width:100, height:100}} src={this.props.commentImage} />
+		let newImage =	(this.state.comment.commentImage == null && this.state.picDropped ==false) ? null : this.props.commentImage
 
 
 		return (
@@ -93,7 +93,7 @@ class CreateComment extends Component {
 
 				</div>
 				 <div className="col-md-6" style={{paddingRight:30}}>
-					 <div style={{marginTop:50}} ><img style={{height:100}} src={this.props.commentImage} ref="imageUrl" /></div>
+					 <div style={{marginTop:50}} ><img style={{height:100}} src={newImage} ref="imageUrl" /></div>
 				 </div>
 			 </div>
 			 <div className="row">

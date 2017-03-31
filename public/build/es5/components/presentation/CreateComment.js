@@ -90,7 +90,7 @@ var CreateComment = (function (Component) {
 		},
 		render: {
 			value: function render() {
-				var newImage = this.state.comment.commentImage == null && this.state.picDropped != true ? null : React.createElement("img", { style: { width: 100, height: 100 }, src: this.props.commentImage });
+				var newImage = this.state.comment.commentImage == null && this.state.picDropped == false ? null : this.props.commentImage;
 
 
 				return React.createElement(
@@ -153,7 +153,7 @@ var CreateComment = (function (Component) {
 							React.createElement(
 								"div",
 								{ style: { marginTop: 50 } },
-								React.createElement("img", { style: { height: 100 }, src: this.props.commentImage, ref: "imageUrl" })
+								React.createElement("img", { style: { height: 100 }, src: newImage, ref: "imageUrl" })
 							)
 						)
 					),

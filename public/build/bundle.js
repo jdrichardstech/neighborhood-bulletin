@@ -34871,7 +34871,7 @@
 		}, {
 			key: 'render',
 			value: function render() {
-				var newImage = this.state.comment.commentImage == null && this.state.picDropped != true ? null : _react2.default.createElement('img', { style: { width: 100, height: 100 }, src: this.props.commentImage });
+				var newImage = this.state.comment.commentImage == null && this.state.picDropped == false ? null : this.props.commentImage;
 	
 				return _react2.default.createElement(
 					'div',
@@ -34933,7 +34933,7 @@
 							_react2.default.createElement(
 								'div',
 								{ style: { marginTop: 50 } },
-								_react2.default.createElement('img', { style: { height: 100 }, src: this.props.commentImage, ref: 'imageUrl' })
+								_react2.default.createElement('img', { style: { height: 100 }, src: newImage, ref: 'imageUrl' })
 							)
 						)
 					),
