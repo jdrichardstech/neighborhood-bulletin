@@ -8,7 +8,7 @@ constructor(){
 	super()
 	this.state={
 		updated:null,
-
+		picDropped:false,
 
 		isEditing:false,
 		showEdit:true
@@ -23,7 +23,8 @@ handleEditClick(event){
 
 	this.setState({
 		isEditing:true,
-		showEdit:false
+		showEdit:false,
+
 
 	})
 }
@@ -34,8 +35,16 @@ let updatedComment = Object.assign({}, this.state.updated)
 updatedComment[event.target.id] = event.target.value
 
 this.setState({
-	updated: updatedComment
+	updated: updatedComment,
+	picDropped: true
 })
+}
+
+cancelEdit(event){
+	this.setState({
+		isEditing:false,
+		showEdit:true
+	})
 }
 
 updateComment(event){
@@ -48,7 +57,8 @@ updateComment(event){
 	this.setState({
 		updated:null,
 		isEditing:false,
-		showEdit:true
+		showEdit:true,
+		picDropped:false
 	})
 }
 
@@ -65,7 +75,7 @@ grabImage(files){
 }
 
 	render(){
-		let newImage =	(this.state.updated == null && this.state.isEditing ==false) ? null : this.props.commentImage
+		let newImage =	(this.state.updated == null && this.state.picDropped ==false) ? null : this.props.commentImage
 		const currentComment = this.props.currentComment
 		const author = currentComment.author
 		const radius = 16
@@ -102,8 +112,23 @@ grabImage(files){
 			 </div>
 			 <div className="row">
 				 <div className="col-md-12" style={{padding:30}}>
-			 <a className="pull-right" style={{width:'30%', color:'white', margin:'0 auto'}} onClick={this.updateComment.bind(this)} href="javascript:void(0)" className="btn btn-primary btn-raised btn-block animate-icon">Submit
-			 </a>
+				<div className="row">
+					<div className="col-md-6" style={{padding:10}}>
+						<a style={{width:'40%', color:'white'}} onClick={this.updateComment.bind(this)} href="javascript:void(0)" className="pull-right btn btn-primary btn-raised btn-block animate-icon">Submit&nbsp;&nbsp;<i className="ml-1 no-mr zmdi zmdi-long-arrow-right"></i>
+					 </a>
+					</div>
+					<div className="col-md-6" style={{padding:10}}>
+						<a style={{width:'40%', color:'white'}} onClick={this.cancelEdit.bind(this)} href="javascript:void(0)" className="pull-left btn btn-danger btn-raised btn-block "><i className="ml-1 no-mr zmdi zmdi-close"></i>&nbsp;&nbsp;Cancel
+					 </a>
+					</div>
+					<div className="col-md-6">
+
+					</div>
+				</div>
+
+
+
+
 	 				</div>
 			 </div>
 		 </div>

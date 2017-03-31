@@ -26,7 +26,7 @@ var Comment = (function (Component) {
 		_get(Object.getPrototypeOf(Comment.prototype), "constructor", this).call(this);
 		this.state = {
 			updated: null,
-
+			picDropped: false,
 
 			isEditing: false,
 			showEdit: true
@@ -45,9 +45,7 @@ var Comment = (function (Component) {
 			value: function handleEditClick(event) {
 				this.setState({
 					isEditing: true,
-					showEdit: false
-
-				});
+					showEdit: false });
 			},
 			writable: true,
 			configurable: true
@@ -58,7 +56,18 @@ var Comment = (function (Component) {
 				updatedComment[event.target.id] = event.target.value;
 
 				this.setState({
-					updated: updatedComment
+					updated: updatedComment,
+					picDropped: true
+				});
+			},
+			writable: true,
+			configurable: true
+		},
+		cancelEdit: {
+			value: function cancelEdit(event) {
+				this.setState({
+					isEditing: false,
+					showEdit: true
 				});
 			},
 			writable: true,
@@ -75,7 +84,8 @@ var Comment = (function (Component) {
 				this.setState({
 					updated: null,
 					isEditing: false,
-					showEdit: true
+					showEdit: true,
+					picDropped: false
 				});
 			},
 			writable: true,
@@ -98,7 +108,7 @@ var Comment = (function (Component) {
 		},
 		render: {
 			value: function render() {
-				var newImage = this.state.updated == null && this.state.isEditing == false ? null : this.props.commentImage;
+				var newImage = this.state.updated == null && this.state.picDropped == false ? null : this.props.commentImage;
 				var currentComment = this.props.currentComment;
 				var author = currentComment.author;
 				var radius = 16;
@@ -174,9 +184,27 @@ var Comment = (function (Component) {
 							"div",
 							{ className: "col-md-12", style: { padding: 30 } },
 							React.createElement(
-								"a",
-								{ className: "pull-right", style: { width: "30%", color: "white", margin: "0 auto" }, onClick: this.updateComment.bind(this), href: "javascript:void(0)", className: "btn btn-primary btn-raised btn-block animate-icon" },
-								"Submit"
+								"div",
+								{ className: "row" },
+								React.createElement(
+									"div",
+									{ className: "col-md-6" },
+									React.createElement(
+										"a",
+										{ style: { border: "1px solid red", width: "40%", color: "white" }, onClick: this.updateComment.bind(this), href: "javascript:void(0)", className: "pull-right btn btn-primary btn-raised btn-block animate-icon" },
+										"Submit"
+									)
+								),
+								React.createElement(
+									"div",
+									{ className: "col-md-6" },
+									React.createElement(
+										"a",
+										{ style: { border: "1px solid green", width: "40%", color: "white", margin: "0 auto" }, onClick: this.cancelEdit.bind(this), href: "javascript:void(0)", className: "pull-left btn btn-danger btn-raised btn-block animate-icon" },
+										"Cancel"
+									)
+								),
+								React.createElement("div", { className: "col-md-6" })
 							)
 						)
 					)

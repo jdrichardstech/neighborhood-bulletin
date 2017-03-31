@@ -34946,7 +34946,8 @@
 							_react2.default.createElement(
 								'a',
 								_defineProperty({ className: 'pull-right', style: { width: '30%', color: 'white', margin: '0 auto' }, onClick: this.submitComment.bind(this), href: 'javascript:void(0)' }, 'className', 'btn btn-primary btn-raised btn-block animate-icon'),
-								'Submit Post'
+								'Submit Post\xA0\xA0',
+								_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-long-arrow-right' })
 							)
 						)
 					)
@@ -35094,8 +35095,6 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -35112,6 +35111,7 @@
 	
 			_this.state = {
 				updated: null,
+				picDropped: false,
 	
 				isEditing: false,
 				showEdit: true
@@ -35142,7 +35142,16 @@
 				updatedComment[event.target.id] = event.target.value;
 	
 				this.setState({
-					updated: updatedComment
+					updated: updatedComment,
+					picDropped: true
+				});
+			}
+		}, {
+			key: 'cancelEdit',
+			value: function cancelEdit(event) {
+				this.setState({
+					isEditing: false,
+					showEdit: true
 				});
 			}
 		}, {
@@ -35157,7 +35166,8 @@
 				this.setState({
 					updated: null,
 					isEditing: false,
-					showEdit: true
+					showEdit: true,
+					picDropped: false
 				});
 			}
 		}, {
@@ -35176,7 +35186,7 @@
 		}, {
 			key: 'render',
 			value: function render() {
-				var newImage = this.state.updated == null && this.state.isEditing == false ? null : this.props.commentImage;
+				var newImage = this.state.updated == null && this.state.picDropped == false ? null : this.props.commentImage;
 				var currentComment = this.props.currentComment;
 				var author = currentComment.author;
 				var radius = 16;
@@ -35252,9 +35262,29 @@
 							'div',
 							{ className: 'col-md-12', style: { padding: 30 } },
 							_react2.default.createElement(
-								'a',
-								_defineProperty({ className: 'pull-right', style: { width: '30%', color: 'white', margin: '0 auto' }, onClick: this.updateComment.bind(this), href: 'javascript:void(0)' }, 'className', 'btn btn-primary btn-raised btn-block animate-icon'),
-								'Submit'
+								'div',
+								{ className: 'row' },
+								_react2.default.createElement(
+									'div',
+									{ className: 'col-md-6', style: { padding: 10 } },
+									_react2.default.createElement(
+										'a',
+										{ style: { width: '40%', color: 'white' }, onClick: this.updateComment.bind(this), href: 'javascript:void(0)', className: 'pull-right btn btn-primary btn-raised btn-block animate-icon' },
+										'Submit\xA0\xA0',
+										_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-long-arrow-right' })
+									)
+								),
+								_react2.default.createElement(
+									'div',
+									{ className: 'col-md-6', style: { padding: 10 } },
+									_react2.default.createElement(
+										'a',
+										{ style: { width: '40%', color: 'white' }, onClick: this.cancelEdit.bind(this), href: 'javascript:void(0)', className: 'pull-left btn btn-danger btn-raised btn-block ' },
+										_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-close' }),
+										'\xA0\xA0Cancel'
+									)
+								),
+								_react2.default.createElement('div', { className: 'col-md-6' })
 							)
 						)
 					)
