@@ -34858,6 +34858,9 @@
 					commentImage: null,
 					picDropped: false
 				});
+				this.refs.title.value = " ";
+				this.refs.body.value = " ";
+				this.refs.imageUrl.value = " ";
 			}
 		}, {
 			key: 'handleSelect',
@@ -34891,10 +34894,10 @@
 								_react2.default.createElement(
 									'h3',
 									null,
-									'Comment:'
+									'Post:'
 								),
-								_react2.default.createElement('input', { style: { width: '75%', padding: '0 0 20px 0' }, onChange: this.updateComment.bind(this), id: 'title', className: 'form-control', type: 'text', placeholder: 'Add Title Here' }),
-								_react2.default.createElement('input', { style: { width: '75%', padding: '0 0 20px 0' }, onChange: this.updateComment.bind(this), id: 'body', className: 'form-control', type: 'text', placeholder: 'Add Comment Here' })
+								_react2.default.createElement('input', { style: { width: '75%', padding: '0 0 20px 0' }, onChange: this.updateComment.bind(this), id: 'title', className: 'form-control', type: 'text', placeholder: 'Add Title Here', ref: 'title' }),
+								_react2.default.createElement('input', { style: { width: '75%', padding: '0 0 20px 0' }, onChange: this.updateComment.bind(this), id: 'body', className: 'form-control', type: 'text', placeholder: 'Add Comment Here', ref: 'body' })
 							)
 						)
 					),
@@ -34930,7 +34933,7 @@
 							_react2.default.createElement(
 								'div',
 								{ style: { marginTop: 50 } },
-								_react2.default.createElement('img', { style: { height: 100 }, src: this.props.commentImage })
+								_react2.default.createElement('img', { style: { height: 100 }, src: this.props.commentImage, ref: 'imageUrl' })
 							)
 						)
 					),

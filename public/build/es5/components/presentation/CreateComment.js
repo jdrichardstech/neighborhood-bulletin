@@ -73,6 +73,9 @@ var CreateComment = (function (Component) {
 					commentImage: null,
 					picDropped: false
 				});
+				this.refs.title.value = " ";
+				this.refs.body.value = " ";
+				this.refs.imageUrl.value = " ";
 			},
 			writable: true,
 			configurable: true
@@ -111,10 +114,10 @@ var CreateComment = (function (Component) {
 								React.createElement(
 									"h3",
 									null,
-									"Comment:"
+									"Post:"
 								),
-								React.createElement("input", { style: { width: "75%", padding: "0 0 20px 0" }, onChange: this.updateComment.bind(this), id: "title", className: "form-control", type: "text", placeholder: "Add Title Here" }),
-								React.createElement("input", { style: { width: "75%", padding: "0 0 20px 0" }, onChange: this.updateComment.bind(this), id: "body", className: "form-control", type: "text", placeholder: "Add Comment Here" })
+								React.createElement("input", { style: { width: "75%", padding: "0 0 20px 0" }, onChange: this.updateComment.bind(this), id: "title", className: "form-control", type: "text", placeholder: "Add Title Here", ref: "title" }),
+								React.createElement("input", { style: { width: "75%", padding: "0 0 20px 0" }, onChange: this.updateComment.bind(this), id: "body", className: "form-control", type: "text", placeholder: "Add Comment Here", ref: "body" })
 							)
 						)
 					),
@@ -150,7 +153,7 @@ var CreateComment = (function (Component) {
 							React.createElement(
 								"div",
 								{ style: { marginTop: 50 } },
-								React.createElement("img", { style: { height: 100 }, src: this.props.commentImage })
+								React.createElement("img", { style: { height: 100 }, src: this.props.commentImage, ref: "imageUrl" })
 							)
 						)
 					),

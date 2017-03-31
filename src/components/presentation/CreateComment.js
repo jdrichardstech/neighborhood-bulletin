@@ -49,6 +49,9 @@ class CreateComment extends Component {
 			commentImage:null,
 			picDropped:false
 		})
+		this.refs.title.value=" "
+		this.refs.body.value=" "
+		this.refs.imageUrl.value=" "
 
 	}
 
@@ -70,9 +73,9 @@ class CreateComment extends Component {
 						<div style={{padding:'20px 30px 20px 30px'}}>
 
 
-						<h3>Comment:</h3>
-							<input style={{width:'75%',padding:'0 0 20px 0'}} onChange={this.updateComment.bind(this)} id="title" className="form-control" type="text" placeholder="Add Title Here" />
-							<input style={{width:'75%',padding:'0 0 20px 0'}} onChange={this.updateComment.bind(this)} id="body" className="form-control" type="text" placeholder="Add Comment Here" />
+						<h3>Post:</h3>
+							<input style={{width:'75%',padding:'0 0 20px 0'}} onChange={this.updateComment.bind(this)} id="title" className="form-control" type="text" placeholder="Add Title Here"  ref="title"/>
+							<input style={{width:'75%',padding:'0 0 20px 0'}} onChange={this.updateComment.bind(this)} id="body" className="form-control" type="text" placeholder="Add Comment Here" ref="body" />
 						</div>
 					</div>
 				</div>
@@ -90,7 +93,7 @@ class CreateComment extends Component {
 
 				</div>
 				 <div className="col-md-6" style={{paddingRight:30}}>
-					 <div style={{marginTop:50}} ><img style={{height:100}} src={this.props.commentImage} /></div>
+					 <div style={{marginTop:50}} ><img style={{height:100}} src={this.props.commentImage} ref="imageUrl" /></div>
 				 </div>
 			 </div>
 			 <div className="row">
