@@ -9,6 +9,7 @@ constructor(){
 	this.state={
 		updated:null,
 
+
 		isEditing:false,
 		showEdit:true
 	}
@@ -49,8 +50,6 @@ updateComment(event){
 		isEditing:false,
 		showEdit:true
 	})
-	this.refs.image.value=''
-
 }
 
 grabImage(files){
@@ -66,47 +65,40 @@ grabImage(files){
 }
 
 	render(){
+		let newImage =	(this.state.updated == null && this.state.isEditing ==false) ? null : this.props.commentImage
 		const currentComment = this.props.currentComment
 		const author = currentComment.author
 		const radius = 16
-
 		const showEditButton = (this.props.user.username == author.username && this.state.showEdit==true) ?
 
-			<div className="col-lg-4 text-right">
-				<a onClick={this.handleEditClick.bind(this)} href="javascript:void(0)" className="btn btn-primary btn-raised btn-block"><i className="ml-1 no-mr zmdi zmdi-edit"></i>&nbsp;&nbsp;Edit
-				</a>
-			</div>
-
+		<div className="col-lg-4 text-right">
+			<a onClick={this.handleEditClick.bind(this)} href="javascript:void(0)" className="btn btn-primary btn-raised btn-block"><i className="ml-1 no-mr zmdi zmdi-edit"></i>&nbsp;&nbsp;Edit
+			</a>
+		</div>
 		: null
 
-
-
 		const commentEditingInfo = (this.state.isEditing == true) ?
+			<div>
+				<div className="row">
+				<div className="col-md-12">
+				<hr style={{border:'2px solid #03a9f4', background:'#03a9f4', color:'#03a9f4'}} />
+				<div style={{padding:30}}>
+				<h3>Edit your current comment below:</h3>
 
-		<div>
-			<div className="row">
-			<div className="col-md-12">
-			<hr style={{border:'2px solid #03a9f4', background:'#03a9f4', color:'#03a9f4'}} />
-			<div style={{padding:30}}>
-			<h3>Edit your current comment below:</h3>
-
-			<input  className="form-control" onChange={this.handleEditChange.bind(this)} type="text" placeholder="Change Title" id="title" /> <br />
-			<input  className="form-control" onChange={this.handleEditChange.bind(this)} type="text" placeholder="Change Text" id="body"  /> <br />
+				<input  className="form-control" onChange={this.handleEditChange.bind(this)} type="text" placeholder="Change Title" id="title" /> <br />
+				<input  className="form-control" onChange={this.handleEditChange.bind(this)} type="text" placeholder="Change Text" id="body"  /> <br />
+				</div>
 			</div>
 		</div>
-	</div>
-
 		<div className="row" >
 		<div className="col-md-6" style={{padding:30}}>
-
 			<DropZone style={{border:'1px solid white',fontSize:'1.5em'}} onDrop={this.grabImage.bind(this)}><a onClick={this.handleEditClick.bind(this)} href="javascript:void(0)">
 				<i className="ml-1 no-mr zmdi zmdi-camera"></i>&nbsp;Upload New Post Image
 			</a></DropZone>
 		</div>
 			 <div className="col-md-6" style={{padding:30}}>
-				 <div style={{marginTop:50}} ><img style={{height:100}} src={this.props.commentImage} ref="image" /></div>
+				 <div style={{marginTop:50}} ><img style={{height:100}} src={newImage} ref="image" /></div>
 			 </div>
-
 			 </div>
 			 <div className="row">
 				 <div className="col-md-12" style={{padding:30}}>
@@ -169,12 +161,10 @@ grabImage(files){
 								<br /><br />
 								{commentEditingInfo}
 							</div>
-
 						</div>
 					</div>
 				</article>
 			</div>
-
 		)
 	}
 }

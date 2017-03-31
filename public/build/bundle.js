@@ -35159,7 +35159,6 @@
 					isEditing: false,
 					showEdit: true
 				});
-				this.refs.image.value = '';
 			}
 		}, {
 			key: 'grabImage',
@@ -35177,10 +35176,10 @@
 		}, {
 			key: 'render',
 			value: function render() {
+				var newImage = this.state.updated == null && this.state.isEditing == false ? null : this.props.commentImage;
 				var currentComment = this.props.currentComment;
 				var author = currentComment.author;
 				var radius = 16;
-	
 				var showEditButton = this.props.user.username == author.username && this.state.showEdit == true ? _react2.default.createElement(
 					'div',
 					{ className: 'col-lg-4 text-right' },
@@ -35242,7 +35241,7 @@
 							_react2.default.createElement(
 								'div',
 								{ style: { marginTop: 50 } },
-								_react2.default.createElement('img', { style: { height: 100 }, src: this.props.commentImage, ref: 'image' })
+								_react2.default.createElement('img', { style: { height: 100 }, src: newImage, ref: 'image' })
 							)
 						)
 					),

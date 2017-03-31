@@ -27,6 +27,7 @@ var Comment = (function (Component) {
 		this.state = {
 			updated: null,
 
+
 			isEditing: false,
 			showEdit: true
 		};
@@ -76,7 +77,6 @@ var Comment = (function (Component) {
 					isEditing: false,
 					showEdit: true
 				});
-				this.refs.image.value = "";
 			},
 			writable: true,
 			configurable: true
@@ -98,10 +98,10 @@ var Comment = (function (Component) {
 		},
 		render: {
 			value: function render() {
+				var newImage = this.state.updated == null && this.state.isEditing == false ? null : this.props.commentImage;
 				var currentComment = this.props.currentComment;
 				var author = currentComment.author;
 				var radius = 16;
-
 				var showEditButton = this.props.user.username == author.username && this.state.showEdit == true ? React.createElement(
 					"div",
 					{ className: "col-lg-4 text-right" },
@@ -112,8 +112,6 @@ var Comment = (function (Component) {
 						"  Edit"
 					)
 				) : null;
-
-
 
 				var commentEditingInfo = this.state.isEditing == true ? React.createElement(
 					"div",
@@ -165,7 +163,7 @@ var Comment = (function (Component) {
 							React.createElement(
 								"div",
 								{ style: { marginTop: 50 } },
-								React.createElement("img", { style: { height: 100 }, src: this.props.commentImage, ref: "image" })
+								React.createElement("img", { style: { height: 100 }, src: newImage, ref: "image" })
 							)
 						)
 					),
