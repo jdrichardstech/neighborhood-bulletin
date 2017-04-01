@@ -22,7 +22,7 @@ gulp.task('es6-es5', function(){
 gulp.task('css', function(){
    return gulp.src(
            [
-						 		
+
                 './public/assets/css/sweetalert.css',
 								'./public/assets/css/preload.min.css',
 								'./public/assets/css/plugins.min.css',
@@ -67,5 +67,5 @@ gulp.task('watch', function(){
 })
 
 
-gulp.task('default', ['es6-es5', 'watch','css','copy','js'], function(){})
+gulp.task('default', ['es6-es5','css','copy','js'], function(){})
 gulp.task('prod', ['es6-es5','css', 'copy', 'js','watch'], function(){})
