@@ -22302,7 +22302,7 @@
 													_react2.default.createElement(
 														'span',
 														{ style: { color: '#03a9f4' } },
-														'City:'
+														'City: '
 													),
 													this.props.user.city
 												),
@@ -22312,7 +22312,7 @@
 													_react2.default.createElement(
 														'span',
 														{ style: { color: '#03a9f4' } },
-														'Bio:'
+														'Bio: '
 													),
 													'  ',
 													this.props.user.bio

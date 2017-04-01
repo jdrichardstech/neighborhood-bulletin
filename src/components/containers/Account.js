@@ -337,8 +337,8 @@ clearValues(){
 								 <div className="card-block pt-4 text-center">
 									 <h3 className="color-primary">About me</h3>
 									 <p><span style={{color:'#03a9f4'}}>Gender: </span>{this.props.user.gender}</p>
-									 <p><span style={{color:'#03a9f4'}}>City:</span>{this.props.user.city}</p>
-									 <p><span style={{color:'#03a9f4'}}>Bio:</span>  {this.props.user.bio}</p>
+									 <p><span style={{color:'#03a9f4'}}>City: </span>{this.props.user.city}</p>
+									 <p><span style={{color:'#03a9f4'}}>Bio: </span>  {this.props.user.bio}</p>
 
 									 &nbsp;
 								 	<Link className="btn btn-raised btn-danger" to={'/updateprofile/'+this.props.user.username}>
