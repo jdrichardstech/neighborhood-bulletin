@@ -40,18 +40,7 @@ var Zones = (function (Component) {
 	_prototypeProperties(Zones, null, {
 		componentDidMount: {
 			value: function componentDidMount() {
-				console.log("componentDidMount: " + JSON.stringify(this.props.user));
-				// APIManager.get('/api/zone', null, (err, response) => {
-				// 	if (err){
-				// 		alert('ERROR: '+err.message)
-				// 		return
-				// 	}
-				//
-				// 	// ACTION!
-				// const zones = response.results
-				// this.props.zonesReceived(zones)
-				// })
-
+				// console.log('componentDidMount: '+JSON.stringify(this.props.user))
 				this.props.fetchZone(null);
 			},
 			writable: true,
@@ -61,7 +50,11 @@ var Zones = (function (Component) {
 			value: function addZone(zone) {
 				var _this = this;
 				if (this.props.user == null) {
-					alert("no zone");
+					swal({
+						title: "Error!",
+						text: "No Zone Entered",
+						type: "error"
+					});
 					return;
 				}
 
@@ -71,7 +64,11 @@ var Zones = (function (Component) {
 
 				APIManager.post("/api/zone", updatedZone, function (err, response) {
 					if (err) {
-						alert("ERROR: " + err.message);
+						swal({
+							title: "Error!",
+							text: err.message,
+							type: "error"
+						});
 						return;
 					}
 

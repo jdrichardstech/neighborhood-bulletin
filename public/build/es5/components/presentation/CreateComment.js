@@ -82,7 +82,7 @@ var CreateComment = (function (Component) {
 		},
 		handleSelect: {
 			value: function handleSelect(key) {
-				alert("selected " + key);
+				//  alert('selected ' + key);
 				this.setState({ key: key });
 			},
 			writable: true,

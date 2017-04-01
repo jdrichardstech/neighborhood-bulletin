@@ -56,7 +56,7 @@ class CreateComment extends Component {
 	}
 
 	handleSelect(key) {
-	 alert('selected ' + key);
+	//  alert('selected ' + key);
 	 this.setState({key});
  }
 

@@ -91,7 +91,11 @@ var UpdateProfile = (function (Component) {
 				event.preventDefault();
 
 				if (Object.keys(this.state.updated).length == 0) {
-					alert("No Changes Made!!");
+					swal({
+						title: "Error!",
+						text: "No Changes Made",
+						type: "error"
+					});
 					return;
 				}
 
@@ -99,7 +103,11 @@ var UpdateProfile = (function (Component) {
 				this.setState({
 					user: null
 				});
-				alert("Profile Updated");
+				swal({
+					title: "Success!",
+					text: "Profile Updated",
+					type: "success"
+				});
 			},
 			writable: true,
 			configurable: true

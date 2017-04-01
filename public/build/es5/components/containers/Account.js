@@ -96,13 +96,22 @@ var Account = (function (Component) {
 			value: function login(event) {
 				event.preventDefault();
 				// console.log("Sign in:" + JSON.stringify(this.state.profile))
-				this.clearValues();
+
 				if (this.state.profile.username.length == 0) {
-					alert("you must enter a username");
+					swal({
+						title: "Error!",
+						text: "You must enter a Username",
+						type: "error"
+					});
 					return;
 				}
 				if (this.state.profile.password.length == 0) {
-					alert("you must enter password");
+					swal({
+						title: "Error!",
+						text: "You must enter a password",
+						type: "error"
+					});
+					this.clearValues();
 					return;
 				}
 
@@ -124,11 +133,19 @@ var Account = (function (Component) {
 				event.preventDefault();
 				// console.log("Sign Up:" + JSON.stringify(this.state.profile))
 				if (this.state.profile.username.length == 0) {
-					alert("you must enter a username");
+					swal({
+						title: "Error!",
+						text: "You must enter a Username",
+						type: "error"
+					});
 					return;
 				}
 				if (this.state.profile.password.length == 0) {
-					alert("you must enter password");
+					swal({
+						title: "Error!",
+						text: "You must enter a password",
+						type: "error"
+					});
 					return;
 				}
 				this.props.createSignUp(this.state.profile);
@@ -150,7 +167,6 @@ var Account = (function (Component) {
 					_this.setState({
 						flag: false
 					});
-					console.log("HERE YOU GO: " + JSON.stringify(_this.state.flag));
 				});
 			},
 			writable: true,
@@ -188,7 +204,11 @@ var Account = (function (Component) {
 					_this.setState({
 						profile: updatedProfile
 					});
-					alert("Your profile image has been uploaded");
+					swal({
+						title: "Success!",
+						text: "Your image has been uploaded",
+						type: "suceess"
+					});
 				});
 			},
 			writable: true,
@@ -692,6 +712,7 @@ Account.contextTypes = {
 module.exports = connect(stateToProps, dispatchToProps)(Account);
 // console.log('LOGIN: ' + JSON.stringify(this.state.user))
 
+// console.log("HERE YOU GO: " + JSON.stringify(this.state.flag))
 // this.props.fetchZone(null)
 
 /*  let content = (this.props.appStatus=='loading') ? 'Loading...' : contentFiller*/

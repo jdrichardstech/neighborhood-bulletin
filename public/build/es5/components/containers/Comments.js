@@ -50,7 +50,11 @@ var Comments = (function (Component) {
 		submitComment: {
 			value: function submitComment(comment) {
 				if (this.props.user == null) {
-					alert("Please Sign Up or Log In");
+					swal({
+						title: "Error!",
+						text: "Please Register or Login",
+						type: "error"
+					});
 					return;
 				}
 
@@ -85,7 +89,11 @@ var Comments = (function (Component) {
 					return;
 				}APIManager.get("/api/comment", { zone: zone._id }, function (err, response) {
 					if (err) {
-						alert("ERROR: " + err.message);
+						swal({
+							title: "Error!",
+							text: err.message,
+							type: "error"
+						});
 						return;
 					}
 

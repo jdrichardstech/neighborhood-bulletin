@@ -16,25 +16,18 @@ class Zones extends Component {
 	}
 
 	componentDidMount(){
-		console.log('componentDidMount: '+JSON.stringify(this.props.user))
-		// APIManager.get('/api/zone', null, (err, response) => {
-		// 	if (err){
-		// 		alert('ERROR: '+err.message)
-		// 		return
-		// 	}
-		//
-		// 	// ACTION!
-			// const zones = response.results
-			// this.props.zonesReceived(zones)
-		// })
-
+		// console.log('componentDidMount: '+JSON.stringify(this.props.user))
 		this.props.fetchZone(null)
 	}
 
 
 	addZone(zone){
 		if(this.props.user == null){
-			alert('no zone')
+			swal({
+					title:"Error!",
+					text:"No Zone Entered",
+					type: "error"
+				})
 			return
 		}
 
@@ -44,7 +37,11 @@ class Zones extends Component {
 
 		APIManager.post('/api/zone', updatedZone, (err, response) => {
 			if (err){
-				alert('ERROR: '+err.message)
+				swal({
+						title:"Error!",
+						text:err.message,
+						type: "error"
+					})
 				return
 			}
 

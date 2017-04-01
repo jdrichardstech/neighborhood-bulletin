@@ -21,7 +21,11 @@ class Comments extends Component {
 
 	submitComment(comment){
 		if(this.props.user == null){
-			alert('Please Sign Up or Log In')
+			swal({
+					title:"Error!",
+					text:"Please Register or Login",
+					type: "error"
+				})
 			return
 		}
 
@@ -52,7 +56,11 @@ class Comments extends Component {
 
 		APIManager.get('/api/comment', {zone:zone._id}, (err, response) => {
 			if (err){
-				alert('ERROR: '+err.message)
+				swal({
+						title:"Error!",
+						text:err.message,
+						type: "error"
+					})
 				return
 			}
 

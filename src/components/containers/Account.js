@@ -51,13 +51,22 @@ class Account extends Component{
   login(event){
     event.preventDefault()
     // console.log("Sign in:" + JSON.stringify(this.state.profile))
-    this.clearValues()
+
     if(this.state.profile.username.length==0){
-      alert('you must enter a username')
+			swal({
+					title:"Error!",
+					text:"You must enter a Username",
+					type: "error"
+				})
       return
     }
     if(this.state.profile.password.length==0){
-      alert('you must enter password')
+			swal({
+					title:"Error!",
+					text:"You must enter a password",
+					type: "error"
+				})
+			this.clearValues()
       return
     }
 
@@ -78,11 +87,19 @@ class Account extends Component{
     event.preventDefault()
     // console.log("Sign Up:" + JSON.stringify(this.state.profile))
     if(this.state.profile.username.length==0){
-      alert('you must enter a username')
+			swal({
+					title:"Error!",
+					text:"You must enter a Username",
+					type: "error"
+				})
       return
     }
     if(this.state.profile.password.length==0){
-      alert('you must enter password')
+			swal({
+ 				 title:"Error!",
+ 				 text:"You must enter a password",
+ 				 type: "error"
+ 			 })
       return
     }
     this.props.createSignUp(this.state.profile)
@@ -100,7 +117,7 @@ logout(event){
 		this.setState({
 			flag: false
 		})
-		console.log("HERE YOU GO: " + JSON.stringify(this.state.flag))
+		// console.log("HERE YOU GO: " + JSON.stringify(this.state.flag))
   })
     // this.props.fetchZone(null)
 
@@ -136,7 +153,11 @@ uploadImage(files){
       this.setState({
         profile: updatedProfile
       })
-			alert('Your profile image has been uploaded')
+			swal({
+					title:"Success!",
+					text:"Your image has been uploaded",
+					type: "suceess"
+				})
   })
 }
 

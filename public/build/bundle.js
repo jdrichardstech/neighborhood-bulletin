@@ -21779,13 +21779,22 @@
 			value: function login(event) {
 				event.preventDefault();
 				// console.log("Sign in:" + JSON.stringify(this.state.profile))
-				this.clearValues();
+	
 				if (this.state.profile.username.length == 0) {
-					alert('you must enter a username');
+					swal({
+						title: "Error!",
+						text: "You must enter a Username",
+						type: "error"
+					});
 					return;
 				}
 				if (this.state.profile.password.length == 0) {
-					alert('you must enter password');
+					swal({
+						title: "Error!",
+						text: "You must enter a password",
+						type: "error"
+					});
+					this.clearValues();
 					return;
 				}
 	
@@ -21806,11 +21815,19 @@
 				event.preventDefault();
 				// console.log("Sign Up:" + JSON.stringify(this.state.profile))
 				if (this.state.profile.username.length == 0) {
-					alert('you must enter a username');
+					swal({
+						title: "Error!",
+						text: "You must enter a Username",
+						type: "error"
+					});
 					return;
 				}
 				if (this.state.profile.password.length == 0) {
-					alert('you must enter password');
+					swal({
+						title: "Error!",
+						text: "You must enter a password",
+						type: "error"
+					});
 					return;
 				}
 				this.props.createSignUp(this.state.profile);
@@ -21831,7 +21848,7 @@
 					_this2.setState({
 						flag: false
 					});
-					console.log("HERE YOU GO: " + JSON.stringify(_this2.state.flag));
+					// console.log("HERE YOU GO: " + JSON.stringify(this.state.flag))
 				});
 				// this.props.fetchZone(null)
 			}
@@ -21869,7 +21886,11 @@
 					_this3.setState({
 						profile: updatedProfile
 					});
-					alert('Your profile image has been uploaded');
+					swal({
+						title: "Success!",
+						text: "Your image has been uploaded",
+						type: "suceess"
+					});
 				});
 			}
 		}, {
@@ -34561,18 +34582,7 @@
 		_createClass(Zones, [{
 			key: 'componentDidMount',
 			value: function componentDidMount() {
-				console.log('componentDidMount: ' + JSON.stringify(this.props.user));
-				// APIManager.get('/api/zone', null, (err, response) => {
-				// 	if (err){
-				// 		alert('ERROR: '+err.message)
-				// 		return
-				// 	}
-				//
-				// 	// ACTION!
-				// const zones = response.results
-				// this.props.zonesReceived(zones)
-				// })
-	
+				// console.log('componentDidMount: '+JSON.stringify(this.props.user))
 				this.props.fetchZone(null);
 			}
 		}, {
@@ -34581,7 +34591,11 @@
 				var _this2 = this;
 	
 				if (this.props.user == null) {
-					alert('no zone');
+					swal({
+						title: "Error!",
+						text: "No Zone Entered",
+						type: "error"
+					});
 					return;
 				}
 	
@@ -34591,7 +34605,11 @@
 	
 				_utils.APIManager.post('/api/zone', updatedZone, function (err, response) {
 					if (err) {
-						alert('ERROR: ' + err.message);
+						swal({
+							title: "Error!",
+							text: err.message,
+							type: "error"
+						});
 						return;
 					}
 	
@@ -34865,7 +34883,7 @@
 		}, {
 			key: 'handleSelect',
 			value: function handleSelect(key) {
-				alert('selected ' + key);
+				//  alert('selected ' + key);
 				this.setState({ key: key });
 			}
 		}, {
@@ -35862,7 +35880,11 @@
 			key: 'submitComment',
 			value: function submitComment(comment) {
 				if (this.props.user == null) {
-					alert('Please Sign Up or Log In');
+					swal({
+						title: "Error!",
+						text: "Please Register or Login",
+						type: "error"
+					});
 					return;
 				}
 	
@@ -35896,7 +35918,11 @@
 	
 				_utils.APIManager.get('/api/comment', { zone: zone._id }, function (err, response) {
 					if (err) {
-						alert('ERROR: ' + err.message);
+						swal({
+							title: "Error!",
+							text: err.message,
+							type: "error"
+						});
 						return;
 					}
 	
@@ -36480,7 +36506,11 @@
 				event.preventDefault();
 	
 				if (Object.keys(this.state.updated).length == 0) {
-					alert('No Changes Made!!');
+					swal({
+						title: "Error!",
+						text: "No Changes Made",
+						type: "error"
+					});
 					return;
 				}
 	
@@ -36488,7 +36518,11 @@
 				this.setState({
 					user: null
 				});
-				alert("Profile Updated");
+				swal({
+					title: "Success!",
+					text: "Profile Updated",
+					type: "success"
+				});
 			}
 		}, {
 			key: 'uploadImage',
