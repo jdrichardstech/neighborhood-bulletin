@@ -188,20 +188,22 @@ var Comment = (function (Component) {
 								{ className: "row" },
 								React.createElement(
 									"div",
-									{ className: "col-md-6" },
+									{ className: "col-md-6", style: { padding: 10 } },
 									React.createElement(
 										"a",
-										{ style: { border: "1px solid red", width: "40%", color: "white" }, onClick: this.updateComment.bind(this), href: "javascript:void(0)", className: "pull-right btn btn-primary btn-raised btn-block animate-icon" },
-										"Submit"
+										{ style: { width: "40%", color: "white" }, onClick: this.updateComment.bind(this), href: "javascript:void(0)", className: "pull-right btn btn-primary btn-raised btn-block animate-icon" },
+										"Submit  ",
+										React.createElement("i", { className: "ml-1 no-mr zmdi zmdi-long-arrow-right" })
 									)
 								),
 								React.createElement(
 									"div",
-									{ className: "col-md-6" },
+									{ className: "col-md-6", style: { padding: 10 } },
 									React.createElement(
 										"a",
-										{ style: { border: "1px solid green", width: "40%", color: "white", margin: "0 auto" }, onClick: this.cancelEdit.bind(this), href: "javascript:void(0)", className: "pull-left btn btn-danger btn-raised btn-block animate-icon" },
-										"Cancel"
+										{ style: { width: "40%", color: "white" }, onClick: this.cancelEdit.bind(this), href: "javascript:void(0)", className: "pull-left btn btn-danger btn-raised btn-block " },
+										React.createElement("i", { className: "ml-1 no-mr zmdi zmdi-close" }),
+										"  Cancel"
 									)
 								),
 								React.createElement("div", { className: "col-md-6" })

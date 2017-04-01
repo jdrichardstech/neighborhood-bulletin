@@ -166,7 +166,8 @@ var CreateComment = (function (Component) {
 							React.createElement(
 								"a",
 								{ className: "pull-right", style: { width: "30%", color: "white", margin: "0 auto" }, onClick: this.submitComment.bind(this), href: "javascript:void(0)", className: "btn btn-primary btn-raised btn-block animate-icon" },
-								"Submit Post"
+								"Submit Post  ",
+								React.createElement("i", { className: "ml-1 no-mr zmdi zmdi-long-arrow-right" })
 							)
 						)
 					)
