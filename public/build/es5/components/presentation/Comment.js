@@ -16,8 +16,11 @@ var React = _interopRequire(_react);
 
 var Component = _react.Component;
 var Link = require("react-router").Link;
-var ImageHelper = require("../../utils").ImageHelper;
+var DateUtils = _interopRequire(require("../../utils/DateUtils"));
+
 var DropZone = _interopRequire(require("react-dropzone"));
+
+var Time = _interopRequire(require("react-time"));
 
 var Comment = (function (Component) {
 	function Comment() {
@@ -212,17 +215,7 @@ var Comment = (function (Component) {
 					)
 				) : React.createElement("div", null);
 
-				var thisDate = currentComment.timestamp.substr(0, 10);
-				var year = thisDate.substr(0, 4);
 
-				var reverseDate = thisDate.concat("-" + year);
-				var newDate = reverseDate.substr(5, 15);
-				var time = currentComment.timestamp.substr(11, 5);
-				var hourDigits = time.substr(0, 2);
-				var minutes = time.substr(2, 3);
-				var hour = hourDigits <= 12 ? hourDigits : hourDigits;
-				var amPm = hourDigits >= 12 ? "pm" : "am";
-				var newTime = hour + minutes + amPm;
 				return React.createElement(
 					"div",
 					null,
@@ -283,9 +276,7 @@ var Comment = (function (Component) {
 										React.createElement(
 											"span",
 											{ className: "color-medium-dark" },
-											newTime,
-											" | ",
-											newDate
+											DateUtils.formattedDate(currentComment.timestamp)
 										)
 									)
 								),

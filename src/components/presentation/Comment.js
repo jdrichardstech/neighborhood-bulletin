@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
-import { ImageHelper } from '../../utils'
+import DateUtils  from '../../utils/DateUtils'
 import DropZone from 'react-dropzone'
+import Time from 'react-time'
 
 class Comment extends Component {
 constructor(){
@@ -135,17 +136,7 @@ grabImage(files){
 		:
 		<div></div>
 
-		var thisDate = currentComment.timestamp.substr(0,10)
-		var year = thisDate.substr(0,4)
-
-		var reverseDate=thisDate.concat('-'+ year)
-		var newDate=reverseDate.substr(5,15)
-		var time = currentComment.timestamp.substr(11,5)
-		var hourDigits = time.substr(0,2)
-		var minutes = time.substr(2,3)
-		var hour = (hourDigits <=12) ? hourDigits : hourDigits
-		var amPm = (hourDigits >= 12) ? 'pm' : 'am'
-		var newTime = hour + minutes + amPm
+			
 		return (
 
 			<div>
@@ -172,7 +163,7 @@ grabImage(files){
 
 								<span className="ml-1 hidden-xs">
 									<i className="zmdi zmdi-time mr-05 color-info"></i>
-									<span className="color-medium-dark">{newTime} | {newDate}</span>
+									<span className="color-medium-dark">{DateUtils.formattedDate(currentComment.timestamp)}</span>
 								</span>
 
 							</div>
