@@ -19,6 +19,35 @@ class Comments extends Component {
 		}
 	}
 
+
+		componentDidUpdate(){
+			let zone = this.props.zones[this.props.index]
+			if (zone == null){
+				console.log('NO SELECTED ZONE!!!!')
+				return
+			}
+
+			let commentsArray = this.props.commentsMap[zone._id]
+			if (commentsArray != null) // comments have been already loaded!
+				return
+
+			APIManager.get('/api/comment', {zone:zone._id}, (err, response) => {
+				if (err){
+					swal({
+							title:"Error!",
+							text:err.message,
+							type: "error"
+						})
+					return
+				}
+
+				let comments = response.results
+				this.props.commentsReceived(comments, zone)
+			})
+			// this.props.fetchComments({ zone:zone._id})
+		}
+
+
 	submitComment(comment){
 		if(this.props.user == null){
 			swal({
@@ -41,33 +70,6 @@ class Comments extends Component {
 		}
 
 		this.props.createComment(updatedComment)
-	}
-
-	componentDidUpdate(){
-		let zone = this.props.zones[this.props.index]
-		if (zone == null){
-			console.log('NO SELECTED ZONE!!!!')
-			return
-		}
-
-		let commentsArray = this.props.commentsMap[zone._id]
-		if (commentsArray != null) // comments have been already loaded!
-			return
-
-		APIManager.get('/api/comment', {zone:zone._id}, (err, response) => {
-			if (err){
-				swal({
-						title:"Error!",
-						text:err.message,
-						type: "error"
-					})
-				return
-			}
-
-			let comments = response.results
-			this.props.commentsReceived(comments, zone)
-		})
-		// this.props.fetchComments({ zone:zone._id})
 	}
 
 
@@ -175,7 +177,7 @@ class Comments extends Component {
 
 
 
-			 <div className="modal" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+			 <div className="modal" id="myModal2" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel2">
 					 <div className="modal-dialog modal-lg animated zoomIn animated-3x" role="document">
 							 <div className="modal-content">
 									 <div className="modal-header">

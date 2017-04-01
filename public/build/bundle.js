@@ -21753,7 +21753,7 @@
 		}, {
 			key: 'componentDidUpdate',
 			value: function componentDidUpdate() {
-				console.log('componentDidUpdate' + JSON.stringify(this.state.flag) + 'ugh  ' + JSON.stringify(this.props.user));
+				// console.log('componentDidUpdate' +JSON.stringify(this.state.flag) +'ugh  '+ JSON.stringify(this.props.user))
 				if (this.state.flag == false && this.props.user != null) {
 					this.props.fetchZone(null);
 					this.context.router.push('/');
@@ -26185,7 +26185,7 @@
 					}
 	
 					var user = response.user;
-					console.log("New User Actions: " + JSON.stringify(response.user));
+					// console.log("New User Actions: "+JSON.stringify(response.user))
 					dispatch({
 						type: _constants2.default.CURRENT_USER_RECEIVED,
 						user: user
@@ -51885,31 +51885,6 @@
 		}
 	
 		_createClass(Comments, [{
-			key: 'submitComment',
-			value: function submitComment(comment) {
-				if (this.props.user == null) {
-					swal({
-						title: "Error!",
-						text: "Please Register or Login",
-						type: "error"
-					});
-					return;
-				}
-	
-				var updatedComment = Object.assign({}, comment);
-				var zone = this.props.zones[this.props.index];
-				updatedComment['commentImage'] = this.state.updated.commentImage;
-				updatedComment['zone'] = zone._id;
-				updatedComment['username'] = this.props.user.username;
-				updatedComment['author'] = {
-					id: this.props.user._id,
-					username: this.props.user.username,
-					image: this.props.user.image
-				};
-	
-				this.props.createComment(updatedComment);
-			}
-		}, {
 			key: 'componentDidUpdate',
 			value: function componentDidUpdate() {
 				var _this2 = this;
@@ -51938,6 +51913,31 @@
 					_this2.props.commentsReceived(comments, zone);
 				});
 				// this.props.fetchComments({ zone:zone._id})
+			}
+		}, {
+			key: 'submitComment',
+			value: function submitComment(comment) {
+				if (this.props.user == null) {
+					swal({
+						title: "Error!",
+						text: "Please Register or Login",
+						type: "error"
+					});
+					return;
+				}
+	
+				var updatedComment = Object.assign({}, comment);
+				var zone = this.props.zones[this.props.index];
+				updatedComment['commentImage'] = this.state.updated.commentImage;
+				updatedComment['zone'] = zone._id;
+				updatedComment['username'] = this.props.user.username;
+				updatedComment['author'] = {
+					id: this.props.user._id,
+					username: this.props.user.username,
+					image: this.props.user.image
+				};
+	
+				this.props.createComment(updatedComment);
 			}
 		}, {
 			key: 'submitEdit',
@@ -52083,7 +52083,7 @@
 						),
 						_react2.default.createElement(
 							'div',
-							{ className: 'modal', id: 'myModal2', tabindex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel2' },
+							{ className: 'modal', id: 'myModal2', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel2' },
 							_react2.default.createElement(
 								'div',
 								{ className: 'modal-dialog modal-lg animated zoomIn animated-3x', role: 'document' },

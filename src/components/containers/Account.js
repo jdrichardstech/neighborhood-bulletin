@@ -27,7 +27,7 @@ class Account extends Component{
 
 	}
 	componentDidUpdate(){
-		console.log('componentDidUpdate' +JSON.stringify(this.state.flag) +'ugh  '+ JSON.stringify(this.props.user))
+		// console.log('componentDidUpdate' +JSON.stringify(this.state.flag) +'ugh  '+ JSON.stringify(this.props.user))
 		if(this.state.flag==false&&this.props.user!=null){
 			this.props.fetchZone(null)
 			this.context.router.push('/')

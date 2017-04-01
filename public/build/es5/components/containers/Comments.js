@@ -47,33 +47,6 @@ var Comments = (function (Component) {
 	_inherits(Comments, Component);
 
 	_prototypeProperties(Comments, null, {
-		submitComment: {
-			value: function submitComment(comment) {
-				if (this.props.user == null) {
-					swal({
-						title: "Error!",
-						text: "Please Register or Login",
-						type: "error"
-					});
-					return;
-				}
-
-				var updatedComment = Object.assign({}, comment);
-				var zone = this.props.zones[this.props.index];
-				updatedComment.commentImage = this.state.updated.commentImage;
-				updatedComment.zone = zone._id;
-				updatedComment.username = this.props.user.username;
-				updatedComment.author = {
-					id: this.props.user._id,
-					username: this.props.user.username,
-					image: this.props.user.image
-				};
-
-				this.props.createComment(updatedComment);
-			},
-			writable: true,
-			configurable: true
-		},
 		componentDidUpdate: {
 			value: function componentDidUpdate() {
 				var _this = this;
@@ -100,6 +73,33 @@ var Comments = (function (Component) {
 					var comments = response.results;
 					_this.props.commentsReceived(comments, zone);
 				});
+			},
+			writable: true,
+			configurable: true
+		},
+		submitComment: {
+			value: function submitComment(comment) {
+				if (this.props.user == null) {
+					swal({
+						title: "Error!",
+						text: "Please Register or Login",
+						type: "error"
+					});
+					return;
+				}
+
+				var updatedComment = Object.assign({}, comment);
+				var zone = this.props.zones[this.props.index];
+				updatedComment.commentImage = this.state.updated.commentImage;
+				updatedComment.zone = zone._id;
+				updatedComment.username = this.props.user.username;
+				updatedComment.author = {
+					id: this.props.user._id,
+					username: this.props.user.username,
+					image: this.props.user.image
+				};
+
+				this.props.createComment(updatedComment);
 			},
 			writable: true,
 			configurable: true
@@ -248,7 +248,7 @@ var Comments = (function (Component) {
 						),
 						React.createElement(
 							"div",
-							{ className: "modal", id: "myModal2", tabindex: "-1", role: "dialog", "aria-labelledby": "myModalLabel2" },
+							{ className: "modal", id: "myModal2", tabIndex: "-1", role: "dialog", "aria-labelledby": "myModalLabel2" },
 							React.createElement(
 								"div",
 								{ className: "modal-dialog modal-lg animated zoomIn animated-3x", role: "document" },
