@@ -1,6 +1,6 @@
 {
-  "name": "yak-yik",
-  "version": "0.0.0",
+  "name": "neighborhood-bulletin-board",
+  "version": "7.4.0",
   "private": true,
   "scripts": {
 		"build": "NODE_ENV=production webpack && gulp",
