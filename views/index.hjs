@@ -15,7 +15,7 @@
 
 
 		<link rel="stylesheet" href="/build/css/style.min.css">
-		<link rel="stylesheet" href="/assets/css/style.light-blue-500.min.css" />
+		<!--<link rel="stylesheet" href="/assets/css/style.light-blue-500.min.css" />-->
 		<!--
 		<link rel="stylesheet" href="/assets/css/sweetalert.css" />
 		<link rel="stylesheet" href="/assets/css/preload.min.css" />

@@ -5,6 +5,7 @@ var gp_concat = require('gulp-concat')
 var gp_rename = require('gulp-rename')
 var gp_uglify = require('gulp-uglify')
 var minifyCSS = require('gulp-minify-css')
+var cleanCSS = require('gulp-clean-css')
 var autoprefixer = require('gulp-autoprefixer')
 var path = require('path')
 
@@ -19,6 +20,9 @@ gulp.task('es6-es5', function(){
 		.pipe(gulp.dest('./public/build/es5/'))
 })
 
+
+
+
 gulp.task('css', function(){
    return gulp.src(
            [
@@ -26,10 +30,12 @@ gulp.task('css', function(){
                 './public/assets/css/sweetalert.css',
 								'./public/assets/css/preload.min.css',
 								'./public/assets/css/plugins.min.css',
+								'./public/assets/css/style.light-blue-500.min.css'
 
            ]
 
          )
+			.pipe(cleanCSS())
        .pipe(minifyCSS())
        .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9'))
        .pipe(gp_concat('style.min.css'))
