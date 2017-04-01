@@ -66,7 +66,7 @@ var Account = (function (Component) {
 		},
 		componentDidUpdate: {
 			value: function componentDidUpdate() {
-				console.log("componentDidUpdate" + JSON.stringify(this.state.flag) + "ugh  " + JSON.stringify(this.props.user));
+				// console.log('componentDidUpdate' +JSON.stringify(this.state.flag) +'ugh  '+ JSON.stringify(this.props.user))
 				if (this.state.flag == false && this.props.user != null) {
 					this.props.fetchZone(null);
 					this.context.router.push("/");
@@ -242,10 +242,10 @@ var Account = (function (Component) {
 							React.createElement(Header, null),
 							React.createElement(
 								"div",
-								{ className: "ms-hero-page-override ms-hero-img-city ms-hero-bg-dark-light" },
+								{ className: "ms-hero-page-override  ms-hero-bg-dark-light" },
 								React.createElement(
 									"div",
-									{ className: "container" },
+									{ className: "container ms-hero-img-city" },
 									React.createElement(
 										"div",
 										{ className: "text-center" },

@@ -19,8 +19,8 @@
 		<!--
 		<link rel="stylesheet" href="/assets/css/sweetalert.css" />
 		<link rel="stylesheet" href="/assets/css/preload.min.css" />
-		<link rel="stylesheet" href="/assets/css/plugins.min.css" />
-		<link rel="stylesheet" href="/assets/css/style.light-blue-500.min.css" />-->
+		<link rel="stylesheet" href="/assets/css/plugins.min.css" />-->
+		<link rel="stylesheet" href="/assets/css/style.light-blue-500.min.css" />
 	</head>
   <body>
     <div id="root">{{{react}}}</div>

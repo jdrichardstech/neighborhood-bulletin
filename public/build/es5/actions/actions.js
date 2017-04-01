@@ -220,7 +220,7 @@ module.exports = {
 				}
 
 				var user = response.user;
-				console.log("New User Actions: " + JSON.stringify(response.user));
+				// console.log("New User Actions: "+JSON.stringify(response.user))
 				dispatch({
 					type: constants.CURRENT_USER_RECEIVED,
 					user: user
