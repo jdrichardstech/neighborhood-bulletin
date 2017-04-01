@@ -105,7 +105,8 @@ var CreateComment = (function (Component) {
 							React.createElement(
 								"h2",
 								{ style: { fontWeight: 400 } },
-								"Create New Post:"
+								React.createElement("i", { className: "zmdi zmdi-comment-text", style: { color: "#03a9f4" } }),
+								"  Create New Post"
 							),
 							React.createElement("hr", { style: { border: "2px solid #03a9f4", background: "#03a9f4", color: "#03a9f4" } }),
 							React.createElement(
@@ -165,7 +166,7 @@ var CreateComment = (function (Component) {
 							{ className: "col-md-12", style: { padding: 30 } },
 							React.createElement(
 								"a",
-								{ className: "pull-right", style: { width: "30%", color: "white", margin: "0 auto" }, onClick: this.submitComment.bind(this), href: "javascript:void(0)", className: "btn btn-primary btn-raised btn-block animate-icon" },
+								{ className: "pull-right", style: { width: "30%", color: "white", margin: "0 auto" }, onClick: this.submitComment.bind(this), href: "javascript:void(0)", className: "btn btn-primary btn-raised btn-block animate-icon", "data-dismiss": "modal" },
 								"Submit Post  ",
 								React.createElement("i", { className: "ml-1 no-mr zmdi zmdi-long-arrow-right" })
 							)

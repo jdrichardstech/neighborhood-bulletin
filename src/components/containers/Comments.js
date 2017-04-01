@@ -143,32 +143,54 @@ class Comments extends Component {
 
 			 header =
 				<div>
-
 					<article className="card wow fadeIn animation-delay-2 mb-4">
 					<div className="card-block">
 						<div className="row">
 							<div className="col-lg-12">
 							<h2>Posts for <span style={{color:'#03a9f4'}}>{zoneName}</span></h2>
-							<center><img style={{width:690, height:300}} src="/images/neighborhood.jpg" /></center>
+							<center><img style={{width:690, height:300}} src="/images/neighborhood.jpg" /><br /><br />
+								<button type="button" className="btn btn-success btn-raised" data-toggle="modal" data-target="#myModal2">
+									Create Post&nbsp;&nbsp;<i className="zmdi zmdi-comment-outline"></i>
+								</button>
+							</center>
 
 								</div>
 							</div>
 						</div>
 						</article>
+						<div>
+							<ul style={{listStyle:'none', padding:0}}>
+								{ commentList }
+							</ul>
+						</div>
 
-								<ul style={{listStyle:'none', padding:0}}>
-									{ commentList }
-								</ul>
+							<center>
+								<button style={{marginBottom:50}} type="button" className="btn btn-success btn-raised" data-toggle="modal" data-target="#myModal2">
+									Create Post&nbsp;&nbsp;<i className="zmdi zmdi-comment-outline"></i>
+								</button>
+							</center>
 
-								<article className="card wow fadeInLeft animation-delay-5 mb-4">
-								<div className="card-block">
-									<div className="row">
-										<div className="col-lg-12">
-							<CreateComment commentImage={this.state.updated.commentImage}  handleImage={this.uploadImage.bind(this)}  onCreate={this.submitComment.bind(this)} />
-										</div>
-									</div>
-								</div>
-							</article>
+
+
+
+
+
+			 <div className="modal" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+					 <div className="modal-dialog modal-lg animated zoomIn animated-3x" role="document">
+							 <div className="modal-content">
+									 <div className="modal-header">
+											 <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i className="zmdi zmdi-close"></i></span></button>
+
+									 </div>
+									 <div className="modal-body">
+
+									 <CreateComment commentImage={this.state.updated.commentImage}  handleImage={this.uploadImage.bind(this)}  onCreate={this.submitComment.bind(this)} />
+
+									 </div>
+
+							 </div>
+					 </div>
+			 </div>
 				</div>
 				}
 

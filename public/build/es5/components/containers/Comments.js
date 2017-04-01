@@ -213,29 +213,64 @@ var Comments = (function (Component) {
 										React.createElement(
 											"center",
 											null,
-											React.createElement("img", { style: { width: 690, height: 300 }, src: "/images/neighborhood.jpg" })
+											React.createElement("img", { style: { width: 690, height: 300 }, src: "/images/neighborhood.jpg" }),
+											React.createElement("br", null),
+											React.createElement("br", null),
+											React.createElement(
+												"button",
+												{ type: "button", className: "btn btn-success btn-raised", "data-toggle": "modal", "data-target": "#myModal2" },
+												"Create Post  ",
+												React.createElement("i", { className: "zmdi zmdi-comment-outline" })
+											)
 										)
 									)
 								)
 							)
 						),
 						React.createElement(
-							"ul",
-							{ style: { listStyle: "none", padding: 0 } },
-							commentList
+							"div",
+							null,
+							React.createElement(
+								"ul",
+								{ style: { listStyle: "none", padding: 0 } },
+								commentList
+							)
 						),
 						React.createElement(
-							"article",
-							{ className: "card wow fadeInLeft animation-delay-5 mb-4" },
+							"center",
+							null,
+							React.createElement(
+								"button",
+								{ style: { marginBottom: 50 }, type: "button", className: "btn btn-success btn-raised", "data-toggle": "modal", "data-target": "#myModal2" },
+								"Create Post  ",
+								React.createElement("i", { className: "zmdi zmdi-comment-outline" })
+							)
+						),
+						React.createElement(
+							"div",
+							{ className: "modal", id: "myModal2", tabindex: "-1", role: "dialog", "aria-labelledby": "myModalLabel2" },
 							React.createElement(
 								"div",
-								{ className: "card-block" },
+								{ className: "modal-dialog modal-lg animated zoomIn animated-3x", role: "document" },
 								React.createElement(
 									"div",
-									{ className: "row" },
+									{ className: "modal-content" },
 									React.createElement(
 										"div",
-										{ className: "col-lg-12" },
+										{ className: "modal-header" },
+										React.createElement(
+											"button",
+											{ type: "button", className: "close", "data-dismiss": "modal", "aria-label": "Close" },
+											React.createElement(
+												"span",
+												{ "aria-hidden": "true" },
+												React.createElement("i", { className: "zmdi zmdi-close" })
+											)
+										)
+									),
+									React.createElement(
+										"div",
+										{ className: "modal-body" },
 										React.createElement(CreateComment, { commentImage: this.state.updated.commentImage, handleImage: this.uploadImage.bind(this), onCreate: this.submitComment.bind(this) })
 									)
 								)

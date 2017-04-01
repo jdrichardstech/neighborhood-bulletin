@@ -68,7 +68,8 @@ class CreateComment extends Component {
 			<div>
 				<div className="row">
 					<div className="col-md-12">
-						<h2 style={{fontWeight:400}}>Create New Post:</h2>
+
+						<h2 style={{fontWeight:400}}><i className="zmdi zmdi-comment-text" style={{color:'#03a9f4'}}></i>&nbsp;&nbsp;Create New Post</h2>
 						<hr style={{border:'2px solid #03a9f4', background:'#03a9f4', color:'#03a9f4'}} />
 						<div style={{padding:'20px 30px 20px 30px'}}>
 
@@ -98,10 +99,11 @@ class CreateComment extends Component {
 			 </div>
 			 <div className="row">
 				 <div className="col-md-12" style={{padding:30}}>
-					 <a className="pull-right" style={{width:'30%', color:'white', margin:'0 auto'}} onClick={this.submitComment.bind(this)} href="javascript:void(0)" className="btn btn-primary btn-raised btn-block animate-icon">Submit Post&nbsp;&nbsp;<i className="ml-1 no-mr zmdi zmdi-long-arrow-right"></i>
+					 <a className="pull-right" style={{width:'30%', color:'white', margin:'0 auto'}} onClick={this.submitComment.bind(this)} href="javascript:void(0)" className="btn btn-primary btn-raised btn-block animate-icon" data-dismiss="modal">Submit Post&nbsp;&nbsp;<i className="ml-1 no-mr zmdi zmdi-long-arrow-right"></i>
 					 </a>
 					</div>
 			 </div>
+
 		 </div>
 		)
 	}

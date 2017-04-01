@@ -34889,6 +34889,8 @@
 		}, {
 			key: 'render',
 			value: function render() {
+				var _React$createElement;
+	
 				var newImage = this.state.comment.commentImage == null && this.state.picDropped == false ? null : this.props.commentImage;
 	
 				return _react2.default.createElement(
@@ -34903,7 +34905,8 @@
 							_react2.default.createElement(
 								'h2',
 								{ style: { fontWeight: 400 } },
-								'Create New Post:'
+								_react2.default.createElement('i', { className: 'zmdi zmdi-comment-text', style: { color: '#03a9f4' } }),
+								'\xA0\xA0Create New Post'
 							),
 							_react2.default.createElement('hr', { style: { border: '2px solid #03a9f4', background: '#03a9f4', color: '#03a9f4' } }),
 							_react2.default.createElement(
@@ -34963,7 +34966,7 @@
 							{ className: 'col-md-12', style: { padding: 30 } },
 							_react2.default.createElement(
 								'a',
-								_defineProperty({ className: 'pull-right', style: { width: '30%', color: 'white', margin: '0 auto' }, onClick: this.submitComment.bind(this), href: 'javascript:void(0)' }, 'className', 'btn btn-primary btn-raised btn-block animate-icon'),
+								(_React$createElement = { className: 'pull-right', style: { width: '30%', color: 'white', margin: '0 auto' }, onClick: this.submitComment.bind(this), href: 'javascript:void(0)' }, _defineProperty(_React$createElement, 'className', 'btn btn-primary btn-raised btn-block animate-icon'), _defineProperty(_React$createElement, 'data-dismiss', 'modal'), _React$createElement),
 								'Submit Post\xA0\xA0',
 								_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-long-arrow-right' })
 							)
@@ -36033,29 +36036,64 @@
 										_react2.default.createElement(
 											'center',
 											null,
-											_react2.default.createElement('img', { style: { width: 690, height: 300 }, src: '/images/neighborhood.jpg' })
+											_react2.default.createElement('img', { style: { width: 690, height: 300 }, src: '/images/neighborhood.jpg' }),
+											_react2.default.createElement('br', null),
+											_react2.default.createElement('br', null),
+											_react2.default.createElement(
+												'button',
+												{ type: 'button', className: 'btn btn-success btn-raised', 'data-toggle': 'modal', 'data-target': '#myModal2' },
+												'Create Post\xA0\xA0',
+												_react2.default.createElement('i', { className: 'zmdi zmdi-comment-outline' })
+											)
 										)
 									)
 								)
 							)
 						),
 						_react2.default.createElement(
-							'ul',
-							{ style: { listStyle: 'none', padding: 0 } },
-							commentList
+							'div',
+							null,
+							_react2.default.createElement(
+								'ul',
+								{ style: { listStyle: 'none', padding: 0 } },
+								commentList
+							)
 						),
 						_react2.default.createElement(
-							'article',
-							{ className: 'card wow fadeInLeft animation-delay-5 mb-4' },
+							'center',
+							null,
+							_react2.default.createElement(
+								'button',
+								{ style: { marginBottom: 50 }, type: 'button', className: 'btn btn-success btn-raised', 'data-toggle': 'modal', 'data-target': '#myModal2' },
+								'Create Post\xA0\xA0',
+								_react2.default.createElement('i', { className: 'zmdi zmdi-comment-outline' })
+							)
+						),
+						_react2.default.createElement(
+							'div',
+							{ className: 'modal', id: 'myModal2', tabindex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel2' },
 							_react2.default.createElement(
 								'div',
-								{ className: 'card-block' },
+								{ className: 'modal-dialog modal-lg animated zoomIn animated-3x', role: 'document' },
 								_react2.default.createElement(
 									'div',
-									{ className: 'row' },
+									{ className: 'modal-content' },
 									_react2.default.createElement(
 										'div',
-										{ className: 'col-lg-12' },
+										{ className: 'modal-header' },
+										_react2.default.createElement(
+											'button',
+											{ type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-label': 'Close' },
+											_react2.default.createElement(
+												'span',
+												{ 'aria-hidden': 'true' },
+												_react2.default.createElement('i', { className: 'zmdi zmdi-close' })
+											)
+										)
+									),
+									_react2.default.createElement(
+										'div',
+										{ className: 'modal-body' },
 										_react2.default.createElement(_presentation.CreateComment, { commentImage: this.state.updated.commentImage, handleImage: this.uploadImage.bind(this), onCreate: this.submitComment.bind(this) })
 									)
 								)
