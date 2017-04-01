@@ -10,3 +10,4 @@ updateProfileScratch.hjs
 profileScratch.hjs
 /public/assets/img/demo
 /public/assets/media
+/public/build/

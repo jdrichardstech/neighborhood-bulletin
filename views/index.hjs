@@ -12,16 +12,23 @@
 		<meta name="description" content="Material Style Theme">
 		<link rel="shortcut icon" href="../images/favicon.ico">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+		<link rel="stylesheet" href="/build/css/style.min.css">
+		<link rel="stylesheet" href="/assets/css/style.light-blue-500.min.css" />
+		<!--
 		<link rel="stylesheet" href="/assets/css/sweetalert.css" />
 		<link rel="stylesheet" href="/assets/css/preload.min.css" />
 		<link rel="stylesheet" href="/assets/css/plugins.min.css" />
-		<link rel="stylesheet" href="/assets/css/style.light-blue-500.min.css" />
+		<link rel="stylesheet" href="/assets/css/style.light-blue-500.min.css" />-->
 	</head>
   <body>
     <div id="root">{{{react}}}</div>
+		<!--
 		<script src="/assets/js/sweetalert.min.js"></script>
 		<script src="/assets/js/plugins.min.js"></script>
-		<script src="/assets/js/app.min.js"></script>
+		<script src="/assets/js/app.min.js"></script>-->
+		 <script type=text/javascript src="/build/vendor.min.js"></script>
 		<script type="text/javascript">window.__PRELOADED_STATE__={{{preloadedState}}}</script>
     <script type="text/javascript" src="/build/bundle.js"></script>
   </body>

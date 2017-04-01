@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+		"build": "NODE_ENV=production webpack && gulp",
+    "postinstall": "npm run build",
     "start": "node ./bin/www"
   },
   "dependencies": {
@@ -17,6 +19,11 @@
     "express": "~4.13.4",
     "gulp": "^3.9.1",
     "gulp-6to5": "^3.0.0",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.1.2",
     "hjs": "~0.0.6",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",

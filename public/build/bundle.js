@@ -56,9 +56,9 @@
 	
 	var _containers = __webpack_require__(179);
 	
-	var _layout = __webpack_require__(304);
+	var _layout = __webpack_require__(424);
 	
-	var _Main = __webpack_require__(307);
+	var _Main = __webpack_require__(427);
 	
 	var _Main2 = _interopRequireDefault(_Main);
 	
@@ -21638,7 +21638,7 @@
 	
 	var _Account2 = _interopRequireDefault(_Account);
 	
-	var _Comments = __webpack_require__(300);
+	var _Comments = __webpack_require__(420);
 	
 	var _Comments2 = _interopRequireDefault(_Comments);
 	
@@ -21646,15 +21646,15 @@
 	
 	var _Zones2 = _interopRequireDefault(_Zones);
 	
-	var _Profile = __webpack_require__(301);
+	var _Profile = __webpack_require__(421);
 	
 	var _Profile2 = _interopRequireDefault(_Profile);
 	
-	var _UpdateProfile = __webpack_require__(302);
+	var _UpdateProfile = __webpack_require__(422);
 	
 	var _UpdateProfile2 = _interopRequireDefault(_UpdateProfile);
 	
-	var _UpdateZone = __webpack_require__(303);
+	var _UpdateZone = __webpack_require__(423);
 	
 	var _UpdateZone2 = _interopRequireDefault(_UpdateZone);
 	
@@ -21713,7 +21713,7 @@
 	
 	var _Zones2 = _interopRequireDefault(_Zones);
 	
-	var _Comments = __webpack_require__(300);
+	var _Comments = __webpack_require__(420);
 	
 	var _Comments2 = _interopRequireDefault(_Comments);
 	
@@ -34766,19 +34766,19 @@
 	
 	var _Comment2 = _interopRequireDefault(_Comment);
 	
-	var _Zone = __webpack_require__(295);
+	var _Zone = __webpack_require__(415);
 	
 	var _Zone2 = _interopRequireDefault(_Zone);
 	
-	var _Header = __webpack_require__(297);
+	var _Header = __webpack_require__(417);
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
-	var _Footer = __webpack_require__(298);
+	var _Footer = __webpack_require__(418);
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
-	var _BackToTop = __webpack_require__(299);
+	var _BackToTop = __webpack_require__(419);
 	
 	var _BackToTop2 = _interopRequireDefault(_BackToTop);
 	
@@ -35108,7 +35108,7 @@
 	
 	var _reactRouter = __webpack_require__(228);
 	
-	var _DateUtils = __webpack_require__(427);
+	var _DateUtils = __webpack_require__(295);
 	
 	var _DateUtils2 = _interopRequireDefault(_DateUtils);
 	
@@ -35116,7 +35116,7 @@
 	
 	var _reactDropzone2 = _interopRequireDefault(_reactDropzone);
 	
-	var _reactTime = __webpack_require__(308);
+	var _reactTime = __webpack_require__(296);
 	
 	var _reactTime2 = _interopRequireDefault(_reactTime);
 	
@@ -35413,1473 +35413,36 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _styles = __webpack_require__(296);
+	var _reactTime = __webpack_require__(296);
 	
-	var _styles2 = _interopRequireDefault(_styles);
-	
-	var _reactRouter = __webpack_require__(228);
+	var _reactTime2 = _interopRequireDefault(_reactTime);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	//https://github.com/andreypopp/react-time
 	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Zone = function (_Component) {
-		_inherits(Zone, _Component);
-	
-		function Zone() {
-			_classCallCheck(this, Zone);
-	
-			return _possibleConstructorReturn(this, (Zone.__proto__ || Object.getPrototypeOf(Zone)).apply(this, arguments));
-		}
-	
-		_createClass(Zone, [{
-			key: 'onSelectTitle',
-			value: function onSelectTitle(event) {
-				event.preventDefault();
-				// console.log('onSelectTitle: '+this.props.index)
-				this.props.select(this.props.index);
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-	
-				var zoneStyle = _styles2.default.zone;
-				var zipCode = this.props.currentZone.zipCodes[0];
-	
-				var activeZone = this.props.isSelected ? _react2.default.createElement(
-					'a',
-					{ style: { fontSize: '1.2em', color: '#ff9800' }, onClick: this.onSelectTitle.bind(this), href: 'javascript:void(0)', className: 'media-heading' },
-					this.props.currentZone.name
-				) : _react2.default.createElement(
-					'a',
-					{ style: { fontSize: '1.2em' }, onClick: this.onSelectTitle.bind(this), href: 'javascript:void(0)', className: 'media-heading' },
-					this.props.currentZone.name
-				);
-	
-				var button = this.props.currentZone.username == this.props.username ? _react2.default.createElement(
-					_reactRouter.Link,
-					{ to: '/updatezone/' + this.props.currentZone._id },
-					' ',
-					_react2.default.createElement(
-						'button',
-						{ style: { marginTop: 10 }, className: 'btn btn-warning' },
-						'Update Zone'
-					)
-				) : null;
-				return _react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(
-						'div',
-						{ className: 'media' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'media-left media-middle' },
-							_react2.default.createElement(
-								'a',
-								{ onClick: this.onSelectTitle.bind(this), href: '#' },
-								_react2.default.createElement('img', { className: 'media-object media-object-circle', src: '/images/zonePin1.jpg', alt: '...' }),
-								' '
-							)
-						),
-						_react2.default.createElement(
-							'div',
-							{ className: 'media-body', style: { padding: '20px 0 0 10px' } },
-							activeZone,
-							_react2.default.createElement(
-								'p',
-								null,
-								this.props.currentZone.description
-							),
-							_react2.default.createElement(
-								'div',
-								{ className: 'media-footer text-medium' },
-								_react2.default.createElement(
-									'span',
-									{ className: 'mr-1' },
-									_react2.default.createElement('i', { className: 'zmdi zmdi-city-alt color-default mr-05' }),
-									' ',
-									zipCode
-								)
-							)
-						)
-					)
-				);
-			}
-		}]);
-	
-		return Zone;
-	}(_react.Component);
-	
-	exports.default = Zone;
+	exports.default = {
+	  formattedDate: function formattedDate(date) {
+	    var rightNow = Date.now();
+	    var commentDate = Date.parse(date);
+	    var twentyFourHours = '86400000';
+	    if (rightNow - commentDate > twentyFourHours) {
+	      return _react2.default.createElement(_reactTime2.default, { value: date, format: 'MMM DD, YYYY' });
+	    } else {
+	      return _react2.default.createElement(_reactTime2.default, { value: date, titleFormat: 'YYYY/MM/DD HH:mm', relative: true });
+	    }
+	  }
+	};
 
 /***/ },
 /* 296 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports.default = {
-		universal: {},
-		comment: {
-			commentsBox: {
-				padding: 12,
-				background: '#f9f9f9',
-				border: '1px solid #ddd'
-			},
-			commentsList: {
-				listStyleType: 'none'
-			},
-			title: {
-				color: 'red'
-			}
-		},
-		zone: {
-			container: {
-				padding: 16,
-				background: '#f9f9f9',
-				marginTop: 12,
-				border: '1px solid #ddd'
-			},
-			header: {
-				marginTop: 0,
-				marginBottom: 0
-			},
-			title: {
-				textDecoration: 'none',
-				color: 'red'
-			},
-			ul: {
-				listStyle: 'none'
-			},
-			li: {
-				border: '2px solid #ddd',
-				margin: '0 0 35px -35px',
-				padding: '10px',
-				background: 'white'
-			}
-		},
-		account: {
-			upper: {
-				marginTop: '12px'
-			},
-			container: {
-				padding: 16,
-				background: '#f9f9f9',
-				marginTop: 12,
-				border: '1px solid #ddd'
-			},
-			accountBox: {
-				padding: 12,
-				background: '#f9f9f9',
-				border: '1px solid #ddd',
-				marginBottom: 15
-			}
-		},
-		profile: {
-			profiledetails: {
-				margin: '40px 40px'
-			},
-			entry: {
-				color: 'blue'
-			}
-		}
-	};
-
-/***/ },
-/* 297 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Header = function Header(props) {
-		return _react2.default.createElement(
-			"div",
-			null,
-			_react2.default.createElement(
-				"div",
-				{ className: "modal modal-primary", id: "ms-account-modal", tabIndex: "-1", role: "dialog", "aria-labelledby": "myModalLabel" },
-				_react2.default.createElement(
-					"div",
-					{ className: "modal-dialog animated zoomIn animated-3x", role: "document" },
-					_react2.default.createElement(
-						"div",
-						{ className: "modal-content" },
-						_react2.default.createElement(
-							"div",
-							{ className: "modal-header shadow-2dp no-pb" },
-							_react2.default.createElement(
-								"button",
-								{ type: "button", className: "close", "data-dismiss": "modal", "aria-label": "Close" },
-								_react2.default.createElement(
-									"span",
-									{ "aria-hidden": "true" },
-									_react2.default.createElement("i", { className: "zmdi zmdi-close" })
-								)
-							),
-							_react2.default.createElement(
-								"div",
-								{ className: "modal-title text-center" },
-								_react2.default.createElement(
-									"span",
-									{ className: "ms-logo ms-logo-white ms-logo-sm mr-1" },
-									"JD"
-								),
-								_react2.default.createElement(
-									"h3",
-									{ className: "no-m ms-site-title" },
-									"Neighborhood",
-									_react2.default.createElement(
-										"span",
-										null,
-										"Bulletin Board"
-									)
-								)
-							)
-						)
-					)
-				)
-			),
-			_react2.default.createElement(
-				"header",
-				{ className: "ms-header ms-header-white" },
-				_react2.default.createElement(
-					"div",
-					{ className: "container container-full" },
-					_react2.default.createElement(
-						"div",
-						{ className: "ms-title" },
-						_react2.default.createElement(
-							"a",
-							{ href: "index.html" },
-							_react2.default.createElement(
-								"span",
-								{ className: "ms-logo animated zoomInDown animation-delay-5" },
-								"JD"
-							),
-							_react2.default.createElement(
-								"h1",
-								{ className: "animated fadeInRight animation-delay-6" },
-								"Neighborhood",
-								_react2.default.createElement(
-									"span",
-									null,
-									"Bulletin Board"
-								)
-							)
-						)
-					)
-				)
-			),
-			_react2.default.createElement(
-				"nav",
-				{ className: "navbar navbar-static-top yamm ms-navbar ms-navbar-primary" },
-				_react2.default.createElement(
-					"div",
-					{ className: "container container-full" },
-					_react2.default.createElement(
-						"div",
-						{ className: "navbar-header" },
-						_react2.default.createElement(
-							"a",
-							{ className: "navbar-brand", href: "index.html" },
-							_react2.default.createElement(
-								"span",
-								{ className: "ms-logo ms-logo-sm" },
-								"JD"
-							),
-							_react2.default.createElement(
-								"span",
-								{ className: "ms-title" },
-								"Neighborhood",
-								_react2.default.createElement(
-									"strong",
-									null,
-									"Bulletin Board"
-								)
-							)
-						)
-					),
-					_react2.default.createElement(
-						"div",
-						{ id: "navbar", className: "navbar-collapse collapse" },
-						_react2.default.createElement("ul", { className: "nav navbar-nav" })
-					)
-				)
-			)
-		);
-	};
-	
-	exports.default = Header;
-
-/***/ },
-/* 298 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Footer = function Footer(props) {
-		return _react2.default.createElement(
-			"div",
-			null,
-			_react2.default.createElement(
-				"footer",
-				{ className: "ms-footer" },
-				_react2.default.createElement(
-					"div",
-					{ className: "container" },
-					_react2.default.createElement(
-						"p",
-						null,
-						"Copyright \xA9 JDRichardsTech 2017"
-					)
-				)
-			)
-		);
-	};
-	
-	exports.default = Footer;
-
-/***/ },
-/* 299 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var BackToTop = function BackToTop(props) {
-		return _react2.default.createElement(
-			"div",
-			null,
-			_react2.default.createElement(
-				"div",
-				{ className: "btn-back-top" },
-				_react2.default.createElement(
-					"a",
-					{ href: "#", "data-scroll": true, id: "back-top", className: "btn-circle btn-circle-primary btn-circle-sm btn-circle-raised " },
-					_react2.default.createElement("i", { className: "zmdi zmdi-long-arrow-up" })
-				)
-			)
-		);
-	};
-	
-	exports.default = BackToTop;
-
-/***/ },
-/* 300 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _presentation = __webpack_require__(291);
-	
-	var _styles = __webpack_require__(219);
-	
-	var _styles2 = _interopRequireDefault(_styles);
-	
-	var _utils = __webpack_require__(181);
-	
-	var _reactRedux = __webpack_require__(189);
-	
-	var _actions = __webpack_require__(220);
-	
-	var _actions2 = _interopRequireDefault(_actions);
-	
-	var _reactDropzone = __webpack_require__(282);
-	
-	var _reactDropzone2 = _interopRequireDefault(_reactDropzone);
-	
-	var _sha = __webpack_require__(283);
-	
-	var _sha2 = _interopRequireDefault(_sha);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Comments = function (_Component) {
-		_inherits(Comments, _Component);
-	
-		function Comments() {
-			_classCallCheck(this, Comments);
-	
-			var _this = _possibleConstructorReturn(this, (Comments.__proto__ || Object.getPrototypeOf(Comments)).call(this));
-	
-			_this.state = {
-				updated: {},
-				commentsLoaded: false,
-				index: 0
-			};
-			return _this;
-		}
-	
-		_createClass(Comments, [{
-			key: 'submitComment',
-			value: function submitComment(comment) {
-				if (this.props.user == null) {
-					swal({
-						title: "Error!",
-						text: "Please Register or Login",
-						type: "error"
-					});
-					return;
-				}
-	
-				var updatedComment = Object.assign({}, comment);
-				var zone = this.props.zones[this.props.index];
-				updatedComment['commentImage'] = this.state.updated.commentImage;
-				updatedComment['zone'] = zone._id;
-				updatedComment['username'] = this.props.user.username;
-				updatedComment['author'] = {
-					id: this.props.user._id,
-					username: this.props.user.username,
-					image: this.props.user.image
-				};
-	
-				this.props.createComment(updatedComment);
-			}
-		}, {
-			key: 'componentDidUpdate',
-			value: function componentDidUpdate() {
-				var _this2 = this;
-	
-				var zone = this.props.zones[this.props.index];
-				if (zone == null) {
-					console.log('NO SELECTED ZONE!!!!');
-					return;
-				}
-	
-				var commentsArray = this.props.commentsMap[zone._id];
-				if (commentsArray != null) // comments have been already loaded!
-					return;
-	
-				_utils.APIManager.get('/api/comment', { zone: zone._id }, function (err, response) {
-					if (err) {
-						swal({
-							title: "Error!",
-							text: err.message,
-							type: "error"
-						});
-						return;
-					}
-	
-					var comments = response.results;
-					_this2.props.commentsReceived(comments, zone);
-				});
-				// this.props.fetchComments({ zone:zone._id})
-			}
-		}, {
-			key: 'submitEdit',
-			value: function submitEdit(comment, updated) {
-				// console.log('update comment: '+ comment._id+", "+ JSON.stringify(updated))
-				updated['commentImage'] = this.state.updated.commentImage;
-				this.setState({
-					commentImage: null
-				});
-				console.log('Updated Image: ' + JSON.stringify(updated));
-				this.props.updateComment(comment, updated);
-			}
-		}, {
-			key: 'uploadImage',
-			value: function uploadImage(files) {
-				var _this3 = this;
-	
-				var image = files[0];
-				console.log("COMMENT Container Image file: " + JSON.stringify(image));
-				var timestamp = Date.now() / 1000;
-				var cloudName = 'jdrichardstech';
-				var uploadPreset = 'qfk6kfpf';
-				var apiSecret = 'e8LAFbk1H23PLU02S5Og2DzsMYQ';
-				var paramStr = 'timestamp=' + timestamp + '&upload_preset=' + uploadPreset + 'e8LAFbk1H23PLU02S5Og2DzsMYQ';
-				var signature = (0, _sha2.default)(paramStr);
-				var apiKey = '854536555581142';
-				var params = {
-					'api_key': apiKey,
-					'timestamp': timestamp,
-					'upload_preset': uploadPreset,
-					'signature': signature
-				};
-				var url = 'https://api.cloudinary.com/v1_1/' + cloudName + '/image/upload';
-				_utils.APIManager.upload(url, image, params, function (err, response) {
-					if (err) {
-						console.log('Upload err: ' + err.message);
-						return;
-					}
-					console.log('Uploaded image: ' + JSON.stringify(response.body));
-					var imageUrl = response.body['secure_url'];
-	
-					var updatedProfile = Object.assign({}, _this3.state.updated);
-					updatedProfile['commentImage'] = response.body['secure_url'];
-					_this3.setState({
-						updated: updatedProfile
-					});
-					// console.log("UPDATED COMMENT:" + JSON.stringify(this.state.updated))
-				});
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				var _this4 = this;
-	
-				var selectedZone = this.props.zones[this.props.index];
-				var image = this.state.updated.commentImage == null ? '' : _utils.ImageHelper.thumbnail(this.state.updated.commentImage, 22);
-	
-				var zoneName = null;
-				var commentList = null;
-				var header = null;
-				if (this.props.user != null) {
-					if (selectedZone != null) {
-						zoneName = selectedZone.name;
-						var zoneComments = this.props.commentsMap[selectedZone._id];
-						// console.log('ZoneComment: ' + JSON.stringify(this.props.commentsMap))
-						// console.log('SELECTED ZONE ID = '+selectedZone._id)
-						// console.log('COMMENTS MAP = '+JSON.stringify(this.props.commentsMap))
-						if (zoneComments != null) {
-							commentList = zoneComments.map(function (comment, i) {
-								return _react2.default.createElement(
-									'div',
-									{ key: i },
-									_react2.default.createElement(
-										'li',
-										null,
-										_react2.default.createElement(_presentation.Comment, { commentImage: _this4.state.updated.commentImage, handleImage: _this4.uploadImage.bind(_this4), handleSubmitEdit: _this4.submitEdit.bind(_this4), user: _this4.props.user, currentComment: comment, index: i })
-									)
-								);
-							});
-						}
-					}
-	
-					header = _react2.default.createElement(
-						'div',
-						null,
-						_react2.default.createElement(
-							'article',
-							{ className: 'card wow fadeIn animation-delay-2 mb-4' },
-							_react2.default.createElement(
-								'div',
-								{ className: 'card-block' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'row' },
-									_react2.default.createElement(
-										'div',
-										{ className: 'col-lg-12' },
-										_react2.default.createElement(
-											'h2',
-											null,
-											'Posts for ',
-											_react2.default.createElement(
-												'span',
-												{ style: { color: '#03a9f4' } },
-												zoneName
-											)
-										),
-										_react2.default.createElement(
-											'center',
-											null,
-											_react2.default.createElement('img', { style: { width: 690, height: 300 }, src: '/images/neighborhood.jpg' }),
-											_react2.default.createElement('br', null),
-											_react2.default.createElement('br', null),
-											_react2.default.createElement(
-												'button',
-												{ type: 'button', className: 'btn btn-success btn-raised', 'data-toggle': 'modal', 'data-target': '#myModal2' },
-												'Create Post\xA0\xA0',
-												_react2.default.createElement('i', { className: 'zmdi zmdi-comment-outline' })
-											)
-										)
-									)
-								)
-							)
-						),
-						_react2.default.createElement(
-							'div',
-							null,
-							_react2.default.createElement(
-								'ul',
-								{ style: { listStyle: 'none', padding: 0 } },
-								commentList
-							)
-						),
-						_react2.default.createElement(
-							'center',
-							null,
-							_react2.default.createElement(
-								'button',
-								{ style: { marginBottom: 50 }, type: 'button', className: 'btn btn-success btn-raised', 'data-toggle': 'modal', 'data-target': '#myModal2' },
-								'Create Post\xA0\xA0',
-								_react2.default.createElement('i', { className: 'zmdi zmdi-comment-outline' })
-							)
-						),
-						_react2.default.createElement(
-							'div',
-							{ className: 'modal', id: 'myModal2', tabindex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel2' },
-							_react2.default.createElement(
-								'div',
-								{ className: 'modal-dialog modal-lg animated zoomIn animated-3x', role: 'document' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'modal-content' },
-									_react2.default.createElement(
-										'div',
-										{ className: 'modal-header' },
-										_react2.default.createElement(
-											'button',
-											{ type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-label': 'Close' },
-											_react2.default.createElement(
-												'span',
-												{ 'aria-hidden': 'true' },
-												_react2.default.createElement('i', { className: 'zmdi zmdi-close' })
-											)
-										)
-									),
-									_react2.default.createElement(
-										'div',
-										{ className: 'modal-body' },
-										_react2.default.createElement(_presentation.CreateComment, { commentImage: this.state.updated.commentImage, handleImage: this.uploadImage.bind(this), onCreate: this.submitComment.bind(this) })
-									)
-								)
-							)
-						)
-					);
-				}
-	
-				var content = this.props.appStatus == 'loading' ? _react2.default.createElement(
-					'div',
-					{ id: 'ms-preload', className: 'ms-preload' },
-					_react2.default.createElement(
-						'div',
-						{ id: 'status' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'spinner' },
-							_react2.default.createElement('div', { className: 'dot1' }),
-							_react2.default.createElement('div', { className: 'dot2' })
-						)
-					)
-				) : header;
-	
-				return _react2.default.createElement(
-					'div',
-					null,
-					header
-				);
-			}
-		}]);
-	
-		return Comments;
-	}(_react.Component);
-	
-	var stateToProps = function stateToProps(state) {
-		return {
-			commentsMap: state.comment.map,
-			// comments: state.comment.list,
-			commentsLoaded: state.comment.commentsLoaded,
-			appStatus: state.comment.appStatus,
-			index: state.zone.selectedZone,
-			zones: state.zone.list,
-			user: state.account.user
-		};
-	};
-	
-	var dispatchToProps = function dispatchToProps(dispatch) {
-		return {
-			commentsReceived: function commentsReceived(comments, zone) {
-				return dispatch(_actions2.default.commentsReceived(comments, zone));
-			},
-			fetchComments: function fetchComments(zone) {
-				return dispatch(_actions2.default.fetchComments(zone));
-			},
-			updateComment: function updateComment(comment, updated) {
-				return dispatch(_actions2.default.updateComment(comment, updated));
-			},
-			commentCreated: function commentCreated(comment) {
-				return dispatch(_actions2.default.commentCreated(comment));
-			},
-			createComment: function createComment(comment) {
-				return dispatch(_actions2.default.createComment(comment));
-			}
-		};
-	};
-	
-	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Comments);
-
-/***/ },
-/* 301 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _utils = __webpack_require__(181);
-	
-	var _styles = __webpack_require__(219);
-	
-	var _styles2 = _interopRequireDefault(_styles);
-	
-	var _reactRedux = __webpack_require__(189);
-	
-	var _actions = __webpack_require__(220);
-	
-	var _actions2 = _interopRequireDefault(_actions);
-	
-	var _reactRouter = __webpack_require__(228);
-	
-	var _presentation = __webpack_require__(291);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Profile = function (_Component) {
-		_inherits(Profile, _Component);
-	
-		function Profile(props) {
-			_classCallCheck(this, Profile);
-	
-			var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this, props));
-	
-			_this.state = {};
-			return _this;
-		}
-	
-		_createClass(Profile, [{
-			key: 'componentDidMount',
-			value: function componentDidMount() {
-				console.log(JSON.stringify(this.props.username));
-				var profile = this.props.profiles[this.props.username];
-				if (profile != null) return;
-	
-				this.props.fetchProfile({ username: this.props.username });
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-	
-				var profile = this.props.profiles[this.props.username];
-	
-				var header = null;
-				if (profile != null) {
-					header = _react2.default.createElement(
-						'div',
-						null,
-						_react2.default.createElement(
-							'div',
-							{ className: 'ms-hero-page-override ms-hero-img-city ms-bg-fixed ms-hero-bg-primary' },
-							_react2.default.createElement(
-								'div',
-								{ className: 'container' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'text-center mt-2', style: { paddingTop: 75 } },
-									_react2.default.createElement(
-										'h1',
-										{ className: 'color-white mt-4 animated fadeInUp animation-delay-10' },
-										'Profile Page'
-									),
-									_react2.default.createElement('img', { src: profile.image, className: 'ms-avatar-hero animated zoomIn animation-delay-7' }),
-									_react2.default.createElement(
-										'h1',
-										{ className: 'color-white mt-4 animated fadeInUp animation-delay-10' },
-										profile.firstName,
-										' ',
-										profile.lastName
-									),
-									_react2.default.createElement(
-										'h3',
-										{ className: 'color-medium no-mb animated fadeInUp animation-delay-10' },
-										profile.bio
-									)
-								)
-							)
-						),
-						_react2.default.createElement(
-							'div',
-							{ className: 'container' },
-							_react2.default.createElement(
-								'div',
-								{ className: 'row' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'col-md-6 col-md-offset-3' },
-									_react2.default.createElement(
-										'div',
-										{ className: 'card-block' },
-										_react2.default.createElement(
-											'h2',
-											{ className: 'color-primary no-mb', style: { textAlign: 'center', padding: '20px 0 20px 0' } },
-											'Personal Information'
-										)
-									),
-									_react2.default.createElement(
-										'div',
-										null,
-										_react2.default.createElement(
-											'table',
-											{ className: 'table  table-striped table-striped-warning' },
-											_react2.default.createElement(
-												'tbody',
-												null,
-												_react2.default.createElement(
-													'tr',
-													null,
-													_react2.default.createElement(
-														'th',
-														null,
-														_react2.default.createElement('i', { className: 'zmdi zmdi-face mr-1 color-warning' }),
-														' Fullname'
-													),
-													_react2.default.createElement(
-														'td',
-														null,
-														profile.firstName,
-														' ',
-														profile.lastName
-													)
-												),
-												_react2.default.createElement(
-													'tr',
-													null,
-													_react2.default.createElement(
-														'th',
-														null,
-														_react2.default.createElement('i', { className: 'zmdi zmdi-account mr-1 color-royal' }),
-														' User Name'
-													),
-													_react2.default.createElement(
-														'td',
-														null,
-														profile.username
-													)
-												),
-												_react2.default.createElement(
-													'tr',
-													null,
-													_react2.default.createElement(
-														'th',
-														null,
-														_react2.default.createElement('i', { className: 'zmdi zmdi-male-female mr-1 color-success' }),
-														' Gender'
-													),
-													_react2.default.createElement(
-														'td',
-														null,
-														profile.gender
-													)
-												),
-												_react2.default.createElement(
-													'tr',
-													null,
-													_react2.default.createElement(
-														'th',
-														null,
-														_react2.default.createElement('i', { className: 'zmdi zmdi-email mr-1 color-primary' }),
-														' Email'
-													),
-													_react2.default.createElement(
-														'td',
-														null,
-														_react2.default.createElement(
-															'a',
-															{ href: '#' },
-															profile.username,
-															'@me.com'
-														)
-													)
-												),
-												_react2.default.createElement(
-													'tr',
-													null,
-													_react2.default.createElement(
-														'th',
-														null,
-														_react2.default.createElement('i', { className: 'zmdi zmdi-link mr-1 color-danger' }),
-														' Website'
-													),
-													_react2.default.createElement(
-														'td',
-														null,
-														_react2.default.createElement(
-															'a',
-															{ href: '#' },
-															'www.',
-															profile.username,
-															'.com'
-														)
-													)
-												)
-											)
-										)
-									),
-									_react2.default.createElement(
-										_reactRouter.Link,
-										{ to: '/' },
-										_react2.default.createElement(
-											'button',
-											{ style: { margin: '0 auto 100px auto', width: '25%' }, type: '', className: 'btn btn-success  btn-raised btn-block' },
-											_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-home' }),
-											'\xA0\xA0Home'
-										)
-									)
-								)
-							)
-						)
-					);
-				}
-	
-				var content = this.props.appStatus == 'loading' ? 'Loading...' : header;
-	
-				return _react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(
-						'div',
-						{ className: 'sb-site-container', style: { background: '#fff' } },
-						_react2.default.createElement(_presentation.Header, null),
-						content
-					),
-					_react2.default.createElement(_presentation.BackToTop, null),
-					_react2.default.createElement(_presentation.Footer, null)
-				);
-			}
-		}]);
-	
-		return Profile;
-	}(_react.Component);
-	
-	var stateToProps = function stateToProps(state) {
-		return {
-	
-			profiles: state.profile.map,
-			appStatus: state.profile.appStatus
-		};
-	};
-	
-	var dispatchToProps = function dispatchToProps(dispatch) {
-		return {
-			fetchProfile: function fetchProfile(params) {
-				return dispatch(_actions2.default.fetchProfile(params));
-			}
-		};
-	};
-	
-	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Profile);
-
-/***/ },
-/* 302 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _utils = __webpack_require__(181);
-	
-	var _styles = __webpack_require__(219);
-	
-	var _styles2 = _interopRequireDefault(_styles);
-	
-	var _reactRedux = __webpack_require__(189);
-	
-	var _actions = __webpack_require__(220);
-	
-	var _actions2 = _interopRequireDefault(_actions);
-	
-	var _reactRouter = __webpack_require__(228);
-	
-	var _reactDropzone = __webpack_require__(282);
-	
-	var _reactDropzone2 = _interopRequireDefault(_reactDropzone);
-	
-	var _sha = __webpack_require__(283);
-	
-	var _sha2 = _interopRequireDefault(_sha);
-	
-	var _presentation = __webpack_require__(291);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var UpdateProfile = function (_Component) {
-		_inherits(UpdateProfile, _Component);
-	
-		function UpdateProfile(props) {
-			_classCallCheck(this, UpdateProfile);
-	
-			var _this = _possibleConstructorReturn(this, (UpdateProfile.__proto__ || Object.getPrototypeOf(UpdateProfile)).call(this, props));
-	
-			_this.state = {
-				user: null,
-				updated: {}
-			};
-			return _this;
-		}
-	
-		_createClass(UpdateProfile, [{
-			key: 'componentDidMount',
-			value: function componentDidMount() {
-				var updated = Object.assign({}, this.state.user);
-				updated = this.props.user;
-				this.setState({
-					user: updated
-				});
-			}
-		}, {
-			key: 'componentDidUpdate',
-			value: function componentDidUpdate() {
-				if (this.state.user == null) {
-					this.props.fetchCurrentUser(null);
-					var updated = Object.assign({}, this.state.user);
-					updated = this.props.user;
-					this.setState({
-						user: updated
-					});
-				}
-			}
-		}, {
-			key: 'updateCurrentUser',
-			value: function updateCurrentUser(event) {
-				event.preventDefault();
-				// console.log('updateCurrentUser: '+event.target.id+' == '+event.target.value)
-				var updatedProfile = Object.assign({}, this.state.updated);
-				updatedProfile[event.target.id] = event.target.value;
-				this.setState({
-					updated: updatedProfile
-				});
-			}
-		}, {
-			key: 'updateProfile',
-			value: function updateProfile(event) {
-				event.preventDefault();
-	
-				if (Object.keys(this.state.updated).length == 0) {
-					swal({
-						title: "Error!",
-						text: "No Changes Made",
-						type: "error"
-					});
-					return;
-				}
-	
-				this.props.updateProfile(this.props.user, this.state.updated);
-				this.setState({
-					user: null
-				});
-				swal({
-					title: "Success!",
-					text: "Profile Updated",
-					type: "success"
-				});
-			}
-		}, {
-			key: 'uploadImage',
-			value: function uploadImage(files) {
-				var _this2 = this;
-	
-				var image = files[0];
-				console.log("COMMENT Container Image file: " + JSON.stringify(image));
-				var timestamp = Date.now() / 1000;
-				var cloudName = 'jdrichardstech';
-				var uploadPreset = 'qfk6kfpf';
-				var apiSecret = 'e8LAFbk1H23PLU02S5Og2DzsMYQ';
-				var paramStr = 'timestamp=' + timestamp + '&upload_preset=' + uploadPreset + 'e8LAFbk1H23PLU02S5Og2DzsMYQ';
-				var signature = (0, _sha2.default)(paramStr);
-				var apiKey = '854536555581142';
-				var params = {
-					'api_key': apiKey,
-					'timestamp': timestamp,
-					'upload_preset': uploadPreset,
-					'signature': signature
-				};
-				var url = 'https://api.cloudinary.com/v1_1/' + cloudName + '/image/upload';
-				_utils.APIManager.upload(url, image, params, function (err, response) {
-					if (err) {
-						console.log('Upload err: ' + err.message);
-						return;
-					}
-					console.log('Uploaded image: ' + JSON.stringify(response.body));
-					var imageUrl = response.body['secure_url'];
-	
-					var updatedProfile = Object.assign({}, _this2.state.updated);
-					updatedProfile['image'] = response.body['secure_url'];
-					_this2.setState({
-						updated: updatedProfile
-					});
-				});
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				var content = null;
-				var image = null;
-	
-				var currentUser = this.props.user;
-	
-				content = _react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(
-						'div',
-						{ className: 'ms-hero-page-override ms-hero-img-city ms-bg-fixed ms-hero-bg-primary' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'container' },
-							_react2.default.createElement(
-								'div',
-								{ className: 'text-center mt-2', style: { paddingTop: 75 } },
-								_react2.default.createElement(
-									'h1',
-									{ className: 'color-white mt-4 animated fadeInUp animation-delay-10' },
-									'Profile Page'
-								),
-								_react2.default.createElement('img', { src: currentUser.image, className: 'ms-avatar-hero animated zoomIn animation-delay-7' }),
-								_react2.default.createElement(
-									'h1',
-									{ className: 'color-white mt-4 animated fadeInUp animation-delay-10' },
-									currentUser.firstName,
-									' ',
-									currentUser.lastName
-								),
-								_react2.default.createElement(
-									'h3',
-									{ className: 'color-medium no-mb animated fadeInUp animation-delay-10' },
-									currentUser.bio
-								)
-							)
-						)
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'container' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'row' },
-							_react2.default.createElement(
-								'div',
-								{ className: 'col-md-6' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'card-block' },
-									_react2.default.createElement(
-										'h2',
-										{ className: 'color-primary no-mb', style: { textAlign: 'center', padding: '20px 0 20px 0' } },
-										'Your Current Information'
-									),
-									_react2.default.createElement(
-										'table',
-										{ className: 'table table-no-border table-striped', style: { width: '65%', margin: '0 auto 50px auto' } },
-										_react2.default.createElement(
-											'tbody',
-											null,
-											_react2.default.createElement(
-												'tr',
-												null,
-												_react2.default.createElement(
-													'th',
-													null,
-													_react2.default.createElement('i', { className: 'zmdi zmdi-face mr-1 color-warning' }),
-													' Fullname'
-												),
-												_react2.default.createElement(
-													'td',
-													null,
-													currentUser.firstName,
-													' ',
-													currentUser.lastName
-												)
-											),
-											_react2.default.createElement(
-												'tr',
-												null,
-												_react2.default.createElement(
-													'th',
-													null,
-													_react2.default.createElement('i', { className: 'zmdi zmdi-account mr-1 color-royal' }),
-													' User Name'
-												),
-												_react2.default.createElement(
-													'td',
-													null,
-													currentUser.username
-												)
-											),
-											_react2.default.createElement(
-												'tr',
-												null,
-												_react2.default.createElement(
-													'th',
-													null,
-													_react2.default.createElement('i', { className: 'zmdi zmdi-male-female mr-1 color-success' }),
-													' Gender'
-												),
-												_react2.default.createElement(
-													'td',
-													null,
-													currentUser.gender
-												)
-											),
-											_react2.default.createElement(
-												'tr',
-												null,
-												_react2.default.createElement(
-													'th',
-													null,
-													_react2.default.createElement('i', { className: 'zmdi zmdi-email mr-1 color-primary' }),
-													' Email'
-												),
-												_react2.default.createElement(
-													'td',
-													null,
-													_react2.default.createElement(
-														'a',
-														{ href: '#' },
-														currentUser.username,
-														'@me.com'
-													)
-												)
-											),
-											_react2.default.createElement(
-												'tr',
-												null,
-												_react2.default.createElement(
-													'th',
-													null,
-													_react2.default.createElement('i', { className: 'zmdi zmdi-link mr-1 color-danger' }),
-													' Website'
-												),
-												_react2.default.createElement(
-													'td',
-													null,
-													_react2.default.createElement(
-														'a',
-														{ href: '#' },
-														'www.',
-														currentUser.username,
-														'.com'
-													)
-												)
-											)
-										)
-									),
-									_react2.default.createElement(
-										'div',
-										null,
-										_react2.default.createElement(
-											_reactRouter.Link,
-											{ to: '/' },
-											_react2.default.createElement(
-												'button',
-												{ style: { margin: '0 auto 100px auto', width: '25%' }, type: '', className: 'btn btn-success  btn-raised btn-block' },
-												_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-home' }),
-												'\xA0\xA0Home'
-											)
-										)
-									)
-								)
-							),
-							_react2.default.createElement(
-								'div',
-								{ className: 'col-md-6' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'card-block' },
-									_react2.default.createElement(
-										'h2',
-										{ style: { textAlign: 'center', padding: '20px 0 20px 0' } },
-										'Update Your Info'
-									),
-									_react2.default.createElement(
-										'div',
-										{ style: { width: '65%', margin: '0 auto 50px auto' } },
-										_react2.default.createElement(
-											'label',
-											null,
-											'First Name:'
-										),
-										_react2.default.createElement('input', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'firstName', defaultValue: currentUser.firstName }),
-										_react2.default.createElement(
-											'label',
-											null,
-											'Last Name:'
-										),
-										_react2.default.createElement('input', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'lastName', defaultValue: currentUser.lastName }),
-										_react2.default.createElement(
-											'label',
-											null,
-											'New Gender:'
-										),
-										_react2.default.createElement('input', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'gender', defaultValue: currentUser.gender }),
-										_react2.default.createElement(
-											'label',
-											null,
-											'New City:'
-										),
-										_react2.default.createElement('input', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'city', defaultValue: currentUser.city }),
-										_react2.default.createElement(
-											'label',
-											null,
-											'Bio:'
-										),
-										_react2.default.createElement('input', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'bio', defaultValue: currentUser.bio }),
-										_react2.default.createElement('br', null),
-										_react2.default.createElement(
-											_reactDropzone2.default,
-											{ style: { border: '1px solid white', fontSize: '1.5em' }, nDrop: this.uploadImage.bind(this) },
-											_react2.default.createElement(
-												'a',
-												{ href: 'javascript:void(0)' },
-												_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-camera' }),
-												'\xA0Upload New Profile Image'
-											)
-										),
-										_react2.default.createElement('br', null),
-										_react2.default.createElement(
-											'button',
-											{ onClick: this.updateProfile.bind(this), className: 'btn btn-warning  btn-raised btn-block', type: 'submit' },
-											_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-face' }),
-											'\xA0\xA0Update Profile'
-										)
-									)
-								)
-							)
-						)
-					)
-				);
-				return _react2.default.createElement(
-					'div',
-					{ className: 'sb-site-container', style: { background: '#fff' } },
-					_react2.default.createElement(_presentation.Header, null),
-					content,
-					_react2.default.createElement(_presentation.BackToTop, null),
-					_react2.default.createElement(_presentation.Footer, null)
-				);
-			}
-		}]);
-	
-		return UpdateProfile;
-	}(_react.Component);
-	
-	var stateToProps = function stateToProps(state) {
-		return {
-			appStatus: state.profile.appStatus,
-			user: state.account.user
-		};
-	};
-	
-	var dispatchToProps = function dispatchToProps(dispatch) {
-		return {
-			fetchProfile: function fetchProfile(params) {
-				return dispatch(_actions2.default.fetchProfile(params));
-			},
-			updateProfile: function updateProfile(profile, updated) {
-				return dispatch(_actions2.default.updateProfile(profile, updated));
-			},
-			fetchprofile: function fetchprofile(params) {
-				return dispatch(_actions2.default.fetchprofile(params));
-			},
-			profileUpdated: function profileUpdated(user) {
-				return dispatch(_actions2.default.profileUpdated(user));
-			},
-			profileReceived: function profileReceived(user) {
-				return dispatch(_actions2.default.profileReceived(user));
-			},
-			fetchCurrentUser: function fetchCurrentUser(params) {
-				return dispatch(_actions2.default.fetchCurrentUser(params));
-			},
-			currentUserUpdated: function currentUserUpdated(user) {
-				return dispatch(_actions2.default.currentUserUpdated(user));
-			}
-		};
-	};
-	
-	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(UpdateProfile);
-
-/***/ },
-/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36888,389 +35451,7 @@
 	  value: true
 	});
 	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _utils = __webpack_require__(181);
-	
-	var _styles = __webpack_require__(219);
-	
-	var _styles2 = _interopRequireDefault(_styles);
-	
-	var _reactRedux = __webpack_require__(189);
-	
-	var _actions = __webpack_require__(220);
-	
-	var _actions2 = _interopRequireDefault(_actions);
-	
-	var _reactRouter = __webpack_require__(228);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var UpdateZone = function (_Component) {
-	  _inherits(UpdateZone, _Component);
-	
-	  _createClass(UpdateZone, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	
-	      this.props.fetchZone(null);
-	      console.log('update zone list: ' + JSON.stringify(this.props.list));
-	      console.log('selected zone: ' + JSON.stringify(this.props.selected));
-	    }
-	  }]);
-	
-	  function UpdateZone(props) {
-	    _classCallCheck(this, UpdateZone);
-	
-	    var _this = _possibleConstructorReturn(this, (UpdateZone.__proto__ || Object.getPrototypeOf(UpdateZone)).call(this, props));
-	
-	    _this.state = {
-	      zone: {
-	        username: '',
-	        name: '',
-	        zipCode: ''
-	
-	      }
-	    };
-	    return _this;
-	  }
-	
-	  _createClass(UpdateZone, [{
-	    key: 'updateZone',
-	    value: function updateZone(event) {
-	      var updated = Object.assign({}, this.state.zone);
-	      updated[event.target.id] = event.target.value;
-	
-	      this.setState({
-	        zone: updated
-	      });
-	      // console.log('Update zone: '+ event.target.id + "- " + event.target.value)
-	    }
-	  }, {
-	    key: 'submitZone',
-	    value: function submitZone(event) {
-	
-	      var updated = Object.assign({}, this.state.zone);
-	      updated['zipCodes'] = updated.zipCode.split(',');
-	      this.setState({
-	        updated: updated
-	      });
-	      this.props.onCreate(updated);
-	
-	      //make Api call
-	      console.log('SubmitZone');
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	
-	      return _react2.default.createElement(
-	        'div',
-	        { style: _styles2.default.zone.zonedetails },
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'Update Your Zone'
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { style: _styles2.default.zone.container },
-	          _react2.default.createElement(
-	            'h2',
-	            null,
-	            'Current Zone:'
-	          ),
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            'Zip Code: ',
-	            _react2.default.createElement(
-	              'span',
-	              { style: _styles2.default.profile.entry },
-	              this.props.list[this.props.selected].zipCodes
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            'Zone Name: ',
-	            _react2.default.createElement(
-	              'span',
-	              { style: _styles2.default.profile.entry },
-	              ' ',
-	              this.props.list[this.props.selected].name
-	            )
-	          ),
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: '/' },
-	            _react2.default.createElement(
-	              'button',
-	              { style: { marginRight: 10 }, type: '', className: 'btn btn-info' },
-	              'Home'
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { style: _styles2.default.zone.container },
-	          _react2.default.createElement('br', null),
-	          _react2.default.createElement('br', null),
-	          _react2.default.createElement(
-	            'h4',
-	            null,
-	            'Update Zone:'
-	          ),
-	          _react2.default.createElement(
-	            'label',
-	            null,
-	            'Name:'
-	          ),
-	          _react2.default.createElement('input', { id: 'name', onChange: this.updateZone.bind(this), className: 'form-control', type: 'text', defaultValue: this.props.list[this.props.selected].name }),
-	          _react2.default.createElement('br', null),
-	          _react2.default.createElement(
-	            'label',
-	            null,
-	            'Zip Code:'
-	          ),
-	          _react2.default.createElement('input', { id: 'zipCode', onChange: this.updateZone.bind(this), className: 'form-control', type: 'text', defaultValue: this.props.list[this.props.selected].zipCodes }),
-	          _react2.default.createElement('br', null),
-	          _react2.default.createElement(
-	            'button',
-	            { onClick: this.submitZone.bind(this), className: 'btn btn-info' },
-	            'Update Zone'
-	          )
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return UpdateZone;
-	}(_react.Component);
-	
-	var stateToProps = function stateToProps(state) {
-	  return {
-	    list: state.zone.list,
-	    selected: state.zone.selectedZone,
-	    appStatus: state.zone.appStatus
-	  };
-	};
-	
-	var dispatchToProps = function dispatchToProps(dispatch) {
-	  return {
-	    fetchZone: function fetchZone(params) {
-	      return dispatch(_actions2.default.fetchZone(params));
-	    }
-	  };
-	};
-	
-	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(UpdateZone);
-
-/***/ },
-/* 304 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.ProfileInfo = exports.Home = undefined;
-	
-	var _Home = __webpack_require__(305);
-	
-	var _Home2 = _interopRequireDefault(_Home);
-	
-	var _ProfileInfo = __webpack_require__(306);
-	
-	var _ProfileInfo2 = _interopRequireDefault(_ProfileInfo);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.Home = _Home2.default;
-	exports.ProfileInfo = _ProfileInfo2.default;
-
-/***/ },
-/* 305 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _containers = __webpack_require__(179);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Home = function (_Component) {
-		_inherits(Home, _Component);
-	
-		function Home() {
-			_classCallCheck(this, Home);
-	
-			return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
-		}
-	
-		_createClass(Home, [{
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(_containers.Account, null)
-				);
-			}
-		}]);
-	
-		return Home;
-	}(_react.Component);
-	
-	exports.default = Home;
-
-/***/ },
-/* 306 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _containers = __webpack_require__(179);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var ProfileInfo = function (_Component) {
-	  _inherits(ProfileInfo, _Component);
-	
-	  function ProfileInfo() {
-	    _classCallCheck(this, ProfileInfo);
-	
-	    return _possibleConstructorReturn(this, (ProfileInfo.__proto__ || Object.getPrototypeOf(ProfileInfo)).apply(this, arguments));
-	  }
-	
-	  _createClass(ProfileInfo, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      console.log('Profile componentDidMount: ' + JSON.stringify(this.props.params));
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          _react2.default.createElement(_containers.Profile, { username: this.props.params.username })
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return ProfileInfo;
-	}(_react.Component);
-	
-	exports.default = ProfileInfo;
-
-/***/ },
-/* 307 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Main = function (_Component) {
-		_inherits(Main, _Component);
-	
-		function Main() {
-			_classCallCheck(this, Main);
-	
-			return _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).apply(this, arguments));
-		}
-	
-		_createClass(Main, [{
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'div',
-					null,
-					this.props.children
-				);
-			}
-		}]);
-	
-		return Main;
-	}(_react.Component);
-	
-	exports.default = Main;
-
-/***/ },
-/* 308 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _Time = __webpack_require__(309);
+	var _Time = __webpack_require__(297);
 	
 	Object.defineProperty(exports, 'default', {
 	  enumerable: true,
@@ -37283,7 +35464,7 @@
 
 
 /***/ },
-/* 309 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37301,7 +35482,7 @@
 	                    * @copyright 2015, Andrey Popp <8mayday@gmail.com>
 	                    */
 	
-	var _moment = __webpack_require__(310);
+	var _moment = __webpack_require__(298);
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
@@ -37438,7 +35619,7 @@
 
 
 /***/ },
-/* 310 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {//! moment.js
@@ -39270,7 +37451,7 @@
 	            module && module.exports) {
 	        try {
 	            oldLocale = globalLocale._abbr;
-	            __webpack_require__(311)("./" + name);
+	            __webpack_require__(299)("./" + name);
 	            // because defineLocale currently also sets the global locale, we
 	            // want to undo that for lazy loaded locales
 	            getSetGlobalLocale(oldLocale);
@@ -41908,240 +40089,240 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(210)(module)))
 
 /***/ },
-/* 311 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./af": 312,
-		"./af.js": 312,
-		"./ar": 313,
-		"./ar-dz": 314,
-		"./ar-dz.js": 314,
-		"./ar-kw": 315,
-		"./ar-kw.js": 315,
-		"./ar-ly": 316,
-		"./ar-ly.js": 316,
-		"./ar-ma": 317,
-		"./ar-ma.js": 317,
-		"./ar-sa": 318,
-		"./ar-sa.js": 318,
-		"./ar-tn": 319,
-		"./ar-tn.js": 319,
-		"./ar.js": 313,
-		"./az": 320,
-		"./az.js": 320,
-		"./be": 321,
-		"./be.js": 321,
-		"./bg": 322,
-		"./bg.js": 322,
-		"./bn": 323,
-		"./bn.js": 323,
-		"./bo": 324,
-		"./bo.js": 324,
-		"./br": 325,
-		"./br.js": 325,
-		"./bs": 326,
-		"./bs.js": 326,
-		"./ca": 327,
-		"./ca.js": 327,
-		"./cs": 328,
-		"./cs.js": 328,
-		"./cv": 329,
-		"./cv.js": 329,
-		"./cy": 330,
-		"./cy.js": 330,
-		"./da": 331,
-		"./da.js": 331,
-		"./de": 332,
-		"./de-at": 333,
-		"./de-at.js": 333,
-		"./de-ch": 334,
-		"./de-ch.js": 334,
-		"./de.js": 332,
-		"./dv": 335,
-		"./dv.js": 335,
-		"./el": 336,
-		"./el.js": 336,
-		"./en-au": 337,
-		"./en-au.js": 337,
-		"./en-ca": 338,
-		"./en-ca.js": 338,
-		"./en-gb": 339,
-		"./en-gb.js": 339,
-		"./en-ie": 340,
-		"./en-ie.js": 340,
-		"./en-nz": 341,
-		"./en-nz.js": 341,
-		"./eo": 342,
-		"./eo.js": 342,
-		"./es": 343,
-		"./es-do": 344,
-		"./es-do.js": 344,
-		"./es.js": 343,
-		"./et": 345,
-		"./et.js": 345,
-		"./eu": 346,
-		"./eu.js": 346,
-		"./fa": 347,
-		"./fa.js": 347,
-		"./fi": 348,
-		"./fi.js": 348,
-		"./fo": 349,
-		"./fo.js": 349,
-		"./fr": 350,
-		"./fr-ca": 351,
-		"./fr-ca.js": 351,
-		"./fr-ch": 352,
-		"./fr-ch.js": 352,
-		"./fr.js": 350,
-		"./fy": 353,
-		"./fy.js": 353,
-		"./gd": 354,
-		"./gd.js": 354,
-		"./gl": 355,
-		"./gl.js": 355,
-		"./gom-latn": 356,
-		"./gom-latn.js": 356,
-		"./he": 357,
-		"./he.js": 357,
-		"./hi": 358,
-		"./hi.js": 358,
-		"./hr": 359,
-		"./hr.js": 359,
-		"./hu": 360,
-		"./hu.js": 360,
-		"./hy-am": 361,
-		"./hy-am.js": 361,
-		"./id": 362,
-		"./id.js": 362,
-		"./is": 363,
-		"./is.js": 363,
-		"./it": 364,
-		"./it.js": 364,
-		"./ja": 365,
-		"./ja.js": 365,
-		"./jv": 366,
-		"./jv.js": 366,
-		"./ka": 367,
-		"./ka.js": 367,
-		"./kk": 368,
-		"./kk.js": 368,
-		"./km": 369,
-		"./km.js": 369,
-		"./kn": 370,
-		"./kn.js": 370,
-		"./ko": 371,
-		"./ko.js": 371,
-		"./ky": 372,
-		"./ky.js": 372,
-		"./lb": 373,
-		"./lb.js": 373,
-		"./lo": 374,
-		"./lo.js": 374,
-		"./lt": 375,
-		"./lt.js": 375,
-		"./lv": 376,
-		"./lv.js": 376,
-		"./me": 377,
-		"./me.js": 377,
-		"./mi": 378,
-		"./mi.js": 378,
-		"./mk": 379,
-		"./mk.js": 379,
-		"./ml": 380,
-		"./ml.js": 380,
-		"./mr": 381,
-		"./mr.js": 381,
-		"./ms": 382,
-		"./ms-my": 383,
-		"./ms-my.js": 383,
-		"./ms.js": 382,
-		"./my": 384,
-		"./my.js": 384,
-		"./nb": 385,
-		"./nb.js": 385,
-		"./ne": 386,
-		"./ne.js": 386,
-		"./nl": 387,
-		"./nl-be": 388,
-		"./nl-be.js": 388,
-		"./nl.js": 387,
-		"./nn": 389,
-		"./nn.js": 389,
-		"./pa-in": 390,
-		"./pa-in.js": 390,
-		"./pl": 391,
-		"./pl.js": 391,
-		"./pt": 392,
-		"./pt-br": 393,
-		"./pt-br.js": 393,
-		"./pt.js": 392,
-		"./ro": 394,
-		"./ro.js": 394,
-		"./ru": 395,
-		"./ru.js": 395,
-		"./sd": 396,
-		"./sd.js": 396,
-		"./se": 397,
-		"./se.js": 397,
-		"./si": 398,
-		"./si.js": 398,
-		"./sk": 399,
-		"./sk.js": 399,
-		"./sl": 400,
-		"./sl.js": 400,
-		"./sq": 401,
-		"./sq.js": 401,
-		"./sr": 402,
-		"./sr-cyrl": 403,
-		"./sr-cyrl.js": 403,
-		"./sr.js": 402,
-		"./ss": 404,
-		"./ss.js": 404,
-		"./sv": 405,
-		"./sv.js": 405,
-		"./sw": 406,
-		"./sw.js": 406,
-		"./ta": 407,
-		"./ta.js": 407,
-		"./te": 408,
-		"./te.js": 408,
-		"./tet": 409,
-		"./tet.js": 409,
-		"./th": 410,
-		"./th.js": 410,
-		"./tl-ph": 411,
-		"./tl-ph.js": 411,
-		"./tlh": 412,
-		"./tlh.js": 412,
-		"./tr": 413,
-		"./tr.js": 413,
-		"./tzl": 414,
-		"./tzl.js": 414,
-		"./tzm": 415,
-		"./tzm-latn": 416,
-		"./tzm-latn.js": 416,
-		"./tzm.js": 415,
-		"./uk": 417,
-		"./uk.js": 417,
-		"./ur": 418,
-		"./ur.js": 418,
-		"./uz": 419,
-		"./uz-latn": 420,
-		"./uz-latn.js": 420,
-		"./uz.js": 419,
-		"./vi": 421,
-		"./vi.js": 421,
-		"./x-pseudo": 422,
-		"./x-pseudo.js": 422,
-		"./yo": 423,
-		"./yo.js": 423,
-		"./zh-cn": 424,
-		"./zh-cn.js": 424,
-		"./zh-hk": 425,
-		"./zh-hk.js": 425,
-		"./zh-tw": 426,
-		"./zh-tw.js": 426
+		"./af": 300,
+		"./af.js": 300,
+		"./ar": 301,
+		"./ar-dz": 302,
+		"./ar-dz.js": 302,
+		"./ar-kw": 303,
+		"./ar-kw.js": 303,
+		"./ar-ly": 304,
+		"./ar-ly.js": 304,
+		"./ar-ma": 305,
+		"./ar-ma.js": 305,
+		"./ar-sa": 306,
+		"./ar-sa.js": 306,
+		"./ar-tn": 307,
+		"./ar-tn.js": 307,
+		"./ar.js": 301,
+		"./az": 308,
+		"./az.js": 308,
+		"./be": 309,
+		"./be.js": 309,
+		"./bg": 310,
+		"./bg.js": 310,
+		"./bn": 311,
+		"./bn.js": 311,
+		"./bo": 312,
+		"./bo.js": 312,
+		"./br": 313,
+		"./br.js": 313,
+		"./bs": 314,
+		"./bs.js": 314,
+		"./ca": 315,
+		"./ca.js": 315,
+		"./cs": 316,
+		"./cs.js": 316,
+		"./cv": 317,
+		"./cv.js": 317,
+		"./cy": 318,
+		"./cy.js": 318,
+		"./da": 319,
+		"./da.js": 319,
+		"./de": 320,
+		"./de-at": 321,
+		"./de-at.js": 321,
+		"./de-ch": 322,
+		"./de-ch.js": 322,
+		"./de.js": 320,
+		"./dv": 323,
+		"./dv.js": 323,
+		"./el": 324,
+		"./el.js": 324,
+		"./en-au": 325,
+		"./en-au.js": 325,
+		"./en-ca": 326,
+		"./en-ca.js": 326,
+		"./en-gb": 327,
+		"./en-gb.js": 327,
+		"./en-ie": 328,
+		"./en-ie.js": 328,
+		"./en-nz": 329,
+		"./en-nz.js": 329,
+		"./eo": 330,
+		"./eo.js": 330,
+		"./es": 331,
+		"./es-do": 332,
+		"./es-do.js": 332,
+		"./es.js": 331,
+		"./et": 333,
+		"./et.js": 333,
+		"./eu": 334,
+		"./eu.js": 334,
+		"./fa": 335,
+		"./fa.js": 335,
+		"./fi": 336,
+		"./fi.js": 336,
+		"./fo": 337,
+		"./fo.js": 337,
+		"./fr": 338,
+		"./fr-ca": 339,
+		"./fr-ca.js": 339,
+		"./fr-ch": 340,
+		"./fr-ch.js": 340,
+		"./fr.js": 338,
+		"./fy": 341,
+		"./fy.js": 341,
+		"./gd": 342,
+		"./gd.js": 342,
+		"./gl": 343,
+		"./gl.js": 343,
+		"./gom-latn": 344,
+		"./gom-latn.js": 344,
+		"./he": 345,
+		"./he.js": 345,
+		"./hi": 346,
+		"./hi.js": 346,
+		"./hr": 347,
+		"./hr.js": 347,
+		"./hu": 348,
+		"./hu.js": 348,
+		"./hy-am": 349,
+		"./hy-am.js": 349,
+		"./id": 350,
+		"./id.js": 350,
+		"./is": 351,
+		"./is.js": 351,
+		"./it": 352,
+		"./it.js": 352,
+		"./ja": 353,
+		"./ja.js": 353,
+		"./jv": 354,
+		"./jv.js": 354,
+		"./ka": 355,
+		"./ka.js": 355,
+		"./kk": 356,
+		"./kk.js": 356,
+		"./km": 357,
+		"./km.js": 357,
+		"./kn": 358,
+		"./kn.js": 358,
+		"./ko": 359,
+		"./ko.js": 359,
+		"./ky": 360,
+		"./ky.js": 360,
+		"./lb": 361,
+		"./lb.js": 361,
+		"./lo": 362,
+		"./lo.js": 362,
+		"./lt": 363,
+		"./lt.js": 363,
+		"./lv": 364,
+		"./lv.js": 364,
+		"./me": 365,
+		"./me.js": 365,
+		"./mi": 366,
+		"./mi.js": 366,
+		"./mk": 367,
+		"./mk.js": 367,
+		"./ml": 368,
+		"./ml.js": 368,
+		"./mr": 369,
+		"./mr.js": 369,
+		"./ms": 370,
+		"./ms-my": 371,
+		"./ms-my.js": 371,
+		"./ms.js": 370,
+		"./my": 372,
+		"./my.js": 372,
+		"./nb": 373,
+		"./nb.js": 373,
+		"./ne": 374,
+		"./ne.js": 374,
+		"./nl": 375,
+		"./nl-be": 376,
+		"./nl-be.js": 376,
+		"./nl.js": 375,
+		"./nn": 377,
+		"./nn.js": 377,
+		"./pa-in": 378,
+		"./pa-in.js": 378,
+		"./pl": 379,
+		"./pl.js": 379,
+		"./pt": 380,
+		"./pt-br": 381,
+		"./pt-br.js": 381,
+		"./pt.js": 380,
+		"./ro": 382,
+		"./ro.js": 382,
+		"./ru": 383,
+		"./ru.js": 383,
+		"./sd": 384,
+		"./sd.js": 384,
+		"./se": 385,
+		"./se.js": 385,
+		"./si": 386,
+		"./si.js": 386,
+		"./sk": 387,
+		"./sk.js": 387,
+		"./sl": 388,
+		"./sl.js": 388,
+		"./sq": 389,
+		"./sq.js": 389,
+		"./sr": 390,
+		"./sr-cyrl": 391,
+		"./sr-cyrl.js": 391,
+		"./sr.js": 390,
+		"./ss": 392,
+		"./ss.js": 392,
+		"./sv": 393,
+		"./sv.js": 393,
+		"./sw": 394,
+		"./sw.js": 394,
+		"./ta": 395,
+		"./ta.js": 395,
+		"./te": 396,
+		"./te.js": 396,
+		"./tet": 397,
+		"./tet.js": 397,
+		"./th": 398,
+		"./th.js": 398,
+		"./tl-ph": 399,
+		"./tl-ph.js": 399,
+		"./tlh": 400,
+		"./tlh.js": 400,
+		"./tr": 401,
+		"./tr.js": 401,
+		"./tzl": 402,
+		"./tzl.js": 402,
+		"./tzm": 403,
+		"./tzm-latn": 404,
+		"./tzm-latn.js": 404,
+		"./tzm.js": 403,
+		"./uk": 405,
+		"./uk.js": 405,
+		"./ur": 406,
+		"./ur.js": 406,
+		"./uz": 407,
+		"./uz-latn": 408,
+		"./uz-latn.js": 408,
+		"./uz.js": 407,
+		"./vi": 409,
+		"./vi.js": 409,
+		"./x-pseudo": 410,
+		"./x-pseudo.js": 410,
+		"./yo": 411,
+		"./yo.js": 411,
+		"./zh-cn": 412,
+		"./zh-cn.js": 412,
+		"./zh-hk": 413,
+		"./zh-hk.js": 413,
+		"./zh-tw": 414,
+		"./zh-tw.js": 414
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -42154,11 +40335,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 311;
+	webpackContext.id = 299;
 
 
 /***/ },
-/* 312 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -42166,7 +40347,7 @@
 	//! author : Werner Mollentze : https://github.com/wernerm
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -42236,7 +40417,7 @@
 
 
 /***/ },
-/* 313 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -42246,7 +40427,7 @@
 	//! author : forabi https://github.com/forabi
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -42383,7 +40564,7 @@
 
 
 /***/ },
-/* 314 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -42391,7 +40572,7 @@
 	//! author : Noureddine LOUAHEDJ : https://github.com/noureddineme
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -42447,7 +40628,7 @@
 
 
 /***/ },
-/* 315 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -42455,7 +40636,7 @@
 	//! author : Nusret Parlak: https://github.com/nusretparlak
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -42511,7 +40692,7 @@
 
 
 /***/ },
-/* 316 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -42519,7 +40700,7 @@
 	//! author : Ali Hmer: https://github.com/kikoanis
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -42642,7 +40823,7 @@
 
 
 /***/ },
-/* 317 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -42651,7 +40832,7 @@
 	//! author : Abdel Said : https://github.com/abdelsaid
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -42707,7 +40888,7 @@
 
 
 /***/ },
-/* 318 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -42715,7 +40896,7 @@
 	//! author : Suhail Alkowaileet : https://github.com/xsoh
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -42817,7 +40998,7 @@
 
 
 /***/ },
-/* 319 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -42825,7 +41006,7 @@
 	//! author : Nader Toukabri : https://github.com/naderio
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -42881,7 +41062,7 @@
 
 
 /***/ },
-/* 320 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -42889,7 +41070,7 @@
 	//! author : topchiyev : https://github.com/topchiyev
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -42991,7 +41172,7 @@
 
 
 /***/ },
-/* 321 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -43001,7 +41182,7 @@
 	//! Author : Menelion Elensúle : https://github.com/Oire
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -43130,7 +41311,7 @@
 
 
 /***/ },
-/* 322 */
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -43138,7 +41319,7 @@
 	//! author : Krasen Borisov : https://github.com/kraz
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -43225,7 +41406,7 @@
 
 
 /***/ },
-/* 323 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -43233,7 +41414,7 @@
 	//! author : Kaushik Gandhi : https://github.com/kaushikgandhi
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -43349,7 +41530,7 @@
 
 
 /***/ },
-/* 324 */
+/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -43357,7 +41538,7 @@
 	//! author : Thupten N. Chakrishar : https://github.com/vajradog
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -43473,7 +41654,7 @@
 
 
 /***/ },
-/* 325 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -43481,7 +41662,7 @@
 	//! author : Jean-Baptiste Le Duigou : https://github.com/jbleduigou
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -43586,7 +41767,7 @@
 
 
 /***/ },
-/* 326 */
+/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -43595,7 +41776,7 @@
 	//! based on (hr) translation by Bojan Marković
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -43734,7 +41915,7 @@
 
 
 /***/ },
-/* 327 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -43742,7 +41923,7 @@
 	//! author : Juan G. Hurtado : https://github.com/juanghurtado
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -43827,7 +42008,7 @@
 
 
 /***/ },
-/* 328 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -43835,7 +42016,7 @@
 	//! author : petrbela : https://github.com/petrbela
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44004,7 +42185,7 @@
 
 
 /***/ },
-/* 329 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44012,7 +42193,7 @@
 	//! author : Anatoly Mironov : https://github.com/mirontoli
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44072,7 +42253,7 @@
 
 
 /***/ },
-/* 330 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44081,7 +42262,7 @@
 	//! author : https://github.com/ryangreaves
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44158,7 +42339,7 @@
 
 
 /***/ },
-/* 331 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44166,7 +42347,7 @@
 	//! author : Ulrik Nielsen : https://github.com/mrbase
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44223,7 +42404,7 @@
 
 
 /***/ },
-/* 332 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44233,7 +42414,7 @@
 	//! author : Mikolaj Dadela : https://github.com/mik01aj
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44306,7 +42487,7 @@
 
 
 /***/ },
-/* 333 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44317,7 +42498,7 @@
 	//! author : Mikolaj Dadela : https://github.com/mik01aj
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44390,7 +42571,7 @@
 
 
 /***/ },
-/* 334 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44398,7 +42579,7 @@
 	//! author : sschueller : https://github.com/sschueller
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44473,7 +42654,7 @@
 
 
 /***/ },
-/* 335 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44481,7 +42662,7 @@
 	//! author : Jawish Hameed : https://github.com/jawish
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44578,7 +42759,7 @@
 
 
 /***/ },
-/* 336 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44586,7 +42767,7 @@
 	//! author : Aggelos Karalias : https://github.com/mehiel
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44683,7 +42864,7 @@
 
 
 /***/ },
-/* 337 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44691,7 +42872,7 @@
 	//! author : Jared Morse : https://github.com/jarcoal
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44755,7 +42936,7 @@
 
 
 /***/ },
-/* 338 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44763,7 +42944,7 @@
 	//! author : Jonathan Abourbih : https://github.com/jonbca
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44823,7 +43004,7 @@
 
 
 /***/ },
-/* 339 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44831,7 +43012,7 @@
 	//! author : Chris Gedrim : https://github.com/chrisgedrim
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44895,7 +43076,7 @@
 
 
 /***/ },
-/* 340 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44903,7 +43084,7 @@
 	//! author : Chris Cartlidge : https://github.com/chriscartlidge
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44967,7 +43148,7 @@
 
 
 /***/ },
-/* 341 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44975,7 +43156,7 @@
 	//! author : Luke McGregor : https://github.com/lukemcgregor
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45039,7 +43220,7 @@
 
 
 /***/ },
-/* 342 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45049,7 +43230,7 @@
 	//! comment : miestasmia corrected the translation by colindean
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45117,7 +43298,7 @@
 
 
 /***/ },
-/* 343 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45125,7 +43306,7 @@
 	//! author : Julio Napurí : https://github.com/julionc
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45205,14 +43386,14 @@
 
 
 /***/ },
-/* 344 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Spanish (Dominican Republic) [es-do]
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45292,7 +43473,7 @@
 
 
 /***/ },
-/* 345 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45301,7 +43482,7 @@
 	//! improvements : Illimar Tambek : https://github.com/ragulka
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45377,7 +43558,7 @@
 
 
 /***/ },
-/* 346 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45385,7 +43566,7 @@
 	//! author : Eneko Illarramendi : https://github.com/eillarra
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45448,7 +43629,7 @@
 
 
 /***/ },
-/* 347 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45456,7 +43637,7 @@
 	//! author : Ebrahim Byagowi : https://github.com/ebraminio
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45560,7 +43741,7 @@
 
 
 /***/ },
-/* 348 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45568,7 +43749,7 @@
 	//! author : Tarmo Aidantausta : https://github.com/bleadof
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45672,7 +43853,7 @@
 
 
 /***/ },
-/* 349 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45680,7 +43861,7 @@
 	//! author : Ragnar Johannesen : https://github.com/ragnar123
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45737,7 +43918,7 @@
 
 
 /***/ },
-/* 350 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45745,7 +43926,7 @@
 	//! author : John Fischer : https://github.com/jfroffice
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45825,7 +44006,7 @@
 
 
 /***/ },
-/* 351 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45833,7 +44014,7 @@
 	//! author : Jonathan Abourbih : https://github.com/jonbca
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45904,7 +44085,7 @@
 
 
 /***/ },
-/* 352 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45912,7 +44093,7 @@
 	//! author : Gaspard Bucher : https://github.com/gaspard
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45987,7 +44168,7 @@
 
 
 /***/ },
-/* 353 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45995,7 +44176,7 @@
 	//! author : Robin van der Vliet : https://github.com/robin0van0der0v
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46067,7 +44248,7 @@
 
 
 /***/ },
-/* 354 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46075,7 +44256,7 @@
 	//! author : Jon Ashdown : https://github.com/jonashdown
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46148,7 +44329,7 @@
 
 
 /***/ },
-/* 355 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46156,7 +44337,7 @@
 	//! author : Juan G. Hurtado : https://github.com/juanghurtado
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46230,7 +44411,7 @@
 
 
 /***/ },
-/* 356 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46238,7 +44419,7 @@
 	//! author : The Discoverer : https://github.com/WikiDiscoverer
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46357,7 +44538,7 @@
 
 
 /***/ },
-/* 357 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46367,7 +44548,7 @@
 	//! author : Tal Ater : https://github.com/TalAter
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46461,7 +44642,7 @@
 
 
 /***/ },
-/* 358 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46469,7 +44650,7 @@
 	//! author : Mayank Singhal : https://github.com/mayanksinghal
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46590,7 +44771,7 @@
 
 
 /***/ },
-/* 359 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46598,7 +44779,7 @@
 	//! author : Bojan Marković : https://github.com/bmarkovic
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46740,7 +44921,7 @@
 
 
 /***/ },
-/* 360 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46748,7 +44929,7 @@
 	//! author : Adam Brunner : https://github.com/adambrunner
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46854,7 +45035,7 @@
 
 
 /***/ },
-/* 361 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46862,7 +45043,7 @@
 	//! author : Armendarabyan : https://github.com/armendarabyan
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46954,7 +45135,7 @@
 
 
 /***/ },
-/* 362 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46963,7 +45144,7 @@
 	//! reference: http://id.wikisource.org/wiki/Pedoman_Umum_Ejaan_Bahasa_Indonesia_yang_Disempurnakan
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47042,7 +45223,7 @@
 
 
 /***/ },
-/* 363 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47050,7 +45231,7 @@
 	//! author : Hinrik Örn Sigurðsson : https://github.com/hinrik
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47174,7 +45355,7 @@
 
 
 /***/ },
-/* 364 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47183,7 +45364,7 @@
 	//! author: Mattia Larentis: https://github.com/nostalgiaz
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47249,7 +45430,7 @@
 
 
 /***/ },
-/* 365 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47257,7 +45438,7 @@
 	//! author : LI Long : https://github.com/baryon
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47334,7 +45515,7 @@
 
 
 /***/ },
-/* 366 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47343,7 +45524,7 @@
 	//! reference: http://jv.wikipedia.org/wiki/Basa_Jawa
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47422,7 +45603,7 @@
 
 
 /***/ },
-/* 367 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47430,7 +45611,7 @@
 	//! author : Irakli Janiashvili : https://github.com/irakli-janiashvili
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47516,7 +45697,7 @@
 
 
 /***/ },
-/* 368 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47524,7 +45705,7 @@
 	//! authors : Nurlan Rakhimzhanov : https://github.com/nurlan
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47608,7 +45789,7 @@
 
 
 /***/ },
-/* 369 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47616,7 +45797,7 @@
 	//! author : Kruy Vanna : https://github.com/kruyvanna
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47671,7 +45852,7 @@
 
 
 /***/ },
-/* 370 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47679,7 +45860,7 @@
 	//! author : Rajeev Naik : https://github.com/rajeevnaikte
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47802,7 +45983,7 @@
 
 
 /***/ },
-/* 371 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47811,7 +45992,7 @@
 	//! author : Jeeeyul Lee <jeeeyul@gmail.com>
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47876,7 +46057,7 @@
 
 
 /***/ },
-/* 372 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47884,7 +46065,7 @@
 	//! author : Chyngyz Arystan uulu : https://github.com/chyngyz
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47969,7 +46150,7 @@
 
 
 /***/ },
-/* 373 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47978,7 +46159,7 @@
 	//! author : David Raison : https://github.com/kwisatz
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -48111,7 +46292,7 @@
 
 
 /***/ },
-/* 374 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48119,7 +46300,7 @@
 	//! author : Ryan Hart : https://github.com/ryanhart2
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -48186,7 +46367,7 @@
 
 
 /***/ },
-/* 375 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48194,7 +46375,7 @@
 	//! author : Mindaugas Mozūras : https://github.com/mmozuras
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -48308,7 +46489,7 @@
 
 
 /***/ },
-/* 376 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48317,7 +46498,7 @@
 	//! author : Jānis Elmeris : https://github.com/JanisE
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -48410,7 +46591,7 @@
 
 
 /***/ },
-/* 377 */
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48418,7 +46599,7 @@
 	//! author : Miodrag Nikač <miodrag@restartit.me> : https://github.com/miodragnikac
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -48526,7 +46707,7 @@
 
 
 /***/ },
-/* 378 */
+/* 366 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48534,7 +46715,7 @@
 	//! author : John Corrigan <robbiecloset@gmail.com> : https://github.com/johnideal
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -48595,7 +46776,7 @@
 
 
 /***/ },
-/* 379 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48603,7 +46784,7 @@
 	//! author : Borislav Mickov : https://github.com/B0k0
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -48690,7 +46871,7 @@
 
 
 /***/ },
-/* 380 */
+/* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48698,7 +46879,7 @@
 	//! author : Floyd Pink : https://github.com/floydpink
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -48776,7 +46957,7 @@
 
 
 /***/ },
-/* 381 */
+/* 369 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48785,7 +46966,7 @@
 	//! author : Vivek Athalye : https://github.com/vnathalye
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -48940,7 +47121,7 @@
 
 
 /***/ },
-/* 382 */
+/* 370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48948,7 +47129,7 @@
 	//! author : Weldan Jamili : https://github.com/weldan
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -49027,7 +47208,7 @@
 
 
 /***/ },
-/* 383 */
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49036,7 +47217,7 @@
 	//! author : Weldan Jamili : https://github.com/weldan
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -49115,7 +47296,7 @@
 
 
 /***/ },
-/* 384 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49125,7 +47306,7 @@
 	//! author : Tin Aung Lin : https://github.com/thanyawzinmin
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -49216,7 +47397,7 @@
 
 
 /***/ },
-/* 385 */
+/* 373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49225,7 +47406,7 @@
 	//!           Sigurd Gartmann : https://github.com/sigurdga
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -49284,7 +47465,7 @@
 
 
 /***/ },
-/* 386 */
+/* 374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49292,7 +47473,7 @@
 	//! author : suvash : https://github.com/suvash
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -49412,7 +47593,7 @@
 
 
 /***/ },
-/* 387 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49421,7 +47602,7 @@
 	//! author : Jacob Middag : https://github.com/middagj
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -49505,7 +47686,7 @@
 
 
 /***/ },
-/* 388 */
+/* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49514,7 +47695,7 @@
 	//! author : Jacob Middag : https://github.com/middagj
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -49598,7 +47779,7 @@
 
 
 /***/ },
-/* 389 */
+/* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49606,7 +47787,7 @@
 	//! author : https://github.com/mechuwind
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -49663,7 +47844,7 @@
 
 
 /***/ },
-/* 390 */
+/* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49671,7 +47852,7 @@
 	//! author : Harpreet Singh : https://github.com/harpreetkhalsagtbit
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -49792,7 +47973,7 @@
 
 
 /***/ },
-/* 391 */
+/* 379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49800,7 +47981,7 @@
 	//! author : Rafal Hirsz : https://github.com/evoL
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -49904,7 +48085,7 @@
 
 
 /***/ },
-/* 392 */
+/* 380 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49912,7 +48093,7 @@
 	//! author : Jefferson : https://github.com/jalex79
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -49974,7 +48155,7 @@
 
 
 /***/ },
-/* 393 */
+/* 381 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49982,7 +48163,7 @@
 	//! author : Caio Ribeiro Pereira : https://github.com/caio-ribeiro-pereira
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -50040,7 +48221,7 @@
 
 
 /***/ },
-/* 394 */
+/* 382 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50049,7 +48230,7 @@
 	//! author : Valentin Agachi : https://github.com/avaly
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -50120,7 +48301,7 @@
 
 
 /***/ },
-/* 395 */
+/* 383 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50130,7 +48311,7 @@
 	//! author : Коренберг Марк : https://github.com/socketpair
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -50308,7 +48489,7 @@
 
 
 /***/ },
-/* 396 */
+/* 384 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50316,7 +48497,7 @@
 	//! author : Narain Sagar : https://github.com/narainsagar
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -50411,7 +48592,7 @@
 
 
 /***/ },
-/* 397 */
+/* 385 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50419,7 +48600,7 @@
 	//! authors : Bård Rolstad Henriksen : https://github.com/karamell
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -50477,7 +48658,7 @@
 
 
 /***/ },
-/* 398 */
+/* 386 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50485,7 +48666,7 @@
 	//! author : Sampath Sitinamaluwa : https://github.com/sampathsris
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -50553,7 +48734,7 @@
 
 
 /***/ },
-/* 399 */
+/* 387 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50562,7 +48743,7 @@
 	//! based on work of petrbela : https://github.com/petrbela
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -50708,7 +48889,7 @@
 
 
 /***/ },
-/* 400 */
+/* 388 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50716,7 +48897,7 @@
 	//! author : Robert Sedovšek : https://github.com/sedovsek
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -50875,7 +49056,7 @@
 
 
 /***/ },
-/* 401 */
+/* 389 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50885,7 +49066,7 @@
 	//! author : Oerd Cukalla : https://github.com/oerd
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -50950,7 +49131,7 @@
 
 
 /***/ },
-/* 402 */
+/* 390 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50958,7 +49139,7 @@
 	//! author : Milan Janačković<milanjanackovic@gmail.com> : https://github.com/milan-j
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -51065,7 +49246,7 @@
 
 
 /***/ },
-/* 403 */
+/* 391 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51073,7 +49254,7 @@
 	//! author : Milan Janačković<milanjanackovic@gmail.com> : https://github.com/milan-j
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -51180,7 +49361,7 @@
 
 
 /***/ },
-/* 404 */
+/* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51188,7 +49369,7 @@
 	//! author : Nicolai Davies<mail@nicolai.io> : https://github.com/nicolaidavies
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -51274,7 +49455,7 @@
 
 
 /***/ },
-/* 405 */
+/* 393 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51282,7 +49463,7 @@
 	//! author : Jens Alm : https://github.com/ulmus
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -51348,7 +49529,7 @@
 
 
 /***/ },
-/* 406 */
+/* 394 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51356,7 +49537,7 @@
 	//! author : Fahad Kassim : https://github.com/fadsel
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -51412,7 +49593,7 @@
 
 
 /***/ },
-/* 407 */
+/* 395 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51420,7 +49601,7 @@
 	//! author : Arjunkumar Krishnamoorthy : https://github.com/tk120404
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -51547,7 +49728,7 @@
 
 
 /***/ },
-/* 408 */
+/* 396 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51555,7 +49736,7 @@
 	//! author : Krishna Chaitanya Thota : https://github.com/kcthota
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -51641,7 +49822,7 @@
 
 
 /***/ },
-/* 409 */
+/* 397 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51650,7 +49831,7 @@
 	//! author : Onorio De J. Afonso : https://github.com/marobo
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -51714,7 +49895,7 @@
 
 
 /***/ },
-/* 410 */
+/* 398 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51722,7 +49903,7 @@
 	//! author : Kridsada Thanabulpong : https://github.com/sirn
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -51786,7 +49967,7 @@
 
 
 /***/ },
-/* 411 */
+/* 399 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51794,7 +49975,7 @@
 	//! author : Dan Hagman : https://github.com/hagmandan
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -51853,7 +50034,7 @@
 
 
 /***/ },
-/* 412 */
+/* 400 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51861,7 +50042,7 @@
 	//! author : Dominika Kruk : https://github.com/amaranthrose
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -51978,7 +50159,7 @@
 
 
 /***/ },
-/* 413 */
+/* 401 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51987,7 +50168,7 @@
 	//!           Burak Yiğit Kaya: https://github.com/BYK
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -52073,7 +50254,7 @@
 
 
 /***/ },
-/* 414 */
+/* 402 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52082,7 +50263,7 @@
 	//! author : Iustì Canun
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -52169,7 +50350,7 @@
 
 
 /***/ },
-/* 415 */
+/* 403 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52177,7 +50358,7 @@
 	//! author : Abdel Said : https://github.com/abdelsaid
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -52232,7 +50413,7 @@
 
 
 /***/ },
-/* 416 */
+/* 404 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52240,7 +50421,7 @@
 	//! author : Abdel Said : https://github.com/abdelsaid
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -52295,7 +50476,7 @@
 
 
 /***/ },
-/* 417 */
+/* 405 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52304,7 +50485,7 @@
 	//! Author : Menelion Elensúle : https://github.com/Oire
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -52451,7 +50632,7 @@
 
 
 /***/ },
-/* 418 */
+/* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52460,7 +50641,7 @@
 	//! author : Zack : https://github.com/ZackVision
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -52555,7 +50736,7 @@
 
 
 /***/ },
-/* 419 */
+/* 407 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52563,7 +50744,7 @@
 	//! author : Sardor Muminov : https://github.com/muminoff
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -52618,7 +50799,7 @@
 
 
 /***/ },
-/* 420 */
+/* 408 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52626,7 +50807,7 @@
 	//! author : Rasulbek Mirzayev : github.com/Rasulbeeek
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -52681,7 +50862,7 @@
 
 
 /***/ },
-/* 421 */
+/* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52689,7 +50870,7 @@
 	//! author : Bang Nguyen : https://github.com/bangnk
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -52765,7 +50946,7 @@
 
 
 /***/ },
-/* 422 */
+/* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52773,7 +50954,7 @@
 	//! author : Andrew Hood : https://github.com/andrewhood125
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -52838,7 +51019,7 @@
 
 
 /***/ },
-/* 423 */
+/* 411 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52846,7 +51027,7 @@
 	//! author : Atolagbe Abisoye : https://github.com/andela-batolagbe
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -52903,7 +51084,7 @@
 
 
 /***/ },
-/* 424 */
+/* 412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52912,7 +51093,7 @@
 	//! author : Zeno Zeng : https://github.com/zenozeng
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -53019,7 +51200,7 @@
 
 
 /***/ },
-/* 425 */
+/* 413 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -53029,7 +51210,7 @@
 	//! author : Konstantin : https://github.com/skfd
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -53129,7 +51310,7 @@
 
 
 /***/ },
-/* 426 */
+/* 414 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -53138,7 +51319,7 @@
 	//! author : Chris Lam : https://github.com/hehachris
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(310)) :
+	    true ? factory(__webpack_require__(298)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -53238,7 +51419,1479 @@
 
 
 /***/ },
-/* 427 */
+/* 415 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _styles = __webpack_require__(416);
+	
+	var _styles2 = _interopRequireDefault(_styles);
+	
+	var _reactRouter = __webpack_require__(228);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Zone = function (_Component) {
+		_inherits(Zone, _Component);
+	
+		function Zone() {
+			_classCallCheck(this, Zone);
+	
+			return _possibleConstructorReturn(this, (Zone.__proto__ || Object.getPrototypeOf(Zone)).apply(this, arguments));
+		}
+	
+		_createClass(Zone, [{
+			key: 'onSelectTitle',
+			value: function onSelectTitle(event) {
+				event.preventDefault();
+				// console.log('onSelectTitle: '+this.props.index)
+				this.props.select(this.props.index);
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+	
+				var zoneStyle = _styles2.default.zone;
+				var zipCode = this.props.currentZone.zipCodes[0];
+	
+				var activeZone = this.props.isSelected ? _react2.default.createElement(
+					'a',
+					{ style: { fontSize: '1.2em', color: '#ff9800' }, onClick: this.onSelectTitle.bind(this), href: 'javascript:void(0)', className: 'media-heading' },
+					this.props.currentZone.name
+				) : _react2.default.createElement(
+					'a',
+					{ style: { fontSize: '1.2em' }, onClick: this.onSelectTitle.bind(this), href: 'javascript:void(0)', className: 'media-heading' },
+					this.props.currentZone.name
+				);
+	
+				var button = this.props.currentZone.username == this.props.username ? _react2.default.createElement(
+					_reactRouter.Link,
+					{ to: '/updatezone/' + this.props.currentZone._id },
+					' ',
+					_react2.default.createElement(
+						'button',
+						{ style: { marginTop: 10 }, className: 'btn btn-warning' },
+						'Update Zone'
+					)
+				) : null;
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'div',
+						{ className: 'media' },
+						_react2.default.createElement(
+							'div',
+							{ className: 'media-left media-middle' },
+							_react2.default.createElement(
+								'a',
+								{ onClick: this.onSelectTitle.bind(this), href: '#' },
+								_react2.default.createElement('img', { className: 'media-object media-object-circle', src: '/images/zonePin1.jpg', alt: '...' }),
+								' '
+							)
+						),
+						_react2.default.createElement(
+							'div',
+							{ className: 'media-body', style: { padding: '20px 0 0 10px' } },
+							activeZone,
+							_react2.default.createElement(
+								'p',
+								null,
+								this.props.currentZone.description
+							),
+							_react2.default.createElement(
+								'div',
+								{ className: 'media-footer text-medium' },
+								_react2.default.createElement(
+									'span',
+									{ className: 'mr-1' },
+									_react2.default.createElement('i', { className: 'zmdi zmdi-city-alt color-default mr-05' }),
+									' ',
+									zipCode
+								)
+							)
+						)
+					)
+				);
+			}
+		}]);
+	
+		return Zone;
+	}(_react.Component);
+	
+	exports.default = Zone;
+
+/***/ },
+/* 416 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = {
+		universal: {},
+		comment: {
+			commentsBox: {
+				padding: 12,
+				background: '#f9f9f9',
+				border: '1px solid #ddd'
+			},
+			commentsList: {
+				listStyleType: 'none'
+			},
+			title: {
+				color: 'red'
+			}
+		},
+		zone: {
+			container: {
+				padding: 16,
+				background: '#f9f9f9',
+				marginTop: 12,
+				border: '1px solid #ddd'
+			},
+			header: {
+				marginTop: 0,
+				marginBottom: 0
+			},
+			title: {
+				textDecoration: 'none',
+				color: 'red'
+			},
+			ul: {
+				listStyle: 'none'
+			},
+			li: {
+				border: '2px solid #ddd',
+				margin: '0 0 35px -35px',
+				padding: '10px',
+				background: 'white'
+			}
+		},
+		account: {
+			upper: {
+				marginTop: '12px'
+			},
+			container: {
+				padding: 16,
+				background: '#f9f9f9',
+				marginTop: 12,
+				border: '1px solid #ddd'
+			},
+			accountBox: {
+				padding: 12,
+				background: '#f9f9f9',
+				border: '1px solid #ddd',
+				marginBottom: 15
+			}
+		},
+		profile: {
+			profiledetails: {
+				margin: '40px 40px'
+			},
+			entry: {
+				color: 'blue'
+			}
+		}
+	};
+
+/***/ },
+/* 417 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Header = function Header(props) {
+		return _react2.default.createElement(
+			"div",
+			null,
+			_react2.default.createElement(
+				"div",
+				{ className: "modal modal-primary", id: "ms-account-modal", tabIndex: "-1", role: "dialog", "aria-labelledby": "myModalLabel" },
+				_react2.default.createElement(
+					"div",
+					{ className: "modal-dialog animated zoomIn animated-3x", role: "document" },
+					_react2.default.createElement(
+						"div",
+						{ className: "modal-content" },
+						_react2.default.createElement(
+							"div",
+							{ className: "modal-header shadow-2dp no-pb" },
+							_react2.default.createElement(
+								"button",
+								{ type: "button", className: "close", "data-dismiss": "modal", "aria-label": "Close" },
+								_react2.default.createElement(
+									"span",
+									{ "aria-hidden": "true" },
+									_react2.default.createElement("i", { className: "zmdi zmdi-close" })
+								)
+							),
+							_react2.default.createElement(
+								"div",
+								{ className: "modal-title text-center" },
+								_react2.default.createElement(
+									"span",
+									{ className: "ms-logo ms-logo-white ms-logo-sm mr-1" },
+									"JD"
+								),
+								_react2.default.createElement(
+									"h3",
+									{ className: "no-m ms-site-title" },
+									"Neighborhood",
+									_react2.default.createElement(
+										"span",
+										null,
+										"Bulletin Board"
+									)
+								)
+							)
+						)
+					)
+				)
+			),
+			_react2.default.createElement(
+				"header",
+				{ className: "ms-header ms-header-white" },
+				_react2.default.createElement(
+					"div",
+					{ className: "container container-full" },
+					_react2.default.createElement(
+						"div",
+						{ className: "ms-title" },
+						_react2.default.createElement(
+							"a",
+							{ href: "index.html" },
+							_react2.default.createElement(
+								"span",
+								{ className: "ms-logo animated zoomInDown animation-delay-5" },
+								"JD"
+							),
+							_react2.default.createElement(
+								"h1",
+								{ className: "animated fadeInRight animation-delay-6" },
+								"Neighborhood",
+								_react2.default.createElement(
+									"span",
+									null,
+									"Bulletin Board"
+								)
+							)
+						)
+					)
+				)
+			),
+			_react2.default.createElement(
+				"nav",
+				{ className: "navbar navbar-static-top yamm ms-navbar ms-navbar-primary" },
+				_react2.default.createElement(
+					"div",
+					{ className: "container container-full" },
+					_react2.default.createElement(
+						"div",
+						{ className: "navbar-header" },
+						_react2.default.createElement(
+							"a",
+							{ className: "navbar-brand", href: "index.html" },
+							_react2.default.createElement(
+								"span",
+								{ className: "ms-logo ms-logo-sm" },
+								"JD"
+							),
+							_react2.default.createElement(
+								"span",
+								{ className: "ms-title" },
+								"Neighborhood",
+								_react2.default.createElement(
+									"strong",
+									null,
+									"Bulletin Board"
+								)
+							)
+						)
+					),
+					_react2.default.createElement(
+						"div",
+						{ id: "navbar", className: "navbar-collapse collapse" },
+						_react2.default.createElement("ul", { className: "nav navbar-nav" })
+					)
+				)
+			)
+		);
+	};
+	
+	exports.default = Header;
+
+/***/ },
+/* 418 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Footer = function Footer(props) {
+		return _react2.default.createElement(
+			"div",
+			null,
+			_react2.default.createElement(
+				"footer",
+				{ className: "ms-footer" },
+				_react2.default.createElement(
+					"div",
+					{ className: "container" },
+					_react2.default.createElement(
+						"p",
+						null,
+						"Copyright \xA9 JDRichardsTech 2017"
+					)
+				)
+			)
+		);
+	};
+	
+	exports.default = Footer;
+
+/***/ },
+/* 419 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var BackToTop = function BackToTop(props) {
+		return _react2.default.createElement(
+			"div",
+			null,
+			_react2.default.createElement(
+				"div",
+				{ className: "btn-back-top" },
+				_react2.default.createElement(
+					"a",
+					{ href: "#", "data-scroll": true, id: "back-top", className: "btn-circle btn-circle-primary btn-circle-sm btn-circle-raised " },
+					_react2.default.createElement("i", { className: "zmdi zmdi-long-arrow-up" })
+				)
+			)
+		);
+	};
+	
+	exports.default = BackToTop;
+
+/***/ },
+/* 420 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _presentation = __webpack_require__(291);
+	
+	var _styles = __webpack_require__(219);
+	
+	var _styles2 = _interopRequireDefault(_styles);
+	
+	var _utils = __webpack_require__(181);
+	
+	var _reactRedux = __webpack_require__(189);
+	
+	var _actions = __webpack_require__(220);
+	
+	var _actions2 = _interopRequireDefault(_actions);
+	
+	var _reactDropzone = __webpack_require__(282);
+	
+	var _reactDropzone2 = _interopRequireDefault(_reactDropzone);
+	
+	var _sha = __webpack_require__(283);
+	
+	var _sha2 = _interopRequireDefault(_sha);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Comments = function (_Component) {
+		_inherits(Comments, _Component);
+	
+		function Comments() {
+			_classCallCheck(this, Comments);
+	
+			var _this = _possibleConstructorReturn(this, (Comments.__proto__ || Object.getPrototypeOf(Comments)).call(this));
+	
+			_this.state = {
+				updated: {},
+				commentsLoaded: false,
+				index: 0
+			};
+			return _this;
+		}
+	
+		_createClass(Comments, [{
+			key: 'submitComment',
+			value: function submitComment(comment) {
+				if (this.props.user == null) {
+					swal({
+						title: "Error!",
+						text: "Please Register or Login",
+						type: "error"
+					});
+					return;
+				}
+	
+				var updatedComment = Object.assign({}, comment);
+				var zone = this.props.zones[this.props.index];
+				updatedComment['commentImage'] = this.state.updated.commentImage;
+				updatedComment['zone'] = zone._id;
+				updatedComment['username'] = this.props.user.username;
+				updatedComment['author'] = {
+					id: this.props.user._id,
+					username: this.props.user.username,
+					image: this.props.user.image
+				};
+	
+				this.props.createComment(updatedComment);
+			}
+		}, {
+			key: 'componentDidUpdate',
+			value: function componentDidUpdate() {
+				var _this2 = this;
+	
+				var zone = this.props.zones[this.props.index];
+				if (zone == null) {
+					console.log('NO SELECTED ZONE!!!!');
+					return;
+				}
+	
+				var commentsArray = this.props.commentsMap[zone._id];
+				if (commentsArray != null) // comments have been already loaded!
+					return;
+	
+				_utils.APIManager.get('/api/comment', { zone: zone._id }, function (err, response) {
+					if (err) {
+						swal({
+							title: "Error!",
+							text: err.message,
+							type: "error"
+						});
+						return;
+					}
+	
+					var comments = response.results;
+					_this2.props.commentsReceived(comments, zone);
+				});
+				// this.props.fetchComments({ zone:zone._id})
+			}
+		}, {
+			key: 'submitEdit',
+			value: function submitEdit(comment, updated) {
+				// console.log('update comment: '+ comment._id+", "+ JSON.stringify(updated))
+				updated['commentImage'] = this.state.updated.commentImage;
+				this.setState({
+					commentImage: null
+				});
+				console.log('Updated Image: ' + JSON.stringify(updated));
+				this.props.updateComment(comment, updated);
+			}
+		}, {
+			key: 'uploadImage',
+			value: function uploadImage(files) {
+				var _this3 = this;
+	
+				var image = files[0];
+				console.log("COMMENT Container Image file: " + JSON.stringify(image));
+				var timestamp = Date.now() / 1000;
+				var cloudName = 'jdrichardstech';
+				var uploadPreset = 'qfk6kfpf';
+				var apiSecret = 'e8LAFbk1H23PLU02S5Og2DzsMYQ';
+				var paramStr = 'timestamp=' + timestamp + '&upload_preset=' + uploadPreset + 'e8LAFbk1H23PLU02S5Og2DzsMYQ';
+				var signature = (0, _sha2.default)(paramStr);
+				var apiKey = '854536555581142';
+				var params = {
+					'api_key': apiKey,
+					'timestamp': timestamp,
+					'upload_preset': uploadPreset,
+					'signature': signature
+				};
+				var url = 'https://api.cloudinary.com/v1_1/' + cloudName + '/image/upload';
+				_utils.APIManager.upload(url, image, params, function (err, response) {
+					if (err) {
+						console.log('Upload err: ' + err.message);
+						return;
+					}
+					console.log('Uploaded image: ' + JSON.stringify(response.body));
+					var imageUrl = response.body['secure_url'];
+	
+					var updatedProfile = Object.assign({}, _this3.state.updated);
+					updatedProfile['commentImage'] = response.body['secure_url'];
+					_this3.setState({
+						updated: updatedProfile
+					});
+					// console.log("UPDATED COMMENT:" + JSON.stringify(this.state.updated))
+				});
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				var _this4 = this;
+	
+				var selectedZone = this.props.zones[this.props.index];
+				var image = this.state.updated.commentImage == null ? '' : _utils.ImageHelper.thumbnail(this.state.updated.commentImage, 22);
+	
+				var zoneName = null;
+				var commentList = null;
+				var header = null;
+				if (this.props.user != null) {
+					if (selectedZone != null) {
+						zoneName = selectedZone.name;
+						var zoneComments = this.props.commentsMap[selectedZone._id];
+						// console.log('ZoneComment: ' + JSON.stringify(this.props.commentsMap))
+						// console.log('SELECTED ZONE ID = '+selectedZone._id)
+						// console.log('COMMENTS MAP = '+JSON.stringify(this.props.commentsMap))
+						if (zoneComments != null) {
+							commentList = zoneComments.map(function (comment, i) {
+								return _react2.default.createElement(
+									'div',
+									{ key: i },
+									_react2.default.createElement(
+										'li',
+										null,
+										_react2.default.createElement(_presentation.Comment, { commentImage: _this4.state.updated.commentImage, handleImage: _this4.uploadImage.bind(_this4), handleSubmitEdit: _this4.submitEdit.bind(_this4), user: _this4.props.user, currentComment: comment, index: i })
+									)
+								);
+							});
+						}
+					}
+	
+					header = _react2.default.createElement(
+						'div',
+						null,
+						_react2.default.createElement(
+							'article',
+							{ className: 'card wow fadeIn animation-delay-2 mb-4' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'card-block' },
+								_react2.default.createElement(
+									'div',
+									{ className: 'row' },
+									_react2.default.createElement(
+										'div',
+										{ className: 'col-lg-12' },
+										_react2.default.createElement(
+											'h2',
+											null,
+											'Posts for ',
+											_react2.default.createElement(
+												'span',
+												{ style: { color: '#03a9f4' } },
+												zoneName
+											)
+										),
+										_react2.default.createElement(
+											'center',
+											null,
+											_react2.default.createElement('img', { style: { width: 690, height: 300 }, src: '/images/neighborhood.jpg' }),
+											_react2.default.createElement('br', null),
+											_react2.default.createElement('br', null),
+											_react2.default.createElement(
+												'button',
+												{ type: 'button', className: 'btn btn-success btn-raised', 'data-toggle': 'modal', 'data-target': '#myModal2' },
+												'Create Post\xA0\xA0',
+												_react2.default.createElement('i', { className: 'zmdi zmdi-comment-outline' })
+											)
+										)
+									)
+								)
+							)
+						),
+						_react2.default.createElement(
+							'div',
+							null,
+							_react2.default.createElement(
+								'ul',
+								{ style: { listStyle: 'none', padding: 0 } },
+								commentList
+							)
+						),
+						_react2.default.createElement(
+							'center',
+							null,
+							_react2.default.createElement(
+								'button',
+								{ style: { marginBottom: 50 }, type: 'button', className: 'btn btn-success btn-raised', 'data-toggle': 'modal', 'data-target': '#myModal2' },
+								'Create Post\xA0\xA0',
+								_react2.default.createElement('i', { className: 'zmdi zmdi-comment-outline' })
+							)
+						),
+						_react2.default.createElement(
+							'div',
+							{ className: 'modal', id: 'myModal2', tabindex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel2' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'modal-dialog modal-lg animated zoomIn animated-3x', role: 'document' },
+								_react2.default.createElement(
+									'div',
+									{ className: 'modal-content' },
+									_react2.default.createElement(
+										'div',
+										{ className: 'modal-header' },
+										_react2.default.createElement(
+											'button',
+											{ type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-label': 'Close' },
+											_react2.default.createElement(
+												'span',
+												{ 'aria-hidden': 'true' },
+												_react2.default.createElement('i', { className: 'zmdi zmdi-close' })
+											)
+										)
+									),
+									_react2.default.createElement(
+										'div',
+										{ className: 'modal-body' },
+										_react2.default.createElement(_presentation.CreateComment, { commentImage: this.state.updated.commentImage, handleImage: this.uploadImage.bind(this), onCreate: this.submitComment.bind(this) })
+									)
+								)
+							)
+						)
+					);
+				}
+	
+				var content = this.props.appStatus == 'loading' ? _react2.default.createElement(
+					'div',
+					{ id: 'ms-preload', className: 'ms-preload' },
+					_react2.default.createElement(
+						'div',
+						{ id: 'status' },
+						_react2.default.createElement(
+							'div',
+							{ className: 'spinner' },
+							_react2.default.createElement('div', { className: 'dot1' }),
+							_react2.default.createElement('div', { className: 'dot2' })
+						)
+					)
+				) : header;
+	
+				return _react2.default.createElement(
+					'div',
+					null,
+					header
+				);
+			}
+		}]);
+	
+		return Comments;
+	}(_react.Component);
+	
+	var stateToProps = function stateToProps(state) {
+		return {
+			commentsMap: state.comment.map,
+			// comments: state.comment.list,
+			commentsLoaded: state.comment.commentsLoaded,
+			appStatus: state.comment.appStatus,
+			index: state.zone.selectedZone,
+			zones: state.zone.list,
+			user: state.account.user
+		};
+	};
+	
+	var dispatchToProps = function dispatchToProps(dispatch) {
+		return {
+			commentsReceived: function commentsReceived(comments, zone) {
+				return dispatch(_actions2.default.commentsReceived(comments, zone));
+			},
+			fetchComments: function fetchComments(zone) {
+				return dispatch(_actions2.default.fetchComments(zone));
+			},
+			updateComment: function updateComment(comment, updated) {
+				return dispatch(_actions2.default.updateComment(comment, updated));
+			},
+			commentCreated: function commentCreated(comment) {
+				return dispatch(_actions2.default.commentCreated(comment));
+			},
+			createComment: function createComment(comment) {
+				return dispatch(_actions2.default.createComment(comment));
+			}
+		};
+	};
+	
+	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Comments);
+
+/***/ },
+/* 421 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _utils = __webpack_require__(181);
+	
+	var _styles = __webpack_require__(219);
+	
+	var _styles2 = _interopRequireDefault(_styles);
+	
+	var _reactRedux = __webpack_require__(189);
+	
+	var _actions = __webpack_require__(220);
+	
+	var _actions2 = _interopRequireDefault(_actions);
+	
+	var _reactRouter = __webpack_require__(228);
+	
+	var _presentation = __webpack_require__(291);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Profile = function (_Component) {
+		_inherits(Profile, _Component);
+	
+		function Profile(props) {
+			_classCallCheck(this, Profile);
+	
+			var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this, props));
+	
+			_this.state = {};
+			return _this;
+		}
+	
+		_createClass(Profile, [{
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				console.log(JSON.stringify(this.props.username));
+				var profile = this.props.profiles[this.props.username];
+				if (profile != null) return;
+	
+				this.props.fetchProfile({ username: this.props.username });
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+	
+				var profile = this.props.profiles[this.props.username];
+	
+				var header = null;
+				if (profile != null) {
+					header = _react2.default.createElement(
+						'div',
+						null,
+						_react2.default.createElement(
+							'div',
+							{ className: 'ms-hero-page-override ms-hero-img-city ms-bg-fixed ms-hero-bg-primary' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'container' },
+								_react2.default.createElement(
+									'div',
+									{ className: 'text-center mt-2', style: { paddingTop: 75 } },
+									_react2.default.createElement(
+										'h1',
+										{ className: 'color-white mt-4 animated fadeInUp animation-delay-10' },
+										'Profile Page'
+									),
+									_react2.default.createElement('img', { src: profile.image, className: 'ms-avatar-hero animated zoomIn animation-delay-7' }),
+									_react2.default.createElement(
+										'h1',
+										{ className: 'color-white mt-4 animated fadeInUp animation-delay-10' },
+										profile.firstName,
+										' ',
+										profile.lastName
+									),
+									_react2.default.createElement(
+										'h3',
+										{ className: 'color-medium no-mb animated fadeInUp animation-delay-10' },
+										profile.bio
+									)
+								)
+							)
+						),
+						_react2.default.createElement(
+							'div',
+							{ className: 'container' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'row' },
+								_react2.default.createElement(
+									'div',
+									{ className: 'col-md-6 col-md-offset-3' },
+									_react2.default.createElement(
+										'div',
+										{ className: 'card-block' },
+										_react2.default.createElement(
+											'h2',
+											{ className: 'color-primary no-mb', style: { textAlign: 'center', padding: '20px 0 20px 0' } },
+											'Personal Information'
+										)
+									),
+									_react2.default.createElement(
+										'div',
+										null,
+										_react2.default.createElement(
+											'table',
+											{ className: 'table  table-striped table-striped-warning' },
+											_react2.default.createElement(
+												'tbody',
+												null,
+												_react2.default.createElement(
+													'tr',
+													null,
+													_react2.default.createElement(
+														'th',
+														null,
+														_react2.default.createElement('i', { className: 'zmdi zmdi-face mr-1 color-warning' }),
+														' Fullname'
+													),
+													_react2.default.createElement(
+														'td',
+														null,
+														profile.firstName,
+														' ',
+														profile.lastName
+													)
+												),
+												_react2.default.createElement(
+													'tr',
+													null,
+													_react2.default.createElement(
+														'th',
+														null,
+														_react2.default.createElement('i', { className: 'zmdi zmdi-account mr-1 color-royal' }),
+														' User Name'
+													),
+													_react2.default.createElement(
+														'td',
+														null,
+														profile.username
+													)
+												),
+												_react2.default.createElement(
+													'tr',
+													null,
+													_react2.default.createElement(
+														'th',
+														null,
+														_react2.default.createElement('i', { className: 'zmdi zmdi-male-female mr-1 color-success' }),
+														' Gender'
+													),
+													_react2.default.createElement(
+														'td',
+														null,
+														profile.gender
+													)
+												),
+												_react2.default.createElement(
+													'tr',
+													null,
+													_react2.default.createElement(
+														'th',
+														null,
+														_react2.default.createElement('i', { className: 'zmdi zmdi-email mr-1 color-primary' }),
+														' Email'
+													),
+													_react2.default.createElement(
+														'td',
+														null,
+														_react2.default.createElement(
+															'a',
+															{ href: '#' },
+															profile.username,
+															'@me.com'
+														)
+													)
+												),
+												_react2.default.createElement(
+													'tr',
+													null,
+													_react2.default.createElement(
+														'th',
+														null,
+														_react2.default.createElement('i', { className: 'zmdi zmdi-link mr-1 color-danger' }),
+														' Website'
+													),
+													_react2.default.createElement(
+														'td',
+														null,
+														_react2.default.createElement(
+															'a',
+															{ href: '#' },
+															'www.',
+															profile.username,
+															'.com'
+														)
+													)
+												)
+											)
+										)
+									),
+									_react2.default.createElement(
+										_reactRouter.Link,
+										{ to: '/' },
+										_react2.default.createElement(
+											'button',
+											{ style: { margin: '0 auto 100px auto', width: '25%' }, type: '', className: 'btn btn-success  btn-raised btn-block' },
+											_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-home' }),
+											'\xA0\xA0Home'
+										)
+									)
+								)
+							)
+						)
+					);
+				}
+	
+				var content = this.props.appStatus == 'loading' ? 'Loading...' : header;
+	
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'div',
+						{ className: 'sb-site-container', style: { background: '#fff' } },
+						_react2.default.createElement(_presentation.Header, null),
+						content
+					),
+					_react2.default.createElement(_presentation.BackToTop, null),
+					_react2.default.createElement(_presentation.Footer, null)
+				);
+			}
+		}]);
+	
+		return Profile;
+	}(_react.Component);
+	
+	var stateToProps = function stateToProps(state) {
+		return {
+	
+			profiles: state.profile.map,
+			appStatus: state.profile.appStatus
+		};
+	};
+	
+	var dispatchToProps = function dispatchToProps(dispatch) {
+		return {
+			fetchProfile: function fetchProfile(params) {
+				return dispatch(_actions2.default.fetchProfile(params));
+			}
+		};
+	};
+	
+	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Profile);
+
+/***/ },
+/* 422 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _utils = __webpack_require__(181);
+	
+	var _styles = __webpack_require__(219);
+	
+	var _styles2 = _interopRequireDefault(_styles);
+	
+	var _reactRedux = __webpack_require__(189);
+	
+	var _actions = __webpack_require__(220);
+	
+	var _actions2 = _interopRequireDefault(_actions);
+	
+	var _reactRouter = __webpack_require__(228);
+	
+	var _reactDropzone = __webpack_require__(282);
+	
+	var _reactDropzone2 = _interopRequireDefault(_reactDropzone);
+	
+	var _sha = __webpack_require__(283);
+	
+	var _sha2 = _interopRequireDefault(_sha);
+	
+	var _presentation = __webpack_require__(291);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var UpdateProfile = function (_Component) {
+		_inherits(UpdateProfile, _Component);
+	
+		function UpdateProfile(props) {
+			_classCallCheck(this, UpdateProfile);
+	
+			var _this = _possibleConstructorReturn(this, (UpdateProfile.__proto__ || Object.getPrototypeOf(UpdateProfile)).call(this, props));
+	
+			_this.state = {
+				user: null,
+				updated: {}
+			};
+			return _this;
+		}
+	
+		_createClass(UpdateProfile, [{
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				var updated = Object.assign({}, this.state.user);
+				updated = this.props.user;
+				this.setState({
+					user: updated
+				});
+			}
+		}, {
+			key: 'componentDidUpdate',
+			value: function componentDidUpdate() {
+				if (this.state.user == null) {
+					this.props.fetchCurrentUser(null);
+					var updated = Object.assign({}, this.state.user);
+					updated = this.props.user;
+					this.setState({
+						user: updated
+					});
+				}
+			}
+		}, {
+			key: 'updateCurrentUser',
+			value: function updateCurrentUser(event) {
+				event.preventDefault();
+				// console.log('updateCurrentUser: '+event.target.id+' == '+event.target.value)
+				var updatedProfile = Object.assign({}, this.state.updated);
+				updatedProfile[event.target.id] = event.target.value;
+				this.setState({
+					updated: updatedProfile
+				});
+			}
+		}, {
+			key: 'updateProfile',
+			value: function updateProfile(event) {
+				event.preventDefault();
+	
+				if (Object.keys(this.state.updated).length == 0) {
+					swal({
+						title: "Error!",
+						text: "No Changes Made",
+						type: "error"
+					});
+					return;
+				}
+	
+				this.props.updateProfile(this.props.user, this.state.updated);
+				this.setState({
+					user: null
+				});
+				swal({
+					title: "Success!",
+					text: "Profile Updated",
+					type: "success"
+				});
+			}
+		}, {
+			key: 'uploadImage',
+			value: function uploadImage(files) {
+				var _this2 = this;
+	
+				var image = files[0];
+				console.log("COMMENT Container Image file: " + JSON.stringify(image));
+				var timestamp = Date.now() / 1000;
+				var cloudName = 'jdrichardstech';
+				var uploadPreset = 'qfk6kfpf';
+				var apiSecret = 'e8LAFbk1H23PLU02S5Og2DzsMYQ';
+				var paramStr = 'timestamp=' + timestamp + '&upload_preset=' + uploadPreset + 'e8LAFbk1H23PLU02S5Og2DzsMYQ';
+				var signature = (0, _sha2.default)(paramStr);
+				var apiKey = '854536555581142';
+				var params = {
+					'api_key': apiKey,
+					'timestamp': timestamp,
+					'upload_preset': uploadPreset,
+					'signature': signature
+				};
+				var url = 'https://api.cloudinary.com/v1_1/' + cloudName + '/image/upload';
+				_utils.APIManager.upload(url, image, params, function (err, response) {
+					if (err) {
+						console.log('Upload err: ' + err.message);
+						return;
+					}
+					console.log('Uploaded image: ' + JSON.stringify(response.body));
+					var imageUrl = response.body['secure_url'];
+	
+					var updatedProfile = Object.assign({}, _this2.state.updated);
+					updatedProfile['image'] = response.body['secure_url'];
+					_this2.setState({
+						updated: updatedProfile
+					});
+				});
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				var content = null;
+				var image = null;
+	
+				var currentUser = this.props.user;
+	
+				content = _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'div',
+						{ className: 'ms-hero-page-override ms-hero-img-city ms-bg-fixed ms-hero-bg-primary' },
+						_react2.default.createElement(
+							'div',
+							{ className: 'container' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'text-center mt-2', style: { paddingTop: 75 } },
+								_react2.default.createElement(
+									'h1',
+									{ className: 'color-white mt-4 animated fadeInUp animation-delay-10' },
+									'Profile Page'
+								),
+								_react2.default.createElement('img', { src: currentUser.image, className: 'ms-avatar-hero animated zoomIn animation-delay-7' }),
+								_react2.default.createElement(
+									'h1',
+									{ className: 'color-white mt-4 animated fadeInUp animation-delay-10' },
+									currentUser.firstName,
+									' ',
+									currentUser.lastName
+								),
+								_react2.default.createElement(
+									'h3',
+									{ className: 'color-medium no-mb animated fadeInUp animation-delay-10' },
+									currentUser.bio
+								)
+							)
+						)
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'container' },
+						_react2.default.createElement(
+							'div',
+							{ className: 'row' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'col-md-6' },
+								_react2.default.createElement(
+									'div',
+									{ className: 'card-block' },
+									_react2.default.createElement(
+										'h2',
+										{ className: 'color-primary no-mb', style: { textAlign: 'center', padding: '20px 0 20px 0' } },
+										'Your Current Information'
+									),
+									_react2.default.createElement(
+										'table',
+										{ className: 'table table-no-border table-striped', style: { width: '65%', margin: '0 auto 50px auto' } },
+										_react2.default.createElement(
+											'tbody',
+											null,
+											_react2.default.createElement(
+												'tr',
+												null,
+												_react2.default.createElement(
+													'th',
+													null,
+													_react2.default.createElement('i', { className: 'zmdi zmdi-face mr-1 color-warning' }),
+													' Fullname'
+												),
+												_react2.default.createElement(
+													'td',
+													null,
+													currentUser.firstName,
+													' ',
+													currentUser.lastName
+												)
+											),
+											_react2.default.createElement(
+												'tr',
+												null,
+												_react2.default.createElement(
+													'th',
+													null,
+													_react2.default.createElement('i', { className: 'zmdi zmdi-account mr-1 color-royal' }),
+													' User Name'
+												),
+												_react2.default.createElement(
+													'td',
+													null,
+													currentUser.username
+												)
+											),
+											_react2.default.createElement(
+												'tr',
+												null,
+												_react2.default.createElement(
+													'th',
+													null,
+													_react2.default.createElement('i', { className: 'zmdi zmdi-male-female mr-1 color-success' }),
+													' Gender'
+												),
+												_react2.default.createElement(
+													'td',
+													null,
+													currentUser.gender
+												)
+											),
+											_react2.default.createElement(
+												'tr',
+												null,
+												_react2.default.createElement(
+													'th',
+													null,
+													_react2.default.createElement('i', { className: 'zmdi zmdi-email mr-1 color-primary' }),
+													' Email'
+												),
+												_react2.default.createElement(
+													'td',
+													null,
+													_react2.default.createElement(
+														'a',
+														{ href: '#' },
+														currentUser.username,
+														'@me.com'
+													)
+												)
+											),
+											_react2.default.createElement(
+												'tr',
+												null,
+												_react2.default.createElement(
+													'th',
+													null,
+													_react2.default.createElement('i', { className: 'zmdi zmdi-link mr-1 color-danger' }),
+													' Website'
+												),
+												_react2.default.createElement(
+													'td',
+													null,
+													_react2.default.createElement(
+														'a',
+														{ href: '#' },
+														'www.',
+														currentUser.username,
+														'.com'
+													)
+												)
+											)
+										)
+									),
+									_react2.default.createElement(
+										'div',
+										null,
+										_react2.default.createElement(
+											_reactRouter.Link,
+											{ to: '/' },
+											_react2.default.createElement(
+												'button',
+												{ style: { margin: '0 auto 100px auto', width: '25%' }, type: '', className: 'btn btn-success  btn-raised btn-block' },
+												_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-home' }),
+												'\xA0\xA0Home'
+											)
+										)
+									)
+								)
+							),
+							_react2.default.createElement(
+								'div',
+								{ className: 'col-md-6' },
+								_react2.default.createElement(
+									'div',
+									{ className: 'card-block' },
+									_react2.default.createElement(
+										'h2',
+										{ style: { textAlign: 'center', padding: '20px 0 20px 0' } },
+										'Update Your Info'
+									),
+									_react2.default.createElement(
+										'div',
+										{ style: { width: '65%', margin: '0 auto 50px auto' } },
+										_react2.default.createElement(
+											'label',
+											null,
+											'First Name:'
+										),
+										_react2.default.createElement('input', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'firstName', defaultValue: currentUser.firstName }),
+										_react2.default.createElement(
+											'label',
+											null,
+											'Last Name:'
+										),
+										_react2.default.createElement('input', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'lastName', defaultValue: currentUser.lastName }),
+										_react2.default.createElement(
+											'label',
+											null,
+											'New Gender:'
+										),
+										_react2.default.createElement('input', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'gender', defaultValue: currentUser.gender }),
+										_react2.default.createElement(
+											'label',
+											null,
+											'New City:'
+										),
+										_react2.default.createElement('input', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'city', defaultValue: currentUser.city }),
+										_react2.default.createElement(
+											'label',
+											null,
+											'Bio:'
+										),
+										_react2.default.createElement('input', { onChange: this.updateCurrentUser.bind(this), type: 'text', className: 'form-control', id: 'bio', defaultValue: currentUser.bio }),
+										_react2.default.createElement('br', null),
+										_react2.default.createElement(
+											_reactDropzone2.default,
+											{ style: { border: '1px solid white', fontSize: '1.5em' }, nDrop: this.uploadImage.bind(this) },
+											_react2.default.createElement(
+												'a',
+												{ href: 'javascript:void(0)' },
+												_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-camera' }),
+												'\xA0Upload New Profile Image'
+											)
+										),
+										_react2.default.createElement('br', null),
+										_react2.default.createElement(
+											'button',
+											{ onClick: this.updateProfile.bind(this), className: 'btn btn-warning  btn-raised btn-block', type: 'submit' },
+											_react2.default.createElement('i', { className: 'ml-1 no-mr zmdi zmdi-face' }),
+											'\xA0\xA0Update Profile'
+										)
+									)
+								)
+							)
+						)
+					)
+				);
+				return _react2.default.createElement(
+					'div',
+					{ className: 'sb-site-container', style: { background: '#fff' } },
+					_react2.default.createElement(_presentation.Header, null),
+					content,
+					_react2.default.createElement(_presentation.BackToTop, null),
+					_react2.default.createElement(_presentation.Footer, null)
+				);
+			}
+		}]);
+	
+		return UpdateProfile;
+	}(_react.Component);
+	
+	var stateToProps = function stateToProps(state) {
+		return {
+			appStatus: state.profile.appStatus,
+			user: state.account.user
+		};
+	};
+	
+	var dispatchToProps = function dispatchToProps(dispatch) {
+		return {
+			fetchProfile: function fetchProfile(params) {
+				return dispatch(_actions2.default.fetchProfile(params));
+			},
+			updateProfile: function updateProfile(profile, updated) {
+				return dispatch(_actions2.default.updateProfile(profile, updated));
+			},
+			fetchprofile: function fetchprofile(params) {
+				return dispatch(_actions2.default.fetchprofile(params));
+			},
+			profileUpdated: function profileUpdated(user) {
+				return dispatch(_actions2.default.profileUpdated(user));
+			},
+			profileReceived: function profileReceived(user) {
+				return dispatch(_actions2.default.profileReceived(user));
+			},
+			fetchCurrentUser: function fetchCurrentUser(params) {
+				return dispatch(_actions2.default.fetchCurrentUser(params));
+			},
+			currentUserUpdated: function currentUserUpdated(user) {
+				return dispatch(_actions2.default.currentUserUpdated(user));
+			}
+		};
+	};
+	
+	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(UpdateProfile);
+
+/***/ },
+/* 423 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53247,30 +52900,377 @@
 	  value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactTime = __webpack_require__(308);
+	var _utils = __webpack_require__(181);
 	
-	var _reactTime2 = _interopRequireDefault(_reactTime);
+	var _styles = __webpack_require__(219);
+	
+	var _styles2 = _interopRequireDefault(_styles);
+	
+	var _reactRedux = __webpack_require__(189);
+	
+	var _actions = __webpack_require__(220);
+	
+	var _actions2 = _interopRequireDefault(_actions);
+	
+	var _reactRouter = __webpack_require__(228);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	//https://github.com/andreypopp/react-time
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	exports.default = {
-	  formattedDate: function formattedDate(date) {
-	    var rightNow = Date.now();
-	    var commentDate = Date.parse(date);
-	    var twentyFourHours = '86400000';
-	    if (rightNow - commentDate > twentyFourHours) {
-	      return _react2.default.createElement(_reactTime2.default, { value: date, format: 'MMM DD, YYYY' });
-	    } else {
-	      return _react2.default.createElement(_reactTime2.default, { value: date, titleFormat: 'YYYY/MM/DD HH:mm', relative: true });
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var UpdateZone = function (_Component) {
+	  _inherits(UpdateZone, _Component);
+	
+	  _createClass(UpdateZone, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	
+	      this.props.fetchZone(null);
+	      console.log('update zone list: ' + JSON.stringify(this.props.list));
+	      console.log('selected zone: ' + JSON.stringify(this.props.selected));
 	    }
+	  }]);
+	
+	  function UpdateZone(props) {
+	    _classCallCheck(this, UpdateZone);
+	
+	    var _this = _possibleConstructorReturn(this, (UpdateZone.__proto__ || Object.getPrototypeOf(UpdateZone)).call(this, props));
+	
+	    _this.state = {
+	      zone: {
+	        username: '',
+	        name: '',
+	        zipCode: ''
+	
+	      }
+	    };
+	    return _this;
 	  }
+	
+	  _createClass(UpdateZone, [{
+	    key: 'updateZone',
+	    value: function updateZone(event) {
+	      var updated = Object.assign({}, this.state.zone);
+	      updated[event.target.id] = event.target.value;
+	
+	      this.setState({
+	        zone: updated
+	      });
+	      // console.log('Update zone: '+ event.target.id + "- " + event.target.value)
+	    }
+	  }, {
+	    key: 'submitZone',
+	    value: function submitZone(event) {
+	
+	      var updated = Object.assign({}, this.state.zone);
+	      updated['zipCodes'] = updated.zipCode.split(',');
+	      this.setState({
+	        updated: updated
+	      });
+	      this.props.onCreate(updated);
+	
+	      //make Api call
+	      console.log('SubmitZone');
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	
+	      return _react2.default.createElement(
+	        'div',
+	        { style: _styles2.default.zone.zonedetails },
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'Update Your Zone'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { style: _styles2.default.zone.container },
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Current Zone:'
+	          ),
+	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            'Zip Code: ',
+	            _react2.default.createElement(
+	              'span',
+	              { style: _styles2.default.profile.entry },
+	              this.props.list[this.props.selected].zipCodes
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            'Zone Name: ',
+	            _react2.default.createElement(
+	              'span',
+	              { style: _styles2.default.profile.entry },
+	              ' ',
+	              this.props.list[this.props.selected].name
+	            )
+	          ),
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/' },
+	            _react2.default.createElement(
+	              'button',
+	              { style: { marginRight: 10 }, type: '', className: 'btn btn-info' },
+	              'Home'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { style: _styles2.default.zone.container },
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            'h4',
+	            null,
+	            'Update Zone:'
+	          ),
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            'Name:'
+	          ),
+	          _react2.default.createElement('input', { id: 'name', onChange: this.updateZone.bind(this), className: 'form-control', type: 'text', defaultValue: this.props.list[this.props.selected].name }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            'Zip Code:'
+	          ),
+	          _react2.default.createElement('input', { id: 'zipCode', onChange: this.updateZone.bind(this), className: 'form-control', type: 'text', defaultValue: this.props.list[this.props.selected].zipCodes }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            'button',
+	            { onClick: this.submitZone.bind(this), className: 'btn btn-info' },
+	            'Update Zone'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return UpdateZone;
+	}(_react.Component);
+	
+	var stateToProps = function stateToProps(state) {
+	  return {
+	    list: state.zone.list,
+	    selected: state.zone.selectedZone,
+	    appStatus: state.zone.appStatus
+	  };
 	};
+	
+	var dispatchToProps = function dispatchToProps(dispatch) {
+	  return {
+	    fetchZone: function fetchZone(params) {
+	      return dispatch(_actions2.default.fetchZone(params));
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(UpdateZone);
+
+/***/ },
+/* 424 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.ProfileInfo = exports.Home = undefined;
+	
+	var _Home = __webpack_require__(425);
+	
+	var _Home2 = _interopRequireDefault(_Home);
+	
+	var _ProfileInfo = __webpack_require__(426);
+	
+	var _ProfileInfo2 = _interopRequireDefault(_ProfileInfo);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.Home = _Home2.default;
+	exports.ProfileInfo = _ProfileInfo2.default;
+
+/***/ },
+/* 425 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _containers = __webpack_require__(179);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Home = function (_Component) {
+		_inherits(Home, _Component);
+	
+		function Home() {
+			_classCallCheck(this, Home);
+	
+			return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
+		}
+	
+		_createClass(Home, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(_containers.Account, null)
+				);
+			}
+		}]);
+	
+		return Home;
+	}(_react.Component);
+	
+	exports.default = Home;
+
+/***/ },
+/* 426 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _containers = __webpack_require__(179);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ProfileInfo = function (_Component) {
+	  _inherits(ProfileInfo, _Component);
+	
+	  function ProfileInfo() {
+	    _classCallCheck(this, ProfileInfo);
+	
+	    return _possibleConstructorReturn(this, (ProfileInfo.__proto__ || Object.getPrototypeOf(ProfileInfo)).apply(this, arguments));
+	  }
+	
+	  _createClass(ProfileInfo, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      console.log('Profile componentDidMount: ' + JSON.stringify(this.props.params));
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(_containers.Profile, { username: this.props.params.username })
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return ProfileInfo;
+	}(_react.Component);
+	
+	exports.default = ProfileInfo;
+
+/***/ },
+/* 427 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Main = function (_Component) {
+		_inherits(Main, _Component);
+	
+		function Main() {
+			_classCallCheck(this, Main);
+	
+			return _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).apply(this, arguments));
+		}
+	
+		_createClass(Main, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					this.props.children
+				);
+			}
+		}]);
+	
+		return Main;
+	}(_react.Component);
+	
+	exports.default = Main;
 
 /***/ }
 /******/ ]);
