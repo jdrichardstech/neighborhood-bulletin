@@ -242,10 +242,10 @@ var Account = (function (Component) {
 							React.createElement(Header, null),
 							React.createElement(
 								"div",
-								{ className: "ms-hero-page-override  ms-hero-bg-dark-light" },
+								{ className: "ms-hero-page-override ms-hero-img-city ms-hero-bg-dark-light" },
 								React.createElement(
 									"div",
-									{ className: "container ms-hero-img-city" },
+									{ className: "container" },
 									React.createElement(
 										"div",
 										{ className: "text-center" },
@@ -622,7 +622,7 @@ var Account = (function (Component) {
 													React.createElement(
 														"span",
 														{ style: { color: "#03a9f4" } },
-														"City:"
+														"City: "
 													),
 													this.props.user.city
 												),
@@ -632,7 +632,7 @@ var Account = (function (Component) {
 													React.createElement(
 														"span",
 														{ style: { color: "#03a9f4" } },
-														"Bio:"
+														"Bio: "
 													),
 													"  ",
 													this.props.user.bio

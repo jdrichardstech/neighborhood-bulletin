@@ -52048,7 +52048,7 @@
 										_react2.default.createElement(
 											'center',
 											null,
-											_react2.default.createElement('img', { style: { width: 690, height: 300 }, src: '/images/neighborhood.jpg' }),
+											_react2.default.createElement('img', { style: { width: '85%', maxHeight: 300 }, src: '/images/neighborhood.jpg' }),
 											_react2.default.createElement('br', null),
 											_react2.default.createElement('br', null),
 											_react2.default.createElement(

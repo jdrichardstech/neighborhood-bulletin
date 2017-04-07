@@ -150,7 +150,7 @@ class Comments extends Component {
 						<div className="row">
 							<div className="col-lg-12">
 							<h2>Posts for <span style={{color:'#03a9f4'}}>{zoneName}</span></h2>
-							<center><img style={{width:690, height:300}} src="/images/neighborhood.jpg" /><br /><br />
+							<center><img style={{width:'85%', maxHeight:300}} src="/images/neighborhood.jpg" /><br /><br />
 								<button type="button" className="btn btn-success btn-raised" data-toggle="modal" data-target="#myModal2">
 									Create Post&nbsp;&nbsp;<i className="zmdi zmdi-comment-outline"></i>
 								</button>
