@@ -1,8 +1,4 @@
-import Home from './Home'
-import ProfileInfo from './ProfileInfo'
+import Home from './Home';
+import ProfileInfo from './ProfileInfo';
 
-
-export{
-  Home,
-  ProfileInfo
-}
+export { Home, ProfileInfo };

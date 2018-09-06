@@ -1,14 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-
-class Main extends Component{
-	render(){
-		return(
-			<div>
-				{this.props.children}
-			</div>
-		)
-	}
+class Main extends Component {
+  render() {
+    return <div>{this.props.children}</div>;
+  }
 }
 
-export default Main
+export default Main;
